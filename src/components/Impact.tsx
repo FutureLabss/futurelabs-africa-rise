@@ -37,7 +37,7 @@ const Impact = () => {
               <span className="text-sm font-medium">87.5% Self-sustaining</span>
               <span className="text-sm font-medium text-green-600">87.5%</span>
             </div>
-            <Progress value={87.5} className="h-3 bg-gray-200" indicatorClassName="bg-gradient-to-r from-primary to-secondary" />
+            <Progress value={87.5} className="h-3 bg-gray-200" />
           </div>
           <p className="text-sm text-gray-600 text-center mt-4">
             Our goal is to achieve 100% sustainability through our programs and services by 2025.
