@@ -30,22 +30,22 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#5B21B6', // Deep purple for primary
+					DEFAULT: '#F97316', // Changed from deep purple to orange
 					foreground: '#FFFFFF',
-					light: '#8B5CF6',
-					dark: '#4C1D95'
+					light: '#FFA94D',
+					dark: '#C2410C'
 				},
 				secondary: {
-					DEFAULT: '#0D9488', // Teal as secondary
+					DEFAULT: '#0D9488', // Kept teal as secondary
 					foreground: '#FFFFFF',
 					light: '#14B8A6',
 					dark: '#0F766E'
 				},
 				accent: {
-					DEFAULT: '#F97316', // Orange for accent/CTA
+					DEFAULT: '#5B21B6', // Moved purple to accent
 					foreground: '#FFFFFF',
-					light: '#FFA94D',
-					dark: '#C2410C'
+					light: '#8B5CF6',
+					dark: '#4C1D95'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
