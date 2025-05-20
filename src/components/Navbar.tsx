@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, BookOpen, Book, Award, Newspaper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,19 +12,31 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="font-bold text-2xl">
+          <Link to="/" className="font-bold text-2xl">
             <span className="text-primary">Future</span>
             <span className="text-accent">Labs</span>
             <span className="text-gray-700 text-sm">.Africa</span>
-          </div>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="text-gray-700 hover:text-primary transition-colors">About</a>
-          <a href="#what-we-do" className="text-gray-700 hover:text-primary transition-colors">What We Do</a>
-          <a href="#impact" className="text-gray-700 hover:text-primary transition-colors">Impact</a>
-          <a href="#contact" className="text-gray-700 hover:text-primary transition-colors">Contact</a>
+          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+            <BookOpen size={16} />
+            <span>About</span>
+          </Link>
+          <Link to="/what-we-do" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+            <Book size={16} />
+            <span>What We Do</span>
+          </Link>
+          <Link to="/impact" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+            <Award size={16} />
+            <span>Impact</span>
+          </Link>
+          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+            <Newspaper size={16} />
+            <span>Blog</span>
+          </Link>
           <Button className="bg-accent hover:bg-accent/90 text-white">Join Our Community</Button>
         </div>
 
@@ -46,34 +59,38 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col items-center space-y-6 py-8">
-          <a 
-            href="#about" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+          <Link 
+            to="/about" 
+            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            About
-          </a>
-          <a 
-            href="#what-we-do" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            <BookOpen size={18} />
+            <span>About</span>
+          </Link>
+          <Link 
+            to="/what-we-do" 
+            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            What We Do
-          </a>
-          <a 
-            href="#impact" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            <Book size={18} />
+            <span>What We Do</span>
+          </Link>
+          <Link 
+            to="/impact" 
+            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            Impact
-          </a>
-          <a 
-            href="#contact" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            <Award size={18} />
+            <span>Impact</span>
+          </Link>
+          <Link 
+            to="/blog" 
+            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            Contact
-          </a>
+            <Newspaper size={18} />
+            <span>Blog</span>
+          </Link>
           <Button 
             className="w-full bg-accent hover:bg-accent/90 text-white"
             onClick={() => setIsOpen(false)}

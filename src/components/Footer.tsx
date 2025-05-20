@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,11 +10,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="font-bold text-2xl mb-4">
-              <span className="text-primary-light">Future</span>
-              <span className="text-accent-light">Labs</span>
-              <span className="text-gray-400 text-sm">.Africa</span>
-            </div>
+            <Link to="/" className="inline-block">
+              <div className="font-bold text-2xl mb-4">
+                <span className="text-primary-light">Future</span>
+                <span className="text-accent-light">Labs</span>
+                <span className="text-gray-400 text-sm">.Africa</span>
+              </div>
+            </Link>
             <p className="text-gray-400 mb-6">
               Accelerating Africa's Future, One Talent at a Time
             </p>
@@ -22,10 +25,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">What We Do</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">The Academy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Startup Incubation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Innovation Center</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Impact & Research</a></li>
+              <li><Link to="/what-we-do" className="text-gray-400 hover:text-white transition-colors">The Academy</Link></li>
+              <li><Link to="/what-we-do" className="text-gray-400 hover:text-white transition-colors">Startup Incubation</Link></li>
+              <li><Link to="/what-we-do" className="text-gray-400 hover:text-white transition-colors">Innovation Center</Link></li>
+              <li><Link to="/impact" className="text-gray-400 hover:text-white transition-colors">Impact & Research</Link></li>
             </ul>
           </div>
           
@@ -40,15 +43,13 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <address className="not-italic text-gray-400">
-              Ikot Ekpene, Akwa Ibom State,<br /> Nigeria
-            </address>
-            <p className="mt-2">
-              <a href="mailto:hello@futurelabs.africa" className="text-accent-light hover:text-white transition-colors">
-                hello@futurelabs.africa
-              </a>
-            </p>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/impact" className="text-gray-400 hover:text-white transition-colors">Our Impact</Link></li>
+              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            </ul>
           </div>
         </div>
         
