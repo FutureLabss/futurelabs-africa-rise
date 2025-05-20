@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Navbar />
-      <main>
+      <main className="mx-10">
         <Hero />
         <AboutUs />
         <WhatWeDo />
