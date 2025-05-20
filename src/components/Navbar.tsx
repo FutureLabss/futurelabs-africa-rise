@@ -9,42 +9,42 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Link to="/" className="font-bold text-2xl">
             <span className="text-primary">Future</span>
-            <span className="text-accent">Labs</span>
+            <span className="text-secondary">Labs</span>
             <span className="text-gray-700 text-sm">.Africa</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
             <BookOpen size={16} />
             <span>About</span>
           </Link>
-          <Link to="/what-we-do" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+          <Link to="/what-we-do" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
             <Book size={16} />
             <span>What We Do</span>
           </Link>
-          <Link to="/impact" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+          <Link to="/impact" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
             <Award size={16} />
             <span>Impact</span>
           </Link>
-          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1">
+          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
             <Newspaper size={16} />
             <span>Blog</span>
           </Link>
-          <Button className="bg-accent hover:bg-accent/90 text-white">Join Our Community</Button>
+          <Button className="bg-secondary hover:bg-secondary-dark text-white">Join Our Community</Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 focus:outline-none"
+            className="text-secondary focus:outline-none"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -92,7 +92,7 @@ const Navbar = () => {
             <span>Blog</span>
           </Link>
           <Button 
-            className="w-full bg-accent hover:bg-accent/90 text-white"
+            className="w-full bg-secondary hover:bg-secondary-dark text-white"
             onClick={() => setIsOpen(false)}
           >
             Join Our Community
