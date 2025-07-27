@@ -3,7 +3,8 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
-import WhatWeDo from '@/components/WhatWeDo';
+import Initiatives from '@/components/Initiatives';
+import Programs from '@/components/Programs';
 import Impact from '@/components/Impact';
 import BlogPreview from '@/components/BlogPreview';
 import GetInvolved from '@/components/GetInvolved';
@@ -17,7 +18,8 @@ const Index = () => {
       <main className="mx-10">
         <Hero />
         <AboutUs />
-        <WhatWeDo />
+        <Initiatives />
+        <Programs />
         <Impact />
         <BlogPreview />
         <GetInvolved />

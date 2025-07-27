@@ -9,11 +9,11 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 md:pr-8 mb-10 md:mb-0 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Accelerating Africa's Future, <br /> <span className="text-gradient">One Talent at a Time</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-roboto">
+              Accelerating Africa's <span className="text-primary">Digital Future</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-lg">
-              FutureLabs is a digital innovation hub equipping African youth with the skills and tools to solve real-world problems and thrive in the global digital economy.
+            <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-lg">
+              Future Labs is driving technology and innovation across Africa for sustainable impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-primary hover:bg-primary-dark text-white text-lg py-6 px-8 rounded-md font-medium">

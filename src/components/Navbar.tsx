@@ -21,23 +21,27 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
-            <BookOpen size={16} />
-            <span>About</span>
+          <Link to="/" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Home
           </Link>
-          <Link to="/what-we-do" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
-            <Book size={16} />
-            <span>What We Do</span>
+          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            About Us
           </Link>
-          <Link to="/impact" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
-            <Award size={16} />
-            <span>Impact</span>
+          <Link to="/initiatives" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Initiatives
           </Link>
-          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors flex items-center gap-1 font-medium">
-            <Newspaper size={16} />
-            <span>Blog</span>
+          <Link to="/programs" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Programs
           </Link>
-          <Button className="bg-secondary hover:bg-secondary-dark text-white">Join Our Community</Button>
+          <Link to="/events" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Events
+          </Link>
+          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Blog
+          </Link>
+          <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors font-medium">
+            Contact
+          </Link>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -60,43 +64,54 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-center space-y-6 py-8">
           <Link 
+            to="/" 
+            className="text-lg font-medium text-gray-700 hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <Link 
             to="/about" 
-            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
+            className="text-lg font-medium text-gray-700 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            <BookOpen size={18} />
-            <span>About</span>
+            About Us
           </Link>
           <Link 
-            to="/what-we-do" 
-            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
+            to="/initiatives" 
+            className="text-lg font-medium text-gray-700 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            <Book size={18} />
-            <span>What We Do</span>
+            Initiatives
           </Link>
           <Link 
-            to="/impact" 
-            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
+            to="/programs" 
+            className="text-lg font-medium text-gray-700 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            <Award size={18} />
-            <span>Impact</span>
+            Programs
+          </Link>
+          <Link 
+            to="/events" 
+            className="text-lg font-medium text-gray-700 hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Events
           </Link>
           <Link 
             to="/blog" 
-            className="text-lg font-medium text-gray-700 hover:text-primary flex items-center gap-2"
+            className="text-lg font-medium text-gray-700 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            <Newspaper size={18} />
-            <span>Blog</span>
+            Blog
           </Link>
-          <Button 
-            className="w-full bg-secondary hover:bg-secondary-dark text-white"
+          <Link 
+            to="/contact" 
+            className="text-lg font-medium text-gray-700 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Join Our Community
-          </Button>
+            Contact
+          </Link>
         </div>
       </div>
     </nav>

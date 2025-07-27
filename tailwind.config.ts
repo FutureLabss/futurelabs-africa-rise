@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
-				'montserrat': ['Montserrat', 'sans-serif'],
+				'poppins': ['Poppins', 'Arial', 'sans-serif'],
+				'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,22 +30,16 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#F97316', // Orange
-					foreground: '#FFFFFF',
-					light: '#FFA94D',
-					dark: '#C2410C'
+					DEFAULT: 'hsl(var(--primary))', // #2D2A7C
+					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {
-					DEFAULT: '#0369A1', // Deep Blue
-					foreground: '#FFFFFF',
-					light: '#0EA5E9',
-					dark: '#0C4A6E'
+					DEFAULT: 'hsl(var(--secondary))', // #00C3A0
+					foreground: 'hsl(var(--secondary-foreground))',
 				},
 				accent: {
-					DEFAULT: '#0C4A6E', // Darker Deep Blue
-					foreground: '#FFFFFF',
-					light: '#0EA5E9',
-					dark: '#082F49'
+					DEFAULT: 'hsl(var(--accent))', // #F4B400
+					foreground: 'hsl(var(--accent-foreground))',
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',

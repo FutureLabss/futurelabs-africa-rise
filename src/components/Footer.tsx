@@ -57,7 +57,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 mb-4 md:mb-0">
-            &copy; {currentYear} FutureLabs.Africa. All rights reserved.
+            © 2025 Future Labs Africa. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a>

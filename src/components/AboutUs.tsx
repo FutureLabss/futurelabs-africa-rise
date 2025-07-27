@@ -6,29 +6,32 @@ const AboutUs = () => {
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About Us</h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-roboto text-foreground">About Future Labs</h2>
+          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+            We inspire, empower, and incubate high-impact tech ideas and startups shaping the African continent.
+          </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Who We Are</h3>
-            <p className="text-gray-700 mb-6">
-              FutureLabs is a digital innovation ecosystem based in Ikot Ekpene, Nigeria, dedicated to bridging the digital divide by upskilling underserved youth, incubating high-impact startups, and building a future-ready Africa.
+            <h3 className="text-2xl font-bold mb-6 font-roboto text-foreground">Who We Are</h3>
+            <p className="text-foreground/80 mb-6">
+              Future Labs is a digital innovation ecosystem driving technology and innovation across Africa for sustainable impact. We are dedicated to bridging the digital divide by upskilling underserved youth, incubating high-impact startups, and building a future-ready Africa.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-foreground/80 mb-6">
               Founded by educators and technologists, we blend technical education, startup incubation, and community-driven innovation to unlock Africa's potential — from the grassroots up.
             </p>
             
             <div className="mt-10">
-              <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-primary shadow-sm">
-                <h4 className="font-bold text-xl mb-3 text-primary">Our Vision</h4>
-                <p className="text-gray-700">To become Africa's most inclusive and impactful talent accelerator.</p>
+              <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-primary shadow-sm">
+                <h4 className="font-bold text-xl mb-3 text-primary font-roboto">Our Vision</h4>
+                <p className="text-foreground/80">To become Africa's most inclusive and impactful talent accelerator.</p>
               </div>
               
-              <div className="bg-gray-50 mt-6 p-6 rounded-lg border-l-4 border-secondary shadow-sm">
-                <h4 className="font-bold text-xl mb-3 text-secondary">Our Mission</h4>
-                <p className="text-gray-700">To equip 1 million African youths by 2030 with digital and entrepreneurial skills that drive innovation, inclusion, and sustainable development.</p>
+              <div className="bg-muted/50 mt-6 p-6 rounded-lg border-l-4 border-secondary shadow-sm">
+                <h4 className="font-bold text-xl mb-3 text-secondary font-roboto">Our Mission</h4>
+                <p className="text-foreground/80">To equip 1 million African youths by 2030 with digital and entrepreneurial skills that drive innovation, inclusion, and sustainable development.</p>
               </div>
             </div>
           </div>
