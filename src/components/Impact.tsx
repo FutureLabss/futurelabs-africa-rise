@@ -4,10 +4,9 @@ import { Progress } from '@/components/ui/progress';
 
 const Impact = () => {
   const stats = [
-    { number: '5,000+', label: 'Youth Trained', color: 'bg-primary' },
-    { number: '25+', label: 'Startups Incubated', color: 'bg-secondary' },
-    { number: '10,000+', label: 'Community Members', color: 'bg-accent' },
-    { number: '₦800K', label: 'Monthly Revenue', color: 'bg-gray-700' },
+    { number: '1,000+', label: 'Youth Trained', color: 'bg-primary' },
+    { number: '7', label: 'Startups Incubated', color: 'bg-secondary' },
+    { number: '5,000+', label: 'Community Members', color: 'bg-accent' },
   ];
 
   return (
@@ -19,7 +18,7 @@ const Impact = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow border-t-4 border-primary">
               <div className={`w-16 h-1 ${stat.color} mx-auto mb-4`}></div>
@@ -49,16 +48,10 @@ const Impact = () => {
           <h3 className="text-2xl font-bold text-center mb-10">Partners & Supporters</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
+              <div className="text-primary font-bold">Ritman University</div>
+            </div>
+            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
               <div className="text-primary font-bold">NITDA</div>
-            </div>
-            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
-              <div className="text-primary font-bold">JICA</div>
-            </div>
-            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
-              <div className="text-primary font-bold">NYSC</div>
-            </div>
-            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
-              <div className="text-primary font-bold">Jubilee Fellows</div>
             </div>
           </div>
         </div>

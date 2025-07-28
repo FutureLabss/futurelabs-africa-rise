@@ -23,17 +23,6 @@ const AboutUs = () => {
               Founded by educators and technologists, we blend technical education, startup incubation, and community-driven innovation to unlock Africa's potential — from the grassroots up.
             </p>
             
-            <div className="mt-10">
-              <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-primary shadow-sm">
-                <h4 className="font-bold text-xl mb-3 text-primary font-roboto">Our Vision</h4>
-                <p className="text-foreground/80">To become Africa's most inclusive and impactful talent accelerator.</p>
-              </div>
-              
-              <div className="bg-muted/50 mt-6 p-6 rounded-lg border-l-4 border-secondary shadow-sm">
-                <h4 className="font-bold text-xl mb-3 text-secondary font-roboto">Our Mission</h4>
-                <p className="text-foreground/80">To equip 1 million African youths by 2030 with digital and entrepreneurial skills that drive innovation, inclusion, and sustainable development.</p>
-              </div>
-            </div>
           </div>
           
           <div className="relative">

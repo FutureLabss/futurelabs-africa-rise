@@ -1,6 +1,7 @@
 import React from 'react';
 import { Users, Lightbulb, Code, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Initiatives = () => {
   const initiatives = [
@@ -41,7 +42,7 @@ const Initiatives = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {initiatives.map((initiative, index) => (
             <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
               <CardContent className="p-6">
@@ -54,7 +55,7 @@ const Initiatives = () => {
                 <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
                   {initiative.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-4">
                   {initiative.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="text-xs text-foreground/60 flex items-center">
                       <span className="w-1.5 h-1.5 bg-secondary rounded-full mr-2"></span>
@@ -62,6 +63,21 @@ const Initiatives = () => {
                     </li>
                   ))}
                 </ul>
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 text-white text-sm"
+                  onClick={() => {
+                    if (initiative.title === 'Youth Collaboration Programs') {
+                      window.location.href = '/youth-collaboration';
+                    } else if (initiative.title === 'Research & Innovation Labs') {
+                      window.location.href = '/research-labs';
+                    } else {
+                      // Default action for other initiatives
+                      console.log('Learn more about', initiative.title);
+                    }
+                  }}
+                >
+                  Learn More
+                </Button>
               </CardContent>
             </Card>
           ))}

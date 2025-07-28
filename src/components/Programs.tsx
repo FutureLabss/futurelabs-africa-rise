@@ -85,7 +85,16 @@ const Programs = () => {
                   </ul>
                 </div>
                 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  onClick={() => {
+                    if (program.title === 'Tech Academy') {
+                      window.open('https://www.futurelabs.ng', '_blank');
+                    } else {
+                      window.location.href = '/program-details';
+                    }
+                  }}
+                >
                   Learn More
                 </Button>
               </CardContent>
@@ -93,11 +102,6 @@ const Programs = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 text-lg">
-            View All Programs
-          </Button>
-        </div>
       </div>
     </section>
   );

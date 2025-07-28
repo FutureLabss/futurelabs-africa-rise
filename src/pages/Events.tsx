@@ -17,39 +17,6 @@ const Events = () => {
       description: "Join industry leaders, investors, and innovators for a day of networking and learning about the future of African tech.",
       type: "Conference",
       featured: true
-    },
-    {
-      id: 2,
-      title: "AI for Africa Hackathon",
-      date: "April 22-24, 2025",
-      time: "48 Hours",
-      location: "Virtual Event",
-      attendees: "200+",
-      description: "Build AI solutions that address African challenges. Prizes worth $50,000 in total.",
-      type: "Hackathon",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "Women in Tech Leadership Workshop",
-      date: "May 8, 2025",
-      time: "2:00 PM - 5:00 PM",
-      location: "Abuja, Nigeria",
-      attendees: "100+",
-      description: "Empowering female tech leaders with skills and networks for career advancement.",
-      type: "Workshop",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Startup Funding Masterclass",
-      date: "June 12, 2025",
-      time: "10:00 AM - 4:00 PM",
-      location: "Accra, Ghana",
-      attendees: "150+",
-      description: "Learn from successful entrepreneurs and VCs about securing funding for your startup.",
-      type: "Masterclass",
-      featured: false
     }
   ];
 
@@ -122,10 +89,17 @@ const Events = () => {
                       </div>
                       
                       <div className="flex flex-col justify-center gap-3 lg:w-48">
-                        <Button className="bg-primary hover:bg-primary/90 text-white">
+                        <Button 
+                          className="bg-primary hover:bg-primary/90 text-white"
+                          onClick={() => window.location.href = '/register'}
+                        >
                           Register Now
                         </Button>
-                        <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10">
+                        <Button 
+                          variant="outline" 
+                          className="border-secondary text-secondary hover:bg-secondary/10"
+                          onClick={() => window.location.href = '/event-details'}
+                        >
                           Learn More
                         </Button>
                       </div>

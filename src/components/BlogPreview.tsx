@@ -6,8 +6,8 @@ import { blogPosts } from '@/data/blogPosts';
 import { ArrowRight } from 'lucide-react';
 
 const BlogPreview = () => {
-  // Only show the first 4 blog posts
-  const previewPosts = blogPosts.slice(0, 4);
+  // Only show the first 3 blog posts
+  const previewPosts = blogPosts.slice(0, 3);
 
   return (
     <section id="blog" className="py-20 bg-gray-50">
@@ -20,7 +20,7 @@ const BlogPreview = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {previewPosts.map((post) => (
             <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="h-48 overflow-hidden">

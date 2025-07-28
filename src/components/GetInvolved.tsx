@@ -1,35 +1,47 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import GetInvolvedModal from '@/components/GetInvolvedModal';
 
 const GetInvolved = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
   const opportunities = [
     {
       title: "Train With Us",
       description: "Apply for our next cohort and develop in-demand digital skills with our expert mentors.",
       action: "Apply Now",
-      color: "bg-primary hover:bg-primary-dark"
+      color: "bg-primary hover:bg-primary-dark",
+      type: "train"
     },
     {
       title: "Partner With Us",
       description: "Let's co-create impactful programs that drive digital transformation across Africa.",
       action: "Start Partnership",
-      color: "bg-secondary hover:bg-secondary-dark"
+      color: "bg-secondary hover:bg-secondary-dark",
+      type: "partner"
     },
     {
       title: "Mentor With Us",
       description: "Share your expertise with rising talents and help shape the next generation of innovators.",
       action: "Become a Mentor",
-      color: "bg-accent hover:bg-accent-dark"
+      color: "bg-accent hover:bg-accent-dark",
+      type: "mentor"
     },
     {
       title: "Invest in Us",
       description: "Support a scalable model of transformation that's building Africa's digital future.",
       action: "Learn More",
-      color: "bg-gray-700 hover:bg-gray-800"
+      color: "bg-gray-700 hover:bg-gray-800",
+      type: "invest"
     }
   ];
+
+  const handleOpenModal = (type: string) => {
+    setModalType(type);
+    setModalOpen(true);
+  };
 
   return (
     <section className="py-20 bg-gray-50">
@@ -52,7 +64,10 @@ const GetInvolved = () => {
                 <p className="text-gray-600">{item.description}</p>
               </CardContent>
               <CardFooter>
-                <Button className={`w-full ${item.color} text-white`}>
+                <Button 
+                  className={`w-full ${item.color} text-white`}
+                  onClick={() => handleOpenModal(item.type)}
+                >
                   {item.action}
                 </Button>
               </CardFooter>
@@ -64,11 +79,19 @@ const GetInvolved = () => {
           <p className="text-lg text-gray-600 mb-6">
             Ready to contribute? Join our community today.
           </p>
-          <Button className="bg-gradient-to-r from-primary to-secondary text-white text-lg px-8 py-6 rounded-lg">
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary text-white text-lg px-8 py-6 rounded-lg"
+            onClick={() => handleOpenModal('community')}
+          >
             Join Our Community
           </Button>
         </div>
       </div>
+      <GetInvolvedModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        type={modalType}
+      />
     </section>
   );
 };

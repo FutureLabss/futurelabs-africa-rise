@@ -23,7 +23,6 @@ const Index = () => {
         <Impact />
         <BlogPreview />
         <GetInvolved />
-        <Contact />
       </main>
       <Footer />
     </div>

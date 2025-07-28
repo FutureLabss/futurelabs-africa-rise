@@ -32,7 +32,7 @@ const Contact = () => {
               </p>
               <p className="text-gray-700">
                 <strong>Website:</strong><br />
-                <span className="text-secondary">www.futurelabs.africa</span> (Coming Soon)
+                <span className="text-secondary">www.futurelabs.africa</span>
               </p>
             </div>
 
