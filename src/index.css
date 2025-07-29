@@ -5,33 +5,38 @@
 
 @layer base {
   :root {
-    --background: 219 27% 97%; /* #F7F8FA */
-    --foreground: 220 9% 18%; /* #2C2C2C */
+    --futurelabs-orange: #F58220;
+    --futurelabs-dark-orange: #E06D13;
+    --futurelabs-white: #FFFFFF;
+    --futurelabs-black: #000000;
+
+    --background: 0 0% 100%; /* white */
+    --foreground: 0 0% 0%; /* black */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 9% 18%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 9% 18%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 16 100% 60%; /* #FF6B35 - Orange from logo */
+    --primary: 23 91% 54%; /* #F58220 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 170 100% 32%; /* #00C3A0 */
+    --secondary: 23 85% 48%; /* #E06D13 */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 219 27% 95%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 45 100% 48%; /* #F4B400 */
+    --accent: 23 91% 54%; /* #F58220 */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 219 27% 91%;
-    --input: 219 27% 91%;
-    --ring: 235 64% 33%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 23 91% 54%;
 
     --radius: 0.5rem;
   }

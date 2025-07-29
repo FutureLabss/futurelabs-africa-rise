@@ -30,15 +30,15 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))', // #FF6B35
+					DEFAULT: 'hsl(var(--primary))', // #F58220
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))', // #00C3A0
+					DEFAULT: 'hsl(var(--secondary))', // #E06D13
 					foreground: 'hsl(var(--secondary-foreground))',
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))', // #F4B400
+					DEFAULT: 'hsl(var(--accent))', // #F58220
 					foreground: 'hsl(var(--accent-foreground))',
 				},
 				destructive: {
