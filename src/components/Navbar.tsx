@@ -12,10 +12,12 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Link to="/" className="font-bold text-2xl">
-            <span className="text-primary">Future</span>
-            <span className="text-secondary">Labs</span>
-            <span className="text-gray-700 text-sm">.Africa</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
+              alt="Future Labs Logo" 
+              className="h-10 w-auto"
+            />
           </Link>
         </div>
 
