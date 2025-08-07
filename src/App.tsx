@@ -11,6 +11,7 @@ import ProgramsPage from "./pages/Programs";
 import Events from "./pages/Events";
 import ImpactPage from "./pages/ImpactPage";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ContactPage from "./pages/ContactPage";
 import Register from "./pages/Register";
 import EventDetails from "./pages/EventDetails";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/impact" element={<ImpactPage />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/event-details" element={<EventDetails />} />
