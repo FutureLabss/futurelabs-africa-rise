@@ -22,7 +22,6 @@ const AboutUs = () => {
             <p className="text-foreground/80 mb-6">
               Founded by educators and technologists, we blend technical education, startup incubation, and community-driven innovation to unlock Africa's potential — from the grassroots up.
             </p>
-            
           </div>
           
           <div className="relative">
@@ -34,6 +33,27 @@ const AboutUs = () => {
               />
             </div>
             <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-dots rounded-full"></div>
+          </div>
+        </div>
+
+        {/* Mission and Vision Section */}
+        <div className="mt-20">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Mission */}
+            <div className="bg-primary/5 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-6 text-primary">Our Mission</h3>
+              <p className="text-foreground/80 leading-relaxed">
+                To inspire, empower, and incubate high-impact tech ideas and startups that shape the African continent. We are committed to bridging the digital divide by providing world-class technical education, startup incubation, and community-driven innovation programs that unlock Africa's potential from the grassroots up.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div className="bg-secondary/5 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-6 text-secondary">Our Vision</h3>
+              <p className="text-foreground/80 leading-relaxed">
+                To become Africa's leading innovation ecosystem that transforms communities through technology, creating a future where every African youth has access to digital opportunities and the tools to build solutions that drive sustainable economic growth across the continent.
+              </p>
+            </div>
           </div>
         </div>
       </div>
