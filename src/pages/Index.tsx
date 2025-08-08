@@ -20,8 +20,8 @@ const Index = () => {
       <main className="mx-10">
         <AboutUs />
         <Impact />
-        <Initiatives />
         <Programs />
+        <Initiatives />
         <BlogPreview />
       </main>
       <Partners />
