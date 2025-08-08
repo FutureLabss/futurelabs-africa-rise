@@ -42,19 +42,6 @@ const Impact = () => {
             Our goal is to achieve 100% sustainability through our programs and services by 2025.
           </p>
         </div>
-        
-        {/* Partners Section */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center mb-10">Partners & Supporters</h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
-              <div className="text-primary font-bold">Ritman University</div>
-            </div>
-            <div className="bg-white h-20 w-32 md:w-40 flex items-center justify-center rounded-lg shadow-md border border-primary/20">
-              <div className="text-primary font-bold">NITDA</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

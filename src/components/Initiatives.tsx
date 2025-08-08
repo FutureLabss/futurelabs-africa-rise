@@ -32,7 +32,7 @@ const Initiatives = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 bg-background w-[85%] mx-auto ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-roboto text-foreground">Our Initiatives</h2>
@@ -42,29 +42,29 @@ const Initiatives = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] justify-items-between gap-14">
           {initiatives.map((initiative, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-              <CardContent className="p-6">
+            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+              <CardContent className="p-7 flex flex-col">
                 <div className="mb-4">
                   {initiative.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 font-roboto text-foreground">
+                <h3 className="text-2xl mb-4 font-roboto text-foreground font-[800]">
                   {initiative.title}
                 </h3>
-                <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
+                <p className="text-foreground/70 mb-4 text-sm font-[600] leading-relaxed">
                   {initiative.description}
                 </p>
                 <ul className="space-y-2 mb-4">
                   {initiative.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-xs text-foreground/60 flex items-center">
+                    <li key={featureIndex} className="text-sm font-[500] text-foreground/60 flex items-center">
                       <span className="w-1.5 h-1.5 bg-secondary rounded-full mr-2"></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-white text-sm"
+                  className="w-[95%] mx-auto bg-primary hover:bg-primary/90 text-white text-base font-[600] py-6 rounded-lg hover:scale-[1.02]"
                   onClick={() => {
                     if (initiative.title === 'Youth Collaboration Programs') {
                       window.location.href = '/youth-collaboration';

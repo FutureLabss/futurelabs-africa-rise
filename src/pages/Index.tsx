@@ -10,20 +10,22 @@ import BlogPreview from '@/components/BlogPreview';
 import GetInvolved from '@/components/GetInvolved';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Partners from '@/components/partner';
 
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Navbar />
+      <Hero />
       <main className="mx-10">
-        <Hero />
         <AboutUs />
+        <Impact />
         <Initiatives />
         <Programs />
-        <Impact />
         <BlogPreview />
-        <GetInvolved />
       </main>
+      <Partners />
+      <GetInvolved />
       <Footer />
     </div>
   );

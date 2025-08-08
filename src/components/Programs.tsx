@@ -40,7 +40,7 @@ const Programs = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-muted/30 w-[85%] mx-auto">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-roboto text-foreground">Our Programs</h2>
@@ -50,34 +50,34 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] gap-14">
           {programs.map((program, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white group">
-              <CardContent className="p-8">
+            <Card key={index} className="border shadow-lg hover:shadow-xl transition-all duration-300 bg-white group rounded-xl">
+              <CardContent className="p-8 flex flex-col">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="p-3 bg-background rounded-lg group-hover:scale-110 transition-transform duration-300">
                     {program.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2 font-roboto text-foreground">
+                    <h3 className="text-2xl font-[700] mb-2 font-roboto text-foreground">
                       {program.title}
                     </h3>
-                    <div className="flex gap-4 text-sm text-foreground/60 mb-3">
-                      <span>Duration: {program.duration}</span>
-                      <span>Level: {program.level}</span>
+                    <div className="flex gap-4 text-xs font-[700] text-foreground/60 mb-3">
+                      <span><span className='text-accent'>Duration:</span> {program.duration}</span>
+                      <span><span className='text-accent'>Level:</span> {program.level}</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-foreground/70 mb-6 leading-relaxed">
+                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-[600]">
                   {program.description}
                 </p>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Program Highlights:</h4>
+                  <h4 className="font-[700] text-gray-900 text-foreground mb-3">Program Highlights:</h4>
                   <ul className="space-y-2">
                     {program.highlights.map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center">
+                      <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center font-[500]">
                         <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
                         {highlight}
                       </li>
@@ -86,7 +86,7 @@ const Programs = () => {
                 </div>
                 
                 <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  className="w-[95%] mx-auto bg-primary hover:bg-primary/90 text-white font-[600] py-6 rounded-lg hover:scale-[1.02]"
                   onClick={() => {
                     if (program.title === 'Tech Academy') {
                       window.open('https://www.futurelabs.ng', '_blank');

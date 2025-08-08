@@ -1,8 +1,14 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import GetInvolvedModal from '@/components/GetInvolvedModal';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from 'lucide-react';
 
 const GetInvolved = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,29 +17,21 @@ const GetInvolved = () => {
     {
       title: "Train With Us",
       description: "Apply for our next cohort and develop in-demand digital skills with our expert mentors.",
-      action: "Apply Now",
-      color: "bg-primary hover:bg-primary-dark",
       type: "train"
     },
     {
       title: "Partner With Us",
       description: "Let's co-create impactful programs that drive digital transformation across Africa.",
-      action: "Start Partnership",
-      color: "bg-secondary hover:bg-secondary-dark",
       type: "partner"
     },
     {
       title: "Mentor With Us",
       description: "Share your expertise with rising talents and help shape the next generation of innovators.",
-      action: "Become a Mentor",
-      color: "bg-accent hover:bg-accent-dark",
       type: "mentor"
     },
     {
       title: "Invest in Us",
       description: "Support a scalable model of transformation that's building Africa's digital future.",
-      action: "Learn More",
-      color: "bg-gray-700 hover:bg-gray-800",
       type: "invest"
     }
   ];
@@ -44,7 +42,7 @@ const GetInvolved = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="pt-52 pb-24 bg-gray-50 mx-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get Involved</h2>
@@ -54,27 +52,39 @@ const GetInvolved = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {opportunities.map((item, index) => (
-            <Card key={index} className="border-0 shadow-lg overflow-hidden h-full flex flex-col">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xl">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-gray-600">{item.description}</p>
-              </CardContent>
-              <CardFooter>
-                <Button 
-                  className={`w-full ${item.color} text-white`}
-                  onClick={() => handleOpenModal(item.type)}
-                >
-                  {item.action}
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+        <div className="flex justify-center">
+          <Card className="w-full max-w-xl border-0 shadow-lg overflow-hidden p-4">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl text-center">Ways to Get Involved</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="w-full bg-secondary hover:bg-secondary-dark text-white flex justify-between items-center">
+                    Select an Option
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-full">
+                  {opportunities.map((item, index) => (
+                    <DropdownMenuItem
+                      key={index}
+                      onClick={() => handleOpenModal(item.type)}
+                      className="cursor-pointer hover:bg-secondary/10 w-60 text-center font-[600]"
+                    >
+                      {item.title}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <p className="text-gray-600 mt-4 text-center">
+                Select an option above to get started
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
+        {/* JOIN THE COMMUNITY */}
         <div className="mt-16 text-center">
           <p className="text-lg text-gray-600 mb-6">
             Ready to contribute? Join our community today.

@@ -15,7 +15,7 @@ const AboutUs = () => {
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6 font-roboto text-foreground">Who We Are</h3>
+            <h3 className="text-3xl font-bold mb-6 font-roboto text-foreground">Who We Are</h3>
             <p className="text-foreground/80 mb-6">
               Future Labs is a digital innovation ecosystem driving technology and innovation across Africa for sustainable impact. We are dedicated to bridging the digital divide by upskilling underserved youth, incubating high-impact startups, and building a future-ready Africa.
             </p>
@@ -37,9 +37,8 @@ const AboutUs = () => {
         </div>
 
         {/* Mission and Vision Section */}
-        <div className="mt-20">
+        {/* <div className="mt-20">
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Mission */}
             <div className="bg-primary/5 p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6 text-primary">Our Mission</h3>
               <p className="text-foreground/80 leading-relaxed">
@@ -47,7 +46,6 @@ const AboutUs = () => {
               </p>
             </div>
 
-            {/* Vision */}
             <div className="bg-secondary/5 p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6 text-secondary">Our Vision</h3>
               <p className="text-foreground/80 leading-relaxed">
@@ -55,7 +53,7 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
