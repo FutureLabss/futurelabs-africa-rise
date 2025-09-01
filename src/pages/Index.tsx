@@ -19,8 +19,8 @@ const Index = () => {
       <Hero />
       <main className="mx-10">
         <AboutUs />
-        <Impact />
         <Programs />
+        <Impact />
         <Initiatives />
         <BlogPreview />
       </main>

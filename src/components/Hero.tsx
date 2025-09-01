@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-center md:pt-40 md:pb-28 bg-cover bg-center bg-no-repeat w-full" style={{ backgroundImage: 'linear-gradient(rgba(45, 42, 124, 0.8), rgba(0, 195, 160, 0.8)), url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80")' }}>
+    <section className="flex items-center justify-center md:pt-40 md:pb-28 bg-cover bg-center bg-no-repeat w-full" style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80&sat=-100")' }}>
       <div className="mx-auto px-4 flex flex-col items-center justify-center text-center">
         <div className="flex flex-col items-center text-center">
           <div className="max-w-4xl animate-fade-in-up flex flex-col items-center gap-8">

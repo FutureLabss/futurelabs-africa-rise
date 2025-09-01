@@ -44,40 +44,46 @@ const Initiatives = () => {
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] justify-items-between gap-14">
           {initiatives.map((initiative, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
-              <CardContent className="p-7 flex flex-col">
-                <div className="mb-4">
+            <Card 
+              key={index} 
+              className="group relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-card to-muted/20 rounded-2xl border-0 cursor-pointer transform hover:scale-[1.02] hover:-translate-y-2"
+              onClick={() => {
+                if (initiative.title === 'Youth Collaboration Programs') {
+                  window.location.href = '/youth-collaboration';
+                } else if (initiative.title === 'Research & Innovation Labs') {
+                  window.location.href = '/research-labs';
+                } else {
+                  console.log('Learn more about', initiative.title);
+                }
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="relative p-8 flex flex-col h-full">
+                <div className="mb-6 p-3 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 w-fit">
                   {initiative.icon}
                 </div>
-                <h3 className="text-2xl mb-4 font-roboto text-foreground font-[800]">
+                <h3 className="text-2xl mb-4 font-roboto text-foreground font-bold group-hover:text-primary transition-colors duration-300">
                   {initiative.title}
                 </h3>
-                <p className="text-foreground/70 mb-4 text-sm font-[600] leading-relaxed">
+                <p className="text-foreground/70 mb-6 text-sm font-medium leading-relaxed flex-grow">
                   {initiative.description}
                 </p>
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-3 mb-6">
                   {initiative.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-sm font-[500] text-foreground/60 flex items-center">
-                      <span className="w-1.5 h-1.5 bg-secondary rounded-full mr-2"></span>
+                    <li key={featureIndex} className="text-sm font-medium text-foreground/60 flex items-center">
+                      <span className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 group-hover:scale-110 transition-transform duration-300"></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  className="w-[95%] mx-auto bg-primary hover:bg-primary/90 text-white text-base font-[600] py-6 rounded-lg hover:scale-[1.02]"
-                  onClick={() => {
-                    if (initiative.title === 'Youth Collaboration Programs') {
-                      window.location.href = '/youth-collaboration';
-                    } else if (initiative.title === 'Research & Innovation Labs') {
-                      window.location.href = '/research-labs';
-                    } else {
-                      // Default action for other initiatives
-                      console.log('Learn more about', initiative.title);
-                    }
-                  }}
-                >
-                  Learn More
-                </Button>
+                <div className="mt-auto pt-4 border-t border-border/50">
+                  <div className="flex items-center text-primary font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-sm">Learn More</span>
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}

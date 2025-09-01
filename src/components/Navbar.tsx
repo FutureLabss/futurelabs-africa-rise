@@ -16,7 +16,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
               alt="Future Labs Logo" 
-              className="h-10 w-auto"
+              className="h-30 w-auto"
             />
           </Link>
         </div>
@@ -27,16 +27,16 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/programs" className="text-foreground hover:text-primary transition-colors font-medium">
-            Academy
+            Programs
           </Link>
           <Link to="/initiatives" className="text-foreground hover:text-primary transition-colors font-medium">
-            Studios
+            Initiatives
           </Link>
           <Link to="/about" className="text-foreground hover:text-primary transition-colors font-medium">
-            Alumni
+            About
           </Link>
           <Link to="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
-            Talent Pool
+            Contact
           </Link>
           <Link to="/blog" className="text-foreground hover:text-primary transition-colors font-medium">
             Blog
@@ -77,28 +77,28 @@ const Navbar = () => {
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Academy
+            Programs
           </Link>
           <Link 
             to="/initiatives" 
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Studios
+            Initiatives
           </Link>
           <Link 
             to="/about" 
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Alumni
+            About
           </Link>
           <Link 
             to="/contact" 
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Talent Pool
+            Contact
           </Link>
           <Link 
             to="/blog" 
