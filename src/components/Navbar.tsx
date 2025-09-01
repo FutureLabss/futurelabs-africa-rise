@@ -16,7 +16,8 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
               alt="Future Labs Logo" 
-              className="h-30 w-auto"
+              style={{ height: '30px' }}
+              className="w-auto"
             />
           </Link>
         </div>

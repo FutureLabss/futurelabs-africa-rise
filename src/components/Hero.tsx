@@ -8,12 +8,9 @@ const Hero = () => {
       <div className="mx-auto px-4 flex flex-col items-center justify-center text-center">
         <div className="flex flex-col items-center text-center">
           <div className="max-w-4xl animate-fade-in-up flex flex-col items-center gap-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-roboto text-white">
-              Start your tech career with <span className="text-accent">FutureLabs</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-roboto text-white max-w-4xl">
+              Accelerating the application of technology, talent, and social capital for economic prosperity and sustainable impact across Africa.
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl">
-              Join Africa's leading innovation ecosystem. Build market-ready skills, launch your startup, and be part of the digital transformation shaping our continent's future.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button asChild size="lg" className="font-medium">
                 <a href="#programs">Explore Programs</a>
