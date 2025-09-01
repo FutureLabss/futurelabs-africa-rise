@@ -12,43 +12,51 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block">
               <div className="font-bold text-2xl mb-4">
-                <span className="text-primary-light">Future</span>
+                <span className="text-primary">Future</span>
                 <span className="text-white">Labs</span>
                 <span className="text-gray-300 text-sm">.Africa</span>
               </div>
             </Link>
             <p className="text-gray-300 mb-6">
-              Accelerating Africa's Future, One Talent at a Time
+              Start your tech career with FutureLabs
             </p>
+            <div className="space-y-2">
+              <p className="text-gray-300 text-sm">📍 Lagos, Nigeria</p>
+              <p className="text-gray-300 text-sm">📧 hello@futurelabs.africa</p>
+              <p className="text-gray-300 text-sm">📞 +234 (0) 123 456 7890</p>
+            </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">What We Do</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary">Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/what-we-do" className="text-gray-300 hover:text-white transition-colors">The Academy</Link></li>
-              <li><Link to="/what-we-do" className="text-gray-300 hover:text-white transition-colors">Startup Incubation</Link></li>
-              <li><Link to="/what-we-do" className="text-gray-300 hover:text-white transition-colors">Innovation Center</Link></li>
-              <li><Link to="/impact" className="text-gray-300 hover:text-white transition-colors">Impact & Research</Link></li>
+              <li><Link to="/programs" className="text-gray-300 hover:text-white transition-colors">Tech Academy</Link></li>
+              <li><Link to="/initiatives" className="text-gray-300 hover:text-white transition-colors">Startup Studios</Link></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Coworking Space</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Remote Membership</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Corporate Training</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Get Involved</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Train With Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Partner With Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Mentor With Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Invest in Us</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/impact" className="text-gray-300 hover:text-white transition-colors">Our Impact</Link></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+              <li><Link to="/impact" className="text-gray-300 hover:text-white transition-colors">Success Stories</Link></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Alumni Network</a></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-primary">Company</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Partners</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Investors</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Press & Media</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Community</a></li>
             </ul>
           </div>
         </div>
@@ -57,11 +65,12 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 mb-4 md:mb-0">
-            © 2025 Future Labs Africa. All rights reserved.
+            © {currentYear} FutureLabs Africa. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="#" className="text-gray-300 hover:text-primary transition-colors">Terms of Service</a>
+            <a href="#" className="text-gray-300 hover:text-primary transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>

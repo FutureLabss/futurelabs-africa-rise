@@ -23,27 +23,27 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-gray-700 hover:text-primary transition-colors font-medium">
+          <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
             Home
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-primary transition-colors font-medium">
-            About Us
+          <Link to="/programs" className="text-foreground hover:text-primary transition-colors font-medium">
+            Academy
           </Link>
-          <Link to="/initiatives" className="text-gray-700 hover:text-primary transition-colors font-medium">
-            Initiatives
+          <Link to="/initiatives" className="text-foreground hover:text-primary transition-colors font-medium">
+            Studios
           </Link>
-          <Link to="/programs" className="text-gray-700 hover:text-primary transition-colors font-medium">
-            Programs
+          <Link to="/about" className="text-foreground hover:text-primary transition-colors font-medium">
+            Alumni
           </Link>
-          <Link to="/events" className="text-gray-700 hover:text-primary transition-colors font-medium">
-            Events
+          <Link to="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
+            Talent Pool
           </Link>
-          <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors font-medium">
+          <Link to="/blog" className="text-foreground hover:text-primary transition-colors font-medium">
             Blog
           </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors font-medium">
-            Contact
-          </Link>
+          <Button asChild variant="default" className="font-medium">
+            <Link to="/register">Get Started</Link>
+          </Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -67,53 +67,49 @@ const Navbar = () => {
         <div className="flex flex-col items-center space-y-6 py-8">
           <Link 
             to="/" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link 
-            to="/about" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            to="/programs" 
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            About Us
+            Academy
           </Link>
           <Link 
             to="/initiatives" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Initiatives
+            Studios
           </Link>
           <Link 
-            to="/programs" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            to="/about" 
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Programs
+            Alumni
           </Link>
           <Link 
-            to="/events" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            to="/contact" 
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Events
+            Talent Pool
           </Link>
           <Link 
             to="/blog" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
+            className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Blog
           </Link>
-          <Link 
-            to="/contact" 
-            className="text-lg font-medium text-gray-700 hover:text-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </Link>
+          <Button asChild variant="default" className="font-medium mt-4">
+            <Link to="/register" onClick={() => setIsOpen(false)}>Get Started</Link>
+          </Button>
         </div>
       </div>
     </nav>
