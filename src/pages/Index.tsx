@@ -25,7 +25,6 @@ const Index = () => {
         <BlogPreview />
       </main>
       <Partners />
-      <GetInvolved />
       <Footer />
     </div>
   );

@@ -28,20 +28,6 @@ const Impact = () => {
           ))}
         </div>
 
-        {/* Sustainability Progress */}
-        <div className="bg-white rounded-xl p-8 shadow-lg max-w-3xl mx-auto border-l-4 border-primary">
-          <h3 className="text-xl font-bold mb-6 text-center">Sustainability Progress</h3>
-          <div className="space-y-2 mb-2">
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">87.5% Self-sustaining</span>
-              <span className="text-sm font-medium text-primary">87.5%</span>
-            </div>
-            <Progress value={87.5} className="h-3 bg-gray-200" />
-          </div>
-          <p className="text-sm text-gray-600 text-center mt-4">
-            Our goal is to achieve 100% sustainability through our programs and services by 2025.
-          </p>
-        </div>
       </div>
     </section>
   );
