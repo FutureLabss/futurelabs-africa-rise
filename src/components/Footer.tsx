@@ -11,11 +11,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <Link to="/" className="inline-block">
-              <div className="font-bold text-2xl mb-4">
-                <span className="text-primary">Future</span>
-                <span className="text-white">Labs</span>
-                <span className="text-gray-300 text-sm">.Africa</span>
-              </div>
+              <img 
+                src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
+                alt="Future Labs Logo" 
+                style={{ height: '40px' }}
+                className="w-auto mb-4"
+              />
             </Link>
             <p className="text-gray-300 mb-6">
               Start your tech career with FutureLabs
