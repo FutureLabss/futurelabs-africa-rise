@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center">
           <div className="max-w-4xl flex flex-col items-center gap-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-roboto text-white max-w-4xl">
-              Accelerating the application of technology, talent, and social capital for economic prosperity and sustainable impact across Africa.
+              Applying human capital development to drive sustainable development, economic growth and Africa's technological leap
             </h1>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button asChild size="lg" className="font-medium">
