@@ -11,7 +11,8 @@ const Programs = () => {
       description: "Comprehensive training programs in software development, data science, and emerging technologies.",
       duration: "6-12 months",
       level: "Beginner to Advanced",
-      highlights: ["Hands-on Projects", "Industry Mentorship", "Job Placement Support"]
+      highlights: ["Hands-on Projects", "Industry Mentorship", "Job Placement Support"],
+      link: "https://www.futurelabs.ng"
     },
     {
       icon: <Rocket className="h-10 w-10 text-secondary" />,
@@ -19,23 +20,26 @@ const Programs = () => {
       description: "Intensive program for early-stage African startups to scale their solutions and access funding.",
       duration: "3-6 months",
       level: "Early-stage Startups",
-      highlights: ["Funding Access", "Expert Mentorship", "Demo Day Pitching"]
+      highlights: ["Funding Access", "Expert Mentorship", "Demo Day Pitching"],
+      link: "/program-details"
     },
     {
       icon: <Users className="h-10 w-10 text-accent" />,
-      title: "Leadership Development",
-      description: "Building the next generation of African tech leaders through comprehensive leadership training.",
+      title: "Leadership & Innovation Program",
+      description: "Building the next generation of African tech leaders through comprehensive leadership training and intensive innovation workshops.",
       duration: "4 months",
       level: "Mid to Senior Level",
-      highlights: ["Executive Coaching", "Strategic Thinking", "Team Building"]
+      highlights: ["Executive Coaching", "Strategic Thinking", "Problem-Solving", "Rapid Prototyping"],
+      link: "/program-details"
     },
     {
       icon: <Target className="h-10 w-10 text-primary" />,
-      title: "Innovation Bootcamp",
-      description: "Intensive workshops focused on solving real-world African challenges through technology innovation.",
-      duration: "2 weeks",
+      title: "Future Studios",
+      description: "Creative technology studio where innovation meets design. Build cutting-edge solutions with our expert team.",
+      duration: "Ongoing",
       level: "All Levels",
-      highlights: ["Problem-Solving", "Rapid Prototyping", "Market Validation"]
+      highlights: ["Creative Solutions", "Expert Team", "Technology Innovation"],
+      link: "https://studio.futurelabs.ng"
     }
   ];
 
@@ -52,8 +56,19 @@ const Programs = () => {
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] gap-14">
           {programs.map((program, index) => (
-            <Card key={index} className="border shadow-lg hover:shadow-xl transition-all duration-300 bg-white group rounded-xl">
-              <CardContent className="p-8 flex flex-col">
+            <Card 
+              key={index} 
+              className="border shadow-lg hover:shadow-xl transition-all duration-500 bg-white group rounded-xl cursor-pointer animate-fade-in hover:scale-[1.02]"
+              style={{ animationDelay: `${index * 150}ms` }}
+              onClick={() => {
+                if (program.link.startsWith('http')) {
+                  window.open(program.link, '_blank');
+                } else {
+                  window.location.href = program.link;
+                }
+              }}
+            >
+              <CardContent className="p-8 flex flex-col h-full">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="p-3 bg-background rounded-lg group-hover:scale-110 transition-transform duration-300">
                     {program.icon}
@@ -69,7 +84,7 @@ const Programs = () => {
                   </div>
                 </div>
                 
-                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-[600]">
+                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-[600] flex-grow">
                   {program.description}
                 </p>
                 
@@ -84,19 +99,6 @@ const Programs = () => {
                     ))}
                   </ul>
                 </div>
-                
-                <Button 
-                  className="w-[95%] mx-auto bg-primary hover:bg-primary/90 text-white font-[600] py-6 rounded-lg hover:scale-[1.02]"
-                  onClick={() => {
-                    if (program.title === 'Tech Academy') {
-                      window.open('https://www.futurelabs.ng', '_blank');
-                    } else {
-                      window.location.href = '/program-details';
-                    }
-                  }}
-                >
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
           ))}

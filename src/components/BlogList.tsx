@@ -9,8 +9,8 @@ const BlogList = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8">
-          {blogPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          {blogPosts.map((post, index) => (
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all duration-500 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
               <div className="h-60 overflow-hidden">
                 <img 
                   src={post.imageUrl} 
