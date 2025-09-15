@@ -21,8 +21,8 @@ const BlogPreview = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {previewPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 rounded-xl">
+          {previewPosts.map((post, index) => (
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out rounded-xl animate-fade-in hover:scale-105" style={{ animationDelay: `${index * 200}ms` }}>
               <div className="h-48 overflow-hidden">
                 <img 
                   src={post.imageUrl} 
