@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center md:text-left">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-roboto text-white">
-            Innovating for Africa's technological leap by accelerating human capital development
+            We are Africa's emergent deep tech innovation lab. Our mission is innovating for Africa's technological leap by accelerating human capital development
           </h1>
         </div>
       </div>
