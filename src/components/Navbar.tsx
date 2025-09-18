@@ -24,22 +24,22 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/" className="text-white hover:text-white/80 transition-colors font-medium">
             Home
           </Link>
-          <Link to="/programs" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/programs" className="text-white hover:text-white/80 transition-colors font-medium">
             Programs
           </Link>
-          <Link to="/initiatives" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/initiatives" className="text-white hover:text-white/80 transition-colors font-medium">
             Initiatives
           </Link>
-          <Link to="/about" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/about" className="text-white hover:text-white/80 transition-colors font-medium">
             About
           </Link>
-          <Link to="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/contact" className="text-white hover:text-white/80 transition-colors font-medium">
             Contact
           </Link>
-          <Link to="/blog" className="text-foreground hover:text-primary transition-colors font-medium">
+          <Link to="/blog" className="text-white hover:text-white/80 transition-colors font-medium">
             Blog
           </Link>
           <Button asChild variant="default" className="font-medium">
@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="text-secondary focus:outline-none"
+            className="text-white focus:outline-none"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
