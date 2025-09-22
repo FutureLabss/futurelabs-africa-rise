@@ -19,24 +19,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 23 91% 54%; /* #F58220 */
+    --primary: 25 95% 53%; /* Vibrant African Orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 23 85% 48%; /* #E06D13 */
+    --secondary: 120 61% 50%; /* African Green */
     --secondary-foreground: 0 0% 100%;
+
+    --accent: 45 93% 58%; /* Golden Yellow */
+    --accent-foreground: 222.2 84% 4.9%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 23 91% 54%; /* #F58220 */
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 23 91% 54%;
+    --ring: 25 95% 53%;
 
     --radius: 0.5rem;
   }
