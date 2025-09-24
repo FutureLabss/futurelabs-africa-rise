@@ -12,30 +12,35 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary/10 via-secondary/5 to-primary/10 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
-            <span className="text-xl font-bold text-white">FutureLabs.Africa</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
+              alt="Future Labs Logo" 
+              style={{ height: '30px' }}
+              className="w-auto"
+            />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-white hover:text-accent transition-colors font-medium">
+          <Link to="/" className="text-white hover:text-white/80 transition-colors font-medium">
             Home
           </Link>
-          <Link to="/about" className="text-white hover:text-accent transition-colors font-medium">
-            About
-          </Link>
-          <Link to="/programs" className="text-white hover:text-accent transition-colors font-medium">
+          <Link to="/programs" className="text-white hover:text-white/80 transition-colors font-medium">
             Programs
           </Link>
-          <Link to="/impact" className="text-white hover:text-accent transition-colors font-medium">
-            Impact
+          <Link to="/initiatives" className="text-white hover:text-white/80 transition-colors font-medium">
+            Initiatives
           </Link>
-          <Link to="/contact" className="text-white hover:text-accent transition-colors font-medium">
+          <Link to="/about" className="text-white hover:text-white/80 transition-colors font-medium">
+            About
+          </Link>
+          <Link to="/contact" className="text-white hover:text-white/80 transition-colors font-medium">
             Contact
+          </Link>
+          <Link to="/blog" className="text-white hover:text-white/80 transition-colors font-medium">
+            Blog
           </Link>
           <Button asChild variant="default" className="font-medium">
             <Link to="/register">Get Started</Link>
@@ -69,13 +74,6 @@ const Navbar = () => {
             Home
           </Link>
           <Link 
-            to="/about" 
-            className="text-lg font-medium text-foreground hover:text-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </Link>
-          <Link 
             to="/programs" 
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
@@ -83,11 +81,18 @@ const Navbar = () => {
             Programs
           </Link>
           <Link 
-            to="/impact" 
+            to="/initiatives" 
             className="text-lg font-medium text-foreground hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Impact
+            Initiatives
+          </Link>
+          <Link 
+            to="/about" 
+            className="text-lg font-medium text-foreground hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            About
           </Link>
           <Link 
             to="/contact" 
@@ -95,6 +100,13 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             Contact
+          </Link>
+          <Link 
+            to="/blog" 
+            className="text-lg font-medium text-foreground hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Blog
           </Link>
           <Button asChild variant="default" className="font-medium mt-4">
             <Link to="/register" onClick={() => setIsOpen(false)}>Get Started</Link>

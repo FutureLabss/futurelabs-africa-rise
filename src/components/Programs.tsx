@@ -1,75 +1,109 @@
 import React from 'react';
-import { BookOpen, Microscope, Lightbulb } from 'lucide-react';
+import { GraduationCap, Rocket, Users, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Programs = () => {
   const programs = [
     {
-      icon: <BookOpen className="h-12 w-12 text-primary" />,
-      title: "Skills Training",
-      description: "Comprehensive digital skills training programs designed to equip African youth with cutting-edge technical abilities in software development, data analysis, and digital marketing.",
-      highlights: ["Hands-on Coding", "Industry Mentorship", "Job Placement", "Certification"]
+      icon: <GraduationCap className="h-10 w-10 text-primary" />,
+      title: "Tech Academy",
+      description: "Comprehensive training programs in software development, data science, and emerging technologies.",
+      duration: "6-12 months",
+      level: "Beginner to Advanced",
+      highlights: ["Hands-on Projects", "Industry Mentorship", "Job Placement Support"],
+      link: "https://www.futurelabs.ng"
     },
     {
-      icon: <Microscope className="h-12 w-12 text-secondary" />,
-      title: "Research",
-      description: "Collaborative research initiatives focused on solving Africa's unique challenges through technology innovation, working with local universities and international partners.",
-      highlights: ["Applied Research", "Academic Partnership", "Published Papers", "Community Solutions"]
+      icon: <Rocket className="h-10 w-10 text-secondary" />,
+      title: "Startup Accelerator",
+      description: "Intensive program for early-stage African startups to scale their solutions and access funding.",
+      duration: "3-6 months",
+      level: "Early-stage Startups",
+      highlights: ["Funding Access", "Expert Mentorship", "Demo Day Pitching"],
+      link: "/program-details"
     },
     {
-      icon: <Lightbulb className="h-12 w-12 text-accent" />,
-      title: "Innovation Labs",
-      description: "State-of-the-art innovation laboratories where ideas come to life. Providing space, resources, and mentorship for breakthrough technological solutions.",
-      highlights: ["Rapid Prototyping", "Expert Guidance", "Funding Opportunities", "Market Access"]
+      icon: <Users className="h-10 w-10 text-accent" />,
+      title: "Leadership & Innovation Program",
+      description: "Building the next generation of African tech leaders through comprehensive leadership training and intensive innovation workshops.",
+      duration: "4 months",
+      level: "Mid to Senior Level",
+      highlights: ["Executive Coaching", "Strategic Thinking", "Problem-Solving", "Rapid Prototyping"],
+      link: "/program-details"
+    },
+    {
+      icon: <Target className="h-10 w-10 text-primary" />,
+      title: "Future Studios",
+      description: "Creative technology studio where innovation meets design. Build cutting-edge solutions with our expert team.",
+      duration: "Ongoing",
+      level: "All Levels",
+      highlights: ["Creative Solutions", "Expert Team", "Technology Innovation"],
+      link: "https://studio.futurelabs.ng"
     }
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-16 bg-muted/30 w-[85%] mx-auto">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-roboto text-foreground">Our Programs</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            Comprehensive programs designed to develop Africa's next generation of technology leaders
+            Future Labs runs accelerator and capacity-building programs to nurture Africa's next generation of tech leaders.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] gap-14">
           {programs.map((program, index) => (
             <Card 
               key={index} 
-              className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white group rounded-2xl cursor-pointer hover:scale-105"
+              className="border shadow-lg hover:shadow-xl transition-all duration-500 bg-white group rounded-xl cursor-pointer animate-fade-in hover:scale-[1.02]"
+              style={{ animationDelay: `${index * 150}ms` }}
+              onClick={() => {
+                if (program.link.startsWith('http')) {
+                  window.open(program.link, '_blank');
+                } else {
+                  window.location.href = program.link;
+                }
+              }}
             >
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 bg-background rounded-2xl group-hover:scale-110 transition-transform duration-300 shadow-md">
+              <CardContent className="p-8 flex flex-col h-full">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="p-3 bg-background rounded-lg group-hover:scale-110 transition-transform duration-300">
                     {program.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-[700] mb-2 font-roboto text-foreground">
+                      {program.title}
+                    </h3>
+                    <div className="flex gap-4 text-xs font-[700] text-foreground/60 mb-3">
+                      <span><span className='text-accent'>Duration:</span> {program.duration}</span>
+                      <span><span className='text-accent'>Level:</span> {program.level}</span>
+                    </div>
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 font-roboto text-foreground">
-                  {program.title}
-                </h3>
-                
-                <p className="text-foreground/70 mb-6 leading-relaxed">
+                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-[600] flex-grow">
                   {program.description}
                 </p>
                 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Program Highlights:</h4>
-                  <div className="grid grid-cols-2 gap-2">
+                <div className="mb-6">
+                  <h4 className="font-[700] text-gray-900 text-foreground mb-3">Program Highlights:</h4>
+                  <ul className="space-y-2">
                     {program.highlights.map((highlight, highlightIndex) => (
-                      <div key={highlightIndex} className="text-sm text-foreground/70 bg-muted/50 rounded-lg py-2 px-3">
+                      <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center font-[500]">
+                        <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
                         {highlight}
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
+
       </div>
     </section>
   );
