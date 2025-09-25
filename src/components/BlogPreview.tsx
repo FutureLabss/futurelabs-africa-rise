@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/data/blogPosts';
 import { ArrowRight } from 'lucide-react';
+import { useInView } from '@/hooks/use-in-view';
 
 const BlogPreview = () => {
   // Only show the first 3 blog posts
@@ -21,13 +22,24 @@ const BlogPreview = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {previewPosts.map((post, index) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out rounded-xl hover:scale-105">
+          {previewPosts.map((post) => {
+            const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.15 });
+            return (
+              <Card
+                key={post.id}
+                ref={ref}
+                className={
+                  "overflow-hidden rounded-xl transition-all duration-500 ease-out hover:shadow-lg hover:scale-105 " +
+                  (inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6")
+                }
+              >
               <div className="h-48 overflow-hidden">
                 <img 
-                  src={post.imageUrl} 
+                  src={`${post.imageUrl}?w=400&h=300&fit=crop&auto=format&q=80`}
                   alt={post.title} 
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <CardHeader className="p-5">
@@ -48,8 +60,9 @@ const BlogPreview = () => {
                   </svg>
                 </a>
               </CardFooter>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
 
         <div className="text-center">

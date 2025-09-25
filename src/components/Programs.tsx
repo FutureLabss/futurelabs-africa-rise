@@ -54,12 +54,11 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {programs.map((program, index) => (
             <Card 
               key={index} 
-              className="border shadow-lg hover:shadow-xl transition-all duration-500 bg-white group rounded-xl cursor-pointer animate-fade-in hover:scale-[1.02]"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="border shadow-lg hover:shadow-xl transition-all duration-500 bg-white group rounded-xl cursor-pointer hover:scale-[1.02]"
               onClick={() => {
                 if (program.link.startsWith('http')) {
                   window.open(program.link, '_blank');

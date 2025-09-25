@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary/10 via-secondary/5 to-primary/10 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[rgba(11,25,48,0.7)] backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Link to="/" className="flex items-center">
@@ -24,25 +24,28 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/" className="text-white/90 hover:text-white transition-colors font-medium">
             Home
           </Link>
-          <Link to="/programs" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/programs" className="text-white/90 hover:text-white transition-colors font-medium">
             Programs
           </Link>
-          <Link to="/initiatives" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/initiatives" className="text-white/90 hover:text-white transition-colors font-medium">
             Initiatives
           </Link>
-          <Link to="/about" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/about" className="text-white/90 hover:text-white transition-colors font-medium">
             About
           </Link>
-          <Link to="/contact" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/contact" className="text-white/90 hover:text-white transition-colors font-medium">
             Contact
           </Link>
-          <Link to="/blog" className="text-white hover:text-white/80 transition-colors font-medium">
+          <Link to="/blog" className="text-white/90 hover:text-white transition-colors font-medium">
             Blog
           </Link>
-          <Button asChild variant="default" className="font-medium">
+          <Link to="/startups" className="text-white/90 hover:text-white transition-colors font-medium">
+            Startups
+          </Link>
+          <Button asChild variant="default" className="font-medium bg-primary hover:bg-primary/90 text-white">
             <Link to="/register">Get Started</Link>
           </Button>
         </div>
@@ -61,54 +64,62 @@ const Navbar = () => {
       {/* Mobile Navigation Menu */}
       <div 
         className={cn(
-          "md:hidden fixed inset-0 bg-white z-40 pt-16 px-4 transform transition-transform duration-300 ease-in-out",
+          "md:hidden fixed inset-0 z-40 pt-16 px-4 transform transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col items-center space-y-6 py-8">
+        <div className="absolute inset-0 bg-[rgba(11,25,48,0.97)]" />
+        <div className="relative flex flex-col items-center space-y-6 py-8">
           <Link 
             to="/" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link 
             to="/programs" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Programs
           </Link>
           <Link 
             to="/initiatives" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Initiatives
           </Link>
           <Link 
             to="/about" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link 
             to="/contact" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Contact
           </Link>
           <Link 
             to="/blog" 
-            className="text-lg font-medium text-foreground hover:text-primary"
+            className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Blog
           </Link>
-          <Button asChild variant="default" className="font-medium mt-4">
+          <Link 
+            to="/startups" 
+            className="text-lg font-medium text-white hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Startups
+          </Link>
+          <Button asChild variant="default" className="font-medium mt-4 bg-primary hover:bg-primary/90 text-white">
             <Link to="/register" onClick={() => setIsOpen(false)}>Get Started</Link>
           </Button>
         </div>

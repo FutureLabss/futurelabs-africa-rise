@@ -1,20 +1,37 @@
 import React from 'react';
 import heroBackground from '@/assets/futurelabs-background.jpg';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
     <section 
-      className="min-h-screen flex items-center justify-center py-12 md:py-20 bg-cover bg-center bg-no-repeat relative"
+      className="min-h-[80vh] flex items-center py-16 md:py-24 bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
-      {/* Gradient overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center md:text-left">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-roboto text-white">
-            We are Africa's emergent deep tech innovation lab. We are innovating for Africa's technological leap by accelerating human capital development
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1930]/95 via-[#0B1930]/85 to-primary/50"></div>
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-roboto text-white">
+            We are Africa's emergent deep tech innovation lab.
           </h1>
+          <p className="mt-4 text-white/85 text-base md:text-lg">
+            We are innovating for Africa's technological leap by accelerating human capital development.
+          </p>
+          <div className="mt-8 flex items-center gap-4">
+            <Link
+              to="/programs"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-white font-medium hover:bg-primary/90 transition-colors"
+            >
+              Explore Programs
+            </Link>
+            <Link
+              to="/about"
+              className="inline-flex items-center justify-center rounded-md bg-white/10 px-5 py-3 text-white font-medium hover:bg-white/20 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
     </section>

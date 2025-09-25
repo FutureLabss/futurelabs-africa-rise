@@ -42,11 +42,11 @@ const Initiatives = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,1fr))] justify-items-between gap-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {initiatives.map((initiative, index) => (
             <Card 
               key={index} 
-              className="group relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-card to-muted/20 rounded-2xl border-0 cursor-pointer transform hover:scale-[1.02] hover:-translate-y-2"
+              className="group relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-card to-muted/20 rounded-2xl border-0 cursor-pointer hover:scale-[1.01]"
               onClick={() => {
                 if (initiative.title === 'Youth Collaboration Programs') {
                   window.location.href = '/youth-collaboration';

@@ -9,9 +9,11 @@
     --futurelabs-dark-orange: #E06D13;
     --futurelabs-white: #FFFFFF;
     --futurelabs-black: #000000;
+    --futurelabs-blue-900: #0B1930; /* deep navy */
+    --futurelabs-blue-700: #0F2A4D; /* brand blue */
 
-    --background: 0 0% 100%; /* white */
-    --foreground: 0 0% 0%; /* black */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
@@ -19,16 +21,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 23 91% 54%; /* #F58220 */
+    --primary: 23 91% 54%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 23 85% 48%; /* #E06D13 */
+    --secondary: 203 69% 18%; /* use deep brand blue for secondary */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 23 91% 54%; /* #F58220 */
+    --accent: 203 69% 18%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -100,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animated-gradient {
-  background: linear-gradient(-45deg, #F97316, #0369A1, #0C4A6E);
+  background: linear-gradient(-45deg, var(--futurelabs-orange), #0F2A4D, #0B1930);
   background-size: 200% 200%;
   animation: gradientFlow 15s ease infinite;
 }

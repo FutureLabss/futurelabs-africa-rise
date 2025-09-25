@@ -10,12 +10,14 @@ const BlogList = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8">
           {blogPosts.map((post, index) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out animate-fade-in hover:scale-105" style={{ animationDelay: `${index * 150}ms` }}>
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out hover:scale-105">
               <div className="h-60 overflow-hidden">
                 <img 
-                  src={post.imageUrl} 
+                  src={`${post.imageUrl}?w=500&h=400&fit=crop&auto=format&q=80`}
                   alt={post.title} 
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <CardHeader className="p-6">
