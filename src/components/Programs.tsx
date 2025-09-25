@@ -58,7 +58,7 @@ const Programs = () => {
           {programs.map((program, index) => (
             <Card 
               key={index} 
-              className="border shadow-lg hover:shadow-xl transition-all duration-500 bg-white group rounded-xl cursor-pointer hover:scale-[1.02]"
+              className="overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
               onClick={() => {
                 if (program.link.startsWith('http')) {
                   window.open(program.link, '_blank');
@@ -67,31 +67,31 @@ const Programs = () => {
                 }
               }}
             >
-              <CardContent className="p-8 flex flex-col h-full">
+              <CardContent className="p-5 flex flex-col h-full">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-background rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-background rounded-lg">
                     {program.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-[700] mb-2 font-roboto text-foreground">
+                    <h3 className="text-lg font-bold mb-2 font-roboto text-foreground">
                       {program.title}
                     </h3>
-                    <div className="flex gap-4 text-xs font-[700] text-foreground/60 mb-3">
+                    <div className="flex gap-4 text-xs font-semibold text-foreground/60 mb-3">
                       <span><span className='text-accent'>Duration:</span> {program.duration}</span>
                       <span><span className='text-accent'>Level:</span> {program.level}</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-[600] flex-grow">
+                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-semibold flex-grow">
                   {program.description}
                 </p>
                 
                 <div className="mb-6">
-                  <h4 className="font-[700] text-gray-900 text-foreground mb-3">Program Highlights:</h4>
+                  <h4 className="font-bold text-foreground mb-3 text-sm">Program Highlights:</h4>
                   <ul className="space-y-2">
                     {program.highlights.map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center font-[500]">
+                      <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center font-medium">
                         <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
                         {highlight}
                       </li>

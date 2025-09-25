@@ -46,7 +46,7 @@ const Initiatives = () => {
           {initiatives.map((initiative, index) => (
             <Card 
               key={index} 
-              className="group relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-card to-muted/20 rounded-2xl border-0 cursor-pointer hover:scale-[1.01]"
+              className="overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
               onClick={() => {
                 if (initiative.title === 'Youth Collaboration Programs') {
                   window.location.href = '/youth-collaboration';
@@ -57,33 +57,25 @@ const Initiatives = () => {
                 }
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <CardContent className="relative p-8 flex flex-col h-full">
-                <div className="mb-6 p-3 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 w-fit">
+              <CardContent className="p-5 flex flex-col h-full">
+                <div className="mb-4 p-3 rounded-lg bg-background w-fit">
                   {initiative.icon}
                 </div>
-                <h3 className="text-2xl mb-4 font-roboto text-foreground font-bold group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg mb-2 font-roboto text-foreground font-bold">
                   {initiative.title}
                 </h3>
-                <p className="text-foreground/70 mb-6 text-sm font-medium leading-relaxed flex-grow">
+                <p className="text-foreground/70 mb-6 text-sm font-semibold leading-relaxed flex-grow">
                   {initiative.description}
                 </p>
                 <ul className="space-y-3 mb-6">
                   {initiative.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="text-sm font-medium text-foreground/60 flex items-center">
-                      <span className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 group-hover:scale-110 transition-transform duration-300"></span>
+                      <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-4 border-t border-border/50">
-                  <div className="flex items-center text-primary font-semibold group-hover:translate-x-1 transition-transform duration-300">
-                    <span className="text-sm">Learn More</span>
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </div>
-                </div>
+                <div className="mt-auto pt-2 border-t border-border/50"></div>
               </CardContent>
             </Card>
           ))}
