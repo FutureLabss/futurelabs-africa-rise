@@ -2,19 +2,18 @@ const Partners = () => {
     const logos = [
         {
             name: 'United Nations Development Programme (UNDP)',
-            // Publicly hosted UNDP logo (commonly available asset)
-            src: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/UNDP_logo.svg',
+            src: '/partners/undp.png',
             widthClass: 'w-[56%]'
         },
         {
             name: 'ONDI - Office for Nigerian Digital Innovation',
-            src: 'https://nitda.gov.ng/wp-content/uploads/2022/05/ONDI-logo-1.png',
+            src: '/partners/ondi.png',
             widthClass: 'w-[70%]'
         },
         {
             name: 'Ibom Innovation Network',
-            src: 'https://ibominovationnetwork.org/wp-content/uploads/2022/02/Ibom-logo.png',
-            widthClass: 'w-[75%]'
+            src: '/partners/ibom.png',
+            widthClass: 'w-[60%]'
         }
     ];
 
