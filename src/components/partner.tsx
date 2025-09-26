@@ -27,8 +27,8 @@ const Partners = () => {
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
                     {logos.map((logo) => (
-                        <div key={logo.name} className="bg-white h-20 w-36 md:w-44 flex items-center justify-center rounded-lg shadow-md border border-primary/20 relative hover:bottom-1">
-                            <img src={logo.src} alt={logo.name} className={`object-contain ${logo.widthClass}`} />
+                        <div key={logo.name} className="bg-white h-20 w-40 md:w-48 flex items-center justify-center rounded-lg shadow-md border border-primary/20 relative">
+                            <img src={logo.src} alt={logo.name} className={`object-contain ${logo.widthClass}`} onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
                         </div>
                     ))}
                 </div>
