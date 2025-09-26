@@ -46,7 +46,7 @@ const Initiatives = () => {
           {initiatives.map((initiative, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
+              className="w-full overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
               onClick={() => {
                 if (initiative.title === 'Youth Collaboration Programs') {
                   window.location.href = '/youth-collaboration';

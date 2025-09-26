@@ -54,11 +54,11 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {programs.map((program, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
+              className="w-full overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
               onClick={() => {
                 if (program.link.startsWith('http')) {
                   window.open(program.link, '_blank');
