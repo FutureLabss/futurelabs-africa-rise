@@ -27,23 +27,23 @@ const Navbar = () => {
           <Link to="/" className="text-white/90 hover:text-white transition-colors font-medium">
             Home
           </Link>
+          <Link to="/about" className="text-white/90 hover:text-white transition-colors font-medium">
+            About
+          </Link>
           <Link to="/programs" className="text-white/90 hover:text-white transition-colors font-medium">
             Programs
+          </Link>
+          <Link to="/startups" className="text-white/90 hover:text-white transition-colors font-medium">
+            Startups
           </Link>
           <Link to="/initiatives" className="text-white/90 hover:text-white transition-colors font-medium">
             Initiatives
           </Link>
-          <Link to="/about" className="text-white/90 hover:text-white transition-colors font-medium">
-            About
-          </Link>
-          <Link to="/contact" className="text-white/90 hover:text-white transition-colors font-medium">
-            Contact
-          </Link>
           <Link to="/blog" className="text-white/90 hover:text-white transition-colors font-medium">
             Blog
           </Link>
-          <Link to="/startups" className="text-white/90 hover:text-white transition-colors font-medium">
-            Startups
+          <Link to="/contact" className="text-white/90 hover:text-white transition-colors font-medium">
+            Contact
           </Link>
           <Button asChild variant="default" className="font-medium bg-primary hover:bg-primary/90 text-white">
             <Link to="/register">Get Started</Link>
@@ -78,11 +78,25 @@ const Navbar = () => {
             Home
           </Link>
           <Link 
+            to="/about" 
+            className="text-lg font-medium text-white hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </Link>
+          <Link 
             to="/programs" 
             className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             Programs
+          </Link>
+          <Link 
+            to="/startups" 
+            className="text-lg font-medium text-white hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Startups
           </Link>
           <Link 
             to="/initiatives" 
@@ -92,20 +106,6 @@ const Navbar = () => {
             Initiatives
           </Link>
           <Link 
-            to="/about" 
-            className="text-lg font-medium text-white hover:text-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </Link>
-          <Link 
-            to="/contact" 
-            className="text-lg font-medium text-white hover:text-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </Link>
-          <Link 
             to="/blog" 
             className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
@@ -113,11 +113,11 @@ const Navbar = () => {
             Blog
           </Link>
           <Link 
-            to="/startups" 
+            to="/contact" 
             className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Startups
+            Contact
           </Link>
           <Button asChild variant="default" className="font-medium mt-4 bg-primary hover:bg-primary/90 text-white">
             <Link to="/register" onClick={() => setIsOpen(false)}>Get Started</Link>

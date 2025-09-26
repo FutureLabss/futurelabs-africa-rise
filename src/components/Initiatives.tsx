@@ -42,11 +42,11 @@ const Initiatives = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {initiatives.map((initiative, index) => (
             <Card 
               key={index} 
-              className="w-full overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
+              className="relative w-full overflow-hidden rounded-2xl border bg-white shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer group"
               onClick={() => {
                 if (initiative.title === 'Youth Collaboration Programs') {
                   window.location.href = '/youth-collaboration';
@@ -57,25 +57,31 @@ const Initiatives = () => {
                 }
               }}
             >
-              <CardContent className="p-5 flex flex-col h-full">
-                <div className="mb-4 p-3 rounded-lg bg-background w-fit">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{background:"radial-gradient(1200px 300px at 0% 0%, rgba(245,130,32,0.08), transparent 70%)"}}/>
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4 p-3 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 w-fit">
                   {initiative.icon}
                 </div>
-                <h3 className="text-lg mb-2 font-roboto text-foreground font-bold">
+                <h3 className="text-xl mb-2 font-roboto text-foreground font-bold">
                   {initiative.title}
                 </h3>
-                <p className="text-foreground/70 mb-6 text-sm font-semibold leading-relaxed flex-grow">
+                <p className="text-foreground/70 mb-6 text-sm leading-relaxed flex-grow">
                   {initiative.description}
                 </p>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2.5 mb-6">
                   {initiative.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="text-sm font-medium text-foreground/60 flex items-center">
-                      <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                      <span className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-2 border-t border-border/50"></div>
+                <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs uppercase tracking-wide text-foreground/50">Learn more</span>
+                  <svg className="w-4 h-4 text-primary transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
               </CardContent>
             </Card>
           ))}
