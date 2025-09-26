@@ -44,7 +44,7 @@ const Programs = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30 w-[85%] mx-auto">
+    <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-roboto text-foreground">Our Programs</h2>
@@ -54,7 +54,7 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           {programs.map((program, index) => (
             <Card 
               key={index} 
@@ -68,31 +68,31 @@ const Programs = () => {
               }}
             >
               <CardContent className="p-5 flex flex-col h-full">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-background rounded-lg">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="p-3 bg-background rounded-lg shrink-0">
                     {program.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-2 font-roboto text-foreground">
+                    <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 font-roboto text-foreground break-words">
                       {program.title}
                     </h3>
-                    <div className="flex gap-4 text-xs font-semibold text-foreground/60 mb-3">
+                    <div className="flex flex-wrap gap-3 sm:gap-4 text-[11px] sm:text-xs font-semibold text-foreground/60 mb-2 sm:mb-3">
                       <span><span className='text-accent'>Duration:</span> {program.duration}</span>
                       <span><span className='text-accent'>Level:</span> {program.level}</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-foreground/70 mb-6 leading-relaxed text-sm font-semibold flex-grow">
+                <p className="text-foreground/70 mb-4 sm:mb-6 leading-relaxed text-sm font-semibold flex-grow">
                   {program.description}
                 </p>
                 
                 <div className="mb-6">
-                  <h4 className="font-bold text-foreground mb-3 text-sm">Program Highlights:</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-bold text-foreground mb-2 sm:mb-3 text-sm">Program Highlights:</h4>
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {program.highlights.map((highlight, highlightIndex) => (
                       <li key={highlightIndex} className="text-sm text-foreground/70 flex items-center font-medium">
-                        <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                        <span className="w-2 h-2 bg-secondary rounded-full mr-3 shrink-0"></span>
                         {highlight}
                       </li>
                     ))}
