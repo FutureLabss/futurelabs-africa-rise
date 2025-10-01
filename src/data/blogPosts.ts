@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
 
       As we look to the future, our goal is not just to achieve gender parity in tech leadership, but to establish Africa as a global leader in inclusive innovation.
     `,
-    imageUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+    imageUrl: "/blog-women-in-tech.jpg",
     category: "Diversity",
     date: "April 22, 2025",
     author: "Fatima Mohammed"
