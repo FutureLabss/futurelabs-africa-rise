@@ -42,11 +42,11 @@ const Navbar = () => {
           <Link to="/blog" className="text-white/90 hover:text-white transition-colors font-medium">
             Blog
           </Link>
-          <Link to="/contact" className="text-white/90 hover:text-white transition-colors font-medium">
-            Contact
+          <Link to="/events" className="text-white/90 hover:text-white transition-colors font-medium">
+            Events
           </Link>
           <Button asChild variant="default" className="font-medium bg-primary hover:bg-primary/90 text-white">
-            <Link to="/register">Get Started</Link>
+            <Link to="/contact">Contact</Link>
           </Button>
         </div>
 
@@ -113,14 +113,14 @@ const Navbar = () => {
             Blog
           </Link>
           <Link 
-            to="/contact" 
+            to="/events" 
             className="text-lg font-medium text-white hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
-            Contact
+            Events
           </Link>
           <Button asChild variant="default" className="font-medium mt-4 bg-primary hover:bg-primary/90 text-white">
-            <Link to="/register" onClick={() => setIsOpen(false)}>Get Started</Link>
+            <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
           </Button>
         </div>
       </div>

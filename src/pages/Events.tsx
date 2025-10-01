@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Calendar, Clock, MapPin, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Events = () => {
   const upcomingEvents = [
@@ -18,6 +19,33 @@ const Events = () => {
       type: "Conference",
       featured: true
     }
+  ];
+
+  const pastEvents = [
+    {
+      id: 101,
+      title: "AI for Social Good Workshop",
+      date: "July 10, 2024",
+      location: "Abuja, Nigeria",
+      type: "Workshop",
+      summary: "Hands-on training on building AI solutions for public health and agriculture.",
+    },
+    {
+      id: 102,
+      title: "Deep Tech Founders Meetup",
+      date: "November 22, 2024",
+      location: "Nairobi, Kenya",
+      type: "Meetup",
+      summary: "Founders across Africa shared lessons on scaling research-driven startups.",
+    },
+    {
+      id: 103,
+      title: "Future of Work Bootcamp",
+      date: "May 3, 2024",
+      location: "Uyo, Nigeria",
+      type: "Bootcamp",
+      summary: "Upskilling program focused on cloud, data, and product careers.",
+    },
   ];
 
   return (
@@ -89,18 +117,11 @@ const Events = () => {
                       </div>
                       
                       <div className="flex flex-col justify-center gap-3 lg:w-48">
-                        <Button 
-                          className="bg-primary hover:bg-primary/90 text-white"
-                          onClick={() => window.location.href = '/register'}
-                        >
-                          Register Now
+                        <Button className="bg-primary hover:bg-primary/90 text-white" asChild>
+                          <Link to="/register">Register Now</Link>
                         </Button>
-                        <Button 
-                          variant="outline" 
-                          className="border-secondary text-secondary hover:bg-secondary/10"
-                          onClick={() => window.location.href = '/event-details'}
-                        >
-                          Learn More
+                        <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10" asChild>
+                          <Link to="/event-details">Learn More</Link>
                         </Button>
                       </div>
                     </div>
@@ -108,11 +129,33 @@ const Events = () => {
                 </Card>
               ))}
             </div>
-            
-            <div className="text-center mt-12">
-              <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 text-lg">
-                View All Events
-              </Button>
+          </div>
+        </section>
+
+        <section className="py-16 border-t">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 font-roboto text-foreground">Past Events</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {pastEvents.map((event) => (
+                <Card key={event.id} className="border-0 shadow-md">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2 text-sm text-foreground/60">
+                          <Calendar className="h-4 w-4" />
+                          <span>{event.date}</span>
+                          <span className="mx-2">•</span>
+                          <MapPin className="h-4 w-4" />
+                          <span>{event.location}</span>
+                        </div>
+                        <h3 className="text-xl font-semibold text-foreground">{event.title}</h3>
+                        <p className="text-foreground/70 mt-2">{event.summary}</p>
+                      </div>
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-foreground/5 text-foreground/70 whitespace-nowrap">{event.type}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
