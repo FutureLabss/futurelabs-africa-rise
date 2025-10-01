@@ -14,6 +14,16 @@ const Partners = () => {
             name: 'Ibom Innovation Network',
             src: '/partners/ibom.png',
             widthClass: 'w-[60%]'
+        },
+        {
+            name: 'PIND - Foundation for Partnership Initiatives in the Niger Delta',
+            src: '/partners/pind.png',
+            widthClass: 'w-[65%]'
+        },
+        {
+            name: 'Ritman University',
+            src: '/partners/ritman.png',
+            widthClass: 'w-[55%]'
         }
     ];
 
