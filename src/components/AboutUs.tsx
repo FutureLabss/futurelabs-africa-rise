@@ -1,5 +1,5 @@
-
 import React from 'react';
+import aboutTeamImage from '@/assets/about-team.jpg';
 
 const AboutUs = () => {
   return (
@@ -27,7 +27,7 @@ const AboutUs = () => {
           <div className="relative">
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                src={aboutTeamImage} 
                 alt="FutureLabs Team" 
                 className="w-full h-auto"
               />
