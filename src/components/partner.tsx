@@ -24,6 +24,11 @@ const Partners = () => {
             name: 'Ritman University',
             src: '/partners/ritman.png',
             widthClass: 'w-[55%]'
+        },
+        {
+            name: 'AfriLabs',
+            src: '/partners/afrilabs.png',
+            widthClass: 'w-[65%]'
         }
     ];
 
