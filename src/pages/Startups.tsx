@@ -53,14 +53,14 @@ const Startups = () => {
 
         <section className="mx-10 py-12">
           <div className="container mx-auto px-4">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
               {startups.map((s) => (
                 <a
                   key={s.name}
                   href={s.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl border border-white/10 bg-white/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow overflow-hidden block"
+                  className="group rounded-xl border border-white/10 bg-white/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow overflow-hidden block"
                 >
                   <div className="p-6">
                     <div className="text-xs uppercase tracking-wider text-primary mb-2">

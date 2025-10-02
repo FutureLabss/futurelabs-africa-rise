@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
 
       As we continue to expand our reach, we're also working with local leaders and businesses to ensure that our curriculum addresses the specific needs of each community we serve.
     `,
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    imageUrl: "/blog-1.jpg",
     category: "Education",
     date: "May 15, 2025",
     author: "Ngozi Okonkwo"
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
 
       At FutureLabs, our incubation program is adapting to these changes by helping founders build sustainable business models from day one, rather than pursuing growth at all costs.
     `,
-    imageUrl: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    imageUrl: "/blog-2.jpg",
     category: "Startups",
     date: "May 8, 2025",
     author: "David Oladele"
@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
 
       As we look to the future, our goal is not just to achieve gender parity in tech leadership, but to establish Africa as a global leader in inclusive innovation.
     `,
-    imageUrl: "/blog-women-in-tech.jpg",
+    imageUrl: "/blog-3.jpg",
     category: "Diversity",
     date: "April 22, 2025",
     author: "Fatima Mohammed"
