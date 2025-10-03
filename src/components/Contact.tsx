@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -42,10 +42,18 @@ const Contact = () => {
                 Stay updated with our latest programs, events, and success stories by following us on social media.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">FB</a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">TW</a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">IG</a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">LI</a>
+                <a href="https://www.facebook.com/futurelabsafrica" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+                  <Facebook size={20} />
+                </a>
+                <a href="https://twitter.com/futurelabsafrica" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+                  <Twitter size={20} />
+                </a>
+                <a href="https://www.instagram.com/futurelabsafrica" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://www.linkedin.com/company/futurelabsafrica" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+                  <Linkedin size={20} />
+                </a>
               </div>
             </div>
           </div>
