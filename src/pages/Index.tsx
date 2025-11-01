@@ -21,7 +21,6 @@ const Index = () => {
         <AboutUs />
         <Programs />
         <Impact />
-        <Initiatives />
         <BlogPreview />
       </main>
       <Partners />

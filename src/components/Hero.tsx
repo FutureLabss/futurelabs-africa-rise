@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section 
-      className="min-h-[80vh] flex items-center py-16 md:py-24 bg-cover bg-center bg-no-repeat relative"
+      className="h-screen flex items-center bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B1930]/95 via-[#0B1930]/85 to-primary/50"></div>
