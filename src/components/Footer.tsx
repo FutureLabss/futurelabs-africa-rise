@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="space-y-2">
               {/* <p className="text-gray-300 text-sm">📍 Lagos, Nigeria</p> */}
               <p className="text-gray-300 text-sm">📧 hello@futurelabs.africa</p>
-              <p className="text-gray-300 text-sm">📞 +234 (0) 123 456 7890</p>
+              <p className="text-gray-300 text-sm">📞 07032400529</p>
             </div>
           </div>
           

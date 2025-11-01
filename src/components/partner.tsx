@@ -8,7 +8,6 @@ import Autoplay from "embla-carousel-autoplay"
 
 const Partners = () => {
     const logos = [
-        { name: 'undp', src: '/partners/undp.png' },
         { name: 'afrilabs', src: '/partners/afrilabs.png' },
         { name: 'AKS', src: '/partners/AKS.jpg' },
         { name: 'AStw', src: '/partners/AStw.png' },

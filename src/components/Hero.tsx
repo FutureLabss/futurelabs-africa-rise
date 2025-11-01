@@ -13,10 +13,10 @@ const Hero = () => {
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-roboto text-white">
-            We are Africa's emergent deep tech innovation lab.
+            We Are Africa's Emergent Deep Tech Innovation Lab.
           </h1>
           <p className="mt-4 text-white/85 text-base md:text-lg">
-            We are innovating for Africa's technological leap by accelerating human capital development.
+            We Are Innovating For Africa's Technological Leap By Accelerating Human Capital Development.
           </p>
           <div className="mt-8 flex items-center gap-4">
             <Link

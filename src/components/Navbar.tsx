@@ -36,9 +36,6 @@ const Navbar = () => {
           <Link to="/startups" className="text-white/90 hover:text-white transition-colors font-medium">
             Startups
           </Link>
-          <Link to="/initiatives" className="text-white/90 hover:text-white transition-colors font-medium">
-            Initiatives
-          </Link>
           <Link to="/blog" className="text-white/90 hover:text-white transition-colors font-medium">
             Blog
           </Link>
@@ -98,13 +95,6 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             Startups
-          </Link>
-          <Link 
-            to="/initiatives" 
-            className="text-lg font-medium text-white hover:text-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            Initiatives
           </Link>
           <Link 
             to="/blog" 
