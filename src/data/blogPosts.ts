@@ -88,5 +88,67 @@ export const blogPosts: BlogPost[] = [
     category: "Community",
     date: "April 10, 2025",
     author: "Emmanuel Adewale"
+  },
+  {
+    id: "executive-assistant-mini-ceo",
+    title: "The Executive Assistant Role at Futurelabs: Why Our EA Is a Mini CEO",
+    excerpt: "More than just a support role, the Executive Assistant at Futurelabs acts as a 'mini CEO,' driving executive operations and managing our brand's online presence.",
+    content: `
+      At Futurelabs, we believe that every successful team needs a powerhouse—and our Executive Assistant is exactly that. More than just a support role, the Executive Assistant at Futurelabs acts as a "mini CEO," driving executive operations and managing our brand's online presence.
+
+      **What Does Our Executive Assistant Do?**
+
+      **Owns the Executive Calendar:** Prioritizes meetings, streamlines schedules, and ensures that leadership stays focused on what matters most.
+
+      **Communication Maestro:** Drafts, reviews, and organizes everything from internal memos to external presentations, ensuring Futurelabs' message is clear and compelling.
+
+      **Meeting Master:** Prepares agendas, tracks follow-ups, and coordinates with teams so every discussion leads to actionable results.
+
+      **Logistics Leader:** Organizes board meetings, offsite events, and travel, handling all the details that keep our team moving at startup speed.
+
+      **Operations Specialist:** Keeps projects on track by following up on key milestones, flagging risks, and monitoring KPIs.
+
+      **Social Media Manager:** Plans, creates, and schedules engaging posts for Futurelabs' social channels—LinkedIn, Twitter/X, and Facebook—and amplifies our voice online. They collaborate directly with executive leadership to grow our professional brand and community.
+
+      **Culture Catalyst:** Drives onboarding, builds team cohesion, and supports internal communications, making Futurelabs a place where people thrive.
+
+      **Strategy Partner:** Conducts market research and competitive analysis to inform key decisions, providing leadership with the insights needed to stay ahead.
+
+      **Problem Solver:** Anticipates needs, resolves challenges before they arise, and acts as the "air traffic controller" for everything happening at Futurelabs.
+
+      **Futurelabs Ambassador:** Represents our values and vision in every partner interaction, acting as a trusted delegate for the executive team.
+
+      **What Makes a Futurelabs Executive Assistant Stand Out?**
+
+      **Entrepreneurial Attitude:** Resourceful, proactive, and creative—they find solutions, take initiative, and embrace responsibility like a founder.
+
+      **Strong Operations IQ:** Organized, analytical, and decisive when juggling multiple priorities and complex projects.
+
+      **Excellent Communicator:** Clearly conveys ideas, inspires confidence, and crafts compelling narratives for stakeholders at every level.
+
+      **Digital Savvy:** Understands social media trends, digital brand management, and uses analytics to always improve our online presence.
+
+      **Leadership Potential:** Displays high emotional intelligence, discretion, and an ability to influence without direct authority.
+
+      **Tech Fluency:** Skilled in project management, communication, and productivity platforms.
+
+      At Futurelabs, the Executive Assistant role is an opportunity to act as a leader, owner, and innovator—a unique launchpad for anyone who aspires to build, grow, and one day lead breakthrough ventures.
+
+      **Interested in joining Futurelabs as our next Executive Assistant (Mini CEO)?**
+
+      If you're inspired by the Executive Assistant (Mini CEO) role at Futurelabs and believe you have what it takes to drive innovation, operations, and digital growth, we'd love to hear from you!
+
+      **How to Apply:**
+
+      Send your CV and a cover letter outlining why you're the perfect fit for this role to hello@futurelabs.africa
+
+      Tell us how you embody leadership, operational excellence, and digital savvy—and why you're excited to help shape the future at Futurelabs.
+
+      We look forward to meeting our next team visionary!
+    `,
+    imageUrl: "/blog-ea-mini-ceo.jpg",
+    category: "Careers",
+    date: "May 20, 2025",
+    author: "Futurelabs Team"
   }
 ];
