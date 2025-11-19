@@ -78,11 +78,19 @@ const BlogPost = () => {
 
             {/* Content */}
             <div className="prose prose-lg max-w-none text-foreground/80">
-              {post.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-6 leading-relaxed">
-                  {paragraph.trim()}
-                </p>
-              ))}
+              {post.content.split('\n\n').map((paragraph, index) => {
+                const formattedText = paragraph
+                  .trim()
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                return (
+                  <p 
+                    key={index} 
+                    className="mb-6 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: formattedText }}
+                  />
+                );
+              })}
             </div>
 
             {/* Call to Action */}
