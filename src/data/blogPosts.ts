@@ -12,6 +12,74 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "sales-marketing-manager",
+    title: "Join Futurelabs as Our Sales and Marketing Manager",
+    excerpt: "We need a Sales and Marketing Manager who is ready to lead, strategize, and scale our growth. If you can blend creativity with data-driven tactics and thrive in a tech startup environment, this is your chance to make an impact.",
+    content: `
+      At Futurelabs, we are building the next generation of digital solutions—and we need a Sales and Marketing Manager who is ready to lead, strategize, and scale our growth. If you can blend creativity with data-driven tactics and thrive in a tech startup environment, this is your chance to make an impact.
+
+      **Role Overview**
+
+      The Sales and Marketing Manager is responsible for driving revenue growth, acquiring customers, and strengthening the Futurelabs brand across multiple channels. You will own the strategy and execution of all sales and marketing initiatives, working closely with our executive team to align with company goals and values.
+
+      **Key Responsibilities**
+
+      **Develop and execute integrated sales and marketing strategies** to achieve ambitious growth targets
+
+      **Lead the go-to-market (GTM) process** for new product launches and expansions
+
+      **Build and nurture a pipeline of leads;** manage relationships from prospecting through to closing deals
+
+      **Coordinate digital marketing efforts**—website, email, social media, and online campaigns
+
+      **Create compelling sales collateral,** case studies, presentations, and product content
+
+      **Analyze market trends,** customer data, and performance metrics to inform decisions and optimize campaigns
+
+      **Oversee event marketing,** partnerships, and industry networking
+
+      **Collaborate with product, operations, and leadership** to ensure alignment and feedback loops
+
+      **Manage the sales and marketing budget,** track ROI, and report results to leadership
+
+      **Recruit, coach, and develop** sales and marketing team members as we grow
+
+      **Skills & Qualifications**
+
+      **3+ years of sales and/or marketing experience,** preferably in tech or innovation-driven sectors
+
+      **Strong understanding of digital sales funnels,** CRM tools (e.g., Salesforce, HubSpot), and campaign management
+
+      **Analytical and strategic skills;** confident with KPIs such as CAC, LTV, MRR, ROI
+
+      **Excellent written and verbal communication,** presentation, and interpersonal skills
+
+      **Creative thinker**—able to craft messaging that resonates with founders, innovators, and digital audiences
+
+      **Proven ability to manage multiple projects,** set priorities, and meet tight deadlines in a fast-paced environment
+
+      **Bachelor's degree in Marketing, Business, or related field** (or equivalent experience)
+
+      **What Sets You Apart**
+
+      **Hands-on experience launching new products or programs** in startup or tech environments
+
+      **A blend of leadership ambition and hands-on execution:** you can build a process or close the deal yourself
+
+      **Digital marketing and B2B sales experience** is highly valued
+
+      **Ready to Accelerate the Future With Us?**
+
+      If you are ready to shape and drive the sales and marketing engine at FutureLabs, we want to meet you. Send your CV and a cover letter describing how you'll help Futurelabs grow to hello@futurelabs.africa.
+
+      Let's build the future together—one innovative customer at a time!
+    `,
+    imageUrl: "/blog-sales-marketing-manager.jpg",
+    category: "Careers",
+    date: "November 19, 2025",
+    author: "Futurelabs Team"
+  },
+  {
     id: "executive-assistant-mini-ceo",
     title: "The Executive Assistant Role at Futurelabs: Why Our EA Is a Mini CEO",
     excerpt: "More than just a support role, the Executive Assistant at Futurelabs acts as a 'mini CEO,' driving executive operations and managing our brand's online presence.",
