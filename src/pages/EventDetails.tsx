@@ -1,76 +1,211 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import EventRegistrationForm from '@/components/EventRegistrationForm';
+import { getEventById } from '@/data/events';
+import { Calendar, Clock, MapPin, Users, ArrowLeft, Share2, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, Clock, MapPin, Users } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const EventDetails = () => {
+  const { id } = useParams<{ id: string }>();
+  const event = getEventById(id || '');
+  const { toast } = useToast();
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: event?.title,
+          text: event?.description,
+          url
+        });
+      } catch {
+        // User cancelled
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast({
+        title: "Link copied!",
+        description: "Event link copied to clipboard."
+      });
+    }
+  };
+
+  if (!event) {
+    return (
+      <div className="flex flex-col min-h-screen bg-background">
+        <Navbar />
+        <main className="flex-grow pt-20 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-foreground mb-4">Event not found</h1>
+            <Link to="/events" className="text-primary hover:underline">
+              Back to Events
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const isPast = event.isPast;
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      <main className="flex-grow pt-20 mx-10">
-        <div className="container mx-auto px-4 py-16">
-          <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <div className="mb-6">
-                <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
-                  Conference
-                </span>
+      <main className="flex-grow pt-20">
+        {/* Back Navigation */}
+        <div className="container mx-auto px-4 py-6">
+          <Link 
+            to="/events" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>Back to Events</span>
+          </Link>
+        </div>
+
+        <div className="container mx-auto px-4 pb-16">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Event Header Image */}
+              {event.image && (
+                <div className="aspect-video rounded-2xl overflow-hidden bg-muted">
+                  <img 
+                    src={event.image} 
+                    alt={event.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+
+              {/* Event Info */}
+              <div>
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    isPast 
+                      ? 'bg-muted text-muted-foreground' 
+                      : 'bg-primary/10 text-primary'
+                  }`}>
+                    {event.type}
+                  </span>
+                  {isPast && (
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-muted text-muted-foreground">
+                      Past Event
+                    </span>
+                  )}
+                </div>
+
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  {event.title}
+                </h1>
+
+                {event.host && (
+                  <p className="text-muted-foreground mb-6">
+                    Hosted by <span className="text-foreground font-medium">{event.host}</span>
+                  </p>
+                )}
+
+                {/* Event Meta */}
+                <div className="flex flex-wrap gap-6 p-6 bg-muted/30 rounded-2xl mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
+                      <Calendar className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Date</p>
+                      <p className="font-medium text-foreground">{event.date}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
+                      <Clock className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Time</p>
+                      <p className="font-medium text-foreground">
+                        {event.time}{event.endTime && ` - ${event.endTime}`}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Location</p>
+                      <p className="font-medium text-foreground">{event.location}</p>
+                    </div>
+                  </div>
+
+                  {event.attendees && (
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
+                        <Users className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">Attendees</p>
+                        <p className="font-medium text-foreground">
+                          {event.attendees}{event.maxAttendees && ` / ${event.maxAttendees}`}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Description */}
+                <div className="prose prose-lg max-w-none">
+                  <h2 className="text-xl font-semibold text-foreground mb-4">About This Event</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {event.longDescription || event.description}
+                  </p>
+
+                  {event.learnings && event.learnings.length > 0 && (
+                    <>
+                      <h2 className="text-xl font-semibold text-foreground mb-4">What You'll Learn</h2>
+                      <ul className="space-y-3">
+                        {event.learnings.map((learning, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{learning}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
               </div>
-              
-              <h1 className="text-4xl font-bold mb-6 text-foreground">
-                African Tech Innovation Summit 2025
-              </h1>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="flex items-center gap-2 text-sm text-foreground/60">
-                  <Calendar className="h-4 w-4" />
-                  <span>March 15, 2025</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-foreground/60">
-                  <Clock className="h-4 w-4" />
-                  <span>9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-foreground/60">
-                  <MapPin className="h-4 w-4" />
-                  <span>Lagos, Nigeria</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-foreground/60">
-                  <Users className="h-4 w-4" />
-                  <span>500+ attendees</span>
-                </div>
-              </div>
-              
-              <div className="prose max-w-none mb-8">
-                <p className="text-lg text-foreground/70 mb-6">
-                  Join industry leaders, investors, and innovators for a day of networking and learning about the future of African tech.
-                </p>
-                
-                <h3 className="text-2xl font-bold mb-4">About This Event</h3>
-                <p className="text-foreground/70 mb-6">
-                  The African Tech Innovation Summit brings together the continent's brightest minds to discuss the latest trends, challenges, and opportunities in technology. This premier event features keynote speakers, panel discussions, workshops, and networking opportunities.
-                </p>
-                
-                <h3 className="text-2xl font-bold mb-4">What You'll Learn</h3>
-                <ul className="list-disc pl-6 text-foreground/70 mb-6">
-                  <li>Latest trends in African tech ecosystem</li>
-                  <li>Investment opportunities and funding strategies</li>
-                  <li>Building scalable tech solutions</li>
-                  <li>Networking with industry leaders</li>
-                </ul>
-              </div>
-              
-              <div className="flex gap-4">
-                <Button className="bg-primary hover:bg-primary/90 text-white px-8">
-                  Register Now
-                </Button>
-                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10">
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-24 space-y-4">
+                {!isPast ? (
+                  <EventRegistrationForm event={event} />
+                ) : (
+                  <div className="bg-card border border-border rounded-2xl p-6 text-center">
+                    <p className="text-muted-foreground">This event has ended.</p>
+                  </div>
+                )}
+
+                {/* Share Button */}
+                <Button 
+                  variant="outline" 
+                  className="w-full h-12 gap-2"
+                  onClick={handleShare}
+                >
+                  <Share2 className="h-4 w-4" />
                   Share Event
                 </Button>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
