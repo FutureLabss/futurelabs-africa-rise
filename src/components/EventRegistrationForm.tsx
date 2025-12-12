@@ -8,9 +8,10 @@ import { EventData } from '@/data/events';
 
 interface EventRegistrationFormProps {
   event: EventData;
+  onRegistrationComplete?: (name: string, email: string) => void;
 }
 
-const EventRegistrationForm = ({ event }: EventRegistrationFormProps) => {
+const EventRegistrationForm = ({ event, onRegistrationComplete }: EventRegistrationFormProps) => {
   const { guest, saveGuest, clearGuest, isLoading } = useGuest();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -67,6 +68,9 @@ END:VCALENDAR`;
     
     // Auto-download calendar invite
     generateICSFile(guestInfo);
+    
+    // Notify parent of registration
+    onRegistrationComplete?.(guestInfo.name, guestInfo.email);
     
     toast({
       title: "You're registered!",
