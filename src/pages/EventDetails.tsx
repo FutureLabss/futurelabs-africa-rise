@@ -3,15 +3,22 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EventRegistrationForm from '@/components/EventRegistrationForm';
+import AttendeesModal from '@/components/AttendeesModal';
 import { getEventById } from '@/data/events';
 import { Calendar, Clock, MapPin, Users, ArrowLeft, Share2, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { useAttendees } from '@/hooks/use-attendees';
 
 const EventDetails = () => {
   const { id } = useParams<{ id: string }>();
   const event = getEventById(id || '');
   const { toast } = useToast();
+  const { attendees, addAttendee, count } = useAttendees(id || '');
+
+  const handleRegistrationComplete = (name: string, email: string) => {
+    addAttendee({ name, email });
+  };
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -144,19 +151,17 @@ const EventDetails = () => {
                     </div>
                   </div>
 
-                  {event.attendees && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
-                        <Users className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Attendees</p>
-                        <p className="font-medium text-foreground">
-                          {event.attendees}{event.maxAttendees && ` / ${event.maxAttendees}`}
-                        </p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-background rounded-xl flex items-center justify-center">
+                      <Users className="h-5 w-5 text-primary" />
                     </div>
-                  )}
+                    <div>
+                      <p className="text-sm text-muted-foreground">Attendees</p>
+                      <p className="font-medium text-foreground">
+                        {count}{event.maxAttendees && ` / ${event.maxAttendees}`}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Description */}
@@ -187,12 +192,18 @@ const EventDetails = () => {
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-4">
                 {!isPast ? (
-                  <EventRegistrationForm event={event} />
+                  <EventRegistrationForm 
+                    event={event} 
+                    onRegistrationComplete={handleRegistrationComplete}
+                  />
                 ) : (
                   <div className="bg-card border border-border rounded-2xl p-6 text-center">
                     <p className="text-muted-foreground">This event has ended.</p>
                   </div>
                 )}
+
+                {/* Attendees Button */}
+                <AttendeesModal attendees={attendees} eventTitle={event.title} />
 
                 {/* Share Button */}
                 <Button 
