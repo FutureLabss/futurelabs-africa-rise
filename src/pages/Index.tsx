@@ -1,29 +1,29 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import AboutUs from '@/components/AboutUs';
-import Initiatives from '@/components/Initiatives';
-import Programs from '@/components/Programs';
-import Impact from '@/components/Impact';
+import ValuePillars from '@/components/ValuePillars';
+import ProgramsHighlight from '@/components/ProgramsHighlight';
+import ImpactStrip from '@/components/ImpactStrip';
+import CommunityTeaser from '@/components/CommunityTeaser';
 import BlogPreview from '@/components/BlogPreview';
-import GetInvolved from '@/components/GetInvolved';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
 import Partners from '@/components/partner';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Hero />
-      <main className="mx-10">
-        <AboutUs />
-        <Programs />
-        <Impact />
-        <BlogPreview />
+      <main>
+        <Hero />
+        <ValuePillars />
+        <ProgramsHighlight />
+        <ImpactStrip />
+        <CommunityTeaser />
+        <div className="container mx-auto px-4">
+          <BlogPreview />
+        </div>
+        <Partners />
       </main>
-      <Partners />
       <Footer />
     </div>
   );
