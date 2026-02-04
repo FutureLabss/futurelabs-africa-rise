@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
@@ -83,11 +84,17 @@ const BlogPost = () => {
                   .trim()
                   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 
+                // Sanitize HTML to prevent XSS attacks
+                const sanitizedHtml = DOMPurify.sanitize(formattedText, {
+                  ALLOWED_TAGS: ['strong', 'em', 'b', 'i', 'br'],
+                  ALLOWED_ATTR: []
+                });
+                
                 return (
                   <p 
                     key={index} 
                     className="mb-6 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: formattedText }}
+                    dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
                   />
                 );
               })}
