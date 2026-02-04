@@ -92,7 +92,7 @@ const Resources = () => {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                <Button asChild variant="secondary" size="lg" className="bg-background text-foreground hover:bg-background/90 border border-border">
                   <Link to="/blog">Read Our Blog</Link>
                 </Button>
               </div>
