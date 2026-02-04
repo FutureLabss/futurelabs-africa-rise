@@ -78,9 +78,9 @@ const Community = () => {
                     </a>
                   </Button>
                   <Button 
-                    variant="outline" 
+                    variant="secondary" 
                     size="lg" 
-                    className="border-white/30 bg-transparent text-white hover:bg-white/10"
+                    className="bg-background text-foreground hover:bg-background/90 border border-border"
                     onClick={() => handleOpenModal('community')}
                   >
                     Join Community
