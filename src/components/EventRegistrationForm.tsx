@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useGuest, GuestInfo } from '@/hooks/use-guest';
 import { Check, Calendar, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { EventData } from '@/data/events';
+import { useRegistrations, registrationSchema } from '@/hooks/use-registrations';
+import { z } from 'zod';
 
 interface EventRegistrationFormProps {
   event: EventData;
@@ -12,18 +13,19 @@ interface EventRegistrationFormProps {
 }
 
 const EventRegistrationForm = ({ event, onRegistrationComplete }: EventRegistrationFormProps) => {
-  const { guest, saveGuest, clearGuest, isLoading } = useGuest();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<{ name?: string; email?: string }>({});
   const { toast } = useToast();
+  const { registerForEvent } = useRegistrations(event.id);
 
-  const generateICSFile = (guestInfo: GuestInfo) => {
+  const generateICSFile = (guestName: string, guestEmail: string) => {
     const startDate = new Date(event.date + ' ' + event.time);
     const endDate = event.endTime 
       ? new Date(event.date + ' ' + event.endTime)
-      : new Date(startDate.getTime() + 2 * 60 * 60 * 1000); // Default 2 hours
+      : new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
 
     const formatDate = (date: Date) => {
       return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -41,7 +43,7 @@ SUMMARY:${event.title}
 DESCRIPTION:${event.description}
 LOCATION:${event.location}
 ORGANIZER;CN=FutureLabs Africa:mailto:hello@futurelabs.africa
-ATTENDEE;CN=${guestInfo.name}:mailto:${guestInfo.email}
+ATTENDEE;CN=${guestName}:mailto:${guestEmail}
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR`;
@@ -57,51 +59,58 @@ END:VCALENDAR`;
     URL.revokeObjectURL(url);
   };
 
-  const handleRegister = async (guestInfo: GuestInfo) => {
-    setIsRegistering(true);
+  const validateInputs = (): boolean => {
+    const errors: { name?: string; email?: string } = {};
     
-    // Simulate registration API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    saveGuest(guestInfo);
-    setIsRegistered(true);
-    
-    // Auto-download calendar invite
-    generateICSFile(guestInfo);
-    
-    // Notify parent of registration
-    onRegistrationComplete?.(guestInfo.name, guestInfo.email);
-    
-    toast({
-      title: "You're registered!",
-      description: "A confirmation email has been sent with your calendar invite.",
-    });
-    
-    setIsRegistering(false);
-  };
-
-  const handleNewRegistration = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
-    handleRegister({ name: name.trim(), email: email.trim() });
-  };
-
-  const handleOneClickRegister = () => {
-    if (guest) {
-      handleRegister(guest);
+    try {
+      registrationSchema.parse({ name, email });
+      setValidationErrors({});
+      return true;
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        err.errors.forEach((error) => {
+          if (error.path[0] === 'name') {
+            errors.name = error.message;
+          } else if (error.path[0] === 'email') {
+            errors.email = error.message;
+          }
+        });
+      }
+      setValidationErrors(errors);
+      return false;
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="bg-card border border-border rounded-2xl p-6">
-        <div className="animate-pulse space-y-4">
-          <div className="h-10 bg-muted rounded-lg" />
-          <div className="h-10 bg-muted rounded-lg" />
-        </div>
-      </div>
-    );
-  }
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateInputs()) {
+      return;
+    }
+
+    setIsRegistering(true);
+    
+    const result = await registerForEvent({ name, email });
+    
+    if (result.success) {
+      setIsRegistered(true);
+      generateICSFile(name.trim(), email.trim());
+      onRegistrationComplete?.(name.trim(), email.trim());
+      
+      toast({
+        title: "You're registered!",
+        description: "A calendar invite has been downloaded for you.",
+      });
+    } else {
+      toast({
+        title: "Registration failed",
+        description: result.error || "Please try again later.",
+        variant: "destructive",
+      });
+    }
+    
+    setIsRegistering(false);
+  };
 
   if (isRegistered) {
     return (
@@ -111,15 +120,15 @@ END:VCALENDAR`;
         </div>
         <h3 className="text-xl font-semibold text-foreground mb-2">You're in!</h3>
         <p className="text-muted-foreground mb-4">
-          Check your email for confirmation and calendar invite.
+          Your calendar invite has been downloaded.
         </p>
         <Button 
           variant="outline" 
           className="gap-2"
-          onClick={() => generateICSFile(guest!)}
+          onClick={() => generateICSFile(name.trim(), email.trim())}
         >
           <Calendar className="h-4 w-4" />
-          Add to Calendar
+          Download Calendar Invite Again
         </Button>
       </div>
     );
@@ -129,77 +138,61 @@ END:VCALENDAR`;
     <div className="bg-card border border-border rounded-2xl p-6">
       <h3 className="text-lg font-semibold text-foreground mb-4">Register for Event</h3>
       
-      {guest ? (
-        <div className="space-y-4">
-          <div className="bg-muted/50 rounded-xl p-4">
-            <p className="text-sm text-muted-foreground mb-1">Welcome back!</p>
-            <p className="font-medium text-foreground">{guest.name}</p>
-            <p className="text-sm text-muted-foreground">{guest.email}</p>
-          </div>
-          
-          <Button 
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium"
-            onClick={handleOneClickRegister}
-            disabled={isRegistering}
-          >
-            {isRegistering ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                Registering...
-              </>
-            ) : (
-              'One-Click Register'
-            )}
-          </Button>
-          
-          <button 
-            className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
-            onClick={clearGuest}
-          >
-            Not you? Use a different email
-          </button>
+      <form onSubmit={handleRegister} className="space-y-4">
+        <div>
+          <Input
+            type="text"
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              if (validationErrors.name) {
+                setValidationErrors(prev => ({ ...prev, name: undefined }));
+              }
+            }}
+            className={`h-12 rounded-xl bg-background border-border ${validationErrors.name ? 'border-destructive' : ''}`}
+            maxLength={100}
+          />
+          {validationErrors.name && (
+            <p className="text-sm text-destructive mt-1">{validationErrors.name}</p>
+          )}
         </div>
-      ) : (
-        <form onSubmit={handleNewRegistration} className="space-y-4">
-          <div>
-            <Input
-              type="text"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="h-12 rounded-xl bg-background border-border"
-              required
-            />
-          </div>
-          <div>
-            <Input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="h-12 rounded-xl bg-background border-border"
-              required
-            />
-          </div>
-          <Button 
-            type="submit"
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium"
-            disabled={isRegistering}
-          >
-            {isRegistering ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                Registering...
-              </>
-            ) : (
-              'Register'
-            )}
-          </Button>
-          <p className="text-xs text-center text-muted-foreground">
-            By registering, you agree to receive event updates via email.
-          </p>
-        </form>
-      )}
+        <div>
+          <Input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (validationErrors.email) {
+                setValidationErrors(prev => ({ ...prev, email: undefined }));
+              }
+            }}
+            className={`h-12 rounded-xl bg-background border-border ${validationErrors.email ? 'border-destructive' : ''}`}
+            maxLength={255}
+          />
+          {validationErrors.email && (
+            <p className="text-sm text-destructive mt-1">{validationErrors.email}</p>
+          )}
+        </div>
+        <Button 
+          type="submit"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium"
+          disabled={isRegistering}
+        >
+          {isRegistering ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin mr-2" />
+              Registering...
+            </>
+          ) : (
+            'Register'
+          )}
+        </Button>
+        <p className="text-xs text-center text-muted-foreground">
+          By registering, you agree to receive event updates via email.
+        </p>
+      </form>
     </div>
   );
 };
