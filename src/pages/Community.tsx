@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,6 +6,7 @@ import EventCard from '@/components/EventCard';
 import { upcomingEvents, pastEvents } from '@/data/events';
 import { ArrowRight, Sparkles, Users, Mic, BookOpen, HandHeart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import GetInvolvedModal from '@/components/GetInvolvedModal';
 import communityImage from '@/assets/african-school-outreach.jpg';
 
 const involvementOptions = [
@@ -14,32 +15,40 @@ const involvementOptions = [
     title: 'Join as a Member',
     description: 'Get access to exclusive events, resources, and networking opportunities.',
     cta: 'Join Now',
-    href: '/contact',
+    type: 'community',
   },
   {
     icon: Mic,
     title: 'Speak at Events',
     description: 'Share your expertise and inspire the next generation of African tech talent.',
     cta: 'Apply to Speak',
-    href: '/contact',
+    type: 'train',
   },
   {
     icon: BookOpen,
     title: 'Become a Mentor',
     description: 'Guide aspiring developers and founders on their tech journey.',
     cta: 'Become a Mentor',
-    href: '/contact',
+    type: 'mentor',
   },
   {
     icon: HandHeart,
     title: 'Partner With Us',
     description: 'Collaborate with us to drive tech innovation across Africa.',
     cta: 'Partner Now',
-    href: '/contact',
+    type: 'partner',
   },
 ];
 
 const Community = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
+
+  const handleOpenModal = (type: string) => {
+    setModalType(type);
+    setModalOpen(true);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
@@ -68,8 +77,13 @@ const Community = () => {
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                    <Link to="/contact">Join Community</Link>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-white/30 text-white hover:bg-white/10"
+                    onClick={() => handleOpenModal('community')}
+                  >
+                    Join Community
                   </Button>
                 </div>
               </div>
@@ -232,13 +246,13 @@ const Community = () => {
                   <p className="text-muted-foreground text-sm mb-4">
                     {option.description}
                   </p>
-                  <Link 
-                    to={option.href}
+                  <button 
+                    onClick={() => handleOpenModal(option.type)}
                     className="text-primary font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
                   >
                     {option.cta}
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </button>
                 </div>
               ))}
             </div>
@@ -246,6 +260,11 @@ const Community = () => {
         </section>
       </main>
       <Footer />
+      <GetInvolvedModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        type={modalType}
+      />
     </div>
   );
 };
