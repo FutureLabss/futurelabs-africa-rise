@@ -50,7 +50,7 @@ export function useRegistrations(eventId: string) {
   }, [fetchRegistrationCount]);
 
   const registerForEvent = useCallback(async (input: RegistrationInput): Promise<{ success: boolean; error?: string }> => {
-    // Validate input
+    // Validate input client-side first
     const validation = registrationSchema.safeParse(input);
     if (!validation.success) {
       const errorMessage = validation.error.errors[0]?.message || 'Invalid input';
@@ -60,29 +60,33 @@ export function useRegistrations(eventId: string) {
     const { name, email } = validation.data;
 
     try {
-      // Check if already registered (by trying to insert - will fail if duplicate)
-      const { data, error: insertError } = await supabase
-        .from('registrations')
-        .insert({
+      // Use edge function for rate-limited registration
+      const { data, error } = await supabase.functions.invoke('register-event', {
+        body: {
           event_id: eventId,
           full_name: name,
           email: email.toLowerCase(),
-        })
-        .select()
-        .single();
+        },
+      });
 
-      if (insertError) {
-        // Check for duplicate constraint violation
-        if (insertError.code === '23505') {
-          return { success: false, error: 'You are already registered for this event' };
+      if (error) {
+        // Handle edge function errors
+        if (import.meta.env.DEV) {
+          console.error('Registration error:', error);
         }
-        console.error('Registration error:', insertError);
         return { success: false, error: 'Failed to register. Please try again.' };
+      }
+
+      // Handle response from edge function
+      if (data?.error) {
+        return { success: false, error: data.error };
       }
 
       return { success: true };
     } catch (err) {
-      console.error('Registration error:', err);
+      if (import.meta.env.DEV) {
+        console.error('Registration error:', err);
+      }
       return { success: false, error: 'An unexpected error occurred' };
     }
   }, [eventId]);
