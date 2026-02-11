@@ -13,6 +13,7 @@ const About = () => {
         <PageHero
           title="About Future Labs"
           subtitle="We inspire, empower, and incubate high-impact tech ideas and startups across Africa."
+          backgroundImageUrl="/images/futurelabs-hero.jpeg"
         />
         <div className="mx-10">
           <AboutUs />

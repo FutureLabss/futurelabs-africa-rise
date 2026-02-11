@@ -12,6 +12,7 @@ const ProgramsPage = () => {
         <PageHero
           title="Our Programs"
           subtitle="Future Labs runs accelerator and capacity-building programs to nurture Africa's next generation of tech leaders."
+          backgroundImageUrl="/images/futurelabs-hero.jpeg"
         />
         <div className="mx-10">
           <Programs />
