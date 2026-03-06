@@ -9,7 +9,7 @@ type PageHeroProps = {
 const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, backgroundImageUrl }) => {
   return (
     <section
-      className="relative w-full overflow-hidden"
+      className={`relative w-full overflow-hidden ${!backgroundImageUrl ? 'bg-secondary' : ''}`}
     >
       <div
         className="relative w-full"
