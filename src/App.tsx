@@ -21,6 +21,10 @@ import Startups from "./pages/Startups";
 import Community from "./pages/Community";
 import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminEventForm from "./pages/admin/AdminEventForm";
 
 const queryClient = new QueryClient();
 
@@ -49,7 +53,15 @@ const App = () => (
           <Route path="/startups" element={<Startups />} />
           <Route path="/community" element={<Community />} />
           <Route path="/resources" element={<Resources />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Admin routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="events/new" element={<AdminEventForm />} />
+            <Route path="events/:id/edit" element={<AdminEventForm />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
