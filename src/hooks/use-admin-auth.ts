@@ -8,48 +8,70 @@ export function useAdminAuth() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const checkAdmin = useCallback(async (userId: string) => {
+  const checkAdmin = useCallback(async () => {
     try {
       const { data, error } = await supabase.rpc('is_admin');
       if (error) {
-        console.error('is_admin RPC error:', error);
-        setIsAdmin(false);
-      } else {
-        setIsAdmin(!!data);
+        console.error('is_admin RPC error:', error.message);
+        return false;
       }
+      return !!data;
     } catch (err) {
       console.error('is_admin check failed:', err);
-      setIsAdmin(false);
+      return false;
     }
   }, []);
 
   useEffect(() => {
-    // First get the current session
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        await checkAdmin(session.user.id);
-      }
-      setLoading(false);
-    });
+    let mounted = true;
 
-    // Then listen for changes
+    // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
+      async (_event, newSession) => {
+        if (!mounted) return;
+        
+        setSession(newSession);
+        setUser(newSession?.user ?? null);
 
-        if (session?.user) {
-          await checkAdmin(session.user.id);
+        if (newSession?.user) {
+          // Use setTimeout to avoid potential deadlock with Supabase client
+          setTimeout(async () => {
+            if (!mounted) return;
+            const admin = await checkAdmin();
+            if (mounted) {
+              setIsAdmin(admin);
+              setLoading(false);
+            }
+          }, 0);
         } else {
           setIsAdmin(false);
+          setLoading(false);
         }
-        setLoading(false);
       }
     );
 
-    return () => subscription.unsubscribe();
+    // Then get initial session
+    supabase.auth.getSession().then(async ({ data: { session: initSession } }) => {
+      if (!mounted) return;
+      
+      setSession(initSession);
+      setUser(initSession?.user ?? null);
+      
+      if (initSession?.user) {
+        const admin = await checkAdmin();
+        if (mounted) {
+          setIsAdmin(admin);
+        }
+      }
+      if (mounted) {
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, [checkAdmin]);
 
   const signOut = async () => {
