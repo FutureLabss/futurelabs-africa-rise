@@ -7,12 +7,13 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, ShieldCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const { signIn, isAdmin, user, loading } = useAdminAuth();
+  const { isAdmin, user, loading } = useAdminAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -27,7 +28,7 @@ const AdminLogin: React.FC = () => {
     if (!email.trim() || !password.trim()) return;
 
     setSubmitting(true);
-    const { error } = await signIn(email, password);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
       toast({
@@ -39,12 +40,21 @@ const AdminLogin: React.FC = () => {
       return;
     }
 
-    // Re-check admin after login — the auth state listener will update isAdmin
-    // Small delay to let the state update
+    // The onAuthStateChange listener in useAdminAuth will handle
+    // setting user/isAdmin, which triggers the useEffect redirect above.
+    // We keep submitting=true until redirect happens or a timeout.
     setTimeout(() => {
       setSubmitting(false);
-    }, 1000);
+    }, 5000);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-secondary">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary p-4">
