@@ -4,6 +4,7 @@ import {
     CarouselItem,
 } from "@/components/ui/carousel"
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useInView } from "@/hooks/use-in-view";
 import Autoplay from "embla-carousel-autoplay"
 
 const Partners = () => {
@@ -22,11 +23,12 @@ const Partners = () => {
     ];
 
     const isMobile = useIsMobile();
+    const { ref: sectionRef, inView: isInView } = useInView<HTMLDivElement>({ threshold: 0.2 });
 
     return (
-        <div className="mt-20 relative">
+        <div ref={sectionRef} className="mt-20 relative">
             <div className="absolute inset-0 bg-secondary blur-sm opacity-75"></div>
-            <div className="relative py-10">
+            <div className={`relative py-10 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <h3 className="text-3xl font-[800] text-center text-white mb-3">Partners & Supporters</h3>
                 <p className="text-center text-white/90 mb-10 px-6">
                     organizations we have had the pleasure of innovating for impact with
@@ -58,8 +60,16 @@ const Partners = () => {
                     </Carousel>
                 ) : (
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                        {logos.map((logo) => (
-                            <div key={logo.name} className="bg-white h-20 w-40 md:w-48 flex items-center justify-center rounded-lg shadow-md border border-primary/20 relative p-2">
+                        {logos.map((logo, index) => (
+                            <div
+                                key={logo.name}
+                                className="bg-white h-20 w-40 md:w-48 flex items-center justify-center rounded-lg shadow-md border border-primary/20 relative p-2 hover-scale transition-all duration-500"
+                                style={{
+                                    opacity: isInView ? 1 : 0,
+                                    transform: isInView ? 'translateY(0)' : 'translateY(20px)',
+                                    transitionDelay: `${index * 100}ms`,
+                                }}
+                            >
                                 <img src={logo.src} alt={logo.name} className="object-contain h-full w-full" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
                             </div>
                         ))}
