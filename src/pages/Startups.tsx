@@ -2,12 +2,14 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon } from 'lucide-react';
 
 type Startup = {
   name: string;
   category: string;
   description: string;
   link?: string;
+  icon: LucideIcon;
 };
 
 const startups: Startup[] = [
@@ -15,8 +17,9 @@ const startups: Startup[] = [
     name: 'FutureLabs Academy',
     category: 'Education',
     description:
-      'Technical education and talent accelerator building Africa’s next generation of tech leaders.',
+      'Technical education and talent accelerator building Africa\'s next generation of tech leaders.',
     link: 'https://www.futurelabs.ng',
+    icon: GraduationCap,
   },
   {
     name: 'FutureResume',
@@ -24,6 +27,7 @@ const startups: Startup[] = [
     description:
       'AI-powered resume and portfolio tools helping talent showcase skills and land opportunities.',
     link: 'https://futureresume-tbyt.onrender.com/',
+    icon: FileText,
   },
   {
     name: 'Opportunitylab.net',
@@ -31,6 +35,7 @@ const startups: Startup[] = [
     description:
       'A curated hub for scholarships, fellowships, grants and career programs for African youth.',
     link: 'https://www.opportunitylab.net',
+    icon: Globe,
   },
   {
     name: 'Cleverclass',
@@ -38,6 +43,15 @@ const startups: Startup[] = [
     description:
       'A modern classroom platform powering learning communities with seamless tools and delightful UX.',
     link: 'https://cleverclass.vercel.app/',
+    icon: BookOpen,
+  },
+  {
+    name: 'Salely',
+    category: 'Social Commerce',
+    description:
+      'A simple storefront builder for African vendors — create one link for all your products and let customers browse and order directly via WhatsApp. No app needed.',
+    link: 'https://salely.app',
+    icon: ShoppingBag,
   },
 ];
 
@@ -48,38 +62,51 @@ const Startups = () => {
       <main className="flex-grow pt-20">
         <PageHero
           title="Startups"
-          subtitle="Ventures we’re building, supporting and nurturing within our ecosystem."
+          subtitle="Ventures we're building, supporting and nurturing within our ecosystem."
         />
 
-        <section className="mx-10 py-12">
+        <section className="mx-4 md:mx-10 py-12">
           <div className="container mx-auto px-4">
-            <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
-              {startups.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-xl border border-white/10 bg-white/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow overflow-hidden block"
-                >
-                  <div className="p-6">
-                    <div className="text-xs uppercase tracking-wider text-primary mb-2">
-                      {s.category}
+            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+              {startups.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.name}
+                    href={s.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative rounded-xl border border-border bg-card backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block"
+                  >
+                    {/* Animated background icon */}
+                    <div className="absolute -right-6 -bottom-6 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500">
+                      <Icon className="w-40 h-40 text-primary animate-float" strokeWidth={1} />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-900">
-                      {s.name}
-                    </h3>
-                    <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                      {s.description}
-                    </p>
-                  </div>
-                </a>
-              ))}
+
+                    <div className="relative p-8 md:p-10">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="text-xs uppercase tracking-wider text-primary font-semibold">
+                          {s.category}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground">
+                        {s.name}
+                      </h3>
+                      <p className="mt-4 text-muted-foreground text-base leading-relaxed">
+                        {s.description}
+                      </p>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <section className="mx-10 pb-16">
+        <section className="mx-4 md:mx-10 pb-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Our Incubation Approach</h2>
@@ -96,5 +123,3 @@ const Startups = () => {
 };
 
 export default Startups;
-
-
