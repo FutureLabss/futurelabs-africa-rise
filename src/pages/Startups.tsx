@@ -10,6 +10,7 @@ type Startup = {
   description: string;
   link?: string;
   icon: LucideIcon;
+  screenshot: string;
 };
 
 const startups: Startup[] = [
