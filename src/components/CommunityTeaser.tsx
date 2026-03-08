@@ -29,7 +29,7 @@ const CommunityTeaser = () => {
                   <p className="text-muted-foreground text-xs">Tech Meetup Lagos</p>
                 </div>
               </div>
-              <Link to="/community" className="text-primary text-sm font-medium hover:underline">
+              <Link to="/resources" className="text-primary text-sm font-medium hover:underline">
                 View all events →
               </Link>
             </div>
