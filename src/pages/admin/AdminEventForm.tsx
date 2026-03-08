@@ -13,6 +13,7 @@ import {
 import { Loader2, ArrowLeft, Upload } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Database } from '@/integrations/supabase/types';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 type LocationType = Database['public']['Enums']['location_type'];
 
@@ -169,8 +170,8 @@ const AdminEventForm: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea id="description" rows={4} value={form.description} onChange={(e) => handleChange('description', e.target.value)} />
+              <Label>Description</Label>
+              <RichTextEditor content={form.description} onChange={(html) => handleChange('description', html)} />
             </div>
 
             <div className="grid grid-cols-2 gap-4">

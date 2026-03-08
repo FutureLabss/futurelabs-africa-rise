@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import EventRegistrationForm from '@/components/EventRegistrationForm';
 import { supabase } from '@/integrations/supabase/client';
 import { Calendar, Clock, MapPin, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
@@ -142,7 +143,10 @@ const EventDetails = () => {
                 {event.description && (
                   <div className="prose prose-lg max-w-none">
                     <h2 className="text-xl font-semibold text-foreground mb-4">About This Event</h2>
-                    <p className="text-muted-foreground leading-relaxed">{event.description}</p>
+                    <div 
+                      className="text-muted-foreground leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }} 
+                    />
                   </div>
                 )}
               </div>
