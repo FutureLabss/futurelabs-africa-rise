@@ -21,6 +21,7 @@ const startups: Startup[] = [
       'Technical education and talent accelerator building Africa\'s next generation of tech leaders.',
     link: 'https://www.futurelabs.ng',
     icon: GraduationCap,
+    screenshot: '/startups/futurelabs-academy.png',
   },
   {
     name: 'FutureResume',
@@ -29,6 +30,7 @@ const startups: Startup[] = [
       'AI-powered resume and portfolio tools helping talent showcase skills and land opportunities.',
     link: 'https://futureresume-tbyt.onrender.com/',
     icon: FileText,
+    screenshot: '/startups/futureresume.png',
   },
   {
     name: 'Opportunitylab.net',
@@ -37,6 +39,7 @@ const startups: Startup[] = [
       'A curated hub for scholarships, fellowships, grants and career programs for African youth.',
     link: 'https://www.opportunitylab.net',
     icon: Globe,
+    screenshot: '/startups/opportunitylab.png',
   },
   {
     name: 'Cleverclass',
@@ -45,6 +48,7 @@ const startups: Startup[] = [
       'A modern classroom platform powering learning communities with seamless tools and delightful UX.',
     link: 'https://cleverclass.vercel.app/',
     icon: BookOpen,
+    screenshot: '/startups/cleverclass.png',
   },
   {
     name: 'Salely',
@@ -53,6 +57,7 @@ const startups: Startup[] = [
       'A simple storefront builder for African vendors — create one link for all your products and let customers browse and order directly via WhatsApp. No app needed.',
     link: 'https://salely.app',
     icon: ShoppingBag,
+    screenshot: '/startups/salely.png',
   },
 ];
 
