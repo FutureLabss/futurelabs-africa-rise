@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Facebook, Youtube, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Facebook, ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/hello@futurelabs.africa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: 'New Newsletter Subscription - FutureLabs.africa',
+          _template: 'table',
+          email,
+          type: 'Newsletter Subscription',
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      toast({ title: 'Subscribed!', description: 'You have been added to our mailing list.' });
+      setEmail('');
+    } catch {
+      toast({ title: 'Error', description: 'Something went wrong. Please try again.', variant: 'destructive' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const quickLinks = [
     { label: 'About Us', href: '/about' },
@@ -38,15 +68,17 @@ const Footer = () => {
             <p className="text-white/70 mb-6">
               Get updates on programs, events, and opportunities across Africa's tech ecosystem.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="flex-1 px-5 py-4 h-14 sm:h-12 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-primary text-base"
               />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 px-6 h-14 sm:h-12">
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button type="submit" className="bg-primary hover:bg-primary/90 px-6 h-14 sm:h-12" disabled={loading}>
+                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Subscribe <ArrowRight className="ml-2 h-4 w-4" /></>}
               </Button>
             </form>
           </div>
