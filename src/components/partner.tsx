@@ -6,7 +6,6 @@ import {
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useInView } from "@/hooks/use-in-view";
 import Autoplay from "embla-carousel-autoplay"
-import { useRef } from "react";
 
 const Partners = () => {
     const logos = [
@@ -24,8 +23,7 @@ const Partners = () => {
     ];
 
     const isMobile = useIsMobile();
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(sectionRef, { threshold: 0.2 });
+    const { ref: sectionRef, inView: isInView } = useInView<HTMLDivElement>({ threshold: 0.2 });
 
     return (
         <div ref={sectionRef} className="mt-20 relative">
