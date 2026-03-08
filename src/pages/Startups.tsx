@@ -17,7 +17,7 @@ const startups: Startup[] = [
     name: 'FutureLabs Academy',
     category: 'Education',
     description:
-      'Technical education and talent accelerator building Africa's next generation of tech leaders.',
+      'Technical education and talent accelerator building Africa\'s next generation of tech leaders.',
     link: 'https://www.futurelabs.ng',
     icon: GraduationCap,
   },
