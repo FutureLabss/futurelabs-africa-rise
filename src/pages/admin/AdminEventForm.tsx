@@ -13,6 +13,7 @@ import {
 import { Loader2, ArrowLeft, Upload } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Database } from '@/integrations/supabase/types';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 type LocationType = Database['public']['Enums']['location_type'];
 
