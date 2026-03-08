@@ -62,21 +62,21 @@ const Hero = () => {
             </Button>
           </div>
           
-          {/* Stats Preview */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-primary">5000+</p>
-              <p className="text-white/70 text-sm mt-1">Youths Trained</p>
-            </div>
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-primary">150+</p>
-              <p className="text-white/70 text-sm mt-1">Startups Supported</p>
-            </div>
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-primary">50+</p>
-              <p className="text-white/70 text-sm mt-1">Partner Organizations</p>
-            </div>
-          </div>
+           {/* Stats Preview */}
+           <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+             <div>
+               <p className="text-3xl sm:text-4xl font-bold text-primary">200+</p>
+               <p className="text-white/70 text-sm mt-1">Youths Trained</p>
+             </div>
+             <div>
+               <p className="text-3xl sm:text-4xl font-bold text-primary">20+</p>
+               <p className="text-white/70 text-sm mt-1">Startups Supported</p>
+             </div>
+             <div>
+               <p className="text-3xl sm:text-4xl font-bold text-primary">50+</p>
+               <p className="text-white/70 text-sm mt-1">Partner Organizations</p>
+             </div>
+           </div>
         </div>
       </div>
       
