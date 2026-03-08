@@ -20,17 +20,13 @@ const EventDetails = () => {
 
   useEffect(() => {
     if (!id) return;
-    // Try matching by slug first, then by id
-    supabase
-      .from('events')
-      .select('*')
-      .or(`slug.eq.${id},id.eq.${id}`)
-      .limit(1)
-      .single()
-      .then(({ data, error }) => {
-        if (!error && data) setEvent(data);
-        setLoading(false);
-      });
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+    const query = supabase.from('events').select('*');
+    const filtered = isUuid ? query.eq('id', id) : query.eq('slug', id);
+    filtered.limit(1).single().then(({ data, error }) => {
+      if (!error && data) setEvent(data);
+      setLoading(false);
+    });
   }, [id]);
 
   const handleShare = async () => {
