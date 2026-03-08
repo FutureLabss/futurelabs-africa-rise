@@ -12,6 +12,7 @@ type EventRow = Tables<'events'>;
 const Events = () => {
   const [events, setEvents] = useState<EventRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [regCounts, setRegCounts] = useState<Record<string, number>>({});
 
   useEffect(() => {
     supabase
@@ -19,8 +20,20 @@ const Events = () => {
       .select('*')
       .order('start_time', { ascending: true })
       .then(({ data }) => {
-        setEvents(data || []);
+        const evts = data || [];
+        setEvents(evts);
         setLoading(false);
+        // Fetch registration counts
+        if (evts.length > 0) {
+          const ids = evts.map(e => e.id);
+          supabase.rpc('get_registration_counts', { event_ids: ids }).then(({ data: counts }) => {
+            if (counts) {
+              const map: Record<string, number> = {};
+              (counts as { event_id: string; count: number }[]).forEach(r => { map[r.event_id] = Number(r.count); });
+              setRegCounts(map);
+            }
+          });
+        }
       });
   }, []);
 
