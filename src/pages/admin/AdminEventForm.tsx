@@ -170,8 +170,8 @@ const AdminEventForm: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea id="description" rows={4} value={form.description} onChange={(e) => handleChange('description', e.target.value)} />
+              <Label>Description</Label>
+              <RichTextEditor content={form.description} onChange={(html) => handleChange('description', html)} />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
