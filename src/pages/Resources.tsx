@@ -139,6 +139,7 @@ const Resources = () => {
                         type: event.location_type,
                         image: event.image_url || '',
                         featured: event.featured,
+                        attendees: regCounts[event.id] || undefined,
                       }} />
                     ))}
                   </div>
