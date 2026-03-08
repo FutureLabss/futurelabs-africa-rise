@@ -10,6 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 const Resources = () => {
   const [events, setEvents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [regCounts, setRegCounts] = useState<Record<string, number>>({});
 
   useEffect(() => {
     supabase
@@ -17,8 +18,19 @@ const Resources = () => {
       .select('*')
       .order('start_time', { ascending: true })
       .then(({ data }) => {
-        setEvents(data || []);
+        const evts = data || [];
+        setEvents(evts);
         setLoading(false);
+        if (evts.length > 0) {
+          const ids = evts.map((e: any) => e.id);
+          supabase.rpc('get_registration_counts', { event_ids: ids }).then(({ data: counts }) => {
+            if (counts) {
+              const map: Record<string, number> = {};
+              (counts as { event_id: string; count: number }[]).forEach(r => { map[r.event_id] = Number(r.count); });
+              setRegCounts(map);
+            }
+          });
+        }
       });
   }, []);
 
