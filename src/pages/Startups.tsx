@@ -84,6 +84,15 @@ const Startups = () => {
                     rel="noopener noreferrer"
                     className="group relative rounded-xl border border-border bg-card backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block"
                   >
+                    {/* Screenshot preview */}
+                    <div className="w-full h-48 overflow-hidden border-b border-border">
+                      <img
+                        src={s.screenshot}
+                        alt={`${s.name} screenshot`}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
                     {/* Animated background icon */}
                     <div className="absolute -right-6 -bottom-6 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500">
                       <Icon className="w-40 h-40 text-primary animate-float" strokeWidth={1} />
