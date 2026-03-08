@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, Loader2 } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/hello@futurelabs.africa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `Contact: ${formData.subject}`,
+          _template: 'table',
+          'Full Name': formData.name,
+          Email: formData.email,
+          Subject: formData.subject,
+          Message: formData.message,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      toast({ title: 'Message Sent!', description: 'Thank you for reaching out. We will get back to you soon.' });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      toast({ title: 'Error', description: 'Something went wrong. Please try again.', variant: 'destructive' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -60,31 +91,25 @@ const Contact = () => {
 
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
-            <form
-              action="https://formsubmit.co/hello@futurelabs.africa"
-              method="POST"
-            >
-              <input type="hidden" name="_subject" value="New message from FutureLabs.africa" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 mb-2">Full Name</label>
-                <Input id="name" name="name" placeholder="Your name" className="border-gray-300" required />
+                <Input id="name" placeholder="Your name" className="border-gray-300" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
               </div>
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
-                <Input id="email" name="email" type="email" placeholder="Your email" className="border-gray-300" required />
+                <Input id="email" type="email" placeholder="Your email" className="border-gray-300" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
               <div className="mb-4">
                 <label htmlFor="subject" className="block text-gray-700 mb-2">Subject</label>
-                <Input id="subject" name="subject" placeholder="Message subject" className="border-gray-300" required />
+                <Input id="subject" placeholder="Message subject" className="border-gray-300" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} />
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
-                <Textarea id="message" name="message" placeholder="Your message" className="border-gray-300" rows={5} required />
+                <Textarea id="message" placeholder="Your message" className="border-gray-300" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
               </div>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white py-6">
-                Send Message
+              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white py-6" disabled={loading}>
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Send Message'}
               </Button>
             </form>
           </div>
