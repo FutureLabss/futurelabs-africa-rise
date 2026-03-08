@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import EventRegistrationForm from '@/components/EventRegistrationForm';
 import { supabase } from '@/integrations/supabase/client';
 import { Calendar, Clock, MapPin, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
