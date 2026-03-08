@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Programs', href: '/programs' },
   { label: 'Startups', href: '/startups' },
   { label: 'Community', href: '/community' },
-  { label: 'Resources', href: '/resources' },
+  { label: 'Events', href: '/resources' },
   { label: 'Contact', href: '/contact' },
 ];
 
