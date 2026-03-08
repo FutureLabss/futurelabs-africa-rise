@@ -156,6 +156,12 @@ const Events = () => {
                             <span className="line-clamp-1">{event.location_details}</span>
                           </div>
                         )}
+                        {regCounts[event.id] > 0 && (
+                          <div className="flex items-center gap-1">
+                            <Users className="h-3.5 w-3.5" />
+                            <span>{regCounts[event.id]} registered</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="flex-shrink-0 self-start">
