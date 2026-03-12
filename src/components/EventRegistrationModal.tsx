@@ -31,14 +31,15 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
     e.preventDefault();
 
     try {
-      registrationSchema.parse({ name, email });
+      registrationSchema.parse({ name, email, phone });
       setErrors({});
     } catch (err) {
       if (err instanceof z.ZodError) {
-        const newErrors: { name?: string; email?: string } = {};
+        const newErrors: { name?: string; email?: string; phone?: string } = {};
         err.errors.forEach((error) => {
           if (error.path[0] === 'name') newErrors.name = error.message;
           if (error.path[0] === 'email') newErrors.email = error.message;
+          if (error.path[0] === 'phone') newErrors.phone = error.message;
         });
         setErrors(newErrors);
       }
