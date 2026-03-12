@@ -47,7 +47,7 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
     }
 
     setIsRegistering(true);
-    const result = await registerForEvent({ name, email });
+    const result = await registerForEvent({ name, email, phone });
 
     if (result.success) {
       setIsComplete(true);
