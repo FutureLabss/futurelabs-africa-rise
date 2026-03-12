@@ -45,6 +45,11 @@ function validateName(name: string): boolean {
   return name.length >= 2 && name.length <= 100;
 }
 
+function validatePhone(phone: string): boolean {
+  const phoneRegex = /^[+\d\s\-()]+$/;
+  return phone.length >= 7 && phone.length <= 20 && phoneRegex.test(phone);
+}
+
 function validateEventId(eventId: string): boolean {
   // UUID v4 format validation
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
