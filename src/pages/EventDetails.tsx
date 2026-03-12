@@ -24,6 +24,7 @@ const EventDetails = () => {
   const [regCount, setRegCount] = useState(0);
   const [showRegModal, setShowRegModal] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [attendeeAvatars, setAttendeeAvatars] = useState<{ email_hash: string; initials: string }[]>([]);
 
   useEffect(() => {
     if (!id) return;
