@@ -18,9 +18,10 @@ interface EventRegistrationModalProps {
 const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegistrationModalProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
   const { toast } = useToast();
   const { registerForEvent } = useRegistrations(event.id);
 
