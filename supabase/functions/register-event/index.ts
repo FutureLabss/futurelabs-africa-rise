@@ -182,6 +182,7 @@ Deno.serve(async (req) => {
         event_id,
         full_name: trimmedName,
         email: trimmedEmail,
+        phone: trimmedPhone,
       })
       .select()
       .single();

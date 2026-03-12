@@ -62,7 +62,7 @@ export function useRegistrations(eventId: string) {
       return { success: false, error: errorMessage };
     }
 
-    const { name, email } = validation.data;
+    const { name, email, phone } = validation.data;
 
     try {
       // Use edge function for rate-limited registration
@@ -71,6 +71,7 @@ export function useRegistrations(eventId: string) {
           event_id: eventId,
           full_name: name,
           email: email.toLowerCase(),
+          phone,
         },
       });
 

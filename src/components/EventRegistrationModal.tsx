@@ -140,6 +140,20 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
               />
               {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
             </div>
+            <div>
+              <Input
+                type="tel"
+                placeholder="Phone number"
+                value={phone}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }));
+                }}
+                className={`h-11 rounded-xl bg-background border-border ${errors.phone ? 'border-destructive' : ''}`}
+                maxLength={20}
+              />
+              {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
+            </div>
             <Button
               type="submit"
               className="w-full h-11 rounded-xl text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90"

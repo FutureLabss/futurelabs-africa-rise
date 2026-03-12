@@ -245,9 +245,17 @@ const EventDetails = () => {
                       {attendeeAvatars.map((a, i) => (
                         <div
                           key={i}
-                          className={`w-10 h-10 rounded-full ${a.color} border-2 border-background flex items-center justify-center`}
+                          className="w-10 h-10 rounded-full border-2 border-background overflow-hidden bg-muted flex items-center justify-center"
                         >
-                          <span className="text-xs font-semibold text-primary-foreground">{a.initials}</span>
+                          <img
+                            src={`https://www.gravatar.com/avatar/${a.email_hash}?d=mp&s=80`}
+                            alt={a.initials}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).style.display = 'none';
+                              (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-xs font-semibold text-muted-foreground">${a.initials}</span>`;
+                            }}
+                          />
                         </div>
                       ))}
                     </div>

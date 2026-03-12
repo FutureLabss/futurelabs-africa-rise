@@ -54,6 +54,7 @@ const App = () => (
           <Route path="/startups" element={<Startups />} />
           <Route path="/community" element={<Community />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/ai-fellowship" element={<AIFellowship />} />
 
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

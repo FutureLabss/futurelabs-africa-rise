@@ -120,8 +120,8 @@ const Navbar = () => {
               asChild 
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
             >
-              <Link to="/programs" onClick={() => setIsOpen(false)}>
-                Explore Programs
+              <Link to="/ai-fellowship" onClick={() => setIsOpen(false)}>
+                AI Fellowship
               </Link>
             </Button>
           </div>
