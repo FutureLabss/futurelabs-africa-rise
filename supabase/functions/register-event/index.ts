@@ -132,6 +132,13 @@ Deno.serve(async (req) => {
       );
     }
 
+    if (!validatePhone(trimmedPhone)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid phone number' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Create Supabase client with service role for insert
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
