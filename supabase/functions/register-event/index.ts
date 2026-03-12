@@ -45,6 +45,11 @@ function validateName(name: string): boolean {
   return name.length >= 2 && name.length <= 100;
 }
 
+function validatePhone(phone: string): boolean {
+  const phoneRegex = /^[+\d\s\-()]+$/;
+  return phone.length >= 7 && phone.length <= 20 && phoneRegex.test(phone);
+}
+
 function validateEventId(eventId: string): boolean {
   // UUID v4 format validation
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -92,18 +97,19 @@ Deno.serve(async (req) => {
 
     // Parse and validate request body
     const body = await req.json();
-    const { event_id, full_name, email } = body;
+    const { event_id, full_name, email, phone } = body;
 
     // Validate inputs
-    if (!event_id || !full_name || !email) {
+    if (!event_id || !full_name || !email || !phone) {
       return new Response(
-        JSON.stringify({ error: 'Missing required fields: event_id, full_name, email' }),
+        JSON.stringify({ error: 'Missing required fields: event_id, full_name, email, phone' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
     const trimmedName = String(full_name).trim();
     const trimmedEmail = String(email).trim().toLowerCase();
+    const trimmedPhone = String(phone).trim();
 
     if (!validateEventId(event_id)) {
       return new Response(
@@ -122,6 +128,13 @@ Deno.serve(async (req) => {
     if (!validateEmail(trimmedEmail)) {
       return new Response(
         JSON.stringify({ error: 'Invalid email address' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (!validatePhone(trimmedPhone)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid phone number' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -169,6 +182,7 @@ Deno.serve(async (req) => {
         event_id,
         full_name: trimmedName,
         email: trimmedEmail,
+        phone: trimmedPhone,
       })
       .select()
       .single();

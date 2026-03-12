@@ -11,7 +11,12 @@ export const registrationSchema = z.object({
   email: z.string()
     .trim()
     .email({ message: "Invalid email address" })
-    .max(255, { message: "Email must be less than 255 characters" })
+    .max(255, { message: "Email must be less than 255 characters" }),
+  phone: z.string()
+    .trim()
+    .min(7, { message: "Phone number must be at least 7 digits" })
+    .max(20, { message: "Phone number must be less than 20 characters" })
+    .regex(/^[+\d\s\-()]+$/, { message: "Invalid phone number format" })
 });
 
 export type RegistrationInput = z.infer<typeof registrationSchema>;
@@ -57,7 +62,7 @@ export function useRegistrations(eventId: string) {
       return { success: false, error: errorMessage };
     }
 
-    const { name, email } = validation.data;
+    const { name, email, phone } = validation.data;
 
     try {
       // Use edge function for rate-limited registration
@@ -66,6 +71,7 @@ export function useRegistrations(eventId: string) {
           event_id: eventId,
           full_name: name,
           email: email.toLowerCase(),
+          phone,
         },
       });
 

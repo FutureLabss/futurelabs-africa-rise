@@ -18,9 +18,10 @@ interface EventRegistrationModalProps {
 const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegistrationModalProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
   const { toast } = useToast();
   const { registerForEvent } = useRegistrations(event.id);
 
@@ -30,14 +31,15 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
     e.preventDefault();
 
     try {
-      registrationSchema.parse({ name, email });
+      registrationSchema.parse({ name, email, phone });
       setErrors({});
     } catch (err) {
       if (err instanceof z.ZodError) {
-        const newErrors: { name?: string; email?: string } = {};
+        const newErrors: { name?: string; email?: string; phone?: string } = {};
         err.errors.forEach((error) => {
           if (error.path[0] === 'name') newErrors.name = error.message;
           if (error.path[0] === 'email') newErrors.email = error.message;
+          if (error.path[0] === 'phone') newErrors.phone = error.message;
         });
         setErrors(newErrors);
       }
@@ -45,7 +47,7 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
     }
 
     setIsRegistering(true);
-    const result = await registerForEvent({ name, email });
+    const result = await registerForEvent({ name, email, phone });
 
     if (result.success) {
       setIsComplete(true);
@@ -137,6 +139,20 @@ const EventRegistrationModal = ({ isOpen, onClose, event, onSuccess }: EventRegi
                 maxLength={255}
               />
               {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+            </div>
+            <div>
+              <Input
+                type="tel"
+                placeholder="Phone number"
+                value={phone}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }));
+                }}
+                className={`h-11 rounded-xl bg-background border-border ${errors.phone ? 'border-destructive' : ''}`}
+                maxLength={20}
+              />
+              {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
             </div>
             <Button
               type="submit"

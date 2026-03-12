@@ -87,11 +87,14 @@ const EventDetails = () => {
   const eventDate = new Date(event.start_time);
   const endDate = event.end_time ? new Date(event.end_time) : null;
 
-  // Generate placeholder attendee avatars for social proof
-  const attendeeAvatars = Array.from({ length: Math.min(regCount, 8) }, (_, i) => {
-    const colors = ['bg-primary/80', 'bg-secondary', 'bg-accent', 'bg-primary/60', 'bg-muted-foreground/60', 'bg-primary/40', 'bg-secondary/80', 'bg-accent/70'];
-    return { color: colors[i % colors.length], initials: String.fromCharCode(65 + (i % 26)) };
-  });
+  const [attendeeAvatars, setAttendeeAvatars] = useState<{ email_hash: string; initials: string }[]>([]);
+
+  useEffect(() => {
+    if (!event) return;
+    supabase.rpc('get_event_attendee_avatars', { p_event_id: event.id }).then(({ data }) => {
+      if (data) setAttendeeAvatars(data as { email_hash: string; initials: string }[]);
+    });
+  }, [event, regCount]);
 
   const StickyCard = () => (
     <div className="bg-card border border-border rounded-[20px] p-6 shadow-sm">
@@ -242,9 +245,17 @@ const EventDetails = () => {
                       {attendeeAvatars.map((a, i) => (
                         <div
                           key={i}
-                          className={`w-10 h-10 rounded-full ${a.color} border-2 border-background flex items-center justify-center`}
+                          className="w-10 h-10 rounded-full border-2 border-background overflow-hidden bg-muted flex items-center justify-center"
                         >
-                          <span className="text-xs font-semibold text-primary-foreground">{a.initials}</span>
+                          <img
+                            src={`https://www.gravatar.com/avatar/${a.email_hash}?d=mp&s=80`}
+                            alt={a.initials}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).style.display = 'none';
+                              (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-xs font-semibold text-muted-foreground">${a.initials}</span>`;
+                            }}
+                          />
                         </div>
                       ))}
                     </div>
