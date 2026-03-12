@@ -78,7 +78,7 @@ const Navbar = () => {
             asChild 
             className="bg-primary hover:bg-primary/90 text-white font-medium px-6"
           >
-            <Link to="/programs">Explore Programs</Link>
+            <Link to="/ai-fellowship">AI Fellowship</Link>
           </Button>
         </div>
 
