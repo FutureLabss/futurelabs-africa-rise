@@ -20,6 +20,7 @@ import ResearchLabs from "./pages/ResearchLabs";
 import Startups from "./pages/Startups";
 import Community from "./pages/Community";
 import Resources from "./pages/Resources";
+import AIFellowship from "./pages/AIFellowship";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./components/admin/AdminLayout";
