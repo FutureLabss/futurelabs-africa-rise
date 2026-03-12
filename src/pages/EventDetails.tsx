@@ -88,8 +88,6 @@ const EventDetails = () => {
   const eventDate = new Date(event.start_time);
   const endDate = event.end_time ? new Date(event.end_time) : null;
 
-  const [attendeeAvatars, setAttendeeAvatars] = useState<{ email_hash: string; initials: string }[]>([]);
-
   useEffect(() => {
     if (!event) return;
     supabase.rpc('get_event_attendee_avatars', { p_event_id: event.id }).then(({ data }) => {
