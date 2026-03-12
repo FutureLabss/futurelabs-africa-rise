@@ -24,6 +24,7 @@ const EventDetails = () => {
   const [regCount, setRegCount] = useState(0);
   const [showRegModal, setShowRegModal] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [attendeeAvatars, setAttendeeAvatars] = useState<{ email_hash: string; initials: string }[]>([]);
 
   useEffect(() => {
     if (!id) return;
@@ -43,6 +44,13 @@ const EventDetails = () => {
       setLoading(false);
     });
   }, [id]);
+
+  useEffect(() => {
+    if (!event) return;
+    supabase.rpc('get_event_attendee_avatars', { p_event_id: event.id }).then(({ data }) => {
+      if (data) setAttendeeAvatars(data as { email_hash: string; initials: string }[]);
+    });
+  }, [event, regCount]);
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -86,15 +94,6 @@ const EventDetails = () => {
   const isPast = new Date(event.start_time) < new Date();
   const eventDate = new Date(event.start_time);
   const endDate = event.end_time ? new Date(event.end_time) : null;
-
-  const [attendeeAvatars, setAttendeeAvatars] = useState<{ email_hash: string; initials: string }[]>([]);
-
-  useEffect(() => {
-    if (!event) return;
-    supabase.rpc('get_event_attendee_avatars', { p_event_id: event.id }).then(({ data }) => {
-      if (data) setAttendeeAvatars(data as { email_hash: string; initials: string }[]);
-    });
-  }, [event, regCount]);
 
   const StickyCard = () => (
     <div className="bg-card border border-border rounded-[20px] p-6 shadow-sm">
