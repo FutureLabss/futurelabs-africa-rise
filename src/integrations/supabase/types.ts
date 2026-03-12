@@ -100,6 +100,7 @@ export type Database = {
           event_id: string
           full_name: string
           id: string
+          phone: string | null
           status: Database["public"]["Enums"]["registration_status"]
           updated_at: string
         }
@@ -110,6 +111,7 @@ export type Database = {
           event_id: string
           full_name: string
           id?: string
+          phone?: string | null
           status?: Database["public"]["Enums"]["registration_status"]
           updated_at?: string
         }
@@ -120,6 +122,7 @@ export type Database = {
           event_id?: string
           full_name?: string
           id?: string
+          phone?: string | null
           status?: Database["public"]["Enums"]["registration_status"]
           updated_at?: string
         }
@@ -159,6 +162,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_event_attendee_avatars: {
+        Args: { p_event_id: string }
+        Returns: {
+          email_hash: string
+          initials: string
+        }[]
+      }
       get_registration_counts: {
         Args: { event_ids: string[] }
         Returns: {
