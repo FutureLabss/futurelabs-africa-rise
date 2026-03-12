@@ -97,18 +97,19 @@ Deno.serve(async (req) => {
 
     // Parse and validate request body
     const body = await req.json();
-    const { event_id, full_name, email } = body;
+    const { event_id, full_name, email, phone } = body;
 
     // Validate inputs
-    if (!event_id || !full_name || !email) {
+    if (!event_id || !full_name || !email || !phone) {
       return new Response(
-        JSON.stringify({ error: 'Missing required fields: event_id, full_name, email' }),
+        JSON.stringify({ error: 'Missing required fields: event_id, full_name, email, phone' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
     const trimmedName = String(full_name).trim();
     const trimmedEmail = String(email).trim().toLowerCase();
+    const trimmedPhone = String(phone).trim();
 
     if (!validateEventId(event_id)) {
       return new Response(
