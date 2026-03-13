@@ -99,9 +99,7 @@ const Resources = () => {
                       <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-3xl">
                         {featuredEvent.title}
                       </h2>
-                      <p className="text-white/80 text-lg mb-6 max-w-2xl">
-                        {featuredEvent.description}
-                      </p>
+                      <div className="text-white/80 text-lg mb-6 max-w-2xl prose prose-invert prose-lg max-w-2xl [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mb-2 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-2 [&_ul]:list-none [&_ul]:pl-0 [&_ol]:list-none [&_ol]:pl-0 [&_p]:mb-1 [&_li]:mb-0.5" dangerouslySetInnerHTML={{ __html: featuredEvent.description || '' }} />
                       <div className="flex flex-wrap items-center gap-4 text-white/90 mb-8">
                         <span>{new Date(featuredEvent.start_time).toLocaleDateString()}</span>
                         <span>·</span>
