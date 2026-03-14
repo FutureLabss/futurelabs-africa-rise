@@ -96,22 +96,23 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
-              <img src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" alt="Future Labs Logo" className="h-10 w-auto" />
-            </Link>
-            <p className="text-white/70 mb-6 text-sm leading-relaxed">
-              Building Africa's next generation of tech talent and innovative startups through world-class programs and community.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label={social.label}>
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+        <div className="flex flex-col items-center text-center mb-10">
+          <Link to="/" className="inline-block mb-4">
+            <img src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" alt="Future Labs Logo" className="h-10 w-auto" />
+          </Link>
+          <p className="text-white/70 mb-6 text-sm leading-relaxed max-w-md">
+            Building Africa's next generation of tech talent and innovative startups through world-class programs and community.
+          </p>
+          <div className="flex gap-3">
+            {socialLinks.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label={social.label}>
+                <social.icon className="h-5 w-5" />
+              </a>
+            ))}
           </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-10">
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
             <ul className="space-y-3">
