@@ -3,7 +3,7 @@ import { useCounter } from '@/hooks/use-counter';
 import { useInView } from '@/hooks/use-in-view';
 
 const stats = [
-  { value: 200, suffix: '+', label: 'Youths Trained' },
+  { value: 2000, suffix: '+', label: 'Youths Trained' },
   { value: 20, suffix: '+', label: 'Startups Supported' },
   { value: 50, suffix: '+', label: 'Partner Organizations' },
   { value: 95, suffix: '%', label: 'Placement Rate' },

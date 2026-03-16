@@ -3,7 +3,7 @@ import React from 'react';
 
 const Impact = () => {
   const stats = [
-    { number: 1000, suffix: '+', label: 'Youth Trained', color: 'bg-primary' },
+    { number: 2000, suffix: '+', label: 'Youth Trained', color: 'bg-primary' },
     { number: 10, suffix: '', label: 'Startups Incubated', color: 'bg-secondary' },
     { number: 5000, suffix: '+', label: 'Community Members', color: 'bg-accent' },
   ];
