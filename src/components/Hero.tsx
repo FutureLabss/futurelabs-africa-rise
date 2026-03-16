@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackground from '@/assets/futurelabs-background.jpg';
+import heroBackground from '@/assets/futureafrica.jpg';
 
 const Hero = () => {
   return (

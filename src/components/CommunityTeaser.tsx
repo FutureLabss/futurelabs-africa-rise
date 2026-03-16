@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Users, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import communityImage from '@/assets/african-school-outreach.jpg';
+import communityImage from '@/assets/community-imgs.jpg';
 
 const CommunityTeaser = () => {
   return (

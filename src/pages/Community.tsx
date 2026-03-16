@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { ArrowRight, Sparkles, Users, Mic, BookOpen, HandHeart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GetInvolvedModal from '@/components/GetInvolvedModal';
-import communityImage from '@/assets/african-school-outreach.jpg';
+import communityImage from '@/assets/community-2.jpg';
 
 const involvementOptions = [
   {
