@@ -7,7 +7,7 @@ import { format, nextThursday, addWeeks } from 'date-fns';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { supabase } from '@/integrations/supabase/client';
 import FellowshipRegistrationModal from '@/components/FellowshipRegistrationModal';
-import fellowshipHero from '@/assets/fellowship-hero.jpg';
+import fellowshipHero from '@/assets/ai-fellow.jpg';
 
 const FELLOWSHIP_EVENT_ID = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890';
 
