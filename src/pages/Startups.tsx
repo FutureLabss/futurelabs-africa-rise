@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon } from 'lucide-react';
+import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2 } from 'lucide-react';
 
 type Startup = {
   name: string;
@@ -59,6 +59,15 @@ const startups: Startup[] = [
     icon: ShoppingBag,
     screenshot: '/startups/salely.png',
   },
+  {
+    name: 'GuessIt',
+    category: 'Gaming',
+    description:
+      'The ultimate multiplayer party game featuring 3D interactions, daily brain teasers, and seamless social play.',
+    link: 'https://guessit.games/',
+    icon: Gamepad2,
+    screenshot: '/startups/guessitGames.png',
+},
 ];
 
 const Startups = () => {
