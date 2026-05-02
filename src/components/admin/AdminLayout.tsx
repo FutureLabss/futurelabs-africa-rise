@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { useAdminAuth } from '@/hooks/use-admin-auth';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, CalendarPlus, LogOut, Loader2 } from 'lucide-react';
+import { LayoutDashboard, CalendarPlus, LogOut, Loader2, Rocket } from 'lucide-react';
 
 const AdminLayout: React.FC = () => {
   const { user, isAdmin, loading, signOut } = useAdminAuth();
@@ -23,6 +23,7 @@ const AdminLayout: React.FC = () => {
   const navItems = [
     { to: '/admin', label: 'Dashboard', icon: LayoutDashboard },
     { to: '/admin/events/new', label: 'New Event', icon: CalendarPlus },
+    { to: '/admin?tab=submissions', label: 'Submissions', icon: Rocket },
   ];
 
   return (

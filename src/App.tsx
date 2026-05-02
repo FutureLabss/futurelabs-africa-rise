@@ -55,6 +55,7 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/ai-fellowship" element={<AIFellowship />} />
+          <Route path="/ai-hackathon" element={<AIFellowship />} />
 
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

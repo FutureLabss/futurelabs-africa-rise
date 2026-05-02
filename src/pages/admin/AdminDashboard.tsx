@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
@@ -12,34 +12,63 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Badge } from '@/components/ui/badge';
-import { CalendarPlus, Pencil, Trash2, Loader2, Calendar } from 'lucide-react';
+import { 
+  CalendarPlus, 
+  Pencil, 
+  Trash2, 
+  Loader2, 
+  Calendar, 
+  Rocket, 
+  Globe, 
+  Github,
+  Search
+} from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Tables } from '@/integrations/supabase/types';
 
 const AdminDashboard: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTab = searchParams.get('tab') || 'events';
   const [events, setEvents] = useState<Tables<'events'>[]>([]);
+  const [submissions, setSubmissions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const fetchEvents = async () => {
-    const { data, error } = await supabase
-      .from('events')
-      .select('*')
-      .order('start_time', { ascending: false });
+  const fetchData = async () => {
+    setLoading(true);
+    const [eventsRes, submissionsRes] = await Promise.all([
+      supabase
+        .from('events')
+        .select('*')
+        .order('start_time', { ascending: false }),
+      supabase
+        .from('hackathon_submissions' as any)
+        .select('*')
+        .order('created_at', { ascending: false })
+    ]);
 
-    if (error) {
-      toast({ title: 'Error loading events', description: error.message, variant: 'destructive' });
+    if (eventsRes.error) {
+      toast({ title: 'Error loading events', description: eventsRes.error.message, variant: 'destructive' });
     } else {
-      setEvents(data || []);
+      setEvents(eventsRes.data || []);
     }
+
+    if (submissionsRes.error) {
+      // Don't show error if table doesn't exist yet, but log it
+      console.error('Error loading submissions:', submissionsRes.error);
+    } else {
+      setSubmissions(submissionsRes.data || []);
+    }
+    
     setLoading(false);
   };
 
-  useEffect(() => { fetchEvents(); }, []);
+  useEffect(() => { fetchData(); }, []);
 
-  const handleDelete = async (id: string) => {
+  const handleDeleteEvent = async (id: string) => {
     setDeleting(id);
     const { error } = await supabase.from('events').delete().eq('id', id);
     if (error) {
@@ -63,93 +92,184 @@ const AdminDashboard: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Events</h1>
-          <p className="text-muted-foreground">{events.length} event{events.length !== 1 ? 's' : ''} total</p>
+          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+          <p className="text-muted-foreground">Manage events and hackathon submissions.</p>
         </div>
-        <Button asChild>
-          <Link to="/admin/events/new">
-            <CalendarPlus className="h-4 w-4 mr-2" />
-            New Event
-          </Link>
-        </Button>
       </div>
 
-      <Card>
-        <CardContent className="p-0">
-          {events.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-16 text-center">
-              <Calendar className="h-12 w-12 text-muted-foreground/40 mb-4" />
-              <p className="text-muted-foreground">No events yet. Create your first one!</p>
-            </div>
-          ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Title</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Location</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {events.map((event) => {
-                  const isPast = new Date(event.start_time) < new Date();
-                  return (
-                    <TableRow key={event.id}>
-                      <TableCell className="font-medium max-w-[250px] truncate">
-                        {event.title}
-                      </TableCell>
-                      <TableCell className="whitespace-nowrap">
-                        {format(new Date(event.start_time), 'MMM d, yyyy · h:mm a')}
-                      </TableCell>
-                      <TableCell className="max-w-[150px] truncate">
-                        {event.location_details || '—'}
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant={isPast ? 'secondary' : 'default'}>
-                          {isPast ? 'Past' : event.featured ? 'Featured' : 'Upcoming'}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right space-x-2">
-                        <Button variant="ghost" size="icon" asChild>
-                          <Link to={`/admin/events/${event.id}/edit`}>
-                            <Pencil className="h-4 w-4" />
-                          </Link>
-                        </Button>
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>Delete "{event.title}"?</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                This action cannot be undone. All registrations for this event will also be removed.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                onClick={() => handleDelete(event.id)}
-                                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                              >
-                                {deleting === event.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Delete'}
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </TableCell>
+      <Tabs 
+        value={currentTab} 
+        onValueChange={(val) => setSearchParams({ tab: val })} 
+        className="w-full"
+      >
+        <TabsList className="mb-4">
+          <TabsTrigger value="events" className="gap-2">
+            <Calendar className="h-4 w-4" />
+            Events
+          </TabsTrigger>
+          <TabsTrigger value="submissions" className="gap-2">
+            <Rocket className="h-4 w-4" />
+            Hackathon Submissions
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="events" className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold">{events.length} event{events.length !== 1 ? 's' : ''} total</h2>
+            <Button asChild>
+              <Link to="/admin/events/new">
+                <CalendarPlus className="h-4 w-4 mr-2" />
+                New Event
+              </Link>
+            </Button>
+          </div>
+
+          <Card>
+            <CardContent className="p-0">
+              {events.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-16 text-center">
+                  <Calendar className="h-12 w-12 text-muted-foreground/40 mb-4" />
+                  <p className="text-muted-foreground">No events yet. Create your first one!</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Title</TableHead>
+                      <TableHead>Date</TableHead>
+                      <TableHead>Location</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          )}
-        </CardContent>
-      </Card>
+                  </TableHeader>
+                  <TableBody>
+                    {events.map((event) => {
+                      const isPast = new Date(event.start_time) < new Date();
+                      return (
+                        <TableRow key={event.id}>
+                          <TableCell className="font-medium max-w-[250px] truncate">
+                            {event.title}
+                          </TableCell>
+                          <TableCell className="whitespace-nowrap">
+                            {format(new Date(event.start_time), 'MMM d, yyyy · h:mm a')}
+                          </TableCell>
+                          <TableCell className="max-w-[150px] truncate">
+                            {event.location_details || '—'}
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant={isPast ? 'secondary' : 'default'}>
+                              {isPast ? 'Past' : event.featured ? 'Featured' : 'Upcoming'}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-right space-x-2">
+                            <Button variant="ghost" size="icon" asChild>
+                              <Link to={`/admin/events/${event.id}/edit`}>
+                                <Pencil className="h-4 w-4" />
+                              </Link>
+                            </Button>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+                                  <Trash2 className="h-4 w-4" />
+                                </Button>
+                              </AlertDialogTrigger>
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>Delete "{event.title}"?</AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    This action cannot be undone. All registrations for this event will also be removed.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                  <AlertDialogAction
+                                    onClick={() => handleDeleteEvent(event.id)}
+                                    className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                  >
+                                    {deleting === event.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Delete'}
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="submissions" className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold">{submissions.length} submission{submissions.length !== 1 ? 's' : ''} total</h2>
+          </div>
+
+          <Card>
+            <CardContent className="p-0">
+              {submissions.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-16 text-center">
+                  <Rocket className="h-12 w-12 text-muted-foreground/40 mb-4" />
+                  <p className="text-muted-foreground">No submissions yet.</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Project Title</TableHead>
+                      <TableHead>Tagline</TableHead>
+                      <TableHead>Tech Stack</TableHead>
+                      <TableHead>Links</TableHead>
+                      <TableHead className="text-right">Submitted At</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {submissions.map((sub) => (
+                      <TableRow key={sub.id}>
+                        <TableCell className="font-semibold">{sub.title}</TableCell>
+                        <TableCell className="max-w-[200px] truncate text-muted-foreground">
+                          {sub.tagline}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-1">
+                            {sub.tech_stack?.slice(0, 3).map((tech: string) => (
+                              <Badge key={tech} variant="outline" className="text-[10px] px-1.5 py-0">
+                                {tech}
+                              </Badge>
+                            ))}
+                            {sub.tech_stack?.length > 3 && (
+                              <span className="text-[10px] text-muted-foreground">+{sub.tech_stack.length - 3}</span>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex gap-2">
+                            {sub.demo_url && (
+                              <a href={sub.demo_url} target="_blank" rel="noreferrer" title="Demo">
+                                <Globe className="h-4 w-4 text-primary hover:text-primary/80" />
+                              </a>
+                            )}
+                            {sub.github_url && (
+                              <a href={sub.github_url} target="_blank" rel="noreferrer" title="GitHub">
+                                <Github className="h-4 w-4 text-primary hover:text-primary/80" />
+                              </a>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-right whitespace-nowrap text-muted-foreground text-sm">
+                          {sub.created_at ? format(new Date(sub.created_at), 'MMM d, yyyy') : '—'}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

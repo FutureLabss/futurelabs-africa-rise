@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Programs', href: '/programs' },
   { label: 'Startups', href: '/startups' },
   { label: 'Community', href: '/community' },
-  { label: 'Events', href: '/resources' },
+  { label: 'Events', href: '/events' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -78,7 +78,7 @@ const Navbar = () => {
             asChild 
             className="bg-primary hover:bg-primary/90 text-white font-medium px-6"
           >
-            <Link to="/ai-fellowship">AI Fellowship</Link>
+            <Link to="/ai-hackathon">AI Hackathon</Link>
           </Button>
         </div>
 
@@ -120,8 +120,8 @@ const Navbar = () => {
               asChild 
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
             >
-              <Link to="/ai-fellowship" onClick={() => setIsOpen(false)}>
-                AI Fellowship
+              <Link to="/ai-hackathon" onClick={() => setIsOpen(false)}>
+                AI Hackathon
               </Link>
             </Button>
           </div>
