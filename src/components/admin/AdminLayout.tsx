@@ -1,12 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { useAdminAuth } from '@/hooks/use-admin-auth';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, CalendarPlus, LogOut, Loader2, Rocket } from 'lucide-react';
+import { 
+  LayoutDashboard, 
+  CalendarPlus, 
+  LogOut, 
+  Loader2, 
+  Rocket, 
+  ChevronLeft, 
+  ChevronRight,
+  Menu
+} from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const AdminLayout: React.FC = () => {
   const { user, isAdmin, loading, signOut } = useAdminAuth();
   const location = useLocation();
+  const isMobile = useIsMobile();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Auto-collapse on mobile when it's first detected
+  useEffect(() => {
+    if (isMobile) {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  }, [isMobile]);
 
   if (loading) {
     return (
@@ -27,46 +55,110 @@ const AdminLayout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex bg-muted/30">
-      {/* Sidebar */}
-      <aside className="w-64 bg-secondary text-secondary-foreground flex flex-col">
-        <div className="p-6 border-b border-white/10">
-          <h1 className="text-xl font-bold">FutureLabs Admin</h1>
-          <p className="text-xs text-white/60 mt-1">{user.email}</p>
-        </div>
-        <nav className="flex-1 p-4 space-y-1">
-          {navItems.map(({ to, label, icon: Icon }) => (
-            <Link
-              key={to}
-              to={to}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-sm transition-colors ${
-                location.pathname === to
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-white/70 hover:bg-white/10 hover:text-white'
-              }`}
+    <TooltipProvider delayDuration={0}>
+      <div className="min-h-screen flex bg-muted/30 overflow-hidden">
+        {/* Sidebar */}
+        <aside 
+          className={cn(
+            "bg-secondary text-secondary-foreground flex flex-col transition-all duration-300 ease-in-out border-r border-white/10 shrink-0",
+            isCollapsed ? "w-[70px]" : "w-64"
+          )}
+        >
+          {/* Sidebar Header */}
+          <div className={cn(
+            "p-4 border-b border-white/10 flex items-center h-[73px]",
+            isCollapsed ? "justify-center" : "justify-between"
+          )}>
+            {!isCollapsed && (
+              <div className="overflow-hidden animate-in fade-in duration-300">
+                <h1 className="text-lg font-bold truncate">FutureLabs Admin</h1>
+                <p className="text-[10px] text-white/60 truncate max-w-[160px]">{user.email}</p>
+              </div>
+            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white/70 hover:text-white hover:bg-white/10 shrink-0"
+              onClick={() => setIsCollapsed(!isCollapsed)}
             >
-              <Icon className="h-4 w-4" />
-              {label}
-            </Link>
-          ))}
-        </nav>
-        <div className="p-4 border-t border-white/10">
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
-            onClick={signOut}
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            Sign Out
-          </Button>
-        </div>
-      </aside>
+              {isCollapsed ? <Menu className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
+            </Button>
+          </div>
 
-      {/* Main content */}
-      <main className="flex-1 p-8 overflow-auto">
-        <Outlet />
-      </main>
-    </div>
+          {/* Sidebar Nav */}
+          <nav className="flex-1 p-3 space-y-2 overflow-y-auto overflow-x-hidden">
+            {navItems.map(({ to, label, icon: Icon }) => (
+              <Tooltip key={to} delayDuration={0}>
+                <TooltipTrigger asChild>
+                  <Link
+                    to={to}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-200 group",
+                      location.pathname + location.search === to || (to === '/admin' && location.pathname === '/admin' && !location.search)
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white',
+                      isCollapsed && "justify-center px-0"
+                    )}
+                  >
+                    <Icon className="h-5 w-5 shrink-0" />
+                    {!isCollapsed && <span className="truncate">{label}</span>}
+                  </Link>
+                </TooltipTrigger>
+                {isCollapsed && (
+                  <TooltipContent side="right" className="font-medium">
+                    {label}
+                  </TooltipContent>
+                )}
+              </Tooltip>
+            ))}
+          </nav>
+
+          {/* Sidebar Footer */}
+          <div className={cn(
+            "p-3 border-t border-white/10",
+            isCollapsed && "flex justify-center"
+          )}>
+            <Tooltip delayDuration={0}>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "w-full text-white/70 hover:text-white hover:bg-white/10 transition-all",
+                    isCollapsed ? "justify-center p-0 h-10 w-10" : "justify-start px-3"
+                  )}
+                  onClick={signOut}
+                >
+                  <LogOut className="h-5 w-5 shrink-0" />
+                  {!isCollapsed && <span className="ml-3">Sign Out</span>}
+                </Button>
+              </TooltipTrigger>
+              {isCollapsed && (
+                <TooltipContent side="right">
+                  Sign Out
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </div>
+        </aside>
+
+        {/* Main content */}
+        <main className="flex-1 flex flex-col min-w-0 bg-muted/30 overflow-hidden">
+          <header className="h-[73px] border-b border-border bg-background flex items-center px-8 lg:hidden">
+             <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsCollapsed(!isCollapsed)}
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+              <h1 className="ml-4 font-bold text-lg">FutureLabs Admin</h1>
+          </header>
+          <div className="flex-1 p-4 md:p-8 overflow-auto">
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    </TooltipProvider>
   );
 };
 
