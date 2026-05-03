@@ -45,6 +45,7 @@ import RichTextEditor from '@/components/admin/RichTextEditor';
 import { useFormPersistence } from '@/hooks/use-form-persistence';
 import { supabase } from '@/integrations/supabase/client';
 import { cn } from '@/lib/utils';
+import hackathonHero from '@/assets/ai-hackathon-img.jpg';
 
 // Form Schema
 const formSchema = z.object({
@@ -167,11 +168,25 @@ const AIFellowship = () => {
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
       
-      <main className="flex-grow pt-24 pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold tracking-tight mb-2">Hackathon Submission</h1>
-            <p className="text-muted-foreground">Showcase your innovation to the FutureLabs community.</p>
+      <main className="flex-grow pt-20 pb-16">
+        {/* Banner Section */}
+        <div className="container mx-auto px-4 mb-8">
+          <div className="relative w-full rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[3/1] border border-border shadow-lg">
+            <img 
+              src={hackathonHero} 
+              alt="AI Hackathon Banner" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="mb-10">
+            <Badge className="mb-3 bg-primary/10 text-primary hover:bg-primary/20 border-none px-3">Active Event</Badge>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-foreground">AI Hackathon Submission</h1>
+            <p className="text-muted-foreground text-lg">
+              Showcase your innovation to the FutureLabs community. Complete all steps to submit your project.
+            </p>
           </div>
 
           {/* Stepper */}
