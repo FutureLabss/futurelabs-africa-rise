@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { ArrowRight, Sparkles, Calendar, MapPin, Users, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import DOMPurify from 'dompurify';
 import type { Tables } from '@/integrations/supabase/types';
 
 type EventRow = Tables<'events'>;
@@ -97,9 +98,10 @@ const Events = () => {
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-3xl">
                   {event.title}
                 </h2>
-                <p className="text-white/80 text-lg mb-6 max-w-2xl">
-                  {event.description}
-                </p>
+                <div 
+                  className="text-white/80 text-lg mb-6 max-w-2xl prose prose-invert [&_a]:text-primary [&_a]:underline"
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description || '') }}
+                />
                 <div className="flex flex-wrap items-center gap-4 text-white/90 mb-8">
                   <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
                   <span>·</span>
@@ -186,35 +188,42 @@ const Events = () => {
             <h2 className="text-2xl font-bold text-foreground mb-6">Past Events</h2>
             <div className="bg-card border border-border rounded-2xl divide-y divide-border overflow-hidden opacity-75">
               {pastEvents.map((event) => (
-                <div key={event.id} className="flex gap-4 p-4">
-                  <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl bg-muted flex items-center justify-center">
-                    <span className="text-2xl font-bold text-muted-foreground">
-                      {new Date(event.start_time).getDate()}
-                    </span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                      <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
-                      {event.location_details && (
-                        <>
-                          <span>·</span>
-                          <span>{event.location_details}</span>
-                        </>
+                <Link key={event.id} to={`/events/${event.slug}`} className="group block hover:bg-muted/30 transition-colors duration-200">
+                  <div className="flex gap-4 p-4">
+                    <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
+                      {event.image_url ? (
+                        <img src={event.image_url} alt={event.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
+                      ) : (
+                        <span className="text-2xl font-bold text-muted-foreground">
+                          {new Date(event.start_time).getDate()}
+                        </span>
                       )}
                     </div>
-                    <h3 className="font-semibold text-foreground line-clamp-1 mb-1">
-                      {event.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-1">
-                      {event.description}
-                    </p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+                        <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
+                        {event.location_details && (
+                          <>
+                            <span>·</span>
+                            <span>{event.location_details}</span>
+                          </>
+                        )}
+                      </div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 mb-1">
+                        {event.title}
+                      </h3>
+                      <div 
+                        className="text-sm text-muted-foreground line-clamp-1 prose-sm"
+                        dangerouslySetInnerHTML={{ __html: event.description || '' }}
+                      />
+                    </div>
+                    <div className="flex-shrink-0 self-start">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
+                        {event.location_type}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 self-start">
-                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
-                      {event.location_type}
-                    </span>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>

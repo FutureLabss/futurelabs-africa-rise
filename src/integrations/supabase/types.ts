@@ -65,6 +65,39 @@ export type Database = {
         }
         Relationships: []
       }
+      hackathon_submissions: {
+        Row: {
+          created_at: string
+          demo_url: string | null
+          description: string
+          github_url: string | null
+          id: string
+          tagline: string
+          tech_stack: string[]
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          demo_url?: string | null
+          description: string
+          github_url?: string | null
+          id?: string
+          tagline: string
+          tech_stack?: string[]
+          title: string
+        }
+        Update: {
+          created_at?: string
+          demo_url?: string | null
+          description?: string
+          github_url?: string | null
+          id?: string
+          tagline?: string
+          tech_stack?: string[]
+          title?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
