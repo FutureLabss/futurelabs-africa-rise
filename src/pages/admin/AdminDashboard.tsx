@@ -33,7 +33,7 @@ const AdminDashboard: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTab = searchParams.get('tab') || 'events';
   const [events, setEvents] = useState<Tables<'events'>[]>([]);
-  const [submissions, setSubmissions] = useState<any[]>([]);
+  const [submissions, setSubmissions] = useState<Tables<'hackathon_submissions'>[]>([]);
   const [registrations, setRegistrations] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<string | null>(null);
@@ -47,7 +47,7 @@ const AdminDashboard: React.FC = () => {
         .select('*')
         .order('start_time', { ascending: false }),
       supabase
-        .from('hackathon_submissions' as any)
+        .from('hackathon_submissions')
         .select('*')
         .order('created_at', { ascending: false }),
       supabase
@@ -93,7 +93,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleDeleteSubmission = async (id: string) => {
     setDeleting(id);
-    const { error } = await supabase.from('hackathon_submissions' as any).delete().eq('id', id);
+    const { error } = await supabase.from('hackathon_submissions').delete().eq('id', id);
     if (error) {
       toast({ title: 'Delete failed', description: error.message, variant: 'destructive' });
     } else {
