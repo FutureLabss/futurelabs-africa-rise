@@ -51,7 +51,8 @@ const AdminLayout: React.FC = () => {
   const navItems = [
     { to: '/admin', label: 'Dashboard', icon: LayoutDashboard },
     { to: '/admin/events/new', label: 'New Event', icon: CalendarPlus },
-    { to: '/admin?tab=submissions', label: 'Submissions', icon: Rocket },
+    { to: '/admin?tab=registrations', label: 'Submissions', icon: Rocket },
+    { to: '/admin?tab=submissions', label: 'Hackathon', icon: Rocket },
   ];
 
   return (
