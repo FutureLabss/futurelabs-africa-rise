@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2 } from 'lucide-react';
+import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2, Zap } from 'lucide-react';
 
 type Startup = {
   name: string;
@@ -67,7 +67,16 @@ const startups: Startup[] = [
     link: 'https://guessit.games/',
     icon: Gamepad2,
     screenshot: '/startups/guessitGames.png',
-},
+  },
+  {
+    name: 'Automate NG',
+    category: 'Business Automation',
+    description:
+      'Helping Nigerian businesses replace repetitive manual processes with intelligent automation workflows — saving time, cutting errors, and driving revenue across e-commerce, agencies, and more.',
+    link: 'https://automate-ng.netlify.app/',
+    icon: Zap,
+    screenshot: '/startups/automate-ng.png',
+  },
 ];
 
 const Startups = () => {
