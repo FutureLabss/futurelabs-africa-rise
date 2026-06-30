@@ -169,6 +169,102 @@ export type Database = {
           },
         ]
       }
+      tutor_applications: {
+        Row: {
+          id: string
+          created_at: string
+          updated_at: string
+          full_name: string
+          email: string
+          phone: string
+          location: string
+          linkedin_url: string | null
+          degree_field: string
+          certifications: string[]
+          certifications_other: string | null
+          cyber_years: number
+          teaching_years: number
+          specializations: string[]
+          specializations_other: string | null
+          teaching_levels: string[]
+          current_job_title: string
+          current_employer: string
+          resume_url: string
+          portfolio_url: string | null
+          reference_name: string
+          reference_contact: string
+          notable_work: string | null
+          availability: string
+          preferred_format: string
+          rate_expectations: string | null
+          teaching_motivation: string
+          consent: boolean
+          status: Database["public"]["Enums"]["tutor_application_status"]
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          full_name: string
+          email: string
+          phone: string
+          location: string
+          linkedin_url?: string | null
+          degree_field: string
+          certifications?: string[]
+          certifications_other?: string | null
+          cyber_years: number
+          teaching_years: number
+          specializations?: string[]
+          specializations_other?: string | null
+          teaching_levels?: string[]
+          current_job_title: string
+          current_employer: string
+          resume_url: string
+          portfolio_url?: string | null
+          reference_name: string
+          reference_contact: string
+          notable_work?: string | null
+          availability: string
+          preferred_format: string
+          rate_expectations?: string | null
+          teaching_motivation: string
+          consent?: boolean
+          status?: Database["public"]["Enums"]["tutor_application_status"]
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          full_name?: string
+          email?: string
+          phone?: string
+          location?: string
+          linkedin_url?: string | null
+          degree_field?: string
+          certifications?: string[]
+          certifications_other?: string | null
+          cyber_years?: number
+          teaching_years?: number
+          specializations?: string[]
+          specializations_other?: string | null
+          teaching_levels?: string[]
+          current_job_title?: string
+          current_employer?: string
+          resume_url?: string
+          portfolio_url?: string | null
+          reference_name?: string
+          reference_contact?: string
+          notable_work?: string | null
+          availability?: string
+          preferred_format?: string
+          rate_expectations?: string | null
+          teaching_motivation?: string
+          consent?: boolean
+          status?: Database["public"]["Enums"]["tutor_application_status"]
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -352,6 +448,7 @@ export const Constants = {
       app_role: ["admin", "user"],
       location_type: ["in-person", "virtual", "hybrid"],
       registration_status: ["registered", "cancelled", "attended"],
+      tutor_application_status: ["new", "reviewing", "accepted", "rejected"],
     },
   },
 } as const
