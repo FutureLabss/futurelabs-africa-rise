@@ -8,6 +8,7 @@ import CommunityTeaser from '@/components/CommunityTeaser';
 import BlogPreview from '@/components/BlogPreview';
 import Partners from '@/components/partner';
 import Footer from '@/components/Footer';
+import TutorCtaModal from '@/components/TutorCtaModal';
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
         <Partners />
       </main>
       <Footer />
+      <TutorCtaModal />
     </div>
   );
 };
