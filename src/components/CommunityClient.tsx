@@ -51,9 +51,9 @@ export default function CommunityClient() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
           <div className="absolute inset-0 bg-secondary" />
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">

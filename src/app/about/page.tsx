@@ -16,7 +16,7 @@ const About = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <PageHero
           title="About Future Labs"
           subtitle="We inspire, empower, and incubate high-impact tech ideas and startups across Africa."

@@ -15,7 +15,7 @@ const ContactPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <PageHero
           title="Contact Us"
           subtitle="Get in touch with us. We'd love to hear from you and discuss how we can work together."

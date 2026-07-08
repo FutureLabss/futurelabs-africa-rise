@@ -99,7 +99,7 @@ const Startups = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <PageHero
           title="Startups"
           subtitle="Ventures we're building, supporting and nurturing within our ecosystem."
