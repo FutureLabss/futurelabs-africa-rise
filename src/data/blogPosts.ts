@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
 
       We are seeking cybersecurity tutors and mentors to join our growing network. If you have the practical skills, industry certifications, and a passion for teaching, this is your opportunity to make a high-impact contribution.
 
-      ### What We Are Looking For
+      What We Are Looking For
 
       We are expanding our training capacity across several key specializations:
 
@@ -42,7 +42,7 @@ export const blogPosts: BlogPost[] = [
       * **Security Governance, Risk & Compliance (GRC)**
       * **Malware Analysis & Reverse Engineering**
 
-      ### Target Audience & Formats
+      Target Audience & Formats
 
       Our programs cater to various skill levels—from absolute **Beginners** starting their cybersecurity journey to **Intermediate** and **Advanced** professionals looking to sharpen their edge.
 
@@ -51,14 +51,14 @@ export const blogPosts: BlogPost[] = [
       * **Online** (fully remote sessions)
       * **Hybrid** (a blend of physical and remote learning)
 
-      ### Key Qualifications
+      Key Qualifications
 
       * Hands-on experience in a cybersecurity role (Security Engineer, Penetration Tester, GRC Analyst, or equivalent).
       * Possession of active industry-validated credentials (such as **CISSP, CEH, CompTIA Security+, OSCP, CISM**, or **CCNA Security**).
       * Past training, teaching, or mentoring experience is highly desirable.
       * Excellent communication skills and the ability to explain complex technical concepts to learners.
 
-      ### Why Teach at FutureLabs?
+      Why Teach at FutureLabs?
 
       By joining our network, you will:
       * **Empower Tech Talents:** Shape the careers of aspiring tech professionals across the continent.
@@ -66,15 +66,15 @@ export const blogPosts: BlogPost[] = [
       * **Expand Your Network:** Connect with other elite cybersecurity experts and tech leaders within our ecosystem.
       * **Competitive Compensation:** We offer negotiable rate models tailored to your experience and input.
 
-      ### Ready to Join Us?
+      Ready to Join Us?
 
       If you are ready to give back to the cybersecurity community and train future leaders, we want to hear from you.
 
-      👉 **[Apply here to join our tutor network](/apply-to-teach)** to submit your details, certifications, resume, and availability. Let's secure the future of tech in Africa together!
+      👉 [Apply here to join our tutor network](/apply-to-teach) to submit your details, certifications, resume, and availability. Let's secure the future of tech in Africa together!
     `,
     imageUrl: "/blog-cybersecurity-tutor.png",
     category: "Careers",
-    date: "December 15, 2025",
+    date: "July 08, 2025",
     author: "Futurelabs Academy Team",
   },
   {

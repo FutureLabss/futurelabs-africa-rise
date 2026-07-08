@@ -2,12 +2,58 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
-import DOMPurify from 'dompurify';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
 import { Calendar, User, Tag } from 'lucide-react';
 import JsonLd from '@/components/JsonLd';
+import ReactMarkdown from "react-markdown";
+
+function cleanMarkdown(content: string): string {
+  if (!content) return "";
+  const lines = content.split("\n");
+  
+  let minIndent = Infinity;
+  for (const line of lines) {
+    if (line.trim() === "") continue;
+    const match = line.match(/^(\s*)/);
+    if (match) {
+      minIndent = Math.min(minIndent, match[1].length);
+    }
+  }
+
+  if (minIndent !== Infinity && minIndent > 0) {
+    return lines
+      .map(line => (line.length >= minIndent ? line.slice(minIndent) : line.trimStart()))
+      .join("\n");
+  }
+
+  return content;
+}
+
+function BlogPostContent({ content }: { content: string }) {
+  const cleanedContent = React.useMemo(() => cleanMarkdown(content), [content]);
+
+  return (
+    <ReactMarkdown
+      components={{
+        a: ({ node, ...props }) => {
+          const isInternal = props.href?.startsWith("/");
+          return (
+            <a
+              className="text-primary hover:underline font-semibold"
+              target={isInternal ? undefined : "_blank"}
+              rel={isInternal ? undefined : "noopener noreferrer"}
+              {...props}
+            />
+          );
+        },
+      }}
+    >
+      {cleanedContent}
+    </ReactMarkdown>
+  );
+}
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -109,25 +155,7 @@ const BlogPost = () => {
 
             {/* Content */}
             <div className="prose prose-lg max-w-none text-foreground/80">
-              {post.content.split('\n\n').map((paragraph, index) => {
-                const formattedText = paragraph
-                  .trim()
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                
-                // Sanitize HTML to prevent XSS attacks
-                const sanitizedHtml = DOMPurify.sanitize(formattedText, {
-                  ALLOWED_TAGS: ['strong', 'em', 'b', 'i', 'br'],
-                  ALLOWED_ATTR: []
-                });
-                
-                return (
-                  <p 
-                    key={index} 
-                    className="mb-6 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
-                  />
-                );
-              })}
+              <BlogPostContent content={post.content} />
             </div>
 
             {/* Call to Action */}
