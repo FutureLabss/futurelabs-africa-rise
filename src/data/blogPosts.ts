@@ -23,6 +23,61 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "cybersecurity-tutor-inquiry",
+    title: "Call for Cybersecurity Experts: Join the FutureLabs Tutor Network",
+    excerpt: "We are expanding our cybersecurity capacity-building programs and seeking qualified professionals to train and mentor the next generation of tech talent. If you specialize in Network Security, Pentesting, Incident Response, or Cloud Security, apply today!",
+    content: `
+      As technology scales across Africa, the demand for highly skilled cybersecurity professionals is at an all-time high. At FutureLabs, we are committed to building Africa's next generation of digital defenders—and we are looking for experienced industry experts to lead the way.
+
+      We are seeking cybersecurity tutors and mentors to join our growing network. If you have the practical skills, industry certifications, and a passion for teaching, this is your opportunity to make a high-impact contribution.
+
+      ### What We Are Looking For
+
+      We are expanding our training capacity across several key specializations:
+
+      * **Network Security & Cryptography**
+      * **Ethical Hacking / Pentesting**
+      * **Incident Response & Digital Forensics**
+      * **Cloud Security & Compliance**
+      * **Security Governance, Risk & Compliance (GRC)**
+      * **Malware Analysis & Reverse Engineering**
+
+      ### Target Audience & Formats
+
+      Our programs cater to various skill levels—from absolute **Beginners** starting their cybersecurity journey to **Intermediate** and **Advanced** professionals looking to sharpen their edge.
+
+      Tutors can select their preferred teaching format based on availability:
+      * **In-person** (at our innovation hubs)
+      * **Online** (fully remote sessions)
+      * **Hybrid** (a blend of physical and remote learning)
+
+      ### Key Qualifications
+
+      * Hands-on experience in a cybersecurity role (Security Engineer, Penetration Tester, GRC Analyst, or equivalent).
+      * Possession of active industry-validated credentials (such as **CISSP, CEH, CompTIA Security+, OSCP, CISM**, or **CCNA Security**).
+      * Past training, teaching, or mentoring experience is highly desirable.
+      * Excellent communication skills and the ability to explain complex technical concepts to learners.
+
+      ### Why Teach at FutureLabs?
+
+      By joining our network, you will:
+      * **Empower Tech Talents:** Shape the careers of aspiring tech professionals across the continent.
+      * **Flexible Schedules:** Coordinate your classes based on your availability (weekday evenings, weekends, etc.).
+      * **Expand Your Network:** Connect with other elite cybersecurity experts and tech leaders within our ecosystem.
+      * **Competitive Compensation:** We offer negotiable rate models tailored to your experience and input.
+
+      ### Ready to Join Us?
+
+      If you are ready to give back to the cybersecurity community and train future leaders, we want to hear from you.
+
+      👉 **[Apply here to join our tutor network](/apply-to-teach)** to submit your details, certifications, resume, and availability. Let's secure the future of tech in Africa together!
+    `,
+    imageUrl: "/blog-cybersecurity-tutor.png",
+    category: "Careers",
+    date: "December 15, 2025",
+    author: "Futurelabs Academy Team",
+  },
+  {
     id: "sales-marketing-manager",
     title: "Join Futurelabs as Our Sales and Marketing Manager",
     excerpt: "We need a Sales and Marketing Manager who is ready to lead, strategize, and scale our growth. If you can blend creativity with data-driven tactics and thrive in a tech startup environment, this is your chance to make an impact.",
