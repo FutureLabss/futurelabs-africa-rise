@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -17,7 +20,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +31,8 @@ const Navbar = () => {
   }, []);
 
   const isActive = (href: string) => {
-    if (href === '/') return location.pathname === '/';
-    return location.pathname.startsWith(href);
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
   };
 
   return (
@@ -43,7 +46,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img 
             src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
             alt="Future Labs Logo" 
@@ -57,9 +60,8 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-1">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
+            <Link key={link.href}
+              href={link.href}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                 isActive(link.href)
@@ -78,7 +80,7 @@ const Navbar = () => {
             asChild 
             className="bg-primary hover:bg-primary/90 text-white font-medium px-6"
           >
-            <Link to="/ai-hackathon">AI Hackathon</Link>
+            <Link href="/ai-hackathon">AI Hackathon</Link>
           </Button>
         </div>
 
@@ -101,9 +103,8 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 py-6 space-y-2">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
+            <Link key={link.href}
+              href={link.href}
               onClick={() => setIsOpen(false)}
               className={cn(
                 "block px-4 py-3 rounded-lg font-medium transition-colors",
@@ -120,7 +121,7 @@ const Navbar = () => {
               asChild 
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
             >
-              <Link to="/ai-hackathon" onClick={() => setIsOpen(false)}>
+              <Link href="/ai-hackathon" onClick={() => setIsOpen(false)}>
                 AI Hackathon
               </Link>
             </Button>

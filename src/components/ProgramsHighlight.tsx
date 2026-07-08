@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Code, Lightbulb, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const programs = [
   {
+    id: 'program-developer',
     icon: Code,
     title: 'Developer Talent Programs',
     description: 'Intensive bootcamps and training programs to build job-ready software developers with real-world project experience.',
@@ -12,6 +13,7 @@ const programs = [
     href: '/programs',
   },
   {
+    id: 'program-founder',
     icon: Lightbulb,
     title: 'Startup Incubation',
     description: 'Early-stage support for founders building innovative solutions, from idea validation to market entry.',
@@ -19,6 +21,7 @@ const programs = [
     href: '/programs',
   },
   {
+    id: 'program-corporate',
     icon: Building,
     title: 'Corporate Innovation Labs',
     description: 'Partnering with enterprises to accelerate digital transformation and build internal innovation capabilities.',
@@ -47,7 +50,8 @@ const ProgramsHighlight = () => {
           {programs.map((program) => (
             <div
               key={program.title}
-              className="group bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              id={program.id}
+              className="group bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 overflow-hidden scroll-mt-24"
             >
               <div className="p-6">
                 <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-5">
@@ -67,8 +71,7 @@ const ProgramsHighlight = () => {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  to={program.href}
+                <Link href={program.href}
                   className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all"
                 >
                   Learn more
@@ -82,7 +85,7 @@ const ProgramsHighlight = () => {
         {/* CTA */}
         <div className="text-center">
           <Button asChild size="lg" variant="outline" className="font-semibold">
-            <Link to="/programs">
+            <Link href="/programs">
               View All Programs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

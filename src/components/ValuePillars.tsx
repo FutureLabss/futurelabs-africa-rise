@@ -5,7 +5,7 @@ const pillars = [
   {
     icon: GraduationCap,
     title: 'Tech Talent Development',
-    description: 'Equipping African youth with world-class technical skills and industry-ready experience.',
+    description: 'Equipping African youth with advanced technical skills and industry-validated project experience.',
   },
   {
     icon: Rocket,

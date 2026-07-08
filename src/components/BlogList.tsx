@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { blogPosts } from '@/data/blogPosts';
 
@@ -31,7 +31,7 @@ const BlogList = () => {
                 <p className="text-gray-600 line-clamp-3">{post.excerpt}</p>
               </CardContent>
               <CardFooter className="p-6 pt-0">
-                <Link to={`/blog/${post.id}`} className="text-primary hover:underline font-medium inline-flex items-center">
+                <Link href={`/blog/${post.id}`} className="text-primary hover:underline font-medium inline-flex items-center">
                   Read More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

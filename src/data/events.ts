@@ -27,7 +27,7 @@ export const upcomingEvents: EventData[] = [
     location: 'Lagos, Nigeria',
     type: 'Conference',
     description: 'Join industry leaders, investors, and innovators for a day of networking and learning about the future of African tech.',
-    longDescription: 'The African Tech Innovation Summit brings together the continent\'s brightest minds to discuss the latest trends, challenges, and opportunities in technology. This premier event features keynote speakers, panel discussions, workshops, and networking opportunities.',
+    longDescription: 'The African Tech Innovation Summit brings together the continent\'s brightest minds to discuss the latest trends, challenges, and opportunities in technology. This summit features keynote speakers, panel discussions, workshops, and networking opportunities.',
     image: '/bg-news-370x240.png',
     attendees: 127,
     maxAttendees: 500,

@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Facebook, ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -97,11 +99,11 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center text-center mb-10">
-          <Link to="/" className="inline-block mb-4">
+          <Link href="/" className="inline-block mb-4">
             <img src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" alt="Future Labs Logo" className="h-10 w-auto" />
           </Link>
           <p className="text-white/70 mb-6 text-sm leading-relaxed max-w-md">
-            Building Africa's next generation of tech talent and innovative startups through world-class programs and community.
+            Upskilling developer talent and accelerating early-stage startups through industry-driven incubation and hands-on programs.
           </p>
           <div className="flex gap-3">
             {socialLinks.map((social) => (
@@ -117,7 +119,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.href}><Link to={link.href} className="text-white/70 hover:text-white transition-colors text-sm">{link.label}</Link></li>
+                <li key={link.href}><Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">{link.label}</Link></li>
               ))}
             </ul>
           </div>
@@ -125,7 +127,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primary">Programs</h4>
             <ul className="space-y-3">
               {programs.map((link) => (
-                <li key={link.label}><Link to={link.href} className="text-white/70 hover:text-white transition-colors text-sm">{link.label}</Link></li>
+                <li key={link.label}><Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">{link.label}</Link></li>
               ))}
             </ul>
           </div>

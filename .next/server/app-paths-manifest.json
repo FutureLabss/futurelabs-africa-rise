@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/resources/page": "app/resources/page.js",
+  "/ai-fellowship/page": "app/ai-fellowship/page.js",
+  "/startups/page": "app/startups/page.js",
+  "/events/page": "app/events/page.js",
+  "/community/page": "app/community/page.js"
+}

@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'Arial', 'sans-serif'],
-				'roboto': ['Roboto', 'sans-serif'],
+				'poppins': ['var(--font-poppins)', 'Arial', 'sans-serif'],
+				'roboto': ['var(--font-roboto)', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

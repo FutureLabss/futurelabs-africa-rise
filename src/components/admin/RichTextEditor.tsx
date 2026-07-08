@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useCallback } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -83,6 +85,7 @@ const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps)
       }),
     ],
     content,
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         class: 'prose prose-sm dark:prose-invert max-w-none p-4 min-h-[200px] focus:outline-none focus-visible:outline-none',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Calendar, Users, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import communityImage from '@/assets/community-imgs.jpg';
@@ -13,9 +13,11 @@ const CommunityTeaser = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden">
               <img 
-                src={communityImage}
+                src={communityImage.src}
                 alt="FutureLabs Community Event"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Floating Card */}
@@ -29,7 +31,7 @@ const CommunityTeaser = () => {
                   <p className="text-muted-foreground text-xs">Tech Meetup Lagos</p>
                 </div>
               </div>
-              <Link to="/resources" className="text-primary text-sm font-medium hover:underline">
+              <Link href="/resources" className="text-primary text-sm font-medium hover:underline">
                 View all events →
               </Link>
             </div>
@@ -69,7 +71,7 @@ const CommunityTeaser = () => {
             </div>
 
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link to="/community">
+              <Link href="/community">
                 Explore Community
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

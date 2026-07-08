@@ -8,7 +8,18 @@ export interface BlogPost {
   category: string;
   date: string;
   author: string;
+  jobDetails?: {
+    title: string;
+    description: string;
+    datePosted: string;
+    validThrough?: string;
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'TEMPORARY' | 'INTERN';
+    locality: string;
+    region: string;
+    country: string;
+  };
 }
+
 
 export const blogPosts: BlogPost[] = [
   {
@@ -77,7 +88,17 @@ export const blogPosts: BlogPost[] = [
     imageUrl: "/blog-sales-marketing-manager.jpg",
     category: "Careers",
     date: "November 19, 2025",
-    author: "Futurelabs Team"
+    author: "Futurelabs Team",
+    jobDetails: {
+      title: "Sales and Marketing Manager",
+      description: "At Futurelabs, we are building the next generation of digital solutions—and we need a Sales and Marketing Manager who is ready to lead, strategize, and scale our growth. The Sales and Marketing Manager is responsible for driving revenue growth, acquiring customers, and strengthening the Futurelabs brand across multiple channels.",
+      datePosted: "2025-11-19",
+      validThrough: "2026-11-19",
+      employmentType: "FULL_TIME",
+      locality: "Lagos",
+      region: "Lagos State",
+      country: "NG"
+    }
   },
   {
     id: "executive-assistant-mini-ceo",
@@ -139,7 +160,17 @@ export const blogPosts: BlogPost[] = [
     imageUrl: "/blog-ea-mini-ceo.jpg",
     category: "Careers",
     date: "November 19, 2025",
-    author: "Futurelabs Team"
+    author: "Futurelabs Team",
+    jobDetails: {
+      title: "Executive Assistant (Mini CEO)",
+      description: "More than just a support role, the Executive Assistant at Futurelabs acts as a 'mini CEO,' driving executive operations and managing our brand's online presence.",
+      datePosted: "2025-11-19",
+      validThrough: "2026-11-19",
+      employmentType: "FULL_TIME",
+      locality: "Uyo",
+      region: "Akwa Ibom",
+      country: "NG"
+    }
   },
   {
     id: "digital-skills-gap",

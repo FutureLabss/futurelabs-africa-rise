@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { EventData } from '@/data/events';
 
@@ -17,8 +17,7 @@ const EventCard = ({ event }: EventCardProps) => {
   };
 
   return (
-    <Link 
-      to={`/events/${event.id}`}
+    <Link href={`/events/${event.id}`}
       className="group block"
     >
       <div className="flex gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors duration-200">
@@ -29,6 +28,8 @@ const EventCard = ({ event }: EventCardProps) => {
               src={event.image} 
               alt={event.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">

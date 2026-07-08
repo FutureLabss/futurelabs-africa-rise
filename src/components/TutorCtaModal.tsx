@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -54,7 +56,7 @@ const TutorCtaModal = () => {
             onClick={handleCtaClick}
             className="w-full h-12 rounded-xl text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <Link to="/apply-to-teach">Apply to Teach</Link>
+            <Link href="/apply-to-teach">Apply to Teach</Link>
           </Button>
 
           <DialogClose asChild>

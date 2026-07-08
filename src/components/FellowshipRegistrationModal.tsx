@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { X, Loader2, Check, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';

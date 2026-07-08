@@ -77,7 +77,7 @@ export function useRegistrations(eventId: string) {
 
       if (error) {
         // Handle edge function errors
-        if (import.meta.env.DEV) {
+        if (process.env.NODE_ENV === 'development') {
           console.error('Registration error:', error);
         }
         return { success: false, error: 'Failed to register. Please try again.' };
@@ -90,7 +90,7 @@ export function useRegistrations(eventId: string) {
 
       return { success: true };
     } catch (err) {
-      if (import.meta.env.DEV) {
+      if (process.env.NODE_ENV === 'development') {
         console.error('Registration error:', err);
       }
       return { success: false, error: 'An unexpected error occurred' };

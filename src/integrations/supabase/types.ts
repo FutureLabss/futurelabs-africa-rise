@@ -318,6 +318,7 @@ export type Database = {
       app_role: "admin" | "user"
       location_type: "in-person" | "virtual" | "hybrid"
       registration_status: "registered" | "cancelled" | "attended"
+      tutor_application_status: "new" | "reviewing" | "accepted" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never

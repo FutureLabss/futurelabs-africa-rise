@@ -51,7 +51,7 @@ const Partners = () => {
                                 <CarouselItem key={index} className="basis-1/2 sm:basis-1/3">
                                     <div className="p-1">
                                         <div className="bg-white h-20 w-full flex items-center justify-center rounded-lg shadow-md border border-primary/20 relative p-2">
-                                            <img src={logo.src} alt={logo.name} className="object-contain h-full w-full" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
+                                            <img src={logo.src} alt={logo.name} className="object-contain h-full w-full" loading="lazy" decoding="async" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -70,7 +70,7 @@ const Partners = () => {
                                     transitionDelay: `${index * 100}ms`,
                                 }}
                             >
-                                <img src={logo.src} alt={logo.name} className="object-contain h-full w-full" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
+                                <img src={logo.src} alt={logo.name} className="object-contain h-full w-full" loading="lazy" decoding="async" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/partners/placeholder.svg'; }} />
                             </div>
                         ))}
                     </div>

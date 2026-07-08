@@ -27,9 +27,11 @@ const AboutUs = () => {
           <div className="relative">
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={aboutTeamImage} 
+                src={aboutTeamImage.src} 
                 alt="FutureLabs Team" 
                 className="w-full h-auto"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-dots rounded-full"></div>
