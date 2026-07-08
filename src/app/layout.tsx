@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { Poppins, Roboto } from 'next/font/google';
 import Providers from '@/components/Providers';
+import HashRedirect from '@/components/HashRedirect';
 import '../index.css';
 
 const poppins = Poppins({
@@ -44,9 +45,11 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} ${roboto.variable}`}>
       <body className="font-sans antialiased">
         <Providers>
+          <HashRedirect />
           {children}
         </Providers>
       </body>
     </html>
   );
 }
+
