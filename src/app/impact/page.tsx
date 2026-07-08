@@ -1,10 +1,14 @@
-"use client";
-
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Impact from '@/components/Impact';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Impact",
+  description: "Learn about the impact and success stories of FutureLabs initiatives across Africa.",
+};
+
 
 const ImpactPage = () => {
   return (

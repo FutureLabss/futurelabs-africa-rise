@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { useCounter } from '@/hooks/use-counter';
 import { useInView } from '@/hooks/use-in-view';

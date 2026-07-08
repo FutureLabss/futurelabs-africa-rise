@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -13,6 +11,13 @@ import Footer from '@/components/Footer';
 import TutorCtaModal from '@/components/TutorCtaModal';
 import JsonLd from '@/components/JsonLd';
 import IntentSelector from '@/components/IntentSelector';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Accelerating Africa's Future",
+  description: "FutureLabs is a digital innovation hub on a mission to equip African youth with the skills, mindset, and tools to solve real-world problems, build transformative startups, and thrive in the global digital economy.",
+};
+
 
 const orgSchema = {
   "@context": "https://schema.org",

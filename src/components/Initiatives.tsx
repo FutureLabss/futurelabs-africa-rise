@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Users, Lightbulb, Code, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';

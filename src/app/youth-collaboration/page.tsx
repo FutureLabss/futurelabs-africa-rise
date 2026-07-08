@@ -1,11 +1,16 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, Calendar, Trophy, Network } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Youth Collaboration",
+  description: "Creating opportunities for young African tech talents to connect, learn, and build together.",
+};
+
 
 const YouthCollaboration = () => {
   return (

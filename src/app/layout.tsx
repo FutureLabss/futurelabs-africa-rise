@@ -20,7 +20,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "FutureLabs.Africa - Accelerating Africa's Future",
+  title: {
+    default: "FutureLabs.Africa - Accelerating Africa's Future",
+    template: "%s | FutureLabs.Africa",
+  },
   description: "FutureLabs is a digital innovation hub on a mission to equip African youth with the skills, mindset, and tools to solve real-world problems, build transformative startups, and thrive in the global digital economy.",
   authors: [{ name: "FutureLabs" }],
   openGraph: {

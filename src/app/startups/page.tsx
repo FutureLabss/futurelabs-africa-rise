@@ -1,10 +1,15 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2, Zap } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Startups",
+  description: "Nurturing and scaling high-impact digital ventures in Africa. Discover startups in our incubation and support ecosystem.",
+};
+
 
 type Startup = {
   name: string;

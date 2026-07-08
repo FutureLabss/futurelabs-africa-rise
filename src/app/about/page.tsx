@@ -1,4 +1,3 @@
-"use client";
 
 
 import React from 'react';
@@ -6,6 +5,12 @@ import Navbar from '@/components/Navbar';
 import AboutUs from '@/components/AboutUs';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About Future Labs",
+  description: "FutureLabs is a digital innovation hub on a mission to equip African youth with the skills, mindset, and tools to solve real-world problems, build transformative startups, and thrive in the global digital economy.",
+}
 
 const About = () => {
   return (

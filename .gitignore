@@ -25,3 +25,4 @@ dist-ssr
 
 # Project-specific ignored files
 futurelabs-website-fixes.md
+.next/

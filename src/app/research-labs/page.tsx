@@ -1,11 +1,16 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Lightbulb, Brain, Database, Smartphone } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Research & Innovation Labs",
+  description: "Supporting cutting-edge research in emerging technologies to solve Africa-specific challenges.",
+};
+
 
 const ResearchLabs = () => {
   return (

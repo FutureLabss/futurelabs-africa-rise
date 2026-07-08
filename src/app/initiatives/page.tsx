@@ -1,9 +1,14 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Initiatives from '@/components/Initiatives';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Initiatives",
+  description: "Read about the projects and initiatives run by FutureLabs to foster innovation.",
+};
+
 
 const InitiativesPage = () => {
   return (

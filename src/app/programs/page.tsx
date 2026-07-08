@@ -1,10 +1,15 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Programs from '@/components/Programs';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Programs",
+  description: "Explore FutureLabs capacity-building programs, talent accelerators, and incubators building Africa's next generation of tech leaders.",
+};
+
 
 const ProgramsPage = () => {
   return (

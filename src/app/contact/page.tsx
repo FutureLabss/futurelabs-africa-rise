@@ -1,10 +1,15 @@
-"use client";
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with FutureLabs Africa. Let's discuss partnerships, collaboration, or address your inquiries.",
+};
+
 
 const ContactPage = () => {
   return (
