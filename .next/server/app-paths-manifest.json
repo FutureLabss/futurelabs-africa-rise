@@ -1,7 +1,0 @@
-{
-  "/ai-fellowship/page": "app/ai-fellowship/page.js",
-  "/resources/page": "app/resources/page.js",
-  "/startups/page": "app/startups/page.js",
-  "/community/page": "app/community/page.js",
-  "/events/page": "app/events/page.js"
-}
