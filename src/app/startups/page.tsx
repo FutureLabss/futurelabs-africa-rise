@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2, Zap } from 'lucide-react';
+import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2, Zap, Briefcase } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,6 +29,15 @@ const startups: Startup[] = [
     link: 'https://www.futurelabs.ng',
     icon: GraduationCap,
     screenshot: '/startups/futurelabs-academy.png',
+  },
+  {
+    name: 'FutureLabs Studio',
+    category: 'Digital Agency',
+    description:
+      'We design and build phenomenal digital products, drive viral brand adoption, and construct intelligent data models to turn ideas into impactful solutions.',
+    link: 'https://studio.futurelabs.ng/',
+    icon: Briefcase,
+    screenshot: '/startups/future-studio.png',
   },
   {
     name: 'FutureResume',
