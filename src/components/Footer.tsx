@@ -65,10 +65,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: 'https://twitter.com/futurelabsafrica', label: 'Twitter' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/futurelabsafrica', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com/futurelabsafrica', label: 'Instagram' },
-    { icon: Facebook, href: 'https://facebook.com/futurelabsafrica', label: 'Facebook' },
+    { icon: Twitter, href: 'https://x.com/FutureLabsNG', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://linkedin.com/school/future-labs-ng/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/futurelabshq/', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/FutureLabsNews', label: 'Facebook' },
   ];
 
   return (
