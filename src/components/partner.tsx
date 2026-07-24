@@ -21,7 +21,9 @@ const Partners = () => {
         { name: 'leapAfrica', src: '/partners/leapAfrica.jpeg' },
         { name: 'nitda-1', src: '/partners/nitda-1.webp' },
         { name: 'ondi', src: '/partners/ondi.png' },
-        { name: 'pind', src: '/partners/pind.png' }
+        { name: 'pind', src: '/partners/pind.png' },
+        { name: 'iDICE', src: '/partners/iDICEstartup.svg' },
+
     ];
 
     const isMobile = useIsMobile();
