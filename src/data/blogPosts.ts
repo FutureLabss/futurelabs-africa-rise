@@ -23,6 +23,30 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "futurelabs-incubatee-closes-4k-idice",
+    title: "A FutureLabs Incubatee Just Closed $4K Through iDICE",
+    excerpt: "Emmanuel Jackson walked into FutureLabs Host Hub with an idea about payments. He's walking out of the iDICE Startup Bridge with $4,000 in funding for Bucx Technologies — a virtual USD account built for African freelancers and remote workers.",
+    content: `
+      Emmanuel Jackson walked into FutureLabs Host Hub with an idea about payments. He's walking out of the iDICE Startup Bridge with $4,000 in his account.
+
+      Jackson founded Bucx Technologies to fix a problem he'd lived through himself: getting paid in USD as an African freelancer or remote worker. Right now, a freelancer in Lagos working for a client in New York can wait three to seven days for a bank transfer to clear. Bucx gives users a virtual USD account that receives ACH and wire payments directly, converts the funds into USDC stablecoins so the value holds, then lets people cash out to a local bank account, mobile money, or a crypto wallet. No middlemen. No week of waiting on a bank.
+
+      The $4K came from the iDICE Startup Bridge, a federal program the government runs through the Bank of Industry, financed by the African Development Bank, Agence Française de Développement, and the Islamic Development Bank. It splits into two tracks: Founders Lab for idea-stage founders, Growth Lab for startups with a working product already in hand. The program targets all 36 states and the FCT, not just Lagos and Abuja, and across its cohorts it's aiming to support more than 500 Nigerian tech startups.
+
+      For FutureLabs, this is what the Host Hub model exists for. You don't incubate a company so it stays comfortable inside your walls. You incubate it so it can walk into a room like Founders Lab and walk out with capital. Jackson did that.
+
+      Bucx is still early. A waitlist. A first batch of invites going out. A founder who's spent months heads-down building something people outside the building decided was worth funding. $4K from a national program isn't a participation trophy — it's proof the idea holds up under someone else's scrutiny.
+
+      Building. Solving. Creating impact. This week, the tagline held up.
+
+      *Emmanuel Jackson is the Founder of Bucx Technologies and an incubatee at FutureLabs Host Hub.*
+    `,
+    imageUrl: "/iDiceBlog.png",
+    category: "Startups",
+    date: "August 27, 2026",
+    author: "FutureLabs Team",
+  },
+  {
     id: "cybersecurity-tutor-inquiry",
     title: "Call for Cybersecurity Experts: Join the FutureLabs Tutor Network",
     excerpt: "We are expanding our cybersecurity capacity-building programs and seeking qualified professionals to train and mentor the next generation of tech talent. If you specialize in Network Security, Pentesting, Incident Response, or Cloud Security, apply today!",
