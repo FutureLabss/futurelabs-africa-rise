@@ -14,6 +14,7 @@ const navLinks = [
   { label: 'Startups', href: '/startups' },
   { label: 'Community', href: '/community' },
   { label: 'Events', href: '/events' },
+  // { label: 'VibeCode', href: '/vibecode' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -80,7 +81,7 @@ const Navbar = () => {
             asChild 
             className="bg-primary hover:bg-primary/90 text-white font-medium px-6"
           >
-            <Link href="/ai-hackathon">AI Hackathon</Link>
+             <Link href="/vibecode">VibeCode</Link>
           </Button>
         </div>
 
@@ -121,8 +122,8 @@ const Navbar = () => {
               asChild 
               className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
             >
-              <Link href="/ai-hackathon" onClick={() => setIsOpen(false)}>
-                AI Hackathon
+              <Link href="/vibecode" onClick={() => setIsOpen(false)}>
+                VibeCode
               </Link>
             </Button>
           </div>

@@ -22,10 +22,7 @@ import {
   Loader2, 
   Calendar, 
   Rocket, 
-  Globe, 
-  Github,
   Search,
-  User,
   GraduationCap,
   ChevronDown,
   ChevronRight,
@@ -49,7 +46,6 @@ const AdminDashboard: React.FC = () => {
   const currentTab = searchParams.get('tab') || 'events';
   const [events, setEvents] = useState<Tables<'events'>[]>([]);
   const [submissions, setSubmissions] = useState<Tables<'hackathon_submissions'>[]>([]);
-  const [registrations, setRegistrations] = useState<any[]>([]);
   const [tutorApplications, setTutorApplications] = useState<Tables<'tutor_applications'>[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<string | null>(null);
@@ -59,7 +55,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const [eventsRes, submissionsRes, registrationsRes, tutorRes] = await Promise.all([
+    const [eventsRes, submissionsRes, tutorRes] = await Promise.all([
       supabase
         .from('events')
         .select('*')
@@ -67,10 +63,6 @@ const AdminDashboard: React.FC = () => {
       supabase
         .from('hackathon_submissions')
         .select('*')
-        .order('created_at', { ascending: false }),
-      supabase
-        .from('registrations')
-        .select('*, events(title)')
         .order('created_at', { ascending: false }),
       supabase
         .from('tutor_applications')
@@ -88,12 +80,6 @@ const AdminDashboard: React.FC = () => {
       console.error('Error loading submissions:', submissionsRes.error);
     } else {
       setSubmissions(submissionsRes.data || []);
-    }
-
-    if (registrationsRes.error) {
-      console.error('Error loading registrations:', registrationsRes.error);
-    } else {
-      setRegistrations(registrationsRes.data || []);
     }
 
     if (tutorRes.error) {
@@ -127,18 +113,6 @@ const AdminDashboard: React.FC = () => {
     } else {
       toast({ title: 'Submission deleted' });
       setSubmissions((prev) => prev.filter((s) => s.id !== id));
-    }
-    setDeleting(null);
-  };
-
-  const handleDeleteRegistration = async (id: string) => {
-    setDeleting(id);
-    const { error } = await supabase.from('registrations').delete().eq('id', id);
-    if (error) {
-      toast({ title: 'Delete failed', description: error.message, variant: 'destructive' });
-    } else {
-      toast({ title: 'Registration deleted' });
-      setRegistrations((prev) => prev.filter((r) => r.id !== id));
     }
     setDeleting(null);
   };
@@ -187,6 +161,18 @@ const AdminDashboard: React.FC = () => {
     setDeleting(null);
   };
 
+  const handleClearAllSubmissions = async () => {
+    setDeleting('all');
+    const { error } = await supabase.from('hackathon_submissions').delete().gte('id', '0');
+    if (error) {
+      toast({ title: 'Clear failed', description: error.message, variant: 'destructive' });
+    } else {
+      toast({ title: 'All VibeCode submissions cleared' });
+      setSubmissions([]);
+    }
+    setDeleting(null);
+  };
+
   const statusColors: Record<string, string> = {
     new: 'bg-blue-100 text-blue-700 border-blue-200',
     reviewing: 'bg-amber-100 text-amber-700 border-amber-200',
@@ -214,8 +200,8 @@ const AdminDashboard: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Manage events and registrations.</p>
+<h1 className="text-3xl font-bold">Admin Dashboard</h1>
+           <p className="text-muted-foreground">Manage events and submissions.</p>
         </div>
       </div>
 
@@ -229,13 +215,9 @@ const AdminDashboard: React.FC = () => {
             <Calendar className="h-4 w-4" />
             Events
           </TabsTrigger>
-          <TabsTrigger value="registrations" className="gap-2">
-            <User className="h-4 w-4" />
-            Submissions
-          </TabsTrigger>
           <TabsTrigger value="submissions" className="gap-2">
             <Rocket className="h-4 w-4" />
-            Hackathon
+            VibeCode
           </TabsTrigger>
           <TabsTrigger value="tutor-applications" className="gap-2">
             <GraduationCap className="h-4 w-4" />
@@ -330,79 +312,39 @@ const AdminDashboard: React.FC = () => {
               )}
             </CardContent>
           </Card>
-        </TabsContent>
-
-        <TabsContent value="registrations" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold">{registrations.length} registration{registrations.length !== 1 ? 's' : ''} total</h2>
-          </div>
-
-          <Card>
-            <CardContent className="p-0">
-              {registrations.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <User className="h-12 w-12 text-muted-foreground/40 mb-4" />
-                  <p className="text-muted-foreground">No registrations yet.</p>
-                </div>
-              ) : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Full Name</TableHead>
-                      <TableHead>Email</TableHead>
-                      <TableHead>Phone</TableHead>
-                      <TableHead>Event</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {registrations.map((reg) => (
-                      <TableRow key={reg.id}>
-                        <TableCell className="font-semibold">{reg.full_name}</TableCell>
-                        <TableCell>{reg.email}</TableCell>
-                        <TableCell>{reg.phone || '—'}</TableCell>
-                        <TableCell className="max-w-[150px] truncate">
-                          {reg.events?.title || '—'}
-                        </TableCell>
-                        <TableCell className="text-right whitespace-nowrap">
-                          <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                              <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
-                                <Trash2 className="h-4 w-4" />
-                              </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>Delete registration?</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  This will remove {reg.full_name} from the event "{reg.events?.title || '—'}".
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                <AlertDialogAction
-                                  onClick={() => handleDeleteRegistration(reg.id)}
-                                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                                >
-                                  {deleting === reg.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Delete'}
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
+</TabsContent>
 
         <TabsContent value="submissions" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold">{submissions.length} submission{submissions.length !== 1 ? 's' : ''} total</h2>
-          </div>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">{submissions.length} submission{submissions.length !== 1 ? 's' : ''} total</h2>
+              {submissions.length > 0 && (
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="destructive" size="sm">
+                      {deleting === 'all' ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+                      Clear All
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Clear all VibeCode submissions?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This will permanently remove all submissions from the database. This action cannot be undone.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction
+                        onClick={handleClearAllSubmissions}
+                        className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                      >
+                        Clear All
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              )}
+            </div>
 
           <Card>
             <CardContent className="p-0">
@@ -412,83 +354,71 @@ const AdminDashboard: React.FC = () => {
                   <p className="text-muted-foreground">No submissions yet.</p>
                 </div>
               ) : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Project Title</TableHead>
-                      <TableHead>Tagline</TableHead>
-                      <TableHead>Tech Stack</TableHead>
-                      <TableHead>Links</TableHead>
-                      <TableHead>Submitted At</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {submissions.map((sub) => (
-                      <TableRow key={sub.id}>
-                        <TableCell className="font-semibold">{sub.title}</TableCell>
-                        <TableCell className="max-w-[200px] truncate text-muted-foreground">
-                          {sub.tagline}
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex flex-wrap gap-1">
-                            {sub.tech_stack?.slice(0, 3).map((tech: string) => (
-                              <Badge key={tech} variant="outline" className="text-[10px] px-1.5 py-0">
-                                {tech}
-                              </Badge>
-                            ))}
-                            {sub.tech_stack?.length > 3 && (
-                              <span className="text-[10px] text-muted-foreground">+{sub.tech_stack.length - 3}</span>
-                            )}
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex gap-2">
-                            {sub.demo_url && (
-                              <a href={sub.demo_url} target="_blank" rel="noreferrer" title="Demo">
-                                <Globe className="h-4 w-4 text-primary hover:text-primary/80" />
-                              </a>
-                            )}
-                            {sub.github_url && (
-                              <a href={sub.github_url} target="_blank" rel="noreferrer" title="GitHub">
-                                <Github className="h-4 w-4 text-primary hover:text-primary/80" />
-                              </a>
-                            )}
-                          </div>
-                        </TableCell>
-                        <TableCell className="whitespace-nowrap text-muted-foreground text-sm">
-                          {sub.created_at ? format(new Date(sub.created_at), 'MMM d, yyyy') : '—'}
-                        </TableCell>
-                        <TableCell className="text-right whitespace-nowrap">
-                          <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                              <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
-                                <Trash2 className="h-4 w-4" />
-                              </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>Delete submission?</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  This action cannot be undone. This will delete the project "{sub.title}".
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                <AlertDialogAction
-                                  onClick={() => handleDeleteSubmission(sub.id)}
-                                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                                >
-                                  {deleting === sub.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Delete'}
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
-                        </TableCell>
+<Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Full Name</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Location</TableHead>
+                        <TableHead>Skill Level</TableHead>
+                        <TableHead>Objectives</TableHead>
+                        <TableHead>Submitted At</TableHead>
+                        <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {submissions.map((sub) => {
+                        let parsed: any = {};
+                        try { parsed = JSON.parse(sub.description || '{}'); } catch { /* ignore */ }
+                        return (
+                          <TableRow key={sub.id}>
+                            <TableCell className="font-semibold">{sub.title}</TableCell>
+                            <TableCell>{parsed.email || '—'}</TableCell>
+                            <TableCell>{parsed.location || '—'}</TableCell>
+                            <TableCell>
+                              {parsed.skill_level ? parsed.skill_level.split('|')[0].trim() : '—'}
+                            </TableCell>
+                            <TableCell>
+                              <div className="flex flex-wrap gap-1">
+                                {(parsed.learning_objectives || []).map((obj: string) => (
+                                  <Badge key={obj} variant="outline" className="text-[10px] px-1.5 py-0">{obj}</Badge>
+                                ))}
+                              </div>
+                            </TableCell>
+                            <TableCell className="whitespace-nowrap text-muted-foreground text-sm">
+                              {sub.created_at ? format(new Date(sub.created_at), 'MMM d, yyyy') : '—'}
+                            </TableCell>
+                            <TableCell className="text-right whitespace-nowrap">
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+                                    <Trash2 className="h-4 w-4" />
+                                  </Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>Delete VibeCode registration?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                      This action cannot be undone. This will remove {sub.title}'s registration.
+                                    </AlertDialogDescription>
+                                  </AlertDialogHeader>
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction
+                                      onClick={() => handleDeleteSubmission(sub.id)}
+                                      className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                    >
+                                      {deleting === sub.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Delete'}
+                                    </AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
               )}
             </CardContent>
           </Card>

@@ -4,17 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-    return [
-      {
-        source: '/ai-hackathon',
-        destination: '/ai-fellowship',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
-
 
