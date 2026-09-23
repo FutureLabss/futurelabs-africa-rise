@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section } from '@/components/site/primitives';
 import { cn } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: 'Manifesto',
-  description: 'Africa does not need another conversation about potential. It needs systems that turn potential into production.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'The FutureLabs Manifesto',
+  description: 'Africa does not need another conversation about potential. The FutureLabs Manifesto: six principles for turning potential into production.',
+  path: '/manifesto',
+});
 
 const PRINCIPLES = [
   'Development is ultimately about productive capacity. Countries become prosperous when their people and institutions become better at producing valuable things.',

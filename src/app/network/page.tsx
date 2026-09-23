@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, Duotone } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Network',
-  description:
-    'FutureLabs connects builders, founders, engineers, researchers, institutions, investors, government and industry around opportunities that can create measurable economic value.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'The FutureLabs Network',
+  description: 'The FutureLabs Network connects builders, founders, researchers, employers, investors, institutions and government around productive opportunity in Africa.',
+  path: '/network',
+});
 
 const MEMBERS = ['Builders', 'Founders', 'Researchers', 'Employers', 'Investors', 'Institutions', 'Government', 'Development organizations'];
 

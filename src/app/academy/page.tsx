@@ -1,13 +1,14 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, PhotoHero, NumberCard, ImageCard, ProofLine, Stat, CtaBand } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Academy',
-  description:
-    'FutureLabs Academy is our learning and workforce-development arm, focused on AI, software, digital skills and the capabilities required by an evolving economy.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Academy — Software & AI Training',
+  description: 'FutureLabs Academy trains software engineers and AI talent in Africa: a 9-month bootcamp, recorded courses, Project Genesis and talent placement.',
+  path: '/academy',
+});
 
 const STEPS = [
   ['Learn', 'Structured training in software, AI and digital skills, taught against real technologies.'],

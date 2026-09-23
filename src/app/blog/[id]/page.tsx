@@ -7,6 +7,7 @@ import ArticleBody from '@/components/site/ArticleBody';
 import { BlogCard } from '@/components/site/BlogCard';
 import { Section, CtaBand, Duotone, SmartLink } from '@/components/site/primitives';
 import JsonLd from '@/components/JsonLd';
+import { pageMeta } from '@/lib/seo';
 import { posts, getPost, readTime, postCta } from '@/lib/blog';
 
 type Params = { params: { id: string } };
@@ -17,12 +18,8 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Params): Metadata {
   const post = getPost(params.id);
-  if (!post) return { title: 'Post not found' };
-  return {
-    title: post.title,
-    description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, type: 'article', images: [post.imageUrl] },
-  };
+  if (!post) return { title: 'Post not found', robots: { index: false } };
+  return pageMeta({ title: post.title, description: post.excerpt, path: `/blog/${post.id}`, image: post.imageUrl, type: 'article' });
 }
 
 const SHARE = [

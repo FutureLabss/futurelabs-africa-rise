@@ -30,16 +30,19 @@ export const metadata: Metadata = {
   },
   description,
   authors: [{ name: "FutureLabs" }],
+  applicationName: "FutureLabs Africa",
   openGraph: {
     title: "FutureLabs Africa — Building Africa's productive capacity",
     description,
     type: "website",
-    images: ["https://futurelabs.africa/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png"],
+    siteName: "FutureLabs Africa",
+    locale: "en_NG",
+    images: ["/images/site/og-default.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     site: "@FutureLabsNG",
-    images: ["https://futurelabs.africa/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png"],
+    images: ["/images/site/og-default.jpg"],
   },
 };
 

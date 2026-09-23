@@ -12,6 +12,10 @@ const nextConfig = {
       { source: '/impact', destination: '/#impact', permanent: true },
       { source: '/ventures', destination: '/startups', permanent: false },
       { source: '/intelligence', destination: '/research-labs', permanent: false },
+      // Old and duplicate routes: one URL per page for search engines.
+      { source: '/ai-hackathon', destination: '/vibecode', permanent: true },
+      { source: '/hackathon', destination: '/vibecode', permanent: true },
+      { source: '/event-details', destination: '/events', permanent: true },
     ];
   },
 };

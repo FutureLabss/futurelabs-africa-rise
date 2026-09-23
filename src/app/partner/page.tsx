@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, NumberCard, ImageCard } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Partner With Us',
-  description:
-    'We work with organizations that want to develop people, build startups, deploy technology or strengthen institutions.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'Partner with FutureLabs',
+  description: 'Partner with FutureLabs to develop people, build startups, deploy technology or strengthen institutions across Africa.',
+  path: '/partner',
+});
 
 export default function PartnerPage() {
   return (

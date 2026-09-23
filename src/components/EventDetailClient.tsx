@@ -18,7 +18,7 @@ import type { Tables } from '@/integrations/supabase/types';
 
 type EventRow = Tables<'events'>;
 
-const EventDetails = () => {
+const EventDetailClient = () => {
   const { id } = useParams<{ id: string }>();
   const { toast } = useToast();
   const isMobile = useIsMobile();
@@ -315,4 +315,4 @@ const EventDetails = () => {
   );
 };
 
-export default EventDetails;
+export default EventDetailClient;

@@ -1,14 +1,16 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import BlogIndex from '@/components/site/BlogIndex';
 import SubscribeForm from '@/components/site/SubscribeForm';
 import { Section } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Insights, updates and stories from the FutureLabs ecosystem — founders, programmes and open roles.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Blog — Insights, Updates & Stories',
+  description: 'News from the FutureLabs ecosystem in Africa: founders, programmes, events and open roles.',
+  path: '/blog',
+});
 
 export default function BlogPage() {
   return (

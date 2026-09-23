@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Enterprise',
-  description:
-    'FutureLabs helps organizations adopt technology, develop talent and build the capabilities required to compete in an AI-driven economy.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'Enterprise AI & Technology Services',
+  description: 'FutureLabs helps organizations adopt AI and technology, develop talent and build the capabilities required to compete in an AI-driven economy.',
+  path: '/enterprise',
+});
 
 const SERVICES = [
   ['AI transformation', 'Where AI creates measurable productivity gain, and how to deploy it.'],

@@ -1,14 +1,16 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import ContactForm from '@/components/site/ContactForm';
 import { Section } from '@/components/site/primitives';
 import { CONTACT, SOCIAL_LINKS } from '@/components/site/nav';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Tell us the problem, opportunity or capability you want to develop. hello@futurelabs.africa · +234 703 240 0529.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'Contact FutureLabs',
+  description: 'Contact FutureLabs Africa: tell us the problem, opportunity or capability you want to develop. hello@futurelabs.africa · +234 703 240 0529 · Akwa Ibom, Nigeria.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

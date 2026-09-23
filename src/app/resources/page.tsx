@@ -1,11 +1,13 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import ResourcesClient from '@/components/ResourcesClient';
 
-export const metadata: Metadata = {
-  title: "Resources & Opportunities",
-  description: "Explore developer resources, educational materials, and career opportunities provided by FutureLabs.",
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Resources & Opportunities',
+  description: 'Resources, opportunities and upcoming events from FutureLabs for African builders, founders and learners.',
+  path: '/resources',
+});
 
 export default function ResourcesPage() {
   return <ResourcesClient />;

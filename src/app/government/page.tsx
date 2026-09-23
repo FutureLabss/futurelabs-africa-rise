@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard, PartnerNames } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Government & Development',
-  description:
-    'FutureLabs partners with governments and development organizations to turn technology, talent and public investment into measurable economic and institutional outcomes.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'Government & Development Partnerships',
+  description: 'FutureLabs partners with governments and development organizations to turn technology, talent and public investment into measurable economic and institutional outcomes.',
+  path: '/government',
+});
 
 export default function GovernmentPage() {
   return (

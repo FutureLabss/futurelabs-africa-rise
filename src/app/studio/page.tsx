@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Studio',
-  description:
-    'FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Studio — AI Systems & Digital Products',
+  description: 'FutureLabs Studio builds AI applications, web platforms, internal tools, automation and data systems for organizations, institutions and ventures.',
+  path: '/studio',
+});
 
 const CAPABILITIES = [
   ['AI applications', 'Models and agents built into real workflows, not demos.'],

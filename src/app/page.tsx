@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import HeroNetwork from '@/components/site/HeroNetwork';
 import SubscribeForm from '@/components/site/SubscribeForm';
@@ -20,11 +21,12 @@ import JsonLd from '@/components/JsonLd';
 import { posts } from '@/lib/blog';
 import { SOCIAL_LINKS } from '@/components/site/nav';
 
-export const metadata: Metadata = {
-  title: { absolute: "FutureLabs Africa — Building Africa's productive capacity" },
-  description:
-    'FutureLabs is a technology and economic development institution building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
-};
+export const metadata: Metadata = pageMeta({
+  title: "FutureLabs Africa — Building Africa's productive capacity",
+  description: 'FutureLabs is a technology and economic development institution in Nigeria building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
+  path: '/',
+  absoluteTitle: true,
+});
 
 const orgSchema = {
   '@context': 'https://schema.org',

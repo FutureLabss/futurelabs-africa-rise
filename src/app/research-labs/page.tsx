@@ -1,14 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import SubscribeForm from '@/components/site/SubscribeForm';
 import { Section, SplitHero } from '@/components/site/primitives';
 
-export const metadata: Metadata = {
-  title: 'Intelligence',
-  description:
-    'FutureLabs Intelligence researches the forces shaping African technology and economic development: human capital, technology, enterprise, government, capital and markets.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Intelligence — Research',
+  description: "FutureLabs Intelligence researches the forces shaping Africa's technology and economic future: human capital, technology, enterprise, government, capital and markets.",
+  path: '/research-labs',
+});
 
 const AREAS = [
   ['Human Capital', 'Skills, education, workforce and talent.'],

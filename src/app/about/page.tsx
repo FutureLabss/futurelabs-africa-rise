@@ -1,14 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, Duotone, ManifestoBand, SmartLink } from '@/components/site/primitives';
 import { cn } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: 'About',
-  description:
-    "We believe Africa's greatest asset is its people. FutureLabs builds the talent, startups, technologies, intelligence and institutional capabilities required to convert African potential into productive economic capacity.",
-};
+export const metadata: Metadata = pageMeta({
+  title: 'About FutureLabs',
+  description: "FutureLabs believes Africa's greatest asset is its people. We build the talent, startups, technologies, intelligence and institutional capabilities that turn African potential into productive capacity.",
+  path: '/about',
+});
 
 const THESIS = [
   ['People', 'need skills'],

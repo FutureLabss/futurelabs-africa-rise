@@ -1,16 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import VenturesPortfolio from '@/components/site/VenturesPortfolio';
 import { Section, SplitHero, ProofLine, Stat } from '@/components/site/primitives';
 import { ventures } from '@/data/ventures';
 
-export const metadata: Metadata = {
-  title: 'Ventures',
-  description:
-    'FutureLabs Ventures identifies meaningful problems, develops products and supports founders building scalable startups around African problems.',
-};
+export const metadata: Metadata = pageMeta({
+  title: 'FutureLabs Ventures — Startups We Build & Back',
+  description: 'FutureLabs Ventures builds, backs and partners with startups solving African problems. Meet the portfolio: FutureResume, Salely, Cleverclass, Opportunitylab and more.',
+  path: '/startups',
+});
 
 const MODES = [
   ['Build', 'Startups created from problems identified through our ecosystem and research.'],

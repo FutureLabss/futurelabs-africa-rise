@@ -5,11 +5,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, Calendar, Trophy, Network } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Youth Collaboration",
-  description: "Creating opportunities for young African tech talents to connect, learn, and build together.",
-};
+export const metadata: Metadata = pageMeta({
+  title: 'Youth Collaboration at FutureLabs',
+  description: 'How FutureLabs works with young people across Africa on technology, entrepreneurship and innovation projects.',
+  path: '/youth-collaboration',
+});
 
 
 const YouthCollaboration = () => {

@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
 
       *Emmanuel Jackson is the Founder of Bucx Technologies and an incubatee at FutureLabs Host Hub.*
     `,
-    imageUrl: "/iDiceBlog.png",
+    imageUrl: "/iDiceBlog.jpg",
     category: "Startups",
     date: "August 27, 2026",
     author: "FutureLabs Team",
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
 
       👉 [Apply here to join our tutor network](/apply-to-teach) to submit your details, certifications, resume, and availability. Let's secure the future of tech in Africa together!
     `,
-    imageUrl: "/blog-cybersecurity-tutor.png",
+    imageUrl: "/blog-cybersecurity-tutor.jpg",
     category: "Careers",
     date: "July 08, 2025",
     author: "Futurelabs Academy Team",
