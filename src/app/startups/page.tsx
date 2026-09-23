@@ -30,7 +30,7 @@ export default function VenturesPage() {
         lede="FutureLabs identifies meaningful problems, develops products and supports founders building scalable startups."
       >
         <ProofLine className="mt-6">
-          <Stat value="40">startups supported · Verified internally · As of 2026</Stat>
+          <Stat value="45+">startups incubated · Verified internally · As of 2026</Stat>
         </ProofLine>
       </SplitHero>
 

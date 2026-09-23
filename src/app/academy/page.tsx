@@ -33,7 +33,7 @@ export default function AcademyPage() {
           </a>
         </div>
         <ProofLine className="mt-10 gap-x-7 text-fl-muted">
-          <Stat value="2,000">talents developed</Stat>
+          <Stat value="1,250+">youths trained</Stat>
           <span>9-month bootcamp</span>
           <span>futurelabs.ng</span>
         </ProofLine>

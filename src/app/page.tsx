@@ -51,9 +51,9 @@ const MECHANISMS = [
 ];
 
 const IMPACT = [
-  { value: '2,000', title: 'People developed', text: 'Talent trained and moved into economic activity.' },
-  { value: '40', title: 'Startups supported', text: 'Startups incubated, built or backed.' },
-  { value: '7', title: 'Institutional partners', text: 'Government, development and university partners.' },
+  { value: '1,250+', title: 'Youths trained', text: 'Talent trained and moved into economic activity.' },
+  { value: '45+', title: 'Startups incubated', text: 'Startups incubated, built or backed.' },
+  { value: '35+', title: 'Partners', text: 'Government, development, university and industry partners.' },
 ];
 
 const CASES = [
@@ -105,8 +105,8 @@ export default function HomePage() {
               <Link href="/about#what-we-build" className="fl-btn-ghost">Explore our work</Link>
             </div>
             <ProofLine className="mt-11 border-t border-fl-paper/[.14] pt-4 sm:border-0 sm:pt-0">
-              <Stat value="40">startups supported</Stat>
-              <Stat value="2,000">talents developed</Stat>
+              <Stat value="45+">startups incubated</Stat>
+              <Stat value="1,250+">youths trained</Stat>
               <span>Verified internally · As of 2026</span>
             </ProofLine>
           </div>
