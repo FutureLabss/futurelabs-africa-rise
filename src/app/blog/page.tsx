@@ -1,28 +1,28 @@
-"use client";
-
-
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import BlogList from '@/components/BlogList';
-import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
+import { Metadata } from 'next';
+import SiteShell from '@/components/site/SiteShell';
+import BlogIndex from '@/components/site/BlogIndex';
+import SubscribeForm from '@/components/site/SubscribeForm';
+import { Section } from '@/components/site/primitives';
 
-const Blog = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow pt-20">
-        <PageHero
-          title="Blog"
-          subtitle="Stay updated with the latest news, insights, and stories from FutureLabs."
-        />
-        <div className="mx-10">
-          <BlogList />
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Insights, updates and stories from the FutureLabs ecosystem — founders, programmes and open roles.',
 };
 
-export default Blog;
+export default function BlogPage() {
+  return (
+    <SiteShell>
+      <BlogIndex />
+      <Section innerClassName="grid items-center gap-12 py-20 md:grid-cols-2">
+        <div>
+          <h2 className="m-0 max-w-[18ch] text-[clamp(26px,3vw,40px)] font-semibold leading-[1.06] tracking-[-0.032em]">Stay connected.</h2>
+          <p className="m-0 mt-4 max-w-[42ch] text-[16px] leading-[1.6] text-fl-soft">
+            Updates on programmes, events and opportunities across Africa&apos;s tech ecosystem.
+          </p>
+        </div>
+        <SubscribeForm variant="inline" subject="Newsletter subscription (blog)" successText="Subscribed. Thanks for staying connected." />
+      </Section>
+    </SiteShell>
+  );
+}

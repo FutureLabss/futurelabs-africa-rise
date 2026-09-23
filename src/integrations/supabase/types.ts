@@ -65,6 +65,39 @@ export type Database = {
         }
         Relationships: []
       }
+      hackathon_submissions: {
+        Row: {
+          created_at: string
+          demo_url: string | null
+          description: string
+          github_url: string | null
+          id: string
+          tagline: string
+          tech_stack: string[]
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          demo_url?: string | null
+          description: string
+          github_url?: string | null
+          id?: string
+          tagline: string
+          tech_stack?: string[]
+          title: string
+        }
+        Update: {
+          created_at?: string
+          demo_url?: string | null
+          description?: string
+          github_url?: string | null
+          id?: string
+          tagline?: string
+          tech_stack?: string[]
+          title?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -136,6 +169,213 @@ export type Database = {
           },
         ]
       }
+      tutor_applications: {
+        Row: {
+          availability: string
+          certifications: string[]
+          certifications_other: string | null
+          consent: boolean
+          created_at: string
+          current_employer: string
+          current_job_title: string
+          cyber_years: number
+          degree_field: string
+          email: string
+          full_name: string
+          id: string
+          linkedin_url: string | null
+          location: string
+          notable_work: string | null
+          phone: string
+          portfolio_url: string | null
+          preferred_format: string
+          rate_expectations: string | null
+          reference_contact: string
+          reference_name: string
+          resume_url: string
+          specializations: string[]
+          specializations_other: string | null
+          status: Database["public"]["Enums"]["tutor_application_status"]
+          teaching_levels: string[]
+          teaching_motivation: string
+          teaching_years: number
+          updated_at: string
+        }
+        Insert: {
+          availability: string
+          certifications?: string[]
+          certifications_other?: string | null
+          consent?: boolean
+          created_at?: string
+          current_employer: string
+          current_job_title: string
+          cyber_years: number
+          degree_field: string
+          email: string
+          full_name: string
+          id?: string
+          linkedin_url?: string | null
+          location: string
+          notable_work?: string | null
+          phone: string
+          portfolio_url?: string | null
+          preferred_format: string
+          rate_expectations?: string | null
+          reference_contact: string
+          reference_name: string
+          resume_url: string
+          specializations?: string[]
+          specializations_other?: string | null
+          status?: Database["public"]["Enums"]["tutor_application_status"]
+          teaching_levels?: string[]
+          teaching_motivation: string
+          teaching_years: number
+          updated_at?: string
+        }
+        Update: {
+          availability?: string
+          certifications?: string[]
+          certifications_other?: string | null
+          consent?: boolean
+          created_at?: string
+          current_employer?: string
+          current_job_title?: string
+          cyber_years?: number
+          degree_field?: string
+          email?: string
+          full_name?: string
+          id?: string
+          linkedin_url?: string | null
+          location?: string
+          notable_work?: string | null
+          phone?: string
+          portfolio_url?: string | null
+          preferred_format?: string
+          rate_expectations?: string | null
+          reference_contact?: string
+          reference_name?: string
+          resume_url?: string
+          specializations?: string[]
+          specializations_other?: string | null
+          status?: Database["public"]["Enums"]["tutor_application_status"]
+          teaching_levels?: string[]
+          teaching_motivation?: string
+          teaching_years?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      tutor_requests: {
+        Row: {
+          additional_notes: string | null
+          budget_range: string | null
+          consent: boolean
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_role: string
+          created_at: string
+          current_certifications: string | null
+          has_it_team: boolean
+          id: string
+          it_team_expertise: string | null
+          it_team_size: number | null
+          num_learners: number | null
+          organisation_description: string
+          organisation_name: string
+          organisation_size: number | null
+          organisation_type: string
+          organisation_website: string | null
+          past_incidents: boolean
+          past_incidents_desc: string | null
+          preferred_date: string | null
+          referral_source: string
+          security_maturity: string
+          security_tools: string[]
+          security_tools_other: string | null
+          skill_level: string
+          status: Database["public"]["Enums"]["tutor_request_status"]
+          training_format: string
+          training_location: string | null
+          training_reason: string
+          training_topics: string[]
+          training_topics_other: string | null
+          updated_at: string
+        }
+        Insert: {
+          additional_notes?: string | null
+          budget_range?: string | null
+          consent?: boolean
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_role: string
+          created_at?: string
+          current_certifications?: string | null
+          has_it_team?: boolean
+          id?: string
+          it_team_expertise?: string | null
+          it_team_size?: number | null
+          num_learners?: number | null
+          organisation_description: string
+          organisation_name: string
+          organisation_size?: number | null
+          organisation_type: string
+          organisation_website?: string | null
+          past_incidents?: boolean
+          past_incidents_desc?: string | null
+          preferred_date?: string | null
+          referral_source: string
+          security_maturity: string
+          security_tools?: string[]
+          security_tools_other?: string | null
+          skill_level: string
+          status?: Database["public"]["Enums"]["tutor_request_status"]
+          training_format: string
+          training_location?: string | null
+          training_reason: string
+          training_topics?: string[]
+          training_topics_other?: string | null
+          updated_at?: string
+        }
+        Update: {
+          additional_notes?: string | null
+          budget_range?: string | null
+          consent?: boolean
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string
+          contact_role?: string
+          created_at?: string
+          current_certifications?: string | null
+          has_it_team?: boolean
+          id?: string
+          it_team_expertise?: string | null
+          it_team_size?: number | null
+          num_learners?: number | null
+          organisation_description?: string
+          organisation_name?: string
+          organisation_size?: number | null
+          organisation_type?: string
+          organisation_website?: string | null
+          past_incidents?: boolean
+          past_incidents_desc?: string | null
+          preferred_date?: string | null
+          referral_source?: string
+          security_maturity?: string
+          security_tools?: string[]
+          security_tools_other?: string | null
+          skill_level?: string
+          status?: Database["public"]["Enums"]["tutor_request_status"]
+          training_format?: string
+          training_location?: string | null
+          training_reason?: string
+          training_topics?: string[]
+          training_topics_other?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -189,6 +429,8 @@ export type Database = {
       app_role: "admin" | "user"
       location_type: "in-person" | "virtual" | "hybrid"
       registration_status: "registered" | "cancelled" | "attended"
+      tutor_application_status: "new" | "reviewing" | "accepted" | "rejected"
+      tutor_request_status: "new" | "contacted" | "closed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -319,6 +561,8 @@ export const Constants = {
       app_role: ["admin", "user"],
       location_type: ["in-person", "virtual", "hybrid"],
       registration_status: ["registered", "cancelled", "attended"],
+      tutor_application_status: ["new", "reviewing", "accepted", "rejected"],
+      tutor_request_status: ["new", "contacted", "closed"],
     },
   },
 } as const

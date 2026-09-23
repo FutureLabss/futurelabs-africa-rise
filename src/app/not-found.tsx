@@ -1,29 +1,22 @@
-"use client";
+import Link from 'next/link';
+import SiteShell from '@/components/site/SiteShell';
 
-import { usePathname } from 'next/navigation';
-import { useEffect } from "react";
-
-const NotFound = () => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      pathname
-    );
-  }, [pathname]);
-
+export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
-      </div>
-    </div>
+    <SiteShell>
+      <section className="fl-section">
+        <div className="fl-wrap flex min-h-[60vh] flex-col justify-center py-24">
+          <div className="fl-eyebrow-accent">404 · Page not found</div>
+          <h1 className="fl-h1 m-0 mt-[26px] max-w-[16ch]">This page doesn&apos;t exist, or has moved.</h1>
+          <p className="fl-lede m-0 mt-6 max-w-[46ch]">
+            Some pages were folded into the new site. Start from the homepage or tell us what you were looking for.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link href="/" className="fl-btn">Go to the homepage</Link>
+            <Link href="/contact" className="fl-btn-ghost">Contact us</Link>
+          </div>
+        </div>
+      </section>
+    </SiteShell>
   );
-};
-
-export default NotFound;
+}

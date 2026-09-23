@@ -35,6 +35,12 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   
   const isLoginPage = pathname === '/admin/login';
 
+  // The public site is dark; the admin keeps the original light theme (including portalled dialogs).
+  useEffect(() => {
+    document.documentElement.classList.add('theme-light');
+    return () => document.documentElement.classList.remove('theme-light');
+  }, []);
+
   useEffect(() => {
     if (isLoginPage) return;
     if (!loading && (!user || !isAdmin)) {

@@ -1,16 +1,60 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { supabase } from '@/integrations/supabase/client';
-import { ArrowRight, Sparkles, Calendar, MapPin, Users, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { format } from 'date-fns';
-import DOMPurify from 'dompurify';
+import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
+import SiteShell from '@/components/site/SiteShell';
+import SubscribeForm from '@/components/site/SubscribeForm';
+import { Section, PhotoHero, Duotone, CtaBand } from '@/components/site/primitives';
 
 type EventRow = Tables<'events'>;
+
+const FORMATS = [
+  ['Hackathons', 'Problem-led builds against real institutional and industry briefs.'],
+  ['Demo days', 'Founders in front of investors, corporates and public buyers.'],
+  ['Industry roundtables', 'Closed sessions on AI adoption, skills and technology policy.'],
+  ['Workshops', 'Short, practical training for teams inside partner organizations.'],
+];
+
+// Shown when there are no past events in the database yet.
+const CONVENINGS = [
+  { img: '/images/site/hackathon.jpg', flag: 'Hackathon', title: 'AI Hackathon', text: 'Teams building applied AI against briefs from partner organizations.' },
+  { img: '/images/site/fellowship.jpg', flag: 'Demo day', title: 'Fellowship Demo Day', text: 'Fellows presenting deployed work to employers and investors.' },
+  { img: '/images/site/community.jpg', flag: 'Meetup', title: 'Builders Meetup', text: 'Engineers, founders and researchers in the FutureLabs network.' },
+];
+
+const FALLBACK_IMG = ['/images/site/community.jpg', '/images/site/team.jpg', '/images/site/fellowship.jpg'];
+
+const LOCATION_LABEL: Record<string, string> = { 'in-person': 'In person', virtual: 'Online', hybrid: 'Hybrid' };
+
+function EventCard({ event, index, count, past }: { event: EventRow; index: number; count?: number; past?: boolean }) {
+  const start = new Date(event.start_time);
+  return (
+    <Link
+      href={`/events/${event.slug}`}
+      className="fl-card group flex flex-col text-fl-paper hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)]"
+    >
+      <Duotone
+        src={event.image_url || FALLBACK_IMG[index % FALLBACK_IMG.length]}
+        alt=""
+        flag={event.featured && !past ? 'Featured' : LOCATION_LABEL[event.location_type] ?? event.location_type}
+        light
+        className="h-[200px] flex-none"
+      />
+      <div className="flex flex-1 flex-col gap-2.5 p-6">
+        <span className="font-mono text-[10.5px] uppercase leading-[1.4] text-fl-label">
+          {format(start, 'MMM d, yyyy')} · {format(start, 'h:mm a')}
+          {event.location_details ? ` · ${event.location_details}` : ''}
+        </span>
+        <h3 className="text-[21px] font-semibold leading-[1.14] tracking-[-0.025em]">{event.title}</h3>
+        {!past && count ? <span className="font-mono text-[11px] text-fl-muted">{count} registered</span> : null}
+        <span className="fl-link mt-auto pt-3 group-hover:text-fl-paper">{past ? 'View recap' : 'View event & register'} →</span>
+      </div>
+    </Link>
+  );
+}
 
 export default function EventsClient() {
   const [events, setEvents] = useState<EventRow[]>([]);
@@ -26,13 +70,13 @@ export default function EventsClient() {
         const evts = data || [];
         setEvents(evts);
         setLoading(false);
-        // Fetch registration counts
         if (evts.length > 0) {
-          const ids = evts.map(e => e.id);
-          supabase.rpc('get_registration_counts', { event_ids: ids }).then(({ data: counts }) => {
+          supabase.rpc('get_registration_counts', { event_ids: evts.map((e) => e.id) }).then(({ data: counts }) => {
             if (counts) {
               const map: Record<string, number> = {};
-              (counts as { event_id: string; count: number }[]).forEach(r => { map[r.event_id] = Number(r.count); });
+              (counts as { event_id: string; count: number }[]).forEach((r) => {
+                map[r.event_id] = Number(r.count);
+              });
               setRegCounts(map);
             }
           });
@@ -41,196 +85,100 @@ export default function EventsClient() {
   }, []);
 
   const now = new Date();
-  const upcomingEvents = events.filter(e => new Date(e.start_time) >= now);
-  const pastEvents = events.filter(e => new Date(e.start_time) < now);
-  const featuredEvents = upcomingEvents.filter(e => e.featured);
-
-  if (loading) {
-    return (
-      <div className="flex flex-col min-h-screen bg-background">
-        <Navbar />
-        <main className="flex-grow pt-20 flex items-center justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  const upcoming = events
+    .filter((e) => new Date(e.start_time) >= now)
+    .sort((a, b) => Number(b.featured) - Number(a.featured));
+  const past = events.filter((e) => new Date(e.start_time) < now).reverse();
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Navbar />
-      <main className="flex-grow pt-20">
-        {/* Hero Section */}
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
-              <Sparkles className="h-4 w-4" />
-              <span>FutureLabs Events</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Discover <span className="text-primary">events</span> that shape Africa's future.
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Join our community of innovators, founders, and tech enthusiasts. Register for workshops, conferences, and meetups across Africa.
-            </p>
-          </div>
+    <SiteShell>
+      <PhotoHero
+        img="/images/site/community.jpg"
+        eyebrow="Events"
+        title="Where capability meets demand."
+        lede="Hackathons, demo days and industry convenings that put talent, founders and institutions in the same room."
+      />
+
+      <Section innerClassName="py-[72px]">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-6">
+          <h2 className="m-0 text-[clamp(26px,3vw,40px)] font-semibold leading-[1.06] tracking-[-0.032em]">Upcoming events</h2>
+          {upcoming.length > 0 && <span className="font-mono text-[11px] text-fl-label">{upcoming.length} scheduled</span>}
         </div>
-
-        {/* Featured Event */}
-        {featuredEvents.map(event => (
-          <div key={event.id} className="container mx-auto px-4 mb-16">
-            <Link href={`/events/${event.slug}`}
-              className="group block relative overflow-hidden rounded-3xl bg-gradient-to-br from-secondary to-secondary/80"
-            >
-              <div className="absolute inset-0">
-                {event.image_url && (
-                  <img 
-                    src={event.image_url} 
-                    alt={event.title}
-                    className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-500"
-                  />
-                )}
-              </div>
-              <div className="relative p-8 md:p-12 lg:p-16">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-4">
-                  <span>Featured Event</span>
-                </div>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-3xl">
-                  {event.title}
-                </h2>
-                <div 
-                  className="text-white/80 text-lg mb-6 max-w-2xl prose prose-invert [&_a]:text-primary [&_a]:underline"
-                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description || '') }}
-                />
-                <div className="flex flex-wrap items-center gap-4 text-white/90 mb-8">
-                  <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
-                  <span>·</span>
-                  <span>{format(new Date(event.start_time), 'h:mm a')}</span>
-                  {event.location_details && (
-                    <>
-                      <span>·</span>
-                      <span>{event.location_details}</span>
-                    </>
-                  )}
-                </div>
-                <div className="inline-flex items-center gap-2 px-6 py-3 bg-white text-secondary rounded-full font-medium group-hover:gap-3 transition-all">
-                  <span>View Event</span>
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-              </div>
-            </Link>
+        {loading ? (
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" aria-busy="true" aria-label="Loading events">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-[340px] animate-pulse bg-fl-graphite shadow-[0_0_0_1px_rgba(242,240,234,.1)]" />
+            ))}
           </div>
-        ))}
-
-        {/* Upcoming Events List */}
-        <section className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-foreground">Upcoming Events</h2>
+        ) : upcoming.length > 0 ? (
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {upcoming.map((e, i) => (
+              <EventCard key={e.id} event={e} index={i} count={regCounts[e.id]} />
+            ))}
           </div>
-          
-          {upcomingEvents.length > 0 ? (
-            <div className="bg-card border border-border rounded-2xl divide-y divide-border overflow-hidden">
-              {upcomingEvents.map((event) => (
-                <Link key={event.id} href={`/events/${event.slug}`} className="group block">
-                  <div className="flex gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors duration-200">
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl overflow-hidden bg-muted">
-                      {event.image_url ? (
-                        <img src={event.image_url} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-                          <Calendar className="h-6 w-6 text-primary/60" />
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                        <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
-                        <span>·</span>
-                        <span>{format(new Date(event.start_time), 'h:mm a')}</span>
-                      </div>
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 mb-1">
-                        {event.title}
-                      </h3>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        {event.location_details && (
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-3.5 w-3.5" />
-                            <span className="line-clamp-1">{event.location_details}</span>
-                          </div>
-                        )}
-                        {regCounts[event.id] > 0 && (
-                          <div className="flex items-center gap-1">
-                            <Users className="h-3.5 w-3.5" />
-                            <span>{regCounts[event.id]} registered</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex-shrink-0 self-start">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        {event.location_type}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12 bg-muted/30 rounded-2xl">
-              <p className="text-muted-foreground">No upcoming events at the moment. Check back soon!</p>
-            </div>
-          )}
-        </section>
-
-        {/* Past Events */}
-        {pastEvents.length > 0 && (
-          <section className="container mx-auto px-4 py-8 pb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Past Events</h2>
-            <div className="bg-card border border-border rounded-2xl divide-y divide-border overflow-hidden opacity-75">
-              {pastEvents.map((event) => (
-                <Link key={event.id} href={`/events/${event.slug}`} className="group block hover:bg-muted/30 transition-colors duration-200">
-                  <div className="flex gap-4 p-4">
-                    <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
-                      {event.image_url ? (
-                        <img src={event.image_url} alt={event.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
-                      ) : (
-                        <span className="text-2xl font-bold text-muted-foreground">
-                          {new Date(event.start_time).getDate()}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                        <span>{format(new Date(event.start_time), 'MMMM d, yyyy')}</span>
-                        {event.location_details && (
-                          <>
-                            <span>·</span>
-                            <span>{event.location_details}</span>
-                          </>
-                        )}
-                      </div>
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 mb-1">
-                        {event.title}
-                      </h3>
-                      <div 
-                        className="text-sm text-muted-foreground line-clamp-1 prose-sm"
-                        dangerouslySetInnerHTML={{ __html: event.description || '' }}
-                      />
-                    </div>
-                    <div className="flex-shrink-0 self-start">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
-                        {event.location_type}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
+        ) : (
+          <div className="flex flex-col gap-2 bg-fl-graphite px-7 py-8 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+            <p className="m-0 text-[18px] font-semibold tracking-[-0.02em]">No public events scheduled right now.</p>
+            <p className="fl-card-text m-0">Get the calendar below and we&apos;ll send dates to you before they go public.</p>
+          </div>
         )}
-      </main>
-      <Footer />
-    </div>
+      </Section>
+
+      <Section tone="graphite" innerClassName="py-[72px]">
+        <h2 className="fl-eyebrow mb-[30px]">Formats</h2>
+        <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4">
+          {FORMATS.map(([title, text], i) => (
+            <div key={title} className="flex min-h-[200px] flex-col gap-3 bg-fl-graphite px-6 pb-[34px] pt-[30px] shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+              <span className="fl-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="text-[21px] font-semibold leading-[1.14] tracking-[-0.025em]">{title}</h3>
+              <p className="m-0 text-[14px] leading-[1.6] text-fl-muted">{text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section innerClassName="grid items-center gap-12 py-20 md:grid-cols-2">
+        <div>
+          <h2 className="m-0 max-w-[16ch] text-[clamp(28px,3.2vw,44px)] font-semibold leading-[1.04] tracking-[-0.032em]">
+            The calendar goes out before it goes public.
+          </h2>
+          <p className="m-0 mt-5 max-w-[44ch] text-[16.5px] leading-[1.6] text-fl-soft">
+            Dates, briefs and applications are sent to the FutureLabs network first.
+          </p>
+        </div>
+        <div className="flex flex-col gap-[18px] bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgba(242,240,234,.16)]">
+          <div className="fl-tag">Get the calendar</div>
+          <SubscribeForm
+            subject="Events calendar subscription"
+            roleOptions={['Builder', 'Founder', 'Institution', 'Investor', 'Employer', 'Other']}
+            successText="You're on the list. Dates and briefs will come to you first."
+          />
+        </div>
+      </Section>
+
+      <Section tone="graphite" innerClassName="py-20">
+        <div className="mb-9 flex flex-wrap items-baseline justify-between gap-6">
+          <h2 className="m-0 text-[clamp(26px,3vw,40px)] font-semibold leading-[1.06] tracking-[-0.032em]">Recent convenings</h2>
+          <Link href="/network" className="fl-link text-[13px]">Join the network →</Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {!loading && past.length > 0
+            ? past.slice(0, 6).map((e, i) => <EventCard key={e.id} event={e} index={i} past />)
+            : CONVENINGS.map((c) => (
+                <div key={c.title} className="fl-card flex flex-col">
+                  <Duotone src={c.img} flag={c.flag} light className="h-[200px] flex-none" />
+                  <div className="flex flex-col gap-2.5 p-6">
+                    <h3 className="text-[21px] font-semibold leading-[1.14] tracking-[-0.025em]">{c.title}</h3>
+                    <p className="m-0 text-[14px] leading-[1.6] text-fl-muted">{c.text}</p>
+                  </div>
+                </div>
+              ))}
+        </div>
+      </Section>
+
+      <CtaBand title="Want to host or co-convene with us?">
+        <Link href="/contact" className="fl-btn-dark">Start a conversation</Link>
+      </CtaBand>
+    </SiteShell>
   );
 }

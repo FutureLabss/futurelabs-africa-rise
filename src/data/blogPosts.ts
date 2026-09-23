@@ -8,6 +8,8 @@ export interface BlogPost {
   category: string;
   date: string;
   author: string;
+  /** Primary call to action at the end of the article. Defaults to "Get in touch". */
+  cta?: { label: string; href: string };
   jobDetails?: {
     title: string;
     description: string;
@@ -45,6 +47,7 @@ export const blogPosts: BlogPost[] = [
     category: "Startups",
     date: "August 27, 2026",
     author: "FutureLabs Team",
+    cta: { label: "Explore our ventures", href: "/startups" },
   },
   {
     id: "cybersecurity-tutor-inquiry",
@@ -100,6 +103,7 @@ export const blogPosts: BlogPost[] = [
     category: "Careers",
     date: "July 08, 2025",
     author: "Futurelabs Academy Team",
+    cta: { label: "Apply to join the tutor network", href: "/apply-to-teach" },
   },
   {
     id: "sales-marketing-manager",
@@ -168,6 +172,7 @@ export const blogPosts: BlogPost[] = [
     category: "Careers",
     date: "November 19, 2025",
     author: "Futurelabs Team",
+    cta: { label: "Send your CV", href: "mailto:hello@futurelabs.africa?subject=Sales%20and%20Marketing%20Manager" },
     jobDetails: {
       title: "Sales and Marketing Manager",
       description: "At Futurelabs, we are building the next generation of digital solutions—and we need a Sales and Marketing Manager who is ready to lead, strategize, and scale our growth. The Sales and Marketing Manager is responsible for driving revenue growth, acquiring customers, and strengthening the Futurelabs brand across multiple channels.",
@@ -240,6 +245,7 @@ export const blogPosts: BlogPost[] = [
     category: "Careers",
     date: "November 19, 2025",
     author: "Futurelabs Team",
+    cta: { label: "Send your CV", href: "mailto:hello@futurelabs.africa?subject=Executive%20Assistant" },
     jobDetails: {
       title: "Executive Assistant (Mini CEO)",
       description: "More than just a support role, the Executive Assistant at Futurelabs acts as a 'mini CEO,' driving executive operations and managing our brand's online presence.",

@@ -20,10 +20,31 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['var(--font-poppins)', 'Arial', 'sans-serif'],
-				'roboto': ['var(--font-roboto)', 'sans-serif'],
+				sans: ['var(--font-archivo)', 'Helvetica', 'Arial', 'sans-serif'],
+				mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+				// Legacy families from the previous brand now resolve to the new grotesque.
+				'poppins': ['var(--font-archivo)', 'Helvetica', 'sans-serif'],
+				'roboto': ['var(--font-archivo)', 'Helvetica', 'sans-serif'],
+			},
+			maxWidth: {
+				site: '1440px',
 			},
 			colors: {
+				fl: {
+					ink: '#0C0C0A',
+					graphite: '#111110',
+					raised: '#131311',
+					bar: '#1C1C19',
+					paper: '#F2F0EA',
+					body: '#CFCCC3',
+					soft: '#B5B1A7',
+					muted: '#9C9890',
+					label: '#807C73',
+					dim: '#6E6A62',
+					faint: '#5E5B54',
+					orange: '#F58220',
+					flame: '#FF9A3C',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

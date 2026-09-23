@@ -4,42 +4,28 @@ type PageHeroProps = {
   title: string;
   subtitle?: string;
   backgroundImageUrl?: string;
+  eyebrow?: string;
 };
 
-const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, backgroundImageUrl }) => {
+/** Hero for programme pages, in the site's editorial style (duotone photo optional). */
+const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, backgroundImageUrl, eyebrow }) => {
   return (
-    <section
-      className={`relative w-full overflow-hidden pt-28 md:pt-36 pb-16 md:pb-20 ${!backgroundImageUrl ? 'bg-secondary' : ''}`}
-    >
+    <section className="relative w-full overflow-hidden border-b border-fl-paper/[.14]">
       {backgroundImageUrl && (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-        />
-      )}
-
-      {backgroundImageUrl && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1930]/90 via-[#0B1930]/80 to-primary/60" />
-      )}
-
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="max-w-4xl">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-roboto">
-            {title}
-          </h1>
-          {subtitle && (
-            <p className="mt-4 text-base md:text-lg text-white/80 max-w-2xl">
-              {subtitle}
-            </p>
-          )}
+        <div className="absolute inset-0" aria-hidden>
+          <div className="fl-duotone h-full w-full [&>img]:[filter:grayscale(1)_contrast(1.12)_brightness(.42)]">
+            <img src={backgroundImageUrl} alt="" />
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(12,12,10,.94),rgba(12,12,10,.5))]" />
         </div>
+      )}
+      <div className="fl-wrap relative pb-16 pt-20 lg:pb-20 lg:pt-24">
+        {eyebrow && <div className="fl-eyebrow-accent mb-[26px]">{eyebrow}</div>}
+        <h1 className="fl-h1 m-0 max-w-[18ch]">{title}</h1>
+        {subtitle && <p className="m-0 mt-6 max-w-[52ch] text-[17px] leading-[1.55] text-fl-body lg:text-[18px]">{subtitle}</p>}
       </div>
     </section>
   );
 };
 
 export default PageHero;
-
-
-
-

@@ -1,135 +1,170 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Startups', href: '/startups' },
-  { label: 'Community', href: '/community' },
-  { label: 'Events', href: '/events' },
-  // { label: 'VibeCode', href: '/vibecode' },
-  { label: 'Contact', href: '/contact' },
-];
+import { cn } from '@/lib/utils';
+import { NAV_GROUPS, LOGO_SRC } from '@/components/site/nav';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const [menu, setMenu] = useState<string | null>(null);
+  const [drawer, setDrawer] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
+  // Close everything on navigation.
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setMenu(null);
+    setDrawer(false);
+  }, [pathname]);
 
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/';
-    return pathname.startsWith(href);
-  };
+  // Escape and outside click close the mega-menu.
+  useEffect(() => {
+    if (!menu && !drawer) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenu(null);
+        setDrawer(false);
+      }
+    };
+    const onClick = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setMenu(null);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClick);
+    };
+  }, [menu, drawer]);
+
+  // Lock page scroll behind the mobile drawer.
+  useEffect(() => {
+    document.body.style.overflow = drawer ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [drawer]);
+
+  const active = NAV_GROUPS.find((g) => g.id === menu);
 
   return (
-    <nav 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled 
-          ? "bg-secondary/95 backdrop-blur-md shadow-lg py-3" 
-          : "bg-secondary py-4"
-      )}
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-fl-paper/[.14]"
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png" 
-            alt="Future Labs Logo" 
-            className={cn(
-              "w-auto transition-all duration-300",
-              scrolled ? "h-7" : "h-8"
-            )}
-          />
+      {/* Blur lives on a background layer: backdrop-filter on the header itself would trap the fixed mobile drawer inside it. */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-fl-ink/90 backdrop-blur-[10px]" />
+      <div className="fl-wrap flex h-16 items-center justify-between gap-10 lg:h-[88px]">
+        <Link href="/" className="flex-none" aria-label="FutureLabs home">
+          <img src={LOGO_SRC} alt="FutureLabs" className="block h-10 w-auto lg:h-[60px]" />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-1">
-          {navLinks.map((link) => (
-            <Link key={link.href}
-              href={link.href}
+        <nav aria-label="Primary" className="ml-auto hidden gap-[34px] text-[13.5px] font-medium tracking-[-0.01em] text-fl-body lg:flex">
+          {NAV_GROUPS.map((g) => (
+            <button
+              key={g.id}
+              type="button"
+              aria-expanded={menu === g.id}
+              aria-controls="fl-mega"
+              onClick={() => setMenu((m) => (m === g.id ? null : g.id))}
               className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                isActive(link.href)
-                  ? "text-primary bg-white/10"
-                  : "text-white/80 hover:text-white hover:bg-white/5"
+                'flex items-center gap-[5px] transition-colors hover:text-white',
+                menu === g.id && 'text-white'
               )}
             >
-              {link.label}
-            </Link>
+              {g.label}
+              <span
+                aria-hidden
+                className={cn('inline-block text-[9px] opacity-50 transition-transform', menu === g.id && 'rotate-180')}
+              >
+                ▾
+              </span>
+            </button>
           ))}
-        </div>
+        </nav>
 
-        {/* CTA Button */}
-        <div className="hidden lg:block">
-          <Button 
-            asChild 
-            className="bg-primary hover:bg-primary/90 text-white font-medium px-6"
-          >
-             <Link href="/vibecode">VibeCode</Link>
-          </Button>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
-          aria-label="Toggle menu"
+        <Link
+          href="/partner"
+          className="hidden bg-fl-orange px-[18px] py-[11px] text-[12px] font-medium leading-none text-fl-ink transition-colors hover:bg-fl-flame hover:text-fl-ink lg:inline-block"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          Partner with FutureLabs
+        </Link>
+
+        <button
+          type="button"
+          className="-mr-3 flex h-12 w-12 items-center justify-center text-[20px] text-fl-paper lg:hidden"
+          aria-label={drawer ? 'Close menu' : 'Open menu'}
+          aria-expanded={drawer}
+          aria-controls="fl-drawer"
+          onClick={() => setDrawer((d) => !d)}
+        >
+          <span aria-hidden className={cn(drawer && 'text-fl-orange')}>{drawer ? '✕' : '≡'}</span>
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div 
-        className={cn(
-          "lg:hidden fixed inset-x-0 top-[60px] bg-secondary border-t border-white/10 transition-all duration-300 ease-in-out overflow-hidden",
-          isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
-        )}
-      >
-        <div className="container mx-auto px-4 py-6 space-y-2">
-          {navLinks.map((link) => (
-            <Link key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className={cn(
-                "block px-4 py-3 rounded-lg font-medium transition-colors",
-                isActive(link.href)
-                  ? "text-primary bg-white/10"
-                  : "text-white/80 hover:text-white hover:bg-white/5"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-4">
-            <Button 
-              asChild 
-              className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
-            >
-              <Link href="/vibecode" onClick={() => setIsOpen(false)}>
-                VibeCode
-              </Link>
-            </Button>
+      {active && (
+        <div id="fl-mega" className="hidden border-t border-fl-paper/[.14] bg-fl-graphite lg:block">
+          <div className="fl-wrap grid grid-cols-[200px_minmax(0,1fr)] gap-8 pb-[30px] pt-[26px]">
+            <div className="font-mono text-[10px] font-medium uppercase leading-[1.4] tracking-[.16em] text-fl-label">
+              {active.label}
+            </div>
+            <ul className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-8 gap-y-6 p-0">
+              {active.items.map((item) => (
+                <li key={item.href + item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenu(null)}
+                    className="group block text-fl-paper hover:text-fl-paper"
+                  >
+                    <span className="block text-[15px] font-semibold tracking-[-0.015em] transition-colors group-hover:text-fl-orange">
+                      {item.label}
+                    </span>
+                    <span className="mt-1 block text-[12.5px] leading-[1.45] text-fl-label">{item.desc}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-    </nav>
+      )}
+
+      {drawer && (
+        <div
+          id="fl-drawer"
+          className="fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto bg-fl-graphite px-5 pb-7 pt-[22px] sm:px-8 lg:hidden"
+        >
+          <nav aria-label="Mobile" className="flex flex-col">
+            {NAV_GROUPS.map((g, gi) => (
+              <div key={g.id} className={cn(gi > 0 && 'pt-[22px]')}>
+                <div className="pb-3 font-mono text-[9.5px] font-medium uppercase leading-none tracking-[.16em] text-fl-label">
+                  {g.label}
+                </div>
+                <ul className="m-0 list-none p-0">
+                  {g.items.map((item, i) => (
+                    <li key={item.href + item.label}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setDrawer(false)}
+                        className={cn(
+                          'block py-[13px] text-[22px] font-semibold tracking-[-0.025em] text-fl-paper hover:text-fl-orange',
+                          i < g.items.length - 1 && 'border-b border-fl-paper/10'
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+          <Link href="/partner" onClick={() => setDrawer(false)} className="fl-btn mt-8 w-full">
+            Partner with FutureLabs
+          </Link>
+        </div>
+      )}
+    </header>
   );
 };
 

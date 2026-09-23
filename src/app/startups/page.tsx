@@ -1,176 +1,59 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
-import { GraduationCap, FileText, Globe, BookOpen, ShoppingBag, type LucideIcon, Gamepad2, Zap, Briefcase } from 'lucide-react';
+import Link from 'next/link';
 import { Metadata } from 'next';
+import SiteShell from '@/components/site/SiteShell';
+import VenturesPortfolio from '@/components/site/VenturesPortfolio';
+import { Section, SplitHero, ProofLine, Stat } from '@/components/site/primitives';
+import { ventures } from '@/data/ventures';
 
 export const metadata: Metadata = {
-  title: "Startups",
-  description: "Nurturing and scaling high-impact digital ventures in Africa. Discover startups in our incubation and support ecosystem.",
+  title: 'Ventures',
+  description:
+    'FutureLabs Ventures identifies meaningful problems, develops products and supports founders building scalable startups around African problems.',
 };
 
-
-type Startup = {
-  name: string;
-  category: string;
-  description: string;
-  link?: string;
-  icon: LucideIcon;
-  screenshot: string;
-};
-
-const startups: Startup[] = [
-  {
-    name: 'FutureLabs Academy',
-    category: 'Education',
-    description:
-      'Technical education and talent accelerator building Africa\'s next generation of tech leaders.',
-    link: 'https://www.futurelabs.ng',
-    icon: GraduationCap,
-    screenshot: '/startups/futurelabs-academy.png',
-  },
-  {
-    name: 'FutureLabs Studio',
-    category: 'Digital Agency',
-    description:
-      'We design and build phenomenal digital products, drive viral brand adoption, and construct intelligent data models to turn ideas into impactful solutions.',
-    link: 'https://studio.futurelabs.ng/',
-    icon: Briefcase,
-    screenshot: '/startups/future-studio.png',
-  },
-  {
-    name: 'FutureResume',
-    category: 'Career Tech',
-    description:
-      'AI-powered resume and portfolio tools helping talent showcase skills and land opportunities.',
-    link: 'https://futureresume-tbyt.onrender.com/',
-    icon: FileText,
-    screenshot: '/startups/futureresume.png',
-  },
-  {
-    name: 'Opportunitylab.net',
-    category: 'Opportunities Platform',
-    description:
-      'A curated hub for scholarships, fellowships, grants and career programs for African youth.',
-    link: 'https://www.opportunitylab.net',
-    icon: Globe,
-    screenshot: '/startups/opportunitylab.png',
-  },
-  {
-    name: 'Cleverclass',
-    category: 'EdTech',
-    description:
-      'A modern classroom platform powering learning communities with seamless tools and delightful UX.',
-    link: 'https://cleverclass.vercel.app/',
-    icon: BookOpen,
-    screenshot: '/startups/cleverclass.png',
-  },
-  {
-    name: 'Salely',
-    category: 'Social Commerce',
-    description:
-      'A simple storefront builder for African vendors — create one link for all your products and let customers browse and order directly via WhatsApp. No app needed.',
-    link: 'https://salely.app',
-    icon: ShoppingBag,
-    screenshot: '/startups/salely.png',
-  },
-  {
-    name: 'GuessIt',
-    category: 'Gaming',
-    description:
-      'The ultimate multiplayer party game featuring 3D interactions, daily brain teasers, and seamless social play.',
-    link: 'https://guessit.games/',
-    icon: Gamepad2,
-    screenshot: '/startups/guessitGames.png',
-  },
-  {
-    name: 'Automate NG',
-    category: 'Business Automation',
-    description:
-      'Helping Nigerian businesses replace repetitive manual processes with intelligent automation workflows — saving time, cutting errors, and driving revenue across e-commerce, agencies, and more.',
-    link: 'https://automate-ng.netlify.app/',
-    icon: Zap,
-    screenshot: '/startups/automate-ng.png',
-  },
+const MODES = [
+  ['Build', 'Startups created from problems identified through our ecosystem and research.'],
+  ['Back', 'Promising founders and startups receiving strategic support, incubation or investment.'],
+  ['Partner', 'Startups we connect to markets, institutions, talent and opportunities.'],
 ];
 
-const Startups = () => {
+const count = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'][ventures.length] ?? String(ventures.length);
+
+export default function VenturesPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
-        <PageHero
-          title="Startups"
-          subtitle="Ventures we're building, supporting and nurturing within our ecosystem."
-        />
+    <SiteShell>
+      <SplitHero
+        eyebrow="FutureLabs Ventures"
+        title="Building startups around African problems."
+        titleClass="max-w-[15ch]"
+        lede="FutureLabs identifies meaningful problems, develops products and supports founders building scalable startups."
+      >
+        <ProofLine className="mt-6">
+          <Stat value="45+">startups incubated · Verified internally · As of 2026</Stat>
+        </ProofLine>
+      </SplitHero>
 
-        <section className="mx-4 md:mx-10 py-12">
-          <div className="container mx-auto px-4">
-            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-              {startups.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.name}
-                    href={s.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative rounded-xl border border-border bg-card backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block"
-                  >
-                    {/* Screenshot preview */}
-                    <div className="w-full h-48 overflow-hidden border-b border-border">
-                      <img
-                        src={s.screenshot}
-                        alt={`${s.name} screenshot`}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                    {/* Animated background icon */}
-                    <div className="absolute -right-6 -bottom-6 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500">
-                      <Icon className="w-40 h-40 text-primary animate-float" strokeWidth={1} />
-                    </div>
-
-                    <div className="relative p-8 md:p-10">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
-                          <Icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <span className="text-xs uppercase tracking-wider text-primary font-semibold">
-                          {s.category}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {s.name}
-                      </h3>
-                      <p className="mt-4 text-muted-foreground text-base leading-relaxed">
-                        {s.description}
-                      </p>
-                    </div>
-                  </a>
-                );
-              })}
+      <Section tone="graphite" innerClassName="py-[72px]">
+        <div className="grid gap-px md:grid-cols-3">
+          {MODES.map(([title, text]) => (
+            <div key={title} className="bg-fl-graphite px-[26px] pb-8 pt-7 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+              <h2 className="m-0 text-[24px] font-semibold tracking-[-0.028em]">{title}</h2>
+              <p className="fl-card-text m-0 mt-2.5">{text}</p>
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </Section>
 
-        <section className="mx-4 md:mx-10 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">Our Incubation Approach</h2>
-              <p className="text-foreground/80">
-                We incubate ventures from idea to initial traction by pairing product strategy with hands-on execution. Our model blends discovery sprints, user-centric design, technical build, go-to-market, and founder support. Startups receive access to mentors, talent pipelines, and partnerships to accelerate validation and growth across Africa.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+      <Section innerClassName="py-20">
+        <VenturesPortfolio />
+        <div className="mt-7 flex flex-wrap items-center gap-3.5">
+          <Link href="/contact" className="fl-btn px-6 py-4">Build with FutureLabs</Link>
+          <span className="font-mono text-[11.5px] leading-[1.5] text-fl-label">
+            {count} ventures currently building, backed or partnered.
+          </span>
+        </div>
+      </Section>
+    </SiteShell>
   );
-};
-
-export default Startups;
+}

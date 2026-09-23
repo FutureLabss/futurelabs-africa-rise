@@ -11,7 +11,7 @@ const ProgramDetails = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20 mx-10">
+      <main className="flex-grow mx-5 sm:mx-10">
         <div className="container mx-auto px-4 py-16">
           <Card className="max-w-4xl mx-auto">
             <CardContent className="p-8">
@@ -26,20 +26,20 @@ const ProgramDetails = () => {
               </div>
               
               <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <div className="text-center p-4 bg-card rounded-lg">
                   <Clock className="h-6 w-6 text-primary mx-auto mb-2" />
                   <div className="font-semibold">Duration</div>
-                  <div className="text-sm text-gray-600">6-12 months</div>
+                  <div className="text-sm text-muted-foreground">6-12 months</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <Users className="h-6 w-6 text-secondary mx-auto mb-2" />
+                <div className="text-center p-4 bg-card rounded-lg">
+                  <Users className="h-6 w-6 text-primary mx-auto mb-2" />
                   <div className="font-semibold">Cohort Size</div>
-                  <div className="text-sm text-gray-600">20-30 participants</div>
+                  <div className="text-sm text-muted-foreground">20-30 participants</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <div className="text-center p-4 bg-card rounded-lg">
                   <Target className="h-6 w-6 text-accent mx-auto mb-2" />
                   <div className="font-semibold">Success Rate</div>
-                  <div className="text-sm text-gray-600">85% job placement</div>
+                  <div className="text-sm text-muted-foreground">85% job placement</div>
                 </div>
               </div>
               
@@ -69,7 +69,7 @@ const ProgramDetails = () => {
                 <Button className="bg-primary hover:bg-primary/90 text-white px-8">
                   Apply Now
                 </Button>
-                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
                   Download Brochure
                 </Button>
               </div>

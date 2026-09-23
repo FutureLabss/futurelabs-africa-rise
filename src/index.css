@@ -3,13 +3,50 @@
 @tailwind utilities;
 
 @layer base {
+  /* Public site: near-black editorial base, orange only for CTAs, rules and data marks. */
   :root {
-    /* FutureLabs Brand Colors */
-    --futurelabs-orange: 23 91% 54%;
-    --futurelabs-dark-orange: 23 85% 47%;
-    --futurelabs-navy: 213 62% 12%;
-    --futurelabs-indigo: 213 55% 18%;
-    
+    --background: 60 9% 4%;          /* #0C0C0A ink */
+    --foreground: 45 24% 93%;        /* #F2F0EA paper */
+
+    --card: 60 3% 7%;                /* #111110 graphite */
+    --card-foreground: 45 24% 93%;
+
+    --popover: 60 3% 7%;
+    --popover-foreground: 45 24% 93%;
+
+    --primary: 28 91% 54%;           /* #F58220 */
+    --primary-foreground: 60 9% 4%;
+
+    --secondary: 60 6% 10%;          /* #1C1C19 */
+    --secondary-foreground: 45 24% 93%;
+
+    --muted: 60 6% 10%;
+    --muted-foreground: 40 5% 59%;   /* #9C9890 */
+
+    --accent: 60 6% 12%;
+    --accent-foreground: 45 24% 93%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 45 24% 93%;
+
+    --border: 40 3% 19%;             /* paper at ~16% over ink */
+    --input: 40 3% 24%;
+    --ring: 28 91% 54%;
+
+    --radius: 0rem;
+
+    --sidebar-background: 60 3% 7%;
+    --sidebar-foreground: 45 24% 93%;
+    --sidebar-primary: 28 91% 54%;
+    --sidebar-primary-foreground: 60 9% 4%;
+    --sidebar-accent: 60 6% 12%;
+    --sidebar-accent-foreground: 45 24% 93%;
+    --sidebar-border: 40 3% 19%;
+    --sidebar-ring: 28 91% 54%;
+  }
+
+  /* Admin keeps the previous light theme. */
+  .theme-light {
     --background: 0 0% 100%;
     --foreground: 213 62% 12%;
 
@@ -62,14 +99,211 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased font-sans;
   }
-  
+
+  .theme-light {
+    @apply bg-background text-foreground;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
-    @apply font-bold tracking-tight;
+    @apply font-semibold tracking-tight;
   }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+/* ---------- FutureLabs design system ---------- */
+@layer components {
+  .fl-wrap {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12;
+  }
+
+  .fl-section {
+    @apply border-b border-fl-paper/[.14];
+  }
+
+  .fl-pad {
+    @apply py-[72px] lg:py-[104px];
+  }
+
+  .fl-eyebrow {
+    @apply font-mono text-[10px] font-medium uppercase leading-none tracking-[.18em] text-fl-label;
+  }
+
+  .fl-eyebrow-accent {
+    @apply fl-eyebrow text-fl-orange;
+  }
+
+  .fl-display {
+    font-size: clamp(42px, 5.4vw, 84px);
+    @apply font-semibold leading-[.94] tracking-[-0.04em];
+    text-wrap: balance;
+  }
+
+  .fl-h1 {
+    font-size: clamp(36px, 4.6vw, 70px);
+    @apply font-semibold leading-[.99] tracking-[-0.04em];
+    text-wrap: balance;
+  }
+
+  .fl-h2 {
+    font-size: clamp(30px, 4vw, 58px);
+    @apply font-semibold leading-[1.02] tracking-[-0.035em];
+    text-wrap: balance;
+  }
+
+  .fl-h2-sm {
+    font-size: clamp(26px, 3vw, 42px);
+    @apply font-semibold leading-[1.05] tracking-[-0.032em];
+    text-wrap: balance;
+  }
+
+  .fl-lede {
+    @apply text-[17px] leading-[1.58] text-fl-soft lg:text-[18px];
+    text-wrap: pretty;
+  }
+
+  .fl-body {
+    @apply text-[16px] leading-[1.62] text-fl-soft lg:text-[17px];
+    text-wrap: pretty;
+  }
+
+  .fl-card-text {
+    @apply text-[14.5px] leading-[1.6] text-fl-muted;
+  }
+
+  .fl-card {
+    @apply relative overflow-hidden bg-fl-ink shadow-[0_0_0_1px_rgba(242,240,234,.16)] transition-[background-color,box-shadow] duration-200;
+  }
+
+  .fl-card-hover {
+    @apply hover:bg-fl-raised hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)];
+  }
+
+  .fl-card-title {
+    @apply text-[22px] font-semibold leading-[1.12] tracking-[-0.028em];
+  }
+
+  .fl-ghost-num {
+    @apply pointer-events-none absolute -bottom-4 right-2.5 select-none font-semibold leading-none tracking-[-0.05em] text-fl-paper/[.028];
+    font-size: 82px;
+  }
+
+  .fl-num {
+    @apply font-mono text-[11px] font-medium leading-none text-fl-orange;
+  }
+
+  .fl-tag {
+    @apply font-mono text-[10px] uppercase leading-none tracking-[.16em] text-fl-label;
+  }
+
+  .fl-chip {
+    @apply inline-block bg-fl-paper/[.07] px-[9px] py-1.5 font-mono text-[10.5px] leading-none text-fl-soft;
+  }
+
+  .fl-flag {
+    @apply absolute bottom-0 left-0 bg-fl-orange px-3 py-2 font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-ink;
+  }
+
+  .fl-btn {
+    @apply inline-flex items-center justify-center bg-fl-orange px-[26px] py-[17px] text-[14px] font-medium leading-none text-fl-ink transition-colors hover:bg-fl-flame hover:text-fl-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fl-orange disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .fl-btn-ghost {
+    @apply inline-flex items-center justify-center border border-fl-paper/30 px-[26px] py-[17px] text-[14px] font-medium leading-none text-fl-paper transition-colors hover:border-fl-orange hover:text-fl-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fl-orange;
+  }
+
+  .fl-btn-dark {
+    @apply inline-flex items-center justify-center bg-fl-ink px-[26px] py-[17px] text-[14px] font-medium leading-none text-fl-orange transition-colors hover:bg-fl-bar hover:text-fl-orange;
+  }
+
+  .fl-link {
+    @apply text-[12.5px] font-medium leading-none text-fl-orange transition-colors hover:text-fl-paper;
+  }
+
+  .fl-label {
+    @apply font-mono text-[10px] font-medium uppercase leading-none tracking-[.14em] text-fl-label;
+  }
+
+  .fl-input {
+    @apply w-full rounded-none border-0 border-b border-fl-paper/[.24] bg-transparent px-0 pb-3 pt-1 text-[15px] text-fl-paper outline-none transition-colors placeholder:text-fl-dim focus:border-fl-orange;
+  }
+
+  .fl-textarea {
+    @apply min-h-[88px] w-full resize-y rounded-none border border-fl-paper/[.24] bg-transparent p-3 text-[15px] text-fl-paper outline-none transition-colors placeholder:text-fl-dim focus:border-fl-orange;
+  }
+
+  .fl-select {
+    @apply fl-input cursor-pointer appearance-none pr-6;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23807C73'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+  }
+
+  .fl-select:has(option[value='']:checked) {
+    @apply text-fl-dim;
+  }
+
+  .fl-select option {
+    @apply bg-fl-graphite text-fl-paper;
+  }
+
+  .fl-error {
+    @apply font-mono text-[11px] leading-snug text-[#FF8A7A];
+  }
+}
+
+/* Duotone: grayscale photograph with an orange colour wash. */
+.fl-duotone {
+  position: relative;
+  overflow: hidden;
+  background: #111110;
+}
+.fl-duotone > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.1) brightness(.55);
+}
+.fl-duotone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #F58220;
+  mix-blend-mode: color;
+  opacity: .32;
+  pointer-events: none;
+}
+.fl-duotone.fl-duotone-light > img { filter: grayscale(1) contrast(1.1) brightness(.62); }
+.fl-duotone > .fl-flag { z-index: 1; }
+
+/* Hero network diagram */
+@keyframes flPulse { 0%, 100% { opacity: .6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.35); } }
+@keyframes flFlow { to { stroke-dashoffset: -48; } }
+@keyframes flRing { 0% { opacity: .7; transform: scale(.6); } 70%, 100% { opacity: 0; transform: scale(2.3); } }
+@keyframes flSpin { to { transform: rotate(360deg); } }
+
+/* Scroll reveal (attribute is only added client-side, so content is never hidden without JS) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .75s cubic-bezier(.16, 1, .3, 1), transform .75s cubic-bezier(.16, 1, .3, 1);
+  will-change: opacity, transform;
+}
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .fl-motion { animation: none !important; }
 }
 
 @layer utilities {

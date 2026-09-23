@@ -46,7 +46,7 @@ export default function ResourcesClient() {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+        <section className="relative pt-16 pb-16 md:pt-24 md:pb-24 overflow-hidden">
           <div className="absolute inset-0 bg-secondary" />
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl">
@@ -112,7 +112,7 @@ export default function ResourcesClient() {
                           </>
                         )}
                       </div>
-                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-white text-secondary rounded-full font-medium group-hover:gap-3 transition-all">
+                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium group-hover:gap-3 transition-all">
                         <span>View Event</span>
                         <ArrowRight className="h-4 w-4" />
                       </div>

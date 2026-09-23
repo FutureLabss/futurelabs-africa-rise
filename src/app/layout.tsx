@@ -1,40 +1,44 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Poppins, Roboto } from 'next/font/google';
+import { Archivo, JetBrains_Mono } from 'next/font/google';
 import Providers from '@/components/Providers';
 import HashRedirect from '@/components/HashRedirect';
 import '../index.css';
 
-const poppins = Poppins({
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-poppins',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-archivo',
   display: 'swap',
 });
 
-const roboto = Roboto({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-roboto',
+  weight: ['400', '500'],
+  variable: '--font-mono',
   display: 'swap',
 });
+
+const description =
+  "FutureLabs is a technology and economic development institution building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://futurelabs.africa'),
   title: {
-    default: "FutureLabs.Africa - Accelerating Africa's Future",
-    template: "%s | FutureLabs.Africa",
+    default: "FutureLabs Africa — Building Africa's productive capacity",
+    template: "%s | FutureLabs Africa",
   },
-  description: "FutureLabs is a digital innovation hub on a mission to equip African youth with the skills, mindset, and tools to solve real-world problems, build transformative startups, and thrive in the global digital economy.",
+  description,
   authors: [{ name: "FutureLabs" }],
   openGraph: {
-    title: "FutureLabs.Africa - Accelerating Africa's Future",
-    description: "FutureLabs is a digital innovation hub on a mission to equip African youth with the skills, mindset, and tools to solve real-world problems, build transformative startups, and thrive in the global digital economy.",
+    title: "FutureLabs Africa — Building Africa's productive capacity",
+    description,
     type: "website",
     images: ["https://futurelabs.africa/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png"],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@futurelabs_africa",
+    site: "@FutureLabsNG",
     images: ["https://futurelabs.africa/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png"],
   },
 };
@@ -45,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${roboto.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         <Providers>
           <HashRedirect />
@@ -55,4 +59,3 @@ export default function RootLayout({
     </html>
   );
 }
-
