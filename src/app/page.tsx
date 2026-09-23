@@ -11,11 +11,11 @@ import {
   NumberCard,
   ImageCard,
   ManifestoBand,
-  PartnerNames,
   SectionHead,
   ProofLine,
   Stat,
 } from '@/components/site/primitives';
+import { PartnerLogos } from '@/components/site/PartnerLogos';
 import TutorCtaModal from '@/components/TutorCtaModal';
 import JsonLd from '@/components/JsonLd';
 import { posts } from '@/lib/blog';
@@ -334,9 +334,12 @@ export default function HomePage() {
       </Section>
 
       {/* Partners */}
-      <Section tone="graphite" innerClassName="py-16">
-        <h2 className="fl-eyebrow mb-6">Partners</h2>
-        <PartnerNames />
+      <Section tone="graphite" innerClassName="py-16 overflow-hidden">
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="fl-eyebrow m-0">PARTNERS</h2>
+          <div className="h-[1px] w-12 bg-fl-paper/20"></div>
+        </div>
+        <PartnerLogos />
       </Section>
 
       {/* Blog */}
