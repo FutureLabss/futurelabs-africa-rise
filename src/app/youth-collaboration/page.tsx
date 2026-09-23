@@ -16,13 +16,13 @@ const YouthCollaboration = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20 mx-10">
+      <main className="flex-grow mx-5 sm:mx-10">
         <div className="container mx-auto px-4 py-16">
           <Card className="max-w-4xl mx-auto">
             <CardContent className="p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-secondary/10 rounded-lg">
-                  <Users className="h-8 w-8 text-secondary" />
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <Users className="h-8 w-8 text-primary" />
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold text-foreground">Youth Collaboration Programs</h1>
@@ -31,20 +31,20 @@ const YouthCollaboration = () => {
               </div>
               
               <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <Calendar className="h-6 w-6 text-secondary mx-auto mb-2" />
+                <div className="text-center p-4 bg-card rounded-lg">
+                  <Calendar className="h-6 w-6 text-primary mx-auto mb-2" />
                   <div className="font-semibold">Monthly Events</div>
-                  <div className="text-sm text-gray-600">Hackathons & Workshops</div>
+                  <div className="text-sm text-muted-foreground">Hackathons & Workshops</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <Network className="h-6 w-6 text-secondary mx-auto mb-2" />
+                <div className="text-center p-4 bg-card rounded-lg">
+                  <Network className="h-6 w-6 text-primary mx-auto mb-2" />
                   <div className="font-semibold">Peer Learning</div>
-                  <div className="text-sm text-gray-600">Collaborative Groups</div>
+                  <div className="text-sm text-muted-foreground">Collaborative Groups</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <Trophy className="h-6 w-6 text-secondary mx-auto mb-2" />
+                <div className="text-center p-4 bg-card rounded-lg">
+                  <Trophy className="h-6 w-6 text-primary mx-auto mb-2" />
                   <div className="font-semibold">500+ Alumni</div>
-                  <div className="text-sm text-gray-600">Success Stories</div>
+                  <div className="text-sm text-muted-foreground">Success Stories</div>
                 </div>
               </div>
               
@@ -74,7 +74,7 @@ const YouthCollaboration = () => {
                 <Button className="bg-secondary hover:bg-secondary/90 text-white px-8">
                   Join Program
                 </Button>
-                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
                   Learn More
                 </Button>
               </div>

@@ -11,12 +11,52 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://futurelabs.africa/initiatives</loc>
+    <loc>https://futurelabs.africa/manifesto</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://futurelabs.africa/programs</loc>
+    <loc>https://futurelabs.africa/government</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/enterprise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/academy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/startups</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/research-labs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/network</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/partner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,54 +66,29 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://futurelabs.africa/impact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://futurelabs.africa/blog</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/register</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/event-details</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/program-details</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/youth-collaboration</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/research-labs</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/startups</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/ai-fellowship</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/apply-to-teach</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/vibecode</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://futurelabs.africa/community</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://futurelabs.africa/resources</loc>
@@ -81,36 +96,44 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://futurelabs.africa/ai-fellowship</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://futurelabs.africa/apply-to-teach</loc>
+    <loc>https://futurelabs.africa/register</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Dynamic Event Pages -->
   <url>
-    <loc>https://futurelabs.africa/events/tech-innovation-summit-2025</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://futurelabs.africa/youth-collaboration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://futurelabs.africa/events/ai-workshop-2025</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://futurelabs.africa/program-details</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-  <!-- Dynamic Blog/Careers Pages -->
+  <url>
+    <loc>https://futurelabs.africa/event-details</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/blog/futurelabs-incubatee-closes-4k-idice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/blog/cybersecurity-tutor-inquiry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://futurelabs.africa/blog/sales-marketing-manager</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://futurelabs.africa/blog/executive-assistant-mini-ceo</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://futurelabs.africa/blog/digital-skills-gap</loc>
@@ -124,6 +147,11 @@
   </url>
   <url>
     <loc>https://futurelabs.africa/blog/women-in-tech-africa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://futurelabs.africa/blog/rural-innovation-hubs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

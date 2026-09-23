@@ -134,7 +134,7 @@ export default function VibeCodeClient() {
     return (
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center p-4 pt-20">
+        <main className="flex-grow flex items-center justify-center p-4">
           <Card className="max-w-md w-full text-center p-8 animate-in fade-in zoom-in duration-300">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Code2 className="h-10 w-10 text-primary" />
@@ -171,7 +171,7 @@ export default function VibeCodeClient() {
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
 
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <PageHero
           title="FutureLabs VibeCoding Registration"
           subtitle="No experience needed. Just bring your curiosity and we&apos;ll help you build something amazing in 4 weeks."

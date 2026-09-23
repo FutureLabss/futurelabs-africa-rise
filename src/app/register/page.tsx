@@ -12,13 +12,13 @@ const Register = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20 mx-10">
+      <main className="flex-grow mx-5 sm:mx-10">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-2xl mx-auto">
             <Card>
               <CardHeader>
                 <CardTitle className="text-3xl font-bold text-center">Event Registration</CardTitle>
-                <p className="text-center text-gray-600">Register for our upcoming events</p>
+                <p className="text-center text-muted-foreground">Register for our upcoming events</p>
               </CardHeader>
               <CardContent>
                 <form className="space-y-6">

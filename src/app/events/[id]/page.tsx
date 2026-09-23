@@ -71,7 +71,7 @@ const EventDetails = () => {
     return (
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
-        <main className="flex-grow pt-20 flex items-center justify-center">
+        <main className="flex-grow flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </main>
         <Footer />
@@ -83,7 +83,7 @@ const EventDetails = () => {
     return (
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
-        <main className="flex-grow pt-20 flex items-center justify-center">
+        <main className="flex-grow flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-foreground mb-4">Event not found</h1>
             <Link href="/events" className="text-primary hover:underline">Back to Events</Link>
@@ -166,7 +166,7 @@ const EventDetails = () => {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         {/* Back Link */}
         <div className="max-w-5xl mx-auto px-4 py-5">
           <Link href="/events" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
