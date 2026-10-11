@@ -24,14 +24,14 @@ export default function ContactPage() {
           <p className="fl-lede m-0 mt-[26px] max-w-[42ch]">Tell us the problem, opportunity or capability you want to develop.</p>
           <div className="mt-10 flex flex-col gap-2.5 border-t border-fl-paper/[.16] pt-[22px]">
             <div className="font-mono text-[11px] uppercase leading-none tracking-[.14em] text-fl-label">Direct</div>
-            <a href={`mailto:${CONTACT.email}`} className="text-[19px] font-medium tracking-[-0.02em] text-fl-orange hover:text-fl-paper">
+            <a href={`mailto:${CONTACT.email}`} className="text-[19px] font-medium tracking-[-0.02em] text-fl-accent hover:text-fl-paper">
               {CONTACT.email}
             </a>
             <a href={CONTACT.phoneHref} className="text-[16px] text-fl-soft hover:text-fl-paper">{CONTACT.phone}</a>
             <div className="text-[16px] text-fl-soft">{CONTACT.location}</div>
             <div className="mt-3.5 flex flex-wrap gap-[18px] font-mono text-[12px]">
               {SOCIAL_LINKS.map((s) => (
-                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-fl-orange hover:text-fl-paper">
+                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-fl-accent hover:text-fl-paper">
                   {s.label.replace(' / Twitter', '')}
                 </a>
               ))}

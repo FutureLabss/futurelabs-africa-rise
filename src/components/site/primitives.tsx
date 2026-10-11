@@ -44,7 +44,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        tone === 'orange' ? 'bg-fl-orange text-fl-ink' : 'fl-section',
+        tone === 'orange' ? 'bg-fl-orange text-fl-night' : 'fl-section',
         tone === 'graphite' && 'bg-fl-graphite',
         id && 'scroll-mt-28',
         className
@@ -261,10 +261,10 @@ export function PhotoHero({
   return (
     <section className="fl-section relative overflow-hidden">
       <div className="absolute inset-0" aria-hidden>
-        <div className="fl-duotone h-full w-full [&>img]:[filter:grayscale(1)_contrast(1.12)_brightness(.42)]">
+        <div className="fl-duotone h-full w-full [&>img]:[filter:grayscale(1)_contrast(1.12)_brightness(1.05)]">
           <img src={img} alt="" />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(12,12,10,.94),rgba(12,12,10,.5))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(var(--fl-ink)/.95),rgb(var(--fl-ink)/.6))]" />
       </div>
       <div className="fl-wrap relative pb-20 pt-24 lg:pb-[100px] lg:pt-[110px]">
         <div className="fl-eyebrow-accent">{eyebrow}</div>

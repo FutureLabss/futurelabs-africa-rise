@@ -116,7 +116,7 @@ export default function AboutPage() {
                 key={who}
                 className={cn('flex items-baseline gap-5 py-[18px]', i < THESIS.length - 1 && 'border-b border-fl-paper/10')}
               >
-                <dt className="w-[92px] flex-none font-mono text-[11px] font-medium uppercase leading-none text-fl-orange">{who}</dt>
+                <dt className="w-[92px] flex-none font-mono text-[11px] font-medium uppercase leading-none text-fl-accent">{who}</dt>
                 <dd className="m-0 text-[17px] font-medium tracking-[-0.02em] sm:text-[19px]">{need}</dd>
               </div>
             ))}
@@ -161,7 +161,7 @@ export default function AboutPage() {
                 >
                   <span className="fl-ghost-num -bottom-[18px] right-3.5 [font-size:96px]" aria-hidden>{p.n}</span>
                   {!p.img && (
-                    <div className="relative font-mono text-[11px] font-medium uppercase leading-none tracking-[.16em] text-fl-orange">
+                    <div className="relative font-mono text-[11px] font-medium uppercase leading-none tracking-[.16em] text-fl-accent">
                       {p.n} · {p.label}
                     </div>
                   )}

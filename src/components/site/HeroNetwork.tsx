@@ -36,10 +36,10 @@ export default function HeroNetwork() {
       role="img"
       aria-label="Talent, ventures, industry, institutions and intelligence connected around productive capacity"
     >
-      <g stroke="#F58220" strokeOpacity=".2" strokeWidth="1" fill="none">{lines}</g>
+      <g stroke="#F58220" strokeOpacity=".28" strokeWidth="1" fill="none">{lines}</g>
       <g
         className="fl-motion"
-        stroke="#FF9A3C"
+        stroke="#F58220"
         strokeOpacity=".9"
         strokeWidth="1.8"
         fill="none"
@@ -60,7 +60,7 @@ export default function HeroNetwork() {
           style={{ transformOrigin: '300px 300px', animation: 'flSpin 44s linear infinite' }}
         />
       </g>
-      <g fill="none" stroke="#FFB061" strokeWidth="1.4">
+      <g fill="none" stroke="#F58220" strokeWidth="1.4">
         {NODES.map((n, i) => (
           <circle
             key={i}
@@ -72,7 +72,7 @@ export default function HeroNetwork() {
           />
         ))}
       </g>
-      <g fill="#FF9A3C">
+      <g fill="#F58220">
         {NODES.map((n, i) => (
           <circle
             key={i}
@@ -84,12 +84,12 @@ export default function HeroNetwork() {
           />
         ))}
       </g>
-      <g fill="#F2F0EA" fontFamily="var(--font-mono), monospace" fontSize="19" fontWeight="500" letterSpacing="1.6">
+      <g className="fill-fl-paper" fontFamily="var(--font-mono), monospace" fontSize="19" fontWeight="500" letterSpacing="1.6">
         {LABELS.map((l) => (
           <text key={l.text} x={l.x} y={l.y} textAnchor={l.anchor}>{l.text}</text>
         ))}
       </g>
-      <g fill="#B5B1A7" fontFamily="var(--font-mono), monospace" fontSize="14" letterSpacing="2" textAnchor="middle">
+      <g className="fill-fl-soft" fontFamily="var(--font-mono), monospace" fontSize="14" letterSpacing="2" textAnchor="middle">
         <text x="300" y="293">PRODUCTIVE</text>
         <text x="300" y="316">CAPACITY</text>
       </g>

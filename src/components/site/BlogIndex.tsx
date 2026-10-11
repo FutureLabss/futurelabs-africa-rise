@@ -32,7 +32,7 @@ export default function BlogIndex() {
                 onClick={() => setCat(c)}
                 className={cn(
                   'border px-3.5 py-2.5 font-mono text-[11.5px] uppercase leading-none transition-colors',
-                  c === cat ? 'border-fl-orange text-fl-orange' : 'border-fl-paper/20 text-fl-muted hover:border-fl-paper/40 hover:text-fl-paper'
+                  c === cat ? 'border-fl-orange text-fl-accent' : 'border-fl-paper/20 text-fl-muted hover:border-fl-paper/40 hover:text-fl-paper'
                 )}
               >
                 {c}

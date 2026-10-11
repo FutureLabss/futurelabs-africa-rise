@@ -107,7 +107,7 @@ export default function EventsClient() {
         {loading ? (
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" aria-busy="true" aria-label="Loading events">
             {[0, 1, 2].map((i) => (
-              <div key={i} className="h-[340px] animate-pulse bg-fl-graphite shadow-[0_0_0_1px_rgba(242,240,234,.1)]" />
+              <div key={i} className="h-[340px] animate-pulse bg-fl-graphite shadow-[0_0_0_1px_rgb(var(--fl-paper)/.1)]" />
             ))}
           </div>
         ) : upcoming.length > 0 ? (
@@ -117,7 +117,7 @@ export default function EventsClient() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col gap-2 bg-fl-graphite px-7 py-8 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+          <div className="flex flex-col gap-2 bg-fl-graphite px-7 py-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
             <p className="m-0 text-[18px] font-semibold tracking-[-0.02em]">No public events scheduled right now.</p>
             <p className="fl-card-text m-0">Get the calendar below and we&apos;ll send dates to you before they go public.</p>
           </div>
@@ -128,7 +128,7 @@ export default function EventsClient() {
         <h2 className="fl-eyebrow mb-[30px]">Formats</h2>
         <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4">
           {FORMATS.map(([title, text], i) => (
-            <div key={title} className="flex min-h-[200px] flex-col gap-3 bg-fl-graphite px-6 pb-[34px] pt-[30px] shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+            <div key={title} className="flex min-h-[200px] flex-col gap-3 bg-fl-graphite px-6 pb-[34px] pt-[30px] shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
               <span className="fl-num">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="text-[21px] font-semibold leading-[1.14] tracking-[-0.025em]">{title}</h3>
               <p className="m-0 text-[14px] leading-[1.6] text-fl-muted">{text}</p>
@@ -146,7 +146,7 @@ export default function EventsClient() {
             Dates, briefs and applications are sent to the FutureLabs network first.
           </p>
         </div>
-        <div className="flex flex-col gap-[18px] bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgba(242,240,234,.16)]">
+        <div className="flex flex-col gap-[18px] bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
           <div className="fl-tag">Get the calendar</div>
           <SubscribeForm
             subject="Events calendar subscription"

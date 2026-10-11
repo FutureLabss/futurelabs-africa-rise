@@ -70,9 +70,9 @@ export default function BlogPostPage({ params }: Params) {
 
       <section className="fl-section">
         <div className="mx-auto max-w-[1100px] px-5 pb-14 pt-12 sm:px-8 lg:px-12 lg:pt-16">
-          <Link href="/blog" className="text-[12.5px] font-medium leading-none text-fl-muted hover:text-fl-orange">← All posts</Link>
+          <Link href="/blog" className="text-[12.5px] font-medium leading-none text-fl-muted hover:text-fl-accent">← All posts</Link>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-ink">
+            <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
               {post.category}
             </span>
             <span className="font-mono text-[11px] leading-none text-fl-label">
@@ -98,7 +98,7 @@ export default function BlogPostPage({ params }: Params) {
               <Link href="/blog" className="fl-btn-ghost px-6 py-4">Back to blog</Link>
             </div>
           </article>
-          <aside className="flex flex-col gap-[18px] bg-fl-graphite px-[22px] py-6 shadow-[0_0_0_1px_rgba(242,240,234,.14)] lg:sticky lg:top-[120px]">
+          <aside className="flex flex-col gap-[18px] bg-fl-graphite px-[22px] py-6 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)] lg:sticky lg:top-[120px]">
             <div>
               <div className="fl-label">Category</div>
               <div className="mt-2 text-[15px] font-semibold">{post.category}</div>
@@ -115,7 +115,7 @@ export default function BlogPostPage({ params }: Params) {
               <div className="fl-label">Share</div>
               <div className="mt-3 flex gap-3.5 font-mono text-[12px]">
                 {SHARE.map((s) => (
-                  <a key={s.label} href={s.href(url, title)} target="_blank" rel="noopener noreferrer" className="text-fl-orange hover:text-fl-paper">
+                  <a key={s.label} href={s.href(url, title)} target="_blank" rel="noopener noreferrer" className="text-fl-accent hover:text-fl-paper">
                     {s.label}
                   </a>
                 ))}
@@ -139,7 +139,7 @@ export default function BlogPostPage({ params }: Params) {
 
       <CtaBand title="Get involved with FutureLabs.">
         <Link href="/academy" className="fl-btn-dark">Explore programmes</Link>
-        <Link href="/contact" className="inline-flex items-center justify-center border border-fl-ink px-[26px] py-[17px] text-[14px] font-medium leading-none text-fl-ink hover:bg-fl-ink/10 hover:text-fl-ink">
+        <Link href="/contact" className="inline-flex items-center justify-center border border-fl-night px-[26px] py-[17px] text-[14px] font-medium leading-none text-fl-night hover:bg-fl-night/10 hover:text-fl-night">
           Get in touch
         </Link>
       </CtaBand>

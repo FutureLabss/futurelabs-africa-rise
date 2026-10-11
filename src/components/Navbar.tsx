@@ -69,8 +69,8 @@ const Navbar = () => {
               aria-controls="fl-mega"
               onClick={() => setMenu((m) => (m === g.id ? null : g.id))}
               className={cn(
-                'flex items-center gap-[5px] transition-colors hover:text-white',
-                menu === g.id && 'text-white'
+                'flex items-center gap-[5px] transition-colors hover:text-fl-paper',
+                menu === g.id && 'text-fl-paper'
               )}
             >
               {g.label}
@@ -86,7 +86,7 @@ const Navbar = () => {
 
         <Link
           href="/partner"
-          className="hidden bg-fl-orange px-[18px] py-[11px] text-[12px] font-medium leading-none text-fl-ink transition-colors hover:bg-fl-flame hover:text-fl-ink lg:inline-block"
+          className="hidden bg-fl-orange px-[18px] py-[11px] text-[12px] font-medium leading-none text-fl-night transition-colors hover:bg-fl-flame hover:text-fl-night lg:inline-block"
         >
           Partner with FutureLabs
         </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
           aria-controls="fl-drawer"
           onClick={() => setDrawer((d) => !d)}
         >
-          <span aria-hidden className={cn(drawer && 'text-fl-orange')}>{drawer ? '✕' : '≡'}</span>
+          <span aria-hidden className={cn(drawer && 'text-fl-accent')}>{drawer ? '✕' : '≡'}</span>
         </button>
       </div>
 
@@ -117,7 +117,7 @@ const Navbar = () => {
                     onClick={() => setMenu(null)}
                     className="group block text-fl-paper hover:text-fl-paper"
                   >
-                    <span className="block text-[15px] font-semibold tracking-[-0.015em] transition-colors group-hover:text-fl-orange">
+                    <span className="block text-[15px] font-semibold tracking-[-0.015em] transition-colors group-hover:text-fl-accent">
                       {item.label}
                     </span>
                     <span className="mt-1 block text-[12.5px] leading-[1.45] text-fl-label">{item.desc}</span>
@@ -147,7 +147,7 @@ const Navbar = () => {
                         href={item.href}
                         onClick={() => setDrawer(false)}
                         className={cn(
-                          'block py-[13px] text-[22px] font-semibold tracking-[-0.025em] text-fl-paper hover:text-fl-orange',
+                          'block py-[13px] text-[22px] font-semibold tracking-[-0.025em] text-fl-paper hover:text-fl-accent',
                           i < g.items.length - 1 && 'border-b border-fl-paper/10'
                         )}
                       >

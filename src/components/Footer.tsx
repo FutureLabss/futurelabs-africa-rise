@@ -33,7 +33,7 @@ const Footer = () => {
           <p className="m-0 mt-[22px] max-w-[28ch] text-[19px] font-medium leading-[1.4] tracking-[-0.022em]">
             Building Africa&apos;s productive capacity through technology, human capital and entrepreneurship.
           </p>
-          <a href={`mailto:${CONTACT.email}`} className="mt-5 inline-block font-mono text-[12.5px] text-fl-orange hover:text-fl-paper">
+          <a href={`mailto:${CONTACT.email}`} className="mt-5 inline-block font-mono text-[12.5px] text-fl-accent hover:text-fl-paper">
             {CONTACT.email}
           </a>
         </div>
