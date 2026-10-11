@@ -38,7 +38,7 @@ export default function VenturesPage() {
       <Section tone="graphite" innerClassName="py-[72px]">
         <div className="grid gap-px md:grid-cols-3">
           {MODES.map(([title, text]) => (
-            <div key={title} className="bg-fl-graphite px-[26px] pb-8 pt-7 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+            <div key={title} className="bg-fl-graphite px-[26px] pb-8 pt-7 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
               <h2 className="m-0 text-[24px] font-semibold tracking-[-0.028em]">{title}</h2>
               <p className="fl-card-text m-0 mt-2.5">{text}</p>
             </div>

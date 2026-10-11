@@ -75,7 +75,7 @@ export default function SubscribeForm({
   if (variant === 'inline') {
     return (
       <form onSubmit={onSubmit} noValidate className={cn('flex flex-col gap-2', className)}>
-        <div className="flex flex-wrap shadow-[0_0_0_1px_rgba(242,240,234,.24)] focus-within:shadow-[0_0_0_1px_#F58220]">
+        <div className="flex flex-wrap shadow-[0_0_0_1px_rgb(var(--fl-paper)/.24)] focus-within:shadow-[0_0_0_1px_#F58220]">
           <label htmlFor={`${id}-email`} className="sr-only">Email</label>
           <input
             id={`${id}-email`}

@@ -47,10 +47,10 @@ export default function ArticleBody({ content }: { content: string }) {
         h2: ({ children }) => <h2 className="m-0 mt-[22px] border-t border-fl-paper/[.12] pt-[22px] text-[25px] font-semibold leading-[1.15] tracking-[-0.026em]">{children}</h2>,
         h3: ({ children }) => <h3 className="m-0 mt-2 text-[20px] font-semibold tracking-[-0.02em]">{children}</h3>,
         ul: ({ children }) => (
-          <ul className="m-0 flex list-none flex-col bg-fl-graphite p-0 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">{children}</ul>
+          <ul className="m-0 flex list-none flex-col bg-fl-graphite p-0 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">{children}</ul>
         ),
         ol: ({ children }) => (
-          <ol className="m-0 flex list-none flex-col bg-fl-graphite p-0 shadow-[0_0_0_1px_rgba(242,240,234,.14)]">{children}</ol>
+          <ol className="m-0 flex list-none flex-col bg-fl-graphite p-0 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">{children}</ol>
         ),
         li: ({ children }) => (
           <li className="flex items-baseline gap-3.5 border-b border-fl-paper/[.08] px-[18px] py-[15px] text-[15.5px] leading-[1.55] text-fl-body last:border-b-0">
@@ -65,7 +65,7 @@ export default function ArticleBody({ content }: { content: string }) {
           return (
             <a
               href={href}
-              className="font-medium text-fl-orange underline decoration-fl-orange/40 underline-offset-4 hover:text-fl-paper"
+              className="font-medium text-fl-accent underline decoration-fl-orange/40 underline-offset-4 hover:text-fl-paper"
               {...(internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
             >
               {children}

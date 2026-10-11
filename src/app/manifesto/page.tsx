@@ -29,7 +29,7 @@ export default function ManifestoPage() {
         <h1 className="m-0 mt-7 text-[clamp(36px,4.8vw,70px)] font-semibold leading-[.99] tracking-[-0.04em] [text-wrap:balance]">
           Africa does not need another conversation about potential.
         </h1>
-        <p className="m-0 mt-7 text-[20px] font-medium leading-[1.35] tracking-[-0.02em] text-fl-orange sm:text-[24px]">
+        <p className="m-0 mt-7 text-[20px] font-medium leading-[1.35] tracking-[-0.02em] text-fl-accent sm:text-[24px]">
           It needs systems that turn potential into production.
         </p>
         <ol className="m-0 mt-14 list-none border-t border-fl-paper/20 p-0">
@@ -41,7 +41,7 @@ export default function ManifestoPage() {
                 i < PRINCIPLES.length - 1 && 'border-b border-fl-paper/10'
               )}
             >
-              <span className="font-mono text-[11px] font-medium leading-[1.4] text-fl-orange">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-mono text-[11px] font-medium leading-[1.4] text-fl-accent">{String(i + 1).padStart(2, '0')}</span>
               <p className="m-0 text-[17px] leading-[1.55] sm:text-[19px]">{text}</p>
             </li>
           ))}

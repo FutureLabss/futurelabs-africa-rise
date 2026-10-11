@@ -94,7 +94,7 @@ export default function HomePage() {
       <section className="fl-section overflow-hidden">
         <div className="fl-wrap grid items-center gap-12 pb-16 pt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.85fr)] lg:gap-16 lg:pb-[88px] lg:pt-[104px]">
           <div>
-            <div className="font-mono text-[9px] font-medium uppercase leading-[1.5] tracking-[.14em] text-fl-orange sm:text-[11px] sm:leading-none sm:tracking-[.18em]">
+            <div className="font-mono text-[9px] font-medium uppercase leading-[1.5] tracking-[.14em] text-fl-accent sm:text-[11px] sm:leading-none sm:tracking-[.18em]">
               Technology × Human Capital × Economic Development
             </div>
             <h1 className="fl-display m-0 mt-[18px] max-w-[14ch] sm:mt-[30px]">Building Africa&apos;s productive capacity.</h1>
@@ -120,7 +120,7 @@ export default function HomePage() {
             {['Talent', 'Ventures', 'Industry', 'Institutions', 'Intelligence'].map((label, i) => (
               <li key={label} className="flex flex-col items-center">
                 {i > 0 && <span aria-hidden className="block h-[18px] w-px bg-fl-orange/40" />}
-                <span className="font-mono text-[10px] font-medium uppercase leading-none tracking-[.14em] text-fl-orange">{label}</span>
+                <span className="font-mono text-[10px] font-medium uppercase leading-none tracking-[.14em] text-fl-accent">{label}</span>
               </li>
             ))}
           </ol>
@@ -141,7 +141,7 @@ export default function HomePage() {
             the infrastructure that connects these assets to one another and turns them into measurable economic outcomes.
           </p>
         </div>
-        <p className="m-0 mt-[34px] max-w-[24ch] text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-fl-orange sm:text-[26px]">
+        <p className="m-0 mt-[34px] max-w-[24ch] text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-fl-accent sm:text-[26px]">
           FutureLabs exists to build that infrastructure.
         </p>
         <Link
@@ -270,9 +270,9 @@ export default function HomePage() {
         <div className="mt-11 grid items-start gap-12 md:grid-cols-2">
           <div className="max-w-[40ch] text-[17px] leading-[1.5] sm:text-[19px]">
             <div className="border-b border-fl-paper/[.12] py-2.5">Training people is <span className="text-fl-label">activity</span>.</div>
-            <div className="border-b border-fl-paper/[.12] py-2.5">Building productive people is <span className="text-fl-orange">impact</span>.</div>
+            <div className="border-b border-fl-paper/[.12] py-2.5">Building productive people is <span className="text-fl-accent">impact</span>.</div>
             <div className="border-b border-fl-paper/[.12] py-2.5">Supporting startups is <span className="text-fl-label">activity</span>.</div>
-            <div className="py-2.5">Helping startups grow, create jobs and generate revenue is <span className="text-fl-orange">impact</span>.</div>
+            <div className="py-2.5">Helping startups grow, create jobs and generate revenue is <span className="text-fl-accent">impact</span>.</div>
           </div>
           <p className="fl-body m-0 max-w-[40ch]">
             Our goal is to measure what becomes possible because FutureLabs exists. We publish verified figures only — every number
@@ -281,7 +281,7 @@ export default function HomePage() {
         </div>
         <div className="mt-[52px] grid gap-px sm:grid-cols-3">
           {IMPACT.map((s) => (
-            <div key={s.title} className="bg-fl-ink px-[26px] pb-9 pt-[34px] shadow-[0_0_0_1px_rgba(242,240,234,.14)]">
+            <div key={s.title} className="bg-fl-ink px-[26px] pb-9 pt-[34px] shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
               <div className="text-[clamp(48px,5vw,68px)] font-semibold leading-[.9] tracking-[-0.045em]">{s.value}</div>
               <div className="mt-3.5 text-[15px] font-semibold">{s.title}</div>
               <p className="m-0 mt-1.5 text-[13.5px] leading-[1.55] text-fl-label">{s.text}</p>
@@ -316,8 +316,8 @@ export default function HomePage() {
           </p>
           <Link href="/research-labs" className="fl-link mt-6 inline-block text-[13.5px]">Explore the research →</Link>
         </div>
-        <div className="flex flex-col gap-4 bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgba(242,240,234,.16)]">
-          <span className="self-start bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-ink">
+        <div className="flex flex-col gap-4 bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
+          <span className="self-start bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
             In development
           </span>
           <h3 className="max-w-[20ch] text-[24px] font-semibold leading-[1.12] tracking-[-0.028em]">

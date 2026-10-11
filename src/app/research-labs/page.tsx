@@ -49,9 +49,9 @@ export default function IntelligencePage() {
 
       <Section innerClassName="py-20">
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="flex flex-col gap-[18px] bg-fl-ink px-7 pb-[42px] pt-10 shadow-[0_0_0_1px_rgba(242,240,234,.16)] sm:px-9">
+          <div className="flex flex-col gap-[18px] bg-fl-ink px-7 pb-[42px] pt-10 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] sm:px-9">
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-ink">
+              <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
                 In development
               </span>
               <span className="font-mono text-[11px] uppercase leading-none text-fl-label">Markets · Human Capital</span>
@@ -64,7 +64,7 @@ export default function IntelligencePage() {
               the state.
             </p>
           </div>
-          <div className="flex flex-col justify-center gap-[18px] bg-fl-graphite px-7 pb-[38px] pt-9 shadow-[0_0_0_1px_rgba(242,240,234,.16)] sm:px-8">
+          <div className="flex flex-col justify-center gap-[18px] bg-fl-graphite px-7 pb-[38px] pt-9 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] sm:px-8">
             <h3 className="max-w-[24ch] text-[21px] font-semibold leading-[1.2] tracking-[-0.025em]">Be told when it publishes.</h3>
             <p className="fl-card-text m-0 max-w-[38ch]">One email when the report is out. Nothing else.</p>
             <SubscribeForm
