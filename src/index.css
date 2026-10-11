@@ -6,6 +6,8 @@
   /* Public site: warm light editorial base, orange only for CTAs, rules and data marks.
      The fl-* names keep their roles: ink = page ground, paper = primary text and rules. */
   :root {
+    color-scheme: light;
+
     --fl-ink: 250 248 243;           /* #FAF8F3 page ground */
     --fl-graphite: 255 255 255;      /* #FFFFFF cards, alternate bands */
     --fl-raised: 245 242 235;        /* #F5F2EB card hover */
@@ -21,6 +23,10 @@
     --fl-flame: 255 154 60;          /* #FF9A3C fill hover */
     --fl-accent: 184 90 11;          /* #B85A0B orange text on light grounds */
     --fl-night: 12 12 10;            /* #0C0C0A text on orange, dark buttons */
+
+    --fl-photo: 1.02;                /* duotone photo brightness */
+    --fl-photo-hero: 1.05;           /* brightness behind page-hero text */
+    --fl-wash: .26;                  /* duotone orange wash */
 
     --background: 45 33% 97%;        /* #FAF8F3 */
     --foreground: 50 14% 7%;         /* #14130F */
@@ -60,6 +66,50 @@
     --sidebar-accent-foreground: 50 14% 7%;
     --sidebar-border: 43 16% 86%;
     --sidebar-ring: 28 91% 54%;
+  }
+
+  /* Dark mode (toggle in the navbar, stored by next-themes): the original near-black palette. */
+  [data-theme='dark'] {
+    color-scheme: dark;
+
+    --fl-ink: 12 12 10;              /* #0C0C0A */
+    --fl-graphite: 17 17 16;         /* #111110 */
+    --fl-raised: 19 19 17;           /* #131311 */
+    --fl-bar: 28 28 25;              /* #1C1C19 */
+    --fl-paper: 242 240 234;         /* #F2F0EA */
+    --fl-body: 207 204 195;          /* #CFCCC3 */
+    --fl-soft: 181 177 167;          /* #B5B1A7 */
+    --fl-muted: 156 152 144;         /* #9C9890 */
+    --fl-label: 128 124 115;         /* #807C73 */
+    --fl-dim: 110 106 98;            /* #6E6A62 */
+    --fl-faint: 94 91 84;            /* #5E5B54 */
+    --fl-accent: 245 130 32;         /* orange text reads fine on ink */
+
+    --fl-photo: .55;
+    --fl-photo-hero: .42;
+    --fl-wash: .32;
+
+    --background: 60 9% 4%;
+    --foreground: 45 24% 93%;
+    --card: 60 3% 7%;
+    --card-foreground: 45 24% 93%;
+    --popover: 60 3% 7%;
+    --popover-foreground: 45 24% 93%;
+    --secondary: 60 6% 10%;
+    --secondary-foreground: 45 24% 93%;
+    --muted: 60 6% 10%;
+    --muted-foreground: 40 5% 59%;
+    --accent: 60 6% 12%;
+    --accent-foreground: 45 24% 93%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 45 24% 93%;
+    --border: 40 3% 19%;
+    --input: 40 3% 24%;
+    --sidebar-background: 60 3% 7%;
+    --sidebar-foreground: 45 24% 93%;
+    --sidebar-accent: 60 6% 12%;
+    --sidebar-accent-foreground: 45 24% 93%;
+    --sidebar-border: 40 3% 19%;
   }
 
   /* Admin keeps the previous light theme. */
@@ -286,7 +336,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(1) contrast(1.05) brightness(1.02);
+  filter: grayscale(1) contrast(1.05) brightness(var(--fl-photo));
 }
 .fl-duotone::after {
   content: '';
@@ -294,11 +344,13 @@
   inset: 0;
   background: #F58220;
   mix-blend-mode: color;
-  opacity: .26;
+  opacity: var(--fl-wash);
   pointer-events: none;
 }
-.fl-duotone.fl-duotone-light > img { filter: grayscale(1) contrast(1.05) brightness(1.08); }
+.fl-duotone.fl-duotone-light > img { filter: grayscale(1) contrast(1.05) brightness(calc(var(--fl-photo) * 1.06)); }
 .fl-duotone > .fl-flag { z-index: 1; }
+
+[data-theme='dark'] .fl-error { color: #FF8A7A; }
 
 /* Hero network diagram */
 @keyframes flPulse { 0%, 100% { opacity: .6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.35); } }

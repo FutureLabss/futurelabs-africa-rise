@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { NAV_GROUPS, LOGO_SRC } from '@/components/site/nav';
+import ThemeToggle from '@/components/site/ThemeToggle';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -84,23 +85,27 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <Link
-          href="/partner"
-          className="hidden bg-fl-orange px-[18px] py-[11px] text-[12px] font-medium leading-none text-fl-night transition-colors hover:bg-fl-flame hover:text-fl-night lg:inline-block"
-        >
-          Partner with FutureLabs
-        </Link>
+        <div className="ml-auto flex items-center gap-1 lg:ml-0 lg:gap-4">
+          <ThemeToggle className="lg:-mr-2" />
 
-        <button
-          type="button"
-          className="-mr-3 flex h-12 w-12 items-center justify-center text-[20px] text-fl-paper lg:hidden"
-          aria-label={drawer ? 'Close menu' : 'Open menu'}
-          aria-expanded={drawer}
-          aria-controls="fl-drawer"
-          onClick={() => setDrawer((d) => !d)}
-        >
-          <span aria-hidden className={cn(drawer && 'text-fl-accent')}>{drawer ? '✕' : '≡'}</span>
-        </button>
+          <Link
+            href="/partner"
+            className="hidden bg-fl-orange px-[18px] py-[11px] text-[12px] font-medium leading-none text-fl-night transition-colors hover:bg-fl-flame hover:text-fl-night lg:inline-block"
+          >
+            Partner with FutureLabs
+          </Link>
+
+          <button
+            type="button"
+            className="-mr-3 flex h-12 w-12 items-center justify-center text-[20px] text-fl-paper lg:hidden"
+            aria-label={drawer ? 'Close menu' : 'Open menu'}
+            aria-expanded={drawer}
+            aria-controls="fl-drawer"
+            onClick={() => setDrawer((d) => !d)}
+          >
+            <span aria-hidden className={cn(drawer && 'text-fl-accent')}>{drawer ? '✕' : '≡'}</span>
+          </button>
+        </div>
       </div>
 
       {active && (

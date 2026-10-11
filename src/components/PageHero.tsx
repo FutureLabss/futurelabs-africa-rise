@@ -13,7 +13,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, backgroundImageUrl
     <section className="relative w-full overflow-hidden border-b border-fl-paper/[.14]">
       {backgroundImageUrl && (
         <div className="absolute inset-0" aria-hidden>
-          <div className="fl-duotone h-full w-full [&>img]:[filter:grayscale(1)_contrast(1.12)_brightness(1.05)]">
+          <div className="fl-duotone h-full w-full [&>img]:[filter:grayscale(1)_contrast(1.12)_brightness(var(--fl-photo-hero))]">
             <img src={backgroundImageUrl} alt="" />
           </div>
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(var(--fl-ink)/.95),rgb(var(--fl-ink)/.6))]" />
