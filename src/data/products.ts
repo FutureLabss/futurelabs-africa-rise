@@ -42,8 +42,8 @@ export const PRODUCTS: Product[] = [
       'One-click demo content',
       'Accessible and lightweight',
     ],
-    facts: ['Version 1.1.1', '420 KB', 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
-    download: { href: '/downloads/newstheme-1.1.1.zip', version: '1.1.1', size: '420 KB' },
+    facts: ['Version 1.1.2', '420 KB', 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
+    download: { href: '/downloads/newstheme-1.1.2.zip', version: '1.1.2', size: '420 KB' },
     primary: { label: 'Try it live', href: '/studio/preview/newstheme' },
     secondary: { label: 'See it on OpportunityLab', href: 'https://opportunitylab.net' },
     image: {
@@ -79,8 +79,8 @@ export const PRODUCTS: Product[] = [
       'Bulk changes with undo',
       'AI suggestions with Claude, OpenAI, Gemini or any OpenAI-compatible model',
     ],
-    facts: ['Version 1.2.1', '620 KB', 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
-    download: { href: '/downloads/futurelabs-ai-seo-1.2.1.zip', version: '1.2.1', size: '620 KB' },
+    facts: ['Version 1.2.2', '620 KB', 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
+    download: { href: '/downloads/futurelabs-ai-seo-1.2.2.zip', version: '1.2.2', size: '620 KB' },
     image: {
       src: '/images/studio/futurelabs-ai-seo.jpg',
       alt: 'FutureLabs AI SEO dashboard showing known URLs, pages with content findings, orphan pages and a "Fix this first" list',
