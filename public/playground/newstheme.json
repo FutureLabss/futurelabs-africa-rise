@@ -1,0 +1,33 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "NewsTheme demo",
+		"description": "The free NewsTheme WordPress theme by FutureLabs Studio, with its demo content.",
+		"author": "FutureLabs Studio"
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "importWordPressFiles",
+			"wordPressFilesZip": {
+				"resource": "url",
+				"url": "https://futurelabs.africa/playground/newstheme-preview.zip"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\n// Point the demo's stored URLs (a placeholder) at this Playground's own address.\nrequire '/wordpress/wp-load.php';\nglobal $wpdb;\n$from = 'https://newstheme-preview.invalid';\n$to   = untrailingslashit( home_url() );\n$swap = function ( $v ) use ( &$swap, $from, $to ) {\n\tif ( is_string( $v ) ) {\n\t\treturn str_replace( $from, $to, $v );\n\t}\n\tif ( is_array( $v ) ) {\n\t\treturn array_map( $swap, $v );\n\t}\n\tif ( is_object( $v ) ) {\n\t\tforeach ( get_object_vars( $v ) as $k => $x ) {\n\t\t\t$v->$k = $swap( $x );\n\t\t}\n\t}\n\treturn $v;\n};\n$like = '%' . $wpdb->esc_like( $from ) . '%';\nforeach ( array( 'post_content', 'post_excerpt', 'guid' ) as $col ) {\n\t$wpdb->query( $wpdb->prepare( \"UPDATE {$wpdb->posts} SET $col = REPLACE($col, %s, %s) WHERE $col LIKE %s\", $from, $to, $like ) );\n}\nforeach ( array( array( $wpdb->postmeta, 'meta_id', 'meta_value' ), array( $wpdb->termmeta, 'meta_id', 'meta_value' ), array( $wpdb->options, 'option_id', 'option_value' ) ) as list( $table, $id, $col ) ) {\n\tforeach ( $wpdb->get_results( $wpdb->prepare( \"SELECT $id AS id, $col AS v FROM $table WHERE $col LIKE %s\", $like ) ) as $row ) {\n\t\t$wpdb->update( $table, array( $col => maybe_serialize( $swap( maybe_unserialize( $row->v ) ) ) ), array( $id => $row->id ) );\n\t}\n}\nwp_cache_flush();\n"
+		},
+		{
+			"step": "login",
+			"username": "admin"
+		}
+	]
+}

@@ -4,3 +4,11 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# WordPress Playground (playground.wordpress.net) fetches the live-preview
+# blueprint and site package from the browser, so they need CORS.
+[[headers]]
+  for = "/playground/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"

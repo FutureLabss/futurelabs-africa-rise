@@ -7,9 +7,9 @@ import { Section, SplitHero, NumberCard, ImageCard, SectionHead, Chips, ProofLin
 import { PRODUCTS, type Product } from '@/data/products';
 
 export const metadata: Metadata = pageMeta({
-  title: 'FutureLabs Studio — AI Systems, Digital Products and Free WordPress Tools',
+  title: 'FutureLabs Studio — AI Systems and Digital Products',
   description:
-    'FutureLabs Studio builds AI applications, web platforms, internal tools, automation and data systems, and publishes free tools: the NewsTheme WordPress theme and the FutureLabs AI SEO plugin.',
+    'FutureLabs Studio builds AI applications, web platforms and digital products. Try FutureLabs LMS for coding academies, and download the free NewsTheme WordPress theme and FutureLabs AI SEO plugin.',
   path: '/studio',
 });
 
@@ -24,7 +24,7 @@ const CAPABILITIES = [
 
 function ProductBlock({ product, index }: { product: Product; index: number }) {
   const n = String(index + 1).padStart(2, '0');
-  const fileName = product.download.split('/').pop();
+  const fileName = product.download?.href.split('/').pop();
   return (
     <article id={product.id} className="fl-card grid scroll-mt-28 lg:grid-cols-2" aria-labelledby={`${product.id}-name`}>
       <div className={index % 2 ? 'lg:order-2' : undefined}>
@@ -41,7 +41,7 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
       <div className="flex flex-col gap-4 px-[26px] pb-[30px] pt-[30px] lg:px-10 lg:py-10">
         <div className="flex items-baseline justify-between gap-3">
           <span className="fl-num">{n}</span>
-          <span className="fl-tag">Free · {product.kind}</span>
+          <span className="fl-tag">{product.free ? `Free · ${product.kind}` : product.kind}</span>
         </div>
         <h3 id={`${product.id}-name`} className="text-[30px] font-semibold leading-[1.08] tracking-[-0.03em]">
           {product.name}
@@ -49,36 +49,44 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
         <p className="fl-card-text m-0 max-w-[52ch] text-[15.5px]">{product.summary}</p>
         <Chips items={product.features} />
         <ProofLine className="mt-1">
-          <span>Version {product.version}</span>
-          <span>{product.size}</span>
-          <span>{product.requires}</span>
-          <span>GPL licence</span>
+          {product.facts.map((fact) => (
+            <span key={fact}>{fact}</span>
+          ))}
         </ProofLine>
         <div className="mt-2 flex flex-wrap gap-3">
-          <a
-            href={product.download}
-            download={fileName}
-            className="fl-btn"
-            aria-label={`Download ${product.name} ${product.version} (zip, ${product.size})`}
-          >
-            Download free
-          </a>
-          {product.live && (
-            <SmartLink href={product.live.href} className="fl-btn-ghost">
-              {product.live.label}
+          {product.download && (
+            <a
+              href={product.download.href}
+              download={fileName}
+              className="fl-btn"
+              aria-label={`Download ${product.name} ${product.download.version} (zip, ${product.download.size})`}
+            >
+              Download free
+            </a>
+          )}
+          {product.primary && (
+            <SmartLink href={product.primary.href} className={product.download ? 'fl-btn-ghost' : 'fl-btn'}>
+              {product.primary.label}
+            </SmartLink>
+          )}
+          {product.secondary && (
+            <SmartLink href={product.secondary.href} className="fl-btn-ghost">
+              {product.secondary.label}
             </SmartLink>
           )}
         </div>
-        <details className="group mt-1 text-[14px] leading-[1.6] text-fl-muted">
-          <summary className="fl-link cursor-pointer list-none py-1 [&::-webkit-details-marker]:hidden">
-            How to install <span className="inline-block transition-transform group-open:rotate-90">→</span>
-          </summary>
-          <ol className="mb-0 mt-3 list-decimal space-y-2 pl-5">
-            {product.install.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-        </details>
+        {product.steps && (
+          <details className="group mt-1 text-[14px] leading-[1.6] text-fl-muted">
+            <summary className="fl-link cursor-pointer list-none py-1 [&::-webkit-details-marker]:hidden">
+              {product.steps.title} <span className="inline-block transition-transform group-open:rotate-90">→</span>
+            </summary>
+            <ol className="mb-0 mt-3 list-decimal space-y-2 pl-5">
+              {product.steps.items.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </details>
+        )}
       </div>
     </article>
   );
@@ -91,22 +99,22 @@ export default function StudioPage() {
         eyebrow="FutureLabs Studio"
         title="Technology built for real problems."
         titleClass="max-w-[14ch]"
-        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Some of what we build for ourselves we give away: our WordPress theme and SEO plugin are free to download."
+        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Try our products below: an LMS for coding academies, and a WordPress theme and SEO plugin that are free to download."
       >
         <div className="mt-[26px] flex flex-wrap gap-3">
           <Link href="/contact" className="fl-btn px-6 py-4">Build with us</Link>
-          <a href="#products" className="fl-btn-ghost px-6 py-4">Get our free tools</a>
+          <a href="#products" className="fl-btn-ghost px-6 py-4">See our products</a>
         </div>
       </SplitHero>
 
       <Section id="products" innerClassName="pb-[72px] pt-4">
         <SectionHead
-          eyebrow="Free tools"
-          title="Built for publishers who move fast."
+          eyebrow="Products"
+          title="Products from the Studio."
           aside={
             <p className="fl-card-text m-0 max-w-[44ch]">
-              We built these to run OpportunityLab, a site that publishes scholarships, grants and fellowships for African
-              youth every day. Both are free, open source under the GPL, and work on any WordPress site.
+              FutureLabs LMS runs a coding academy end to end. NewsTheme and FutureLabs AI SEO power OpportunityLab, our
+              scholarships and fellowships site, and are free and open source under the GPL.
             </p>
           }
         />
@@ -116,7 +124,7 @@ export default function StudioPage() {
           ))}
         </div>
         <p className="fl-card-text mb-0 mt-6 max-w-[70ch]">
-          Use them together: NewsTheme reads the deadlines you set in FutureLabs AI SEO and shows them on every post, and
+          Use the WordPress tools together: NewsTheme reads the deadlines you set in FutureLabs AI SEO and shows them on every post, and
           the plugin marks opportunities closed once the deadline passes, so readers don&apos;t apply to something that has ended. Need it customised for your organisation?{' '}
           <Link href="/contact" className="fl-link text-[14px]">Talk to the Studio →</Link>
         </p>
