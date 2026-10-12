@@ -200,7 +200,8 @@ export default function DownloadGate({ product, className, children = 'Download 
               </button>
               <p className="m-0 text-[12.5px] leading-[1.5] text-fl-muted">
                 FutureLabs stores these details to understand who uses our products and to contact you about this
-                download. We only send updates if you tick the box above.
+                download. We only send updates if you tick the box above. See our{' '}
+                <a href="/privacy" target="_blank" rel="noopener" className="text-fl-soft underline underline-offset-2 hover:text-fl-paper">Privacy Policy</a>.
               </p>
             </form>
           )}

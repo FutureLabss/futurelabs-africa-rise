@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       page(p, 'monthly', 0.8)
     ),
     page('/events', 'weekly', 0.8),
+    page('/privacy', 'yearly', 0.3),
     page('/blog', 'weekly', 0.8),
     ...['/manifesto', '/network', '/ai-fellowship', '/vibecode', '/apply-to-teach', '/community', '/resources', '/register', '/youth-collaboration', '/program-details'].map((p) =>
       page(p, 'monthly', 0.6)
