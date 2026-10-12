@@ -1,16 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { pageMeta, SITE_URL } from '@/lib/seo';
+import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { PRODUCTS } from '@/data/products';
 import DownloadGate from '@/components/site/DownloadGate';
 
+import blueprint from '../../../../../public/playground/newstheme.json';
+
 // WordPress Playground runs a full WordPress in the visitor's browser (WebAssembly),
-// so a static host can offer a live preview. The blueprint loads the NewsTheme demo
-// site from public/playground/. Both files need CORS headers (netlify.toml).
-const BLUEPRINT = `${SITE_URL}/playground/newstheme.json`;
-const PLAYGROUND = `https://playground.wordpress.net/?mode=seamless&blueprint-url=${encodeURIComponent(BLUEPRINT)}`;
+// so a static host can offer a live preview. The blueprint goes in the URL fragment
+// (one fewer cross-origin fetch to fail); it loads the NewsTheme demo site package
+// from public/playground/, which needs CORS headers (netlify.toml). The same
+// blueprint is also published at /playground/newstheme.json for direct links.
+const PLAYGROUND = `https://playground.wordpress.net/?mode=seamless#${encodeURIComponent(JSON.stringify(blueprint))}`;
 
 export const metadata: Metadata = {
   ...pageMeta({
