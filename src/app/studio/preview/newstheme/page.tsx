@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { pageMeta, SITE_URL } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { PRODUCTS } from '@/data/products';
+import DownloadGate from '@/components/site/DownloadGate';
 
 // WordPress Playground runs a full WordPress in the visitor's browser (WebAssembly),
 // so a static host can offer a live preview. The blueprint loads the NewsTheme demo
@@ -37,11 +38,7 @@ export default function NewsThemePreviewPage() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            {theme?.download && (
-              <a href={theme.download.href} download className="fl-btn">
-                Download free
-              </a>
-            )}
+            {theme?.download && <DownloadGate product={{ id: theme.id, name: theme.name, ...theme.download }} />}
             <a href={PLAYGROUND} target="_blank" rel="noopener noreferrer" className="fl-btn-ghost">
               Open full screen
             </a>

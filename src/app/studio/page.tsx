@@ -5,6 +5,7 @@ import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard, SectionHead, Chips, ProofLine, SmartLink } from '@/components/site/primitives';
 import { PRODUCTS, type Product } from '@/data/products';
+import DownloadGate from '@/components/site/DownloadGate';
 
 export const metadata: Metadata = pageMeta({
   title: 'FutureLabs Studio — AI Systems and Digital Products',
@@ -24,7 +25,6 @@ const CAPABILITIES = [
 
 function ProductBlock({ product, index }: { product: Product; index: number }) {
   const n = String(index + 1).padStart(2, '0');
-  const fileName = product.download?.href.split('/').pop();
   return (
     <article id={product.id} className="fl-card grid scroll-mt-28 lg:grid-cols-2" aria-labelledby={`${product.id}-name`}>
       <div className={index % 2 ? 'lg:order-2' : undefined}>
@@ -55,14 +55,7 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
         </ProofLine>
         <div className="mt-2 flex flex-wrap gap-3">
           {product.download && (
-            <a
-              href={product.download.href}
-              download={fileName}
-              className="fl-btn"
-              aria-label={`Download ${product.name} ${product.download.version} (zip, ${product.download.size})`}
-            >
-              Download free
-            </a>
+            <DownloadGate product={{ id: product.id, name: product.name, ...product.download }} />
           )}
           {product.primary && (
             <SmartLink href={product.primary.href} className={product.download ? 'fl-btn-ghost' : 'fl-btn'}>

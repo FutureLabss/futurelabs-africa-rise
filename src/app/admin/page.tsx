@@ -24,6 +24,7 @@ import {
   Rocket, 
   Search,
   GraduationCap,
+  Download,
   ChevronDown,
   ChevronRight,
 } from 'lucide-react';
@@ -39,6 +40,7 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import type { Tables } from '@/integrations/supabase/types';
+import ProductDownloadsPanel from '@/components/admin/ProductDownloadsPanel';
 
 const AdminDashboard: React.FC = () => {
   const searchParams = useSearchParams();
@@ -223,7 +225,15 @@ const AdminDashboard: React.FC = () => {
             <GraduationCap className="h-4 w-4" />
             Tutor Applications
           </TabsTrigger>
+          <TabsTrigger value="downloads" className="gap-2">
+            <Download className="h-4 w-4" />
+            Downloads
+          </TabsTrigger>
         </TabsList>
+
+        <TabsContent value="downloads" className="space-y-6">
+          {currentTab === 'downloads' && <ProductDownloadsPanel />}
+        </TabsContent>
 
         <TabsContent value="events" className="space-y-6">
           <div className="flex items-center justify-between">

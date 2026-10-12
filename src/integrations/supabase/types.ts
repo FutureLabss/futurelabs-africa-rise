@@ -98,6 +98,39 @@ export type Database = {
         }
         Relationships: []
       }
+      product_downloads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          marketing_opt_in: boolean
+          name: string | null
+          organisation: string | null
+          product: string
+          version: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          marketing_opt_in?: boolean
+          name?: string | null
+          organisation?: string | null
+          product: string
+          version?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          marketing_opt_in?: boolean
+          name?: string | null
+          organisation?: string | null
+          product?: string
+          version?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
