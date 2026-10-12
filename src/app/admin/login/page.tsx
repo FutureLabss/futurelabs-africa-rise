@@ -15,6 +15,7 @@ const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [sendingReset, setSendingReset] = useState(false);
   const { isAdmin, user, loading } = useAdminAuth();
   const router = useRouter();
   const { toast } = useToast();
@@ -48,6 +49,21 @@ const AdminLogin: React.FC = () => {
     setTimeout(() => {
       setSubmitting(false);
     }, 5000);
+  };
+
+  const handleForgot = async () => {
+    if (!email.trim()) {
+      toast({ title: 'Enter your email first', description: 'Type your admin email above, then click “Forgot password?” again.' });
+      return;
+    }
+    setSendingReset(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/set-password`,
+    });
+    setSendingReset(false);
+    // Same message either way, so the form doesn't reveal which emails have accounts.
+    if (error) console.error('Password reset failed:', error.message);
+    toast({ title: 'Check your email', description: 'If that address has an admin account, a reset link is on its way.' });
   };
 
   if (loading) {
@@ -96,6 +112,14 @@ const AdminLogin: React.FC = () => {
               {submitting && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
               Sign In
             </Button>
+            <button
+              type="button"
+              onClick={handleForgot}
+              disabled={sendingReset}
+              className="w-full text-center text-sm text-muted-foreground hover:text-foreground"
+            >
+              {sendingReset ? 'Sending reset link…' : 'Forgot password?'}
+            </button>
           </form>
         </CardContent>
       </Card>
