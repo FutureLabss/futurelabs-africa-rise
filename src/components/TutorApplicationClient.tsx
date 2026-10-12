@@ -953,9 +953,9 @@ export default function TutorApplicationClient() {
                               <span className="text-destructive">*</span>
                             </FormLabel>
                             <FormDescription>
-                              We'll use your contact details to follow up on this
-                              application. Your data will not be shared with
-                              third parties.
+                              We'll use your details only to assess and follow up on
+                              this application, and we never sell them. See our{' '}
+                              <a href="/privacy" target="_blank" rel="noopener" className="underline underline-offset-2">Privacy Policy</a>.
                             </FormDescription>
                           </div>
                           <FormMessage />

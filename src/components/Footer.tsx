@@ -56,7 +56,11 @@ const Footer = () => {
       </div>
       <div className="fl-wrap">
         <div className="flex flex-wrap justify-between gap-6 border-t border-fl-paper/10 pb-11 pt-6 font-mono text-[11px] leading-[1.5] text-fl-faint">
-          <span>© {year} FutureLabs Africa</span>
+          <span>
+            © {year} FutureLabs Africa
+            <span aria-hidden> · </span>
+            <Link href="/privacy" className="text-fl-faint hover:text-fl-paper">Privacy Policy</Link>
+          </span>
           <span>Technology &amp; Economic Development Institution</span>
         </div>
       </div>
