@@ -1,0 +1,16 @@
+{
+  "name": "FutureLabs AI SEO",
+  "slug": "futurelabs-ai-seo",
+  "version": "1.2.2",
+  "download_url": "https://futurelabs.africa/downloads/futurelabs-ai-seo-1.2.2.zip",
+  "size": "620 KB",
+  "requires": "6.4",
+  "requires_php": "8.0",
+  "tested": "7.1",
+  "homepage": "https://futurelabs.africa/studio#futurelabs-ai-seo",
+  "last_updated": "2026-10-12",
+  "sections": {
+    "description": "<p>An SEO plugin that starts with indexing: it finds what keeps your pages out of Google, tells you what to fix first, and helps you fix it inside WordPress.</p>",
+    "changelog": "<p>See the readme.</p>"
+  }
+}
