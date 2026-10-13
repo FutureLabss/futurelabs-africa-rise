@@ -12,7 +12,7 @@ export default function CheckoutComplete() {
   const params = useSearchParams();
   const reference = params.get('reference') || params.get('trxref');
   const [state, setState] = useState<
-    { kind: 'loading' } | { kind: 'error'; message: string } | { kind: 'done'; license: PublicLicense; email: string }
+    { kind: 'loading' } | { kind: 'error'; message: string } | { kind: 'done'; license: PublicLicense; email: string; emailed: boolean }
   >({ kind: 'loading' });
 
   useEffect(() => {
@@ -25,9 +25,9 @@ export default function CheckoutComplete() {
       // The license may take a moment to appear if Paystack is slow to confirm.
       for (let attempt = 0; attempt < 4; attempt++) {
         try {
-          const res = await callEdge<{ license?: PublicLicense; email?: string; error?: string }>('verify-payment', { reference });
+          const res = await callEdge<{ license?: PublicLicense; email?: string; emailed?: boolean; error?: string }>('verify-payment', { reference });
           if (res.license && res.email) {
-            if (!cancelled) setState({ kind: 'done', license: res.license, email: res.email });
+            if (!cancelled) setState({ kind: 'done', license: res.license, email: res.email, emailed: !!res.emailed });
             return;
           }
         } catch (err) {
@@ -67,8 +67,13 @@ export default function CheckoutComplete() {
   return (
     <div className="flex flex-col gap-6">
       <p className="fl-card-text m-0 max-w-[64ch]">
-        Thanks! We&apos;ve also emailed your key to <span className="text-fl-paper">{state.email}</span>. Install the Pro add-on
-        alongside the free version, then paste your key on its settings page.
+        Thanks! {state.emailed ? (
+          <>We&apos;ve also emailed your key to <span className="text-fl-paper">{state.email}</span>.</>
+        ) : (
+          <>Copy your key and keep it somewhere safe. With it and <span className="text-fl-paper">{state.email}</span> you can
+          always find your license again on the account page.</>
+        )}{' '}
+        Install the Pro add-on alongside the free version, then paste your key on its settings page.
       </p>
       <LicenseDetails license={state.license} />
       <p className="fl-card-text m-0">
