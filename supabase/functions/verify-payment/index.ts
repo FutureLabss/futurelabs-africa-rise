@@ -21,7 +21,12 @@ Deno.serve(async (req) => {
     if ('error' in result && result.error) return json({ error: result.error }, 402);
     if (!result.license) return json({ error: 'Your payment went through. Your license is still being created; refresh in a minute.' }, 202);
 
-    return json({ license: await publicLicense(supabase, result.license), email: result.license.email });
+    return json({
+      license: await publicLicense(supabase, result.license),
+      email: result.license.email,
+      // Whether a copy of the key was emailed (only when Resend is configured).
+      emailed: !!Deno.env.get('RESEND_API_KEY'),
+    });
   } catch (err) {
     console.error('verify-payment:', err);
     return json({ error: 'Could not check this payment. Refresh to try again.' }, 500);

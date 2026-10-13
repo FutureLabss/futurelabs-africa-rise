@@ -4,7 +4,7 @@
 //   check      { key, site_url }  status + latest version (+ download URL when valid and activated)
 //   manage     { key, email }     everything the buyer may see, plus a Paystack link to cancel or change card
 import { isEmail, json, preflight } from '../_shared/http.ts';
-import { paystack } from '../_shared/paystack.ts';
+import { paystack, planCodeOf } from '../_shared/paystack.ts';
 import { db, latestRelease, licenseState, publicLicense, signedDownload, sitesLabel } from '../_shared/licenses.ts';
 
 const hits = new Map<string, { count: number; reset: number }>();
@@ -29,13 +29,18 @@ function normaliseSite(v: unknown): string | null {
   }
 }
 
-/** Subscription code from the webhook, or looked up on the Paystack customer if that webhook was missed. */
+/** Subscription code from the webhook, or looked up on Paystack if that webhook was missed. */
 async function subscriptionCode(supabase: ReturnType<typeof db>, license: any): Promise<string | null> {
   if (license.paystack_subscription_code) return license.paystack_subscription_code;
   if (!license.paystack_customer_code) return null;
+  // The subscription list filters by the numeric customer id, so look that up first.
   const customer = await paystack(`/customer/${encodeURIComponent(license.paystack_customer_code)}`);
-  const sub = (customer.subscriptions ?? []).find((s: any) => s.plan?.plan_code === license.paystack_plan_code);
-  if (!sub) return null;
+  const subs: any[] = await paystack(`/subscription?customer=${customer.id}&perPage=100`);
+  const sub = subs.find((s) => planCodeOf(s) === license.paystack_plan_code && s.status !== 'cancelled');
+  if (!sub) {
+    console.warn('no subscription found', { license: license.id, plan: license.paystack_plan_code, found: subs.map((s) => [planCodeOf(s), s.status]) });
+    return null;
+  }
   await supabase
     .from('licenses')
     .update({ paystack_subscription_code: sub.subscription_code, paystack_email_token: sub.email_token })
