@@ -1,8 +1,8 @@
 {
   "name": "FutureLabs AI SEO",
   "slug": "futurelabs-ai-seo",
-  "version": "1.2.4",
-  "download_url": "https://futurelabs.africa/downloads/futurelabs-ai-seo-1.2.4.zip",
+  "version": "1.2.5",
+  "download_url": "https://futurelabs.africa/downloads/futurelabs-ai-seo-1.2.5.zip",
   "size": "620 KB",
   "requires": "6.4",
   "requires_php": "8.0",
@@ -11,6 +11,6 @@
   "last_updated": "2026-10-13",
   "sections": {
     "description": "<p>FutureLabs AI SEO is an indexing-first SEO plugin. It helps site owners find and remove common blockers to indexing and highlights pages that look thin, duplicated or hard to reach. It is built for busy publishing sites with many authors and time-limited content such as scholarships, grants, jobs and events.</p>",
-    "changelog": "<h4>1.2.4</h4><ul><li>New: one-click updates. The plugin checks futurelabs.africa twice a day and shows the usual WordPress &quot;new version available&quot; notice when a release is out. Define FLSEO_DISABLE_UPDATER to turn this off.</li></ul><h4>1.2.3</h4><ul><li>Fix: Jetpack printed its own Open Graph and Twitter card tags as well, so pages had two sets. While FutureLabs AI SEO outputs social tags, Jetpack&#x27;s are now switched off; turn social output off here and Jetpack&#x27;s return.</li></ul><h4>1.2.2</h4><ul><li>New: &quot;Alternate names&quot; setting (Settings \u2192 Schema). Other names the site is known by, such as &quot;Opportunity Lab&quot;, are added as alternateName to the WebSite and Organization schema, which Google uses to recognise site names.</li></ul><h4>1.2.1</h4><ul><li>Editor: empty Social title and Social description fields now show, in grey, the SEO title and meta description they inherit, and the Social image help says which image will be shared (chosen, featured, or the site default). The preview card also uses the site default image.</li></ul><h4>1.2.0</h4><ul><li>New: choose the AI provider: Anthropic (Claude), OpenAI, Google Gemini, or any OpenAI-compatible service such as OpenRouter, Groq, DeepSeek, Mistral, Together or a local Ollama server.</li><li>New: &quot;Load models&quot; lists the models your key can use, and checks the key without spending tokens.</li><li>Alt text suggestions are offered only when the chosen provider and model can read images.</li><li>Error messages name the provider and include its own reason.</li></ul>"
+    "changelog": "<h4>1.2.5</h4><ul><li>Fix: the link checker no longer reports internal links as broken when they carry tracking parameters (?utm_source=chatgpt.com, fbclid and similar) or use http:// instead of https://.</li></ul><h4>1.2.4</h4><ul><li>New: one-click updates. The plugin checks futurelabs.africa twice a day and shows the usual WordPress &quot;new version available&quot; notice when a release is out. Define FLSEO_DISABLE_UPDATER to turn this off.</li></ul><h4>1.2.3</h4><ul><li>Fix: Jetpack printed its own Open Graph and Twitter card tags as well, so pages had two sets. While FutureLabs AI SEO outputs social tags, Jetpack&#x27;s are now switched off; turn social output off here and Jetpack&#x27;s return.</li></ul><h4>1.2.2</h4><ul><li>New: &quot;Alternate names&quot; setting (Settings \u2192 Schema). Other names the site is known by, such as &quot;Opportunity Lab&quot;, are added as alternateName to the WebSite and Organization schema, which Google uses to recognise site names.</li></ul><h4>1.2.1</h4><ul><li>Editor: empty Social title and Social description fields now show, in grey, the SEO title and meta description they inherit, and the Social image help says which image will be shared (chosen, featured, or the site default). The preview card also uses the site default image.</li></ul>"
   }
 }
