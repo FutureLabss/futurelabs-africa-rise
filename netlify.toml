@@ -18,3 +18,19 @@
   for = "/downloads/*.json"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+# FutureLabs AI SEO Pro talks to futurelabs.africa, not to Supabase directly, so
+# installed sites keep working if the backend moves. Both are proxied (200).
+# Licence API (supabase/functions/license):
+[[redirects]]
+  from = "/api/license"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/license"
+  status = 200
+  force = true
+
+# Short-lived signed links to Pro zips in the private `pro-downloads` bucket.
+[[redirects]]
+  from = "/api/storage/object/sign/pro-downloads/*"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/storage/v1/object/sign/pro-downloads/:splat"
+  status = 200
+  force = true
