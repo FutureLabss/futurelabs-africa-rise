@@ -1,8 +1,8 @@
 {
   "name": "FutureLabs AI SEO",
   "slug": "futurelabs-ai-seo",
-  "version": "1.2.8",
-  "download_url": "https://futurelabs.africa/downloads/futurelabs-ai-seo-1.2.8.zip",
+  "version": "1.2.9",
+  "download_url": "https://futurelabs.africa/downloads/futurelabs-ai-seo-1.2.9.zip",
   "size": "630 KB",
   "requires": "6.4",
   "requires_php": "8.0",
@@ -11,6 +11,6 @@
   "last_updated": "2026-10-13",
   "sections": {
     "description": "<p>FutureLabs AI SEO is an indexing-first SEO plugin. It helps site owners find and remove common blockers to indexing and highlights pages that look thin, duplicated or hard to reach. It is built for busy publishing sites with many authors and time-limited content such as scholarships, grants, jobs and events.</p>",
-    "changelog": "<h4>1.2.8</h4><ul><li>Fix: the Indexing table shows whether a page is in the sitemap even before it has been queued or inspected, instead of &quot;Unknown&quot;.</li></ul><h4>1.2.7</h4><ul><li>Fix: the content scan no longer counts full posts as ~40 words when a theme or plugin turns the post content into an excerpt outside single-post views.</li></ul><h4>1.2.6</h4><ul><li>New: the publishing checklist also checks length (the thin-content word count), eligibility / benefits / how-to-apply sections on opportunities, broken internal links, AI copy-paste leftovers (utm_source=chatgpt.com, oaicite and \u3010\u2020\u3011 markers, &quot;[Insert \u2026]&quot; placeholders) and near copies (90%+) of published posts.</li><li>New: with &quot;Block publishing until the checklist is complete&quot; on, Elementor publishes are checked too, and the editor shows which items are missing.</li><li>Improved: &quot;Check again&quot; on Dashboard \u2192 Updates fetches the latest FutureLabs AI SEO release immediately.</li></ul><h4>1.2.5</h4><ul><li>Fix: the link checker no longer reports internal links as broken when they carry tracking parameters (?utm_source=chatgpt.com, fbclid and similar) or use http:// instead of https://.</li></ul><h4>1.2.4</h4><ul><li>New: one-click updates. The plugin checks futurelabs.africa twice a day and shows the usual WordPress &quot;new version available&quot; notice when a release is out. Define FLSEO_DISABLE_UPDATER to turn this off.</li></ul>"
+    "changelog": "<h4>1.2.9</h4><ul><li>Changed: the checklist item for internal links now needs links to at least 2 other posts or pages. Category, tag and home page links no longer count, since they don&#x27;t give other posts inbound links.</li></ul><h4>1.2.8</h4><ul><li>Fix: the Indexing table shows whether a page is in the sitemap even before it has been queued or inspected, instead of &quot;Unknown&quot;.</li></ul><h4>1.2.7</h4><ul><li>Fix: the content scan no longer counts full posts as ~40 words when a theme or plugin turns the post content into an excerpt outside single-post views.</li></ul><h4>1.2.6</h4><ul><li>New: the publishing checklist also checks length (the thin-content word count), eligibility / benefits / how-to-apply sections on opportunities, broken internal links, AI copy-paste leftovers (utm_source=chatgpt.com, oaicite and \u3010\u2020\u3011 markers, &quot;[Insert \u2026]&quot; placeholders) and near copies (90%+) of published posts.</li><li>New: with &quot;Block publishing until the checklist is complete&quot; on, Elementor publishes are checked too, and the editor shows which items are missing.</li><li>Improved: &quot;Check again&quot; on Dashboard \u2192 Updates fetches the latest FutureLabs AI SEO release immediately.</li></ul><h4>1.2.5</h4><ul><li>Fix: the link checker no longer reports internal links as broken when they carry tracking parameters (?utm_source=chatgpt.com, fbclid and similar) or use http:// instead of https://.</li></ul>"
   }
 }
