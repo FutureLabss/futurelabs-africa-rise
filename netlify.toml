@@ -12,3 +12,9 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Cache-Control = "public, max-age=3600"
+
+# WordPress sites check the plugin release manifest for updates; keep it fresh.
+[[headers]]
+  for = "/downloads/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=300"

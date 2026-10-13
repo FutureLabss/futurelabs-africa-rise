@@ -1,3 +1,5 @@
+import aiSeoRelease from '../../public/downloads/futurelabs-ai-seo.json';
+
 // Products from FutureLabs Studio, shown on /studio.
 // Release files live in public/downloads/. To ship a new version: copy the zip
 // there, remove the old one, and update `version`, `size` and `download` below.
@@ -79,8 +81,14 @@ export const PRODUCTS: Product[] = [
       'Bulk changes with undo',
       'AI suggestions with Claude, OpenAI, Gemini or any OpenAI-compatible model',
     ],
-    facts: ['Version 1.2.2', '620 KB', 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
-    download: { href: '/downloads/futurelabs-ai-seo-1.2.2.zip', version: '1.2.2', size: '620 KB' },
+    // Version, size and download come from the release manifest that the plugin's
+    // release script publishes (bin/publish-site.sh); WordPress sites read it for updates.
+    facts: [`Version ${aiSeoRelease.version}`, aiSeoRelease.size, 'WordPress 6.4+ · PHP 8.0+', 'GPL licence'],
+    download: {
+      href: new URL(aiSeoRelease.download_url).pathname,
+      version: aiSeoRelease.version,
+      size: aiSeoRelease.size,
+    },
     image: {
       src: '/images/studio/futurelabs-ai-seo.jpg',
       alt: 'FutureLabs AI SEO dashboard showing known URLs, pages with content findings, orphan pages and a "Fix this first" list',
