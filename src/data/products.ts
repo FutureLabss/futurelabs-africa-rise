@@ -6,6 +6,30 @@ import aiSeoRelease from '../../public/downloads/futurelabs-ai-seo.json';
 
 export type ProductLink = { label: string; href: string };
 
+export type BillingInterval = 'month' | 'year';
+export type Currency = 'USD' | 'NGN';
+
+/** A Pro tier. Prices are whole units (dollars / naira) and must match the
+ *  `product_prices` table, which is what checkout actually charges. */
+export type PriceTier = {
+  id: 'personal' | 'business' | 'agency';
+  name: string;
+  /** null = unlimited sites. */
+  sites: number | null;
+  prices: Record<BillingInterval, Record<Currency, number>>;
+};
+
+export const sitesLabel = (sites: number | null) =>
+  sites === null ? 'Unlimited sites' : `${sites} site${sites > 1 ? 's' : ''}`;
+
+export type Pricing = {
+  /** false: tiers show "Join the waitlist" instead of checkout (no Pro build yet). */
+  available: boolean;
+  /** What every Pro tier adds on top of the free version. */
+  features: string[];
+  tiers: PriceTier[];
+};
+
 export type Product = {
   id: string;
   kind: string;
@@ -25,7 +49,20 @@ export type Product = {
   image: { src: string; alt: string; width: number; height: number; focus?: string };
   /** Collapsible steps under the actions. */
   steps?: { title: string; items: string[] };
+  /** Paid Pro tiers, sold as monthly or yearly subscriptions. */
+  pricing?: Pricing;
 };
+
+const tier = (id: PriceTier['id'], sites: number | null, month: [number, number], year: [number, number]): PriceTier => ({
+  id,
+  name: { personal: 'Personal', business: 'Business', agency: 'Agency' }[id],
+  sites,
+  prices: { month: { USD: month[0], NGN: month[1] }, year: { USD: year[0], NGN: year[1] } },
+});
+
+// About half the price of comparable products (AIOSEO, Yoast Premium, Rank Math PRO;
+// Newspaper, JNews, GeneratePress Premium). Naira at roughly ₦1,375 to $1, rounded.
+const SUPPORT = ['Updates while subscribed', 'Priority email support'];
 
 export const PRODUCTS: Product[] = [
   {
@@ -59,6 +96,15 @@ export const PRODUCTS: Product[] = [
       items: [
         'In WordPress, go to Appearance → Themes → Add New Theme → Upload Theme and choose the zip.',
         'Optional: install the free One Click Demo Import plugin, then use Appearance → Import Demo Data to load the sample site. The demo content is hosted here, so there is nothing else to set up.',
+      ],
+    },
+    pricing: {
+      available: false,
+      features: ['Everything in Free', 'NewsTheme Pro add-on', ...SUPPORT],
+      tiers: [
+        tier('personal', 1, [3, 4_000], [29, 40_000]),
+        tier('business', 5, [6, 8_000], [59, 81_000]),
+        tier('agency', null, [10, 14_000], [99, 135_000]),
       ],
     },
   },
@@ -102,6 +148,15 @@ export const PRODUCTS: Product[] = [
         'In WordPress, go to Plugins → Add New Plugin → Upload Plugin, choose the zip and activate it.',
         'The setup wizard checks for other SEO plugins and can import your existing titles and descriptions from Yoast, Rank Math or All in One SEO.',
         'AI suggestions are off until you turn them on and add your own API key. Nothing is published until an editor approves it.',
+      ],
+    },
+    pricing: {
+      available: false,
+      features: ['Everything in Free', 'FutureLabs AI SEO Pro add-on', ...SUPPORT],
+      tiers: [
+        tier('personal', 1, [5, 7_000], [49, 67_500]),
+        tier('business', 5, [13, 18_000], [129, 177_500]),
+        tier('agency', null, [30, 41_000], [299, 410_000]),
       ],
     },
   },

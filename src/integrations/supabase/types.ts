@@ -98,6 +98,162 @@ export type Database = {
         }
         Relationships: []
       }
+      license_activations: {
+        Row: {
+          activated_at: string
+          license_id: string
+          site_url: string
+        }
+        Insert: {
+          activated_at?: string
+          license_id: string
+          site_url: string
+        }
+        Update: {
+          activated_at?: string
+          license_id?: string
+          site_url?: string
+        }
+        Relationships: []
+      }
+      licenses: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          email: string
+          first_order_id: string
+          id: string
+          interval: string
+          key: string
+          max_sites: number | null
+          name: string | null
+          paystack_customer_code: string | null
+          paystack_email_token: string | null
+          paystack_plan_code: string | null
+          paystack_subscription_code: string | null
+          period_end: string
+          product: string
+          status: string
+          tier: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency: string
+          email: string
+          first_order_id: string
+          id?: string
+          interval: string
+          key: string
+          max_sites: number | null
+          name?: string | null
+          paystack_customer_code?: string | null
+          paystack_email_token?: string | null
+          paystack_plan_code?: string | null
+          paystack_subscription_code?: string | null
+          period_end: string
+          product: string
+          status?: string
+          tier: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          email?: string
+          first_order_id?: string
+          id?: string
+          interval?: string
+          key?: string
+          max_sites?: number | null
+          name?: string | null
+          paystack_customer_code?: string | null
+          paystack_email_token?: string | null
+          paystack_plan_code?: string | null
+          paystack_subscription_code?: string | null
+          period_end?: string
+          product?: string
+          status?: string
+          tier?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          email: string
+          id: string
+          interval: string
+          kind: string
+          license_id: string | null
+          name: string | null
+          paystack_payload: Json | null
+          product: string
+          reference: string
+          status: string
+          tier: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency: string
+          email: string
+          id?: string
+          interval: string
+          kind?: string
+          license_id?: string | null
+          name?: string | null
+          paystack_payload?: Json | null
+          product: string
+          reference: string
+          status?: string
+          tier: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          email?: string
+          id?: string
+          interval?: string
+          kind?: string
+          license_id?: string | null
+          name?: string | null
+          paystack_payload?: Json | null
+          product?: string
+          reference?: string
+          status?: string
+          tier?: string
+        }
+        Relationships: []
+      }
+      pro_releases: {
+        Row: {
+          id: string
+          product: string
+          released_at: string
+          storage_path: string
+          version: string
+        }
+        Insert: {
+          id?: string
+          product: string
+          released_at?: string
+          storage_path: string
+          version: string
+        }
+        Update: {
+          id?: string
+          product?: string
+          released_at?: string
+          storage_path?: string
+          version?: string
+        }
+        Relationships: []
+      }
       product_downloads: {
         Row: {
           created_at: string
@@ -128,6 +284,69 @@ export type Database = {
           organisation?: string | null
           product?: string
           version?: string | null
+        }
+        Relationships: []
+      }
+      product_prices: {
+        Row: {
+          active: boolean
+          amount: number
+          currency: string
+          id: string
+          interval: string
+          paystack_plan_code: string | null
+          product: string
+          sites: number | null
+          tier: string
+        }
+        Insert: {
+          active?: boolean
+          amount: number
+          currency: string
+          id?: string
+          interval: string
+          paystack_plan_code?: string | null
+          product: string
+          sites: number | null
+          tier: string
+        }
+        Update: {
+          active?: boolean
+          amount?: number
+          currency?: string
+          id?: string
+          interval?: string
+          paystack_plan_code?: string | null
+          product?: string
+          sites?: number | null
+          tier?: string
+        }
+        Relationships: []
+      }
+      product_waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string | null
+          product: string
+          tier: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name?: string | null
+          product: string
+          tier?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string | null
+          product?: string
+          tier?: string | null
         }
         Relationships: []
       }
