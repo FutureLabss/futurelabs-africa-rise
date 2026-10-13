@@ -6,11 +6,12 @@ import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard, SectionHead, Chips, ProofLine, SmartLink } from '@/components/site/primitives';
 import { PRODUCTS, type Product } from '@/data/products';
 import DownloadGate from '@/components/site/DownloadGate';
+import PricingTable from '@/components/site/PricingTable';
 
 export const metadata: Metadata = pageMeta({
   title: 'FutureLabs Studio — AI Systems and Digital Products',
   description:
-    'FutureLabs Studio builds AI applications, web platforms and digital products. Try FutureLabs LMS for coding academies, and download the free NewsTheme WordPress theme and FutureLabs AI SEO plugin.',
+    'FutureLabs Studio builds AI applications, web platforms and digital products. Try FutureLabs LMS for coding academies, and get the NewsTheme WordPress theme and FutureLabs AI SEO plugin free, with Pro plans from $3 a month.',
   path: '/studio',
 });
 
@@ -41,7 +42,7 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
       <div className="flex flex-col gap-4 px-[26px] pb-[30px] pt-[30px] lg:px-10 lg:py-10">
         <div className="flex items-baseline justify-between gap-3">
           <span className="fl-num">{n}</span>
-          <span className="fl-tag">{product.free ? `Free · ${product.kind}` : product.kind}</span>
+          <span className="fl-tag">{product.pricing ? `Free + Pro · ${product.kind}` : product.free ? `Free · ${product.kind}` : product.kind}</span>
         </div>
         <h3 id={`${product.id}-name`} className="text-[30px] font-semibold leading-[1.08] tracking-[-0.03em]">
           {product.name}
@@ -81,6 +82,7 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
           </details>
         )}
       </div>
+      {product.pricing && <PricingTable product={product} />}
     </article>
   );
 }
@@ -92,7 +94,7 @@ export default function StudioPage() {
         eyebrow="FutureLabs Studio"
         title="Technology built for real problems."
         titleClass="max-w-[14ch]"
-        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Try our products below: an LMS for coding academies, and a WordPress theme and SEO plugin that are free to download."
+        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Try our products below: an LMS for coding academies, and a WordPress theme and SEO plugin that are free to download, with Pro plans billed monthly or yearly."
       >
         <div className="mt-[26px] flex flex-wrap gap-3">
           <Link href="/contact" className="fl-btn px-6 py-4">Build with us</Link>
@@ -107,7 +109,7 @@ export default function StudioPage() {
           aside={
             <p className="fl-card-text m-0 max-w-[44ch]">
               FutureLabs LMS runs a coding academy end to end. NewsTheme and FutureLabs AI SEO power OpportunityLab, our
-              scholarships and fellowships site, and are free and open source under the GPL.
+              scholarships and fellowships site. Both are free and open source under the GPL, with paid Pro plans that add Pro features, updates and support.
             </p>
           }
         />

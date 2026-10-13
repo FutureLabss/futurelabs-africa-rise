@@ -27,6 +27,7 @@ import {
   Download,
   ChevronDown,
   ChevronRight,
+  CreditCard,
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
@@ -41,6 +42,7 @@ import {
 import { cn } from '@/lib/utils';
 import type { Tables } from '@/integrations/supabase/types';
 import ProductDownloadsPanel from '@/components/admin/ProductDownloadsPanel';
+import OrdersLicensesPanel from '@/components/admin/OrdersLicensesPanel';
 
 const AdminDashboard: React.FC = () => {
   const searchParams = useSearchParams();
@@ -229,7 +231,15 @@ const AdminDashboard: React.FC = () => {
             <Download className="h-4 w-4" />
             Downloads
           </TabsTrigger>
+          <TabsTrigger value="sales" className="gap-2">
+            <CreditCard className="h-4 w-4" />
+            Sales
+          </TabsTrigger>
         </TabsList>
+
+        <TabsContent value="sales" className="space-y-6">
+          {currentTab === 'sales' && <OrdersLicensesPanel />}
+        </TabsContent>
 
         <TabsContent value="downloads" className="space-y-6">
           {currentTab === 'downloads' && <ProductDownloadsPanel />}

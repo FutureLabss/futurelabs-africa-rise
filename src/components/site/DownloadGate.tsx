@@ -25,6 +25,7 @@ type Details = z.infer<typeof schema>;
 type Props = {
   product: { id: string; name: string; version: string; href: string; size: string };
   className?: string;
+  variant?: 'primary' | 'ghost';
   children?: React.ReactNode;
 };
 
@@ -59,7 +60,7 @@ async function record(details: Details, product: Props['product']) {
   if (error) throw error;
 }
 
-export default function DownloadGate({ product, className, children = 'Download free' }: Props) {
+export default function DownloadGate({ product, className, variant = 'primary', children = 'Download free' }: Props) {
   const id = useId();
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<Details>({ email: '', name: '', organisation: '', marketing_opt_in: false });
@@ -117,7 +118,7 @@ export default function DownloadGate({ product, className, children = 'Download 
       <button
         type="button"
         onClick={onClick}
-        className={cn('fl-btn', className)}
+        className={cn(variant === 'ghost' ? 'fl-btn-ghost' : 'fl-btn', className)}
         aria-label={`Download ${product.name} ${product.version} (zip, ${product.size})`}
       >
         {children}
