@@ -350,7 +350,8 @@ export default function HomePage() {
           className="mb-11"
         />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {posts.slice(0, 3).map((p) => (
+          {/* Case studies are already linked from the cards above. */}
+          {posts.filter((p) => p.category !== 'Case study').slice(0, 3).map((p) => (
             <BlogCard key={p.id} post={p} />
           ))}
         </div>
