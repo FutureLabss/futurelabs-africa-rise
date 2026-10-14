@@ -52,7 +52,7 @@ Sessions follow the trends that matter: machine learning, deep learning and gene
 
 Learning only counts when it turns into building. In May 2026, we ran the FutureLabs AI Hackathon, challenging builders to solve a real problem using any AI tool, with ₦50,000 for the best solution.
 
-We expanded the prize pool to reward two winners instead of one. Two products took the prizes: **Salely** and **Automateng**.
+We expanded the prize pool to reward two winners instead of one. Two products took the prizes: **Salely** and **Automateng**. [Read the hackathon announcement on LinkedIn](https://www.linkedin.com/posts/future-labs-ng_futurelabs-innovation-hackathon-activity-7472702433815785472-rGmp).
 
 ## The result
 
