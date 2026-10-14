@@ -30,9 +30,14 @@ export function addInterval(from: Date, interval: string) {
   return d;
 }
 
-/** A license works until GRACE_DAYS after the paid period ends, unless an admin revoked it. */
+/**
+ * A license works until the paid period ends. Renewing subscriptions (active or with a
+ * failed payment) get GRACE_DAYS more, to cover a late or retried charge; a cancelled
+ * one ends with the period, as Paystack shows it. Revoked licenses never work.
+ */
 export function licenseState(license: { status: string; period_end: string }) {
-  const validUntil = new Date(new Date(license.period_end).getTime() + GRACE_DAYS * 86_400_000);
+  const grace = license.status === 'cancelled' ? 0 : GRACE_DAYS;
+  const validUntil = new Date(new Date(license.period_end).getTime() + grace * 86_400_000);
   const valid = license.status !== 'revoked' && validUntil > new Date();
   return { valid, valid_until: validUntil.toISOString(), status: valid ? license.status : license.status === 'revoked' ? 'revoked' : 'expired' };
 }
@@ -162,7 +167,7 @@ export async function applyFirstCharge(supabase: DB, tx: any) {
       `Thanks for subscribing to ${name}.`,
       '',
       `License key: ${license.key}`,
-      `Plan: ${license.tier} (${sitesLabel(license.max_sites)}), billed every ${license.interval}`,
+      `Plan: ${license.tier.charAt(0).toUpperCase()}${license.tier.slice(1)} (${sitesLabel(license.max_sites)}), billed every ${license.interval}`,
       '',
       `Download the Pro add-on and manage your subscription at ${SITE_URL}/studio/account`,
       'In WordPress, install the add-on, then paste your key on its settings page.',

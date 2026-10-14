@@ -17,7 +17,9 @@ type Order = Tables<'orders'>;
 type Waitlist = Tables<'product_waitlist'>;
 
 const GRACE_DAYS = 7; // keep in step with supabase/functions/_shared/licenses.ts
-const isValid = (l: License) => l.status !== 'revoked' && new Date(l.period_end).getTime() + GRACE_DAYS * 86_400_000 > Date.now();
+// Cancelled licenses end with the paid period; renewing ones get the grace period.
+const isValid = (l: License) =>
+  l.status !== 'revoked' && new Date(l.period_end).getTime() + (l.status === 'cancelled' ? 0 : GRACE_DAYS) * 86_400_000 > Date.now();
 const money = (minor: number, currency: string) =>
   `${currency === 'USD' ? '$' : '₦'}${(minor / 100).toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
 const day = (iso: string) => format(new Date(iso), 'MMM d, yyyy');
