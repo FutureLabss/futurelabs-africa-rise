@@ -64,7 +64,7 @@ const CASES = [
     title: 'iHatch',
     text: 'Incubation for early-stage founders, from problem validation to a product in market.',
     chips: ['Incubation', 'Product'],
-    link: { label: 'Explore our ventures', href: '/startups' },
+    link: { label: 'Read the case study', href: '/blog/ihatch-case-study' },
   },
   {
     img: '/images/site/fellowship.jpg',
