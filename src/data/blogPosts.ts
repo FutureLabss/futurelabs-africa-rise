@@ -33,7 +33,7 @@ National incubation programmes reach founders through local hubs. The curriculum
 
 ## The programme
 
-iHatch is a startup incubation programme run by NITDA, through its National Centre for Artificial Intelligence and Robotics, with the Japan International Cooperation Agency (JICA). It offers free incubation for idea-stage and MVP-stage founders: coaching, lectures, boot camps, co-working space and mentorship.
+iHatch is a startup incubation programme run by the Office for Nigerian Digital Innovation (ONDI) under NITDA, with the Japan International Cooperation Agency (JICA). It offers free incubation for idea-stage and MVP-stage founders: coaching, lectures, boot camps, co-working space and mentorship.
 
 The 2025 edition, Cohort 4, set out to support 185 startups through 37 innovation hubs across Nigeria. Founders progressed through state-level selections and regional demo days to a national demo day in Abuja in December 2025, where three winners shared more than ₦52 million in seed funding.
 
