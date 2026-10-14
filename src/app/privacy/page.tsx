@@ -48,12 +48,18 @@ const COLLECTED: { activity: string; data: string; purpose: string }[] = [
     data: 'Email (required), name and organisation or website (optional), the product and version, and whether you asked for product updates.',
     purpose: 'To understand who uses our products, contact you about your download, and send product updates only if you opted in.',
   },
+  {
+    activity: 'Research briefing downloads on the Research page',
+    data: 'Email address, which briefing you asked for, and when you agreed to receive it. Your IP address is used briefly to limit repeated sign-ups.',
+    purpose: 'To email you the download link and send research updates you agreed to. Every email has an unsubscribe link.',
+  },
 ];
 
 const PROCESSORS: { name: string; role: string }[] = [
   { name: 'Supabase', role: 'stores form submissions, event registrations, download records and uploaded files, and runs our server functions.' },
   { name: 'Netlify', role: 'hosts the website and keeps standard server logs, which include IP addresses.' },
   { name: 'Cloudflare', role: 'protects and speeds up the website, and processes IP addresses to do so.' },
+  { name: 'Resend', role: 'sends our emails (licence keys, research briefings) and keeps the research mailing list.' },
   { name: 'FormSubmit (formsubmit.co)', role: 'delivers contact, newsletter, "get involved" and application details to our team inbox by email.' },
   {
     name: 'Gravatar (Automattic)',
