@@ -57,7 +57,13 @@ export async function signedDownload(supabase: DB, product: string) {
     console.error('signed URL failed', error.message);
     return null;
   }
-  return { version: release.version, url: data.signedUrl };
+  // Hand out the link on futurelabs.africa (proxied by netlify.toml), so the Pro
+  // plugin only ever downloads from our own domain.
+  const supabaseUrl = Deno.env.get('SUPABASE_URL')!.replace(/\/$/, '');
+  const url = data.signedUrl.startsWith(`${supabaseUrl}/storage/v1/`)
+    ? `${SITE_URL}/api/storage/${data.signedUrl.slice(`${supabaseUrl}/storage/v1/`.length)}`
+    : data.signedUrl;
+  return { version: release.version, url };
 }
 
 /** What a buyer is allowed to see about their own license. */
