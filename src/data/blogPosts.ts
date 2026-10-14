@@ -25,6 +25,55 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "futurelabs-academy-figma-education-plan",
+    title: "FutureLabs Academy Gets Figma's Education Plan",
+    excerpt: "FutureLabs Academy is now verified on Figma's Education plan, which gives our instructors and students Figma's Professional features for free. Here's how we'll use it to train design-minded builders.",
+    content: `
+FutureLabs Academy is now verified on Figma's Education plan. It gives educators and their students all the benefits of Figma's Professional plan, for free.
+
+For the Academy, which trains Africa's tech talent, that means every class can design the way professional product teams do.
+
+## What the Education plan gives us
+
+- **Professional features at no cost** for our verified instructors and students.
+- **A shared Education team** where instructors and students work on the same files.
+- **Collaboration built in**, so students can design together, comment and learn from each other's work.
+
+## How we'll use it
+
+### 1. Teaching design alongside code
+
+Our students learn to build products, not just write code. With Figma in every class, they can go from idea to interface to working software, and understand why a screen looks the way it does before they build it.
+
+### 2. Training design engineers
+
+We believe everyone's work will gain an engineering layer, and design is no exception. The best designers will prototype, test and ship without waiting on a long development cycle. Pairing Figma with AI-native building lets our students practise exactly that.
+
+### 3. One team, real collaboration
+
+Instructors and students share one Education team. Students can work on the same file as their classmates, get feedback where the work happens, and learn the habits of a product team before they join one.
+
+### 4. Working with a real design system
+
+Students can practise on shared colours, type and components, the building blocks professional teams rely on, instead of starting every project from a blank page.
+
+## Built for learning
+
+The Education plan is for teaching and learning, so we'll keep it inside the Academy's classes. Students who join our Education team will need to verify their student status within a week to keep their access.
+
+## Learn to design and build
+
+Alongside our membership of [Anthropic's Claude Startups programme](/blog/futurelabs-academy-joins-claude-startups), the Education plan gives Academy students professional-grade tools for both halves of building a product: designing it and engineering it.
+
+If you want to learn to design and build that way, [explore FutureLabs Academy](/academy).
+`,
+    imageUrl: "/images/futurelabs-hero.jpeg",
+    category: "Education",
+    date: "October 15, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Explore FutureLabs Academy", href: "/academy" },
+  },
+  {
     id: "futurelabs-academy-joins-claude-startups",
     title: "FutureLabs Academy Joins Anthropic's Claude Startups Programme",
     excerpt: "FutureLabs Academy, our first incubated startup and our tech talent training arm, has been accepted into Claude Startups. Here's how it pushes our agentic ambitions forward.",
