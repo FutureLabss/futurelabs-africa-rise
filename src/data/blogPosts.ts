@@ -29,13 +29,15 @@ export const blogPosts: BlogPost[] = [
     title: "Case Study: Incubating Startups Through iHatch, From Idea to Regional Demo Day",
     excerpt: "In 2025, FutureLabs incubated founders through iHatch, the NITDA and JICA startup programme. Two of our startups, Cleverclass and Flowz, made it to the regional demo day, in an edition that ran on limited funding.",
     content: `
+*Photo: finalists and organisers at the iHatch Cohort 4 National Demo Day in Abuja, December 2025. Credit: NITDA.*
+
 National incubation programmes reach founders through local hubs. The curriculum, selection and prizes are set nationally, but the day-to-day work of turning an idea into a product happens in a room near the founder, with people who keep pushing them to ship.
 
 ## The programme
 
 iHatch is a startup incubation programme run by the Office for Nigerian Digital Innovation (ONDI) under NITDA, with the Japan International Cooperation Agency (JICA). It offers free incubation for idea-stage and MVP-stage founders: coaching, lectures, boot camps, co-working space and mentorship.
 
-The 2025 edition, Cohort 4, set out to support 185 startups through 37 innovation hubs across Nigeria. Founders progressed through state-level selections and regional demo days to a national demo day in Abuja in December 2025, where three winners shared more than ₦52 million in seed funding.
+The 2025 edition, Cohort 4, set out to support 185 startups through 37 innovation hubs across Nigeria. Founders progressed through state-level selections and regional demo days to a national demo day in Abuja in December 2025, where 12 finalists pitched and the top three won prizes of $15,000, $12,000 and $10,000.
 
 ## Our role
 
@@ -60,7 +62,7 @@ Reaching the regional stage means competing with startups from hubs across the r
 
 ## What it shows
 
-Strong hubs can carry founders a long way, even in a lean year. But incubation delivers the most when the funding matches the ambition: founders need time, tools and capital as well as mentorship.
+Strong hubs can carry founders a long way, even in a lean year. But incubation delivers the most when the funding matches the ambition: founders need time, tools and capital as well as mentorship. In 2025, even the top three prizes at the national demo day were paid in AWS credits rather than cash.
 
 ## Work with us
 
@@ -68,7 +70,7 @@ If you're a founder with an idea worth building, [explore how we back startups](
 
 If you're designing an incubation programme, [talk to us about government and development partnerships](/government). We help design programmes and incubate the founders they select.
 `,
-    imageUrl: "/images/site/team.jpg",
+    imageUrl: "/images/blog/ihatch-national-demo-day.jpg",
     category: "Case study",
     date: "October 15, 2026",
     author: "FutureLabs Team",
