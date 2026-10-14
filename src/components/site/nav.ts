@@ -10,7 +10,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: 'Government & Development', href: '/government', desc: 'Technology-enabled economic and institutional programs' },
       { label: 'Enterprise', href: '/enterprise', desc: 'AI adoption, workforce and product capability' },
       { label: 'Events', href: '/events', desc: 'Hackathons, demo days and industry convenings' },
-      { label: 'Impact', href: '/#impact', desc: 'How we measure productive capacity' },
+      { label: 'Impact', href: '/#impact', desc: 'Case studies and outcomes' },
       { label: 'AI Fellowship', href: '/ai-fellowship', desc: 'Applied AI training through to placement' },
     ],
   },
