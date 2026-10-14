@@ -13,3 +13,10 @@ verify_jwt = false
 
 [functions.license]
 verify_jwt = false
+
+# Research briefing form (site's publishable key) and email unsubscribe links.
+[functions.briefing-signup]
+verify_jwt = false
+
+[functions.briefing-unsubscribe]
+verify_jwt = false

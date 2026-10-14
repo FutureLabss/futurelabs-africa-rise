@@ -34,3 +34,34 @@
   to = "https://xgemmlbsmmqwysatmbvz.supabase.co/storage/v1/object/sign/pro-downloads/:splat"
   status = 200
   force = true
+
+# Research briefing sign-up and unsubscribe (supabase/functions/briefing-*).
+[[redirects]]
+  from = "/api/briefing-signup"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/briefing-signup"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/briefing-unsubscribe"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/briefing-unsubscribe"
+  status = 200
+  force = true
+
+# 48-hour signed links to briefing PDFs in the private `briefings` bucket.
+[[redirects]]
+  from = "/api/storage/object/sign/briefings/*"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/storage/v1/object/sign/briefings/:splat"
+  status = 200
+  force = true
+
+# Gated files must not be indexed, or search engines would bypass the form.
+[[headers]]
+  for = "/api/storage/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/downloads/*.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

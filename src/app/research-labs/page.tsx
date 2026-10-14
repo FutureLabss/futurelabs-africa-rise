@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import SubscribeForm from '@/components/site/SubscribeForm';
+import BriefingDownload from '@/components/site/BriefingDownload';
 import { Section, SplitHero } from '@/components/site/primitives';
 
 export const metadata: Metadata = pageMeta({
@@ -45,6 +46,10 @@ export default function IntelligencePage() {
             );
           })}
         </div>
+      </Section>
+
+      <Section innerClassName="pt-20">
+        <BriefingDownload />
       </Section>
 
       <Section innerClassName="py-20">
