@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "ihatch-case-study",
     title: "Case Study: Incubating Startups Through iHatch, From Idea to Regional Demo Day",
-    excerpt: "In 2025, FutureLabs incubated founders through iHatch, the NITDA and JICA startup programme. Two of our startups, Cleverclass and Flowz, made it to the regional demo day, on a programme held back by limited funding.",
+    excerpt: "In 2025, FutureLabs incubated founders through iHatch, the NITDA and JICA startup programme. Two of our startups, Cleverclass and Flowz, made it to the regional demo day, in an edition that ran on limited funding.",
     content: `
 National incubation programmes reach founders through local hubs. The curriculum, selection and prizes are set nationally, but the day-to-day work of turning an idea into a product happens in a room near the founder, with people who keep pushing them to ship.
 
@@ -45,9 +45,9 @@ FutureLabs took part in iHatch in 2025, incubating founders at our hub in Ikot E
 - **Building the product.** Giving them a place to work and people to build with, from first prototype to a product in market.
 - **Mentorship and pitch preparation.** Getting founders ready to present their startups at demo day.
 
-## The challenge: incubating with limited funding
+## The context: a lean funding year
 
-The 2025 edition was held back by limited funding. That put more weight on what a hub can give founders directly: a place to work, mentors who know their market, and a team that holds them to deadlines.
+The 2025 edition ran on less funding than a programme of its ambition needs. Hubs and founders made the most of what was available, which put more weight on what a hub can give founders directly: a place to work, mentors who know their market, and a team that holds them to deadlines.
 
 ## The result: two startups at the regional demo day
 
@@ -60,7 +60,7 @@ Reaching the regional stage means competing with startups from hubs across the r
 
 ## What it shows
 
-Strong hubs can carry founders a long way, even when a programme is under-resourced. But incubation delivers the most when the funding matches the ambition: founders need time, tools and capital as well as mentorship.
+Strong hubs can carry founders a long way, even in a lean year. But incubation delivers the most when the funding matches the ambition: founders need time, tools and capital as well as mentorship.
 
 ## Work with us
 
