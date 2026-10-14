@@ -25,6 +25,50 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "ai-fellowship-case-study",
+    title: "Case Study: How a Peer-to-Peer AI Fellowship Kept Our Team Ahead of the Curve",
+    excerpt: "Every two weeks, FutureLabs people meet in Ikot Ekpene to teach each other what's changing in AI. Here's how the AI Fellowship works, and how to join the next cohort.",
+    content: `
+AI moves faster than any course can keep up with. The tool that leads in January can be overtaken by March, and a task that took a week can shrink to an afternoon. For a team that trains young people and builds products, falling behind isn't an option.
+
+## The challenge
+
+We needed our people to stay current on AI without pulling them out of their work for weeks of training. Formal courses date quickly, and no single person can track every new model, tool and technique alone.
+
+## The approach: peer-to-peer, every two weeks
+
+The FutureLabs AI Fellowship is a biweekly, in-person mentorship at our hub on Chubb Road, Ikot Ekpene. There's no lecturer at the front of the room. Fellows take turns bringing what they've been learning (a new model, a tool they've tested, a technique that changed how they work) and the group works through it together.
+
+Sessions follow the trends that matter: machine learning, deep learning and generative AI, and how to put them to work. In March 2026, the session *AI Software Architecting: Building the Future* looked at how to design software with AI at its core.
+
+## Why peer-to-peer works
+
+- **Everyone teaches.** Explaining a tool to colleagues is the fastest way to understand it properly.
+- **It stays current.** The agenda follows what's actually changing in AI, not a syllabus written months ago.
+- **It's practical.** Fellows bring problems from their own work and leave with something they can use.
+- **It fits around real jobs.** Meeting every other week keeps learning steady without stopping the work.
+
+## From learning to building
+
+Learning only counts when it turns into building. In May 2026, we ran the FutureLabs AI Hackathon, challenging builders to solve a real problem using any AI tool, with ₦50,000 for the best solution.
+
+## The result
+
+The fellowship has upskilled the people who build and teach at FutureLabs, and it keeps the whole team current as AI changes. Now we're opening the next cohort to more builders.
+
+## Join the next cohort
+
+If you want to stay ahead of the AI curve and learn alongside other builders, apply for the FutureLabs AI Fellowship.
+
+**[Apply for the AI Fellowship →](/ai-fellowship)**
+`,
+    imageUrl: "/images/site/community.jpg",
+    category: "Case study",
+    date: "October 15, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Apply for the AI Fellowship", href: "/ai-fellowship" },
+  },
+  {
     id: "ai-boom-short-of-cheap-money",
     title: "The AI Boom Isn't Short of Demand. It's Short of Cheap Money.",
     excerpt: "Demand is not the weak point. The weak point is the money that turns that demand into data centers.",

@@ -81,7 +81,7 @@ const CASES = [
     title: 'AI Fellowship',
     text: 'Applied AI training taken through to industry placement and real deployments.',
     chips: ['AI', 'Placement'],
-    link: { label: 'About the fellowship', href: '/ai-fellowship' },
+    link: { label: 'About the fellowship', href: '/blog/ai-fellowship-case-study' },
   },
 ];
 
