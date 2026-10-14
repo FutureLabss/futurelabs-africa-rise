@@ -25,6 +25,67 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "futurelabs-academy-joins-claude-startups",
+    title: "FutureLabs Academy Joins Anthropic's Claude Startups Programme",
+    excerpt: "FutureLabs Academy, our first incubated startup and our tech talent training arm, has been accepted into Claude Startups. Here's how it pushes our agentic ambitions forward.",
+    content: `
+FutureLabs Academy has been accepted into Claude Startups, Anthropic's programme for startups building with Claude.
+
+The Academy is the first startup FutureLabs incubated, and it's where we train Africa's tech talent: software engineers, AI builders and the digital workforce our economy needs. So the membership doesn't just help one company. It reaches everyone the Academy teaches.
+
+## What the membership includes
+
+- **A year of Claude Team** for the Academy's team.
+- **API credits** to build with Claude.
+- **Startup Stack offers** on tools for AI-native companies.
+- **Time with Anthropic's team** to ask questions.
+
+## How it pushes our agentic ambitions
+
+We believe everyone will be agentic: not everyone will become a software engineer, but everyone's work will gain an engineering layer. Here's how this membership moves us toward that.
+
+### 1. A fully agentic team, not an "AI person"
+
+The best teams won't have an AI person. They'll have an AI layer across everyone. With Claude Team, the people who teach, market, run operations and build at the Academy can each multiply their own work, from drafting course material to automating the admin around a cohort.
+
+### 2. Building instead of buying
+
+Before we were accepted, we caught ourselves about to pay for a premium SEO plugin for OpportunityLab.net, and stopped: why pay for something we could build? Once we were in, we built custom solutions for both the theme and the plugin. API credits let us keep asking "What should we build?" instead of "Can we build this?"
+
+### 3. Harnesses, not just prompts
+
+The future of AI-assisted work isn't asking an agent for an answer. It's building the harness around it: the context, constraints, tools, tests and feedback loops that let an agent produce reliable work. API credits give us room to build and test those harnesses for real workflows, in training, research and operations.
+
+### 4. Teaching both paths
+
+We expect two paths for the next generation of builders, and the Academy will teach both:
+
+- **Professional software engineering:** deep fundamentals, deep expertise, AI as leverage.
+- **AI-native building:** domain expertise, AI agents, code, APIs and rapid execution.
+
+AI can write code, but if you don't understand what you're building, you won't know when the machine is wrong. Building with Claude every day sharpens how we teach both the fundamentals and the judgement on top of them.
+
+### 5. Running as an AI-native company
+
+The Startup Stack offers give the Academy access to tools built for AI-native companies, so we can run the way we teach: lean, automated and quick to ship.
+
+### 6. Learning from the source, and sharing it
+
+Time with Anthropic's team means our questions go to the people building the models. What we learn goes back into the [AI Fellowship](/blog/ai-fellowship-case-study), our biweekly peer-to-peer sessions where FutureLabs people teach each other what's changing in AI.
+
+## What's next
+
+When execution gets cheap, knowing what to build becomes the advantage. Our job is to make sure the people we train are the ones who know what to build, and how to make AI work with their expertise.
+
+If you want to learn to build that way, [explore FutureLabs Academy](/academy).
+`,
+    imageUrl: "/images/site/team.jpg",
+    category: "AI",
+    date: "October 15, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Explore FutureLabs Academy", href: "/academy" },
+  },
+  {
     id: "ihatch-case-study",
     title: "Case Study: Incubating Startups Through iHatch, From Idea to Regional Demo Day",
     excerpt: "In 2025, FutureLabs incubated founders through iHatch, the NITDA and JICA startup programme. Two of our startups, Cleverclass and Flowz, made it to the regional demo day, in an edition that ran on limited funding.",
