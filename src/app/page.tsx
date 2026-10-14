@@ -73,7 +73,7 @@ const CASES = [
     title: 'iDICE',
     text: 'Delivery partner on a national programme building digital and creative enterprise capacity.',
     chips: ['Government', 'Ecosystem'],
-    link: { label: 'Government & development', href: '/government' },
+    link: { label: 'Read the case study', href: '/blog/idice-case-study' },
   },
   {
     img: '/images/site/community.jpg',
