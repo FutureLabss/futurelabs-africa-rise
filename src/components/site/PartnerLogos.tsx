@@ -22,13 +22,15 @@ export function PartnerLogos({ className }: { className?: string }) {
   const logos = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
 
   return (
-    <div className={cn('w-full overflow-hidden flex relative group', className)}>
-      {/* Optional: fading edges for a smoother look */}
-      <div className="absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-fl-graphite to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-fl-graphite to-transparent pointer-events-none" />
+    <div className={cn('w-full overflow-hidden flex relative group motion-reduce:overflow-x-auto', className)}>
+      {/* Fading edges, in the section's background colour */}
+      <div className="absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-fl-ink to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-fl-ink to-transparent pointer-events-none" />
 
       {/* Container for scrolling elements */}
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+      {/* Pause on hover only where there is a real pointer: on touch screens a tap leaves :hover stuck and froze the strip.
+          Reduced motion: no animation; the row scrolls sideways instead. */}
+      <div className="flex w-max animate-marquee motion-reduce:animate-none [@media(hover:hover)]:hover:[animation-play-state:paused]">
         {logos.map((logo, idx) => (
           <div
             key={idx}
@@ -38,7 +40,9 @@ export function PartnerLogos({ className }: { className?: string }) {
               src={logo.src}
               alt={logo.alt}
               className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"
-              loading="lazy"
+              // Not lazy: in a moving strip, lazy logos slide into view before they've loaded.
+              loading="eager"
+              decoding="async"
             />
           </div>
         ))}
