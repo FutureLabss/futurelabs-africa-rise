@@ -194,26 +194,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Proof: what changed after working with FutureLabs. #impact is linked from the footer and /impact. */}
-      <Section id="impact" tone="graphite" innerClassName="fl-pad">
-        <SectionHead
-          eyebrow="Our Work"
-          title="Where the model meets reality."
-          aside={
-            <p className="m-0 max-w-[40ch] text-[16px] leading-[1.55] text-fl-label">
-              The strongest evidence of our work is what people, startups and institutions are able to do after working with FutureLabs.
-            </p>
-          }
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {CASES.map((c) => (
-            <ImageCard key={c.title} {...c} imgHeight="h-[190px]" />
-          ))}
-        </div>
-      </Section>
-
       {/* Our model: the five engines from the hero diagram */}
-      <Section innerClassName="fl-pad">
+      <Section tone="graphite" innerClassName="fl-pad">
         <SectionHead
           eyebrow="Our Model"
           title="Five engines, one goal: productive capacity."
@@ -227,7 +209,6 @@ export default function HomePage() {
           {ENGINES.map((e) => (
             <NumberCard
               key={e.n}
-              surface="graphite"
               className={e.span}
               minH="min-h-[300px] lg:min-h-[340px]"
               n={e.n}
@@ -238,6 +219,24 @@ export default function HomePage() {
               chips={e.programmes}
               link={e.link}
             />
+          ))}
+        </div>
+      </Section>
+
+      {/* Proof: what changed after working with FutureLabs. #impact is linked from the footer and /impact. */}
+      <Section id="impact" innerClassName="fl-pad">
+        <SectionHead
+          eyebrow="Our Work"
+          title="Where the model meets reality."
+          aside={
+            <p className="m-0 max-w-[40ch] text-[16px] leading-[1.55] text-fl-label">
+              The strongest evidence of our work is what people, startups and institutions are able to do after working with FutureLabs.
+            </p>
+          }
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {CASES.map((c) => (
+            <ImageCard key={c.title} {...c} surface="graphite" imgHeight="h-[190px]" />
           ))}
         </div>
       </Section>
