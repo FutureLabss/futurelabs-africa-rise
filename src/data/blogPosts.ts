@@ -27,9 +27,9 @@ export const blogPosts: BlogPost[] = [
   {
     id: "idice-case-study",
     title: "Case Study: Delivering iDICE in Akwa Ibom, From Founders Lab to Funded Startups",
-    excerpt: "iDICE is a national programme building digital and creative enterprise across Nigeria. As a delivery partner and host hub in Ikot Ekpene, FutureLabs turns that investment into founders who build, connect and get funded.",
+    excerpt: "iDICE selects founders through a national programme. As its delivery partner and host hub in Ikot Ekpene, FutureLabs incubates them until they're ready for capital. Here's how, and how we help governments design and incubate high-impact programmes.",
     content: `
-National programmes only work if they reach founders where they are. Capital and curriculum designed in Abuja have to land in towns like Ikot Ekpene, with people on the ground who can recruit founders, run the sessions and stay with them until they're ready for investment.
+A national programme can select the right founders and still fall short if no one on the ground turns that selection into results. Founders selected by a national programme need somewhere to work in towns like Ikot Ekpene, and people who stay with them until they're ready for investment.
 
 ## The programme
 
@@ -39,9 +39,8 @@ It covers all 36 states and the FCT, not just Lagos and Abuja, and across its co
 
 ## Our role: a delivery partner on the ground
 
-FutureLabs is a delivery partner on iDICE and runs a Host Hub for founders in Ikot Ekpene, Akwa Ibom. That means doing the work that turns a national budget into local results:
+iDICE selects the founders and sends them to us. FutureLabs is a delivery partner on the programme and runs a Host Hub in Ikot Ekpene, Akwa Ibom, where we do the work that turns their selection into results:
 
-- **Finding founders.** Bringing people with real ideas into the programme, wherever they start from.
 - **Incubating them.** Giving founders a place to work, people to test ideas with, and support from problem validation to a product in market.
 - **Connecting them.** Putting founders in the same room as investors, industry leaders and each other.
 - **Preparing them for capital.** Helping founders make their case well enough to win funding.
@@ -58,19 +57,19 @@ That's the point of a host hub. You don't incubate a company so it stays comfort
 
 ## What it shows
 
-Public and development finance can reach founders outside Nigeria's biggest cities when there's a capable partner on the ground to recruit, incubate and connect them. That's the kind of delivery capacity we build.
+Public and development finance can reach founders outside Nigeria's biggest cities when the programme has a capable incubation partner on the ground. A well-designed programme selects the right people; a strong incubator turns them into companies that can raise capital.
 
-## Work with us
+## Design and incubate your programme with us
 
-If you're running a national or regional programme and need a partner who can deliver it locally, [talk to us about government and development partnerships](/government).
+We help governments and development organisations design high-impact programmes and incubate the people and companies they select: from shaping the programme to hosting cohorts, running incubation and preparing founders for funding.
 
-If you're a founder, [see how we back startups](/startups).
+If you're planning a programme and want it to deliver measurable results, [talk to us about government and development partnerships](/government).
 `,
     imageUrl: "/images/site/fellowship.jpg",
     category: "Case study",
     date: "October 15, 2026",
     author: "FutureLabs Team",
-    cta: { label: "Partner with us on your programme", href: "/government" },
+    cta: { label: "Design your programme with us", href: "/government" },
   },
   {
     id: "ai-fellowship-case-study",
