@@ -1,441 +1,216 @@
 "use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { useMutation } from '@tanstack/react-query';
-import { toast } from 'sonner';
-import { 
-  Rocket, 
-  Globe, 
-  Github, 
-  Plus, 
-  X, 
-  ChevronRight, 
-  ChevronLeft, 
-  CheckCircle2, 
-  Info,
-  Code2
-} from 'lucide-react';
-
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage,
-  FormDescription
-} from '@/components/ui/form';
-import RichTextEditor from '@/components/admin/RichTextEditor';
-import { useFormPersistence } from '@/hooks/use-form-persistence';
-import { supabase } from '@/integrations/supabase/client';
+import React, { useEffect, useId, useRef, useState } from 'react';
+import Link from 'next/link';
+import { z } from 'zod';
 import { cn } from '@/lib/utils';
-import hackathonHero from '@/assets/ai-hackathon-img.jpg';
+import { supabase } from '@/integrations/supabase/client';
+import { useRateLimit } from '@/hooks/use-rate-limit';
 
-// Form Schema
-const formSchema = z.object({
-  title: z.string().min(3, "Title must be at least 3 characters"),
-  tagline: z.string().min(10, "Tagline must be at least 10 characters"),
-  description: z.string().min(50, "Description must be at least 50 characters"),
-  demo_url: z.string().url("Please enter a valid URL").or(z.literal("")),
-  github_url: z.string().url("Please enter a valid URL").or(z.literal("")),
-  tech_stack: z.array(z.string()).min(1, "Please add at least one technology"),
-});
+// Applications share the `hackathon_submissions` table with VibeCode and use
+// the same JSON shape in `description`, so they appear in the admin list.
+// `tech_stack` carries the 'AI Fellowship' tag that tells them apart.
+export const FELLOWSHIP_TAG = 'AI Fellowship';
 
-type FormValues = z.infer<typeof formSchema>;
-
-const STEPS = [
-  { id: 'basics', title: 'Basics', icon: Info },
-  { id: 'technicals', title: 'Technicals', icon: Code2 },
-  { id: 'review', title: 'Review', icon: CheckCircle2 },
+const EXPERIENCE = [
+  'New to AI tools',
+  'I use AI tools at work or school',
+  'I build with AI regularly',
 ];
 
+const INTERESTS = [
+  'Generative AI',
+  'AI agents & automation',
+  'Machine learning',
+  'AI for business',
+  'AI-powered development',
+];
+
+const schema = z.object({
+  name: z.string().trim().min(2, 'Enter your full name.').max(120),
+  email: z.string().trim().email('Enter a valid email address.').max(254),
+  phone: z.string().trim().min(7, 'Enter a phone number we can reach you on.').max(20),
+  location: z.string().trim().min(2, 'Enter your town or city.').max(80),
+  experience: z.string().min(1, 'Choose the option closest to you.'),
+  interests: z.array(z.string()).min(1, 'Pick at least one topic.'),
+  topic: z.string().trim().max(600, 'Keep this under 600 characters.'),
+});
+
+type Values = z.infer<typeof schema>;
+type Errors = Partial<Record<keyof Values, string>>;
+
+const EMPTY: Values = { name: '', email: '', phone: '', location: '', experience: '', interests: [], topic: '' };
+
 export default function AiFellowshipClient() {
-  const router = useRouter();
-  const [step, setStep] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
-  const [newTech, setNewTech] = useState('');
+  const id = useId();
+  const [form, setForm] = useState<Values>(EMPTY);
+  const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'failed'>('idle');
+  const doneRef = useRef<HTMLHeadingElement>(null);
+  const { checkRateLimit, recordSubmission } = useRateLimit(30000);
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: '',
-      tagline: '',
-      description: '',
-      demo_url: '',
-      github_url: '',
-      tech_stack: [],
-    },
-  });
+  useEffect(() => {
+    if (status === 'done') doneRef.current?.focus();
+  }, [status]);
 
-  const { clearPersistence } = useFormPersistence(form, 'hackathon-submission-draft');
-
-  const mutation = useMutation({
-    mutationFn: async (values: FormValues) => {
-      const { data, error } = await supabase
-        .from('hackathon_submissions' as any)
-        .insert([values])
-        .select();
-      
-      if (error) throw error;
-      return data;
-    },
-    onSuccess: () => {
-      toast.success('Application submitted successfully!');
-      setSubmitted(true);
-      clearPersistence();
-    },
-    onError: (error: any) => {
-      toast.error(`Submission failed: ${error.message || 'Unknown error'}`);
-      console.error('Submission error:', error);
-    },
-  });
-
-  const onSubmit = (values: FormValues) => {
-    mutation.mutate(values);
+  const set = <K extends keyof Values>(key: K, value: Values[K]) => {
+    setForm((f) => ({ ...f, [key]: value }));
+    setErrors((e) => (e[key] ? { ...e, [key]: undefined } : e));
   };
 
-  const nextStep = async () => {
-    const fields = step === 0 
-      ? ['title', 'tagline', 'description'] 
-      : ['demo_url', 'github_url', 'tech_stack'];
-    
-    const isValid = await form.trigger(fields as any);
-    if (isValid) setStep((s) => Math.min(s + 1, STEPS.length - 1));
-  };
+  const toggleInterest = (item: string) =>
+    set('interests', form.interests.includes(item) ? form.interests.filter((i) => i !== item) : [...form.interests, item]);
 
-  const prevStep = () => setStep((s) => Math.max(s - 1, 0));
-
-  const addTech = () => {
-    if (newTech.trim()) {
-      const current = form.getValues('tech_stack');
-      if (!current.includes(newTech.trim())) {
-        form.setValue('tech_stack', [...current, newTech.trim()], { shouldValidate: true });
-      }
-      setNewTech('');
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = schema.safeParse(form);
+    if (!parsed.success) {
+      const next: Errors = {};
+      for (const issue of parsed.error.issues) next[issue.path[0] as keyof Values] ??= issue.message;
+      setErrors(next);
+      const first = (Object.keys(EMPTY) as (keyof Values)[]).find((k) => next[k]);
+      document.getElementById(`${id}-${first}`)?.focus();
+      return;
     }
+    if (!checkRateLimit()) return;
+    setErrors({});
+    setStatus('sending');
+    const v = parsed.data;
+    // No .select(): visitors may add rows but not read them back.
+    const { error } = await supabase.from('hackathon_submissions').insert({
+      title: v.name,
+      tagline: `${FELLOWSHIP_TAG} | ${v.experience}`,
+      description: JSON.stringify({
+        programme: FELLOWSHIP_TAG,
+        email: v.email,
+        phone: v.phone,
+        location: v.location,
+        skill_level: v.experience,
+        learning_objectives: v.interests,
+        topic: v.topic,
+      }),
+      tech_stack: [FELLOWSHIP_TAG, ...v.interests],
+    });
+    if (error) {
+      console.error('Fellowship application failed:', error);
+      setStatus('failed');
+      return;
+    }
+    recordSubmission();
+    setStatus('done');
   };
 
-  const removeTech = (tech: string) => {
-    const current = form.getValues('tech_stack');
-    form.setValue('tech_stack', current.filter((t) => t !== tech), { shouldValidate: true });
-  };
+  const field = (key: keyof Values) => ({
+    id: `${id}-${key}`,
+    'aria-invalid': !!errors[key],
+    'aria-describedby': errors[key] ? `${id}-${key}-error` : undefined,
+  });
+  const error = (key: keyof Values) =>
+    errors[key] && (
+      <p id={`${id}-${key}-error`} className="fl-error m-0" role="alert">
+        {errors[key]}
+      </p>
+    );
 
-  if (submitted) {
+  if (status === 'done') {
     return (
-      <div className="flex flex-col min-h-screen bg-background">
-        <Navbar />
-        <main className="flex-grow flex items-center justify-center p-4">
-          <Card className="max-w-md w-full text-center p-8 animate-in fade-in zoom-in duration-300">
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="h-10 w-10 text-primary" />
-            </div>
-            <CardTitle className="text-2xl mb-2">Application Received!</CardTitle>
-            <CardDescription className="text-base mb-8">
-              Your application for "{form.getValues('title')}" has been successfully submitted to the FutureLabs AI Fellowship.
-            </CardDescription>
-            <div className="space-y-3">
-              <Button className="w-full" onClick={() => router.push('/')}>
-                Back to Home
-              </Button>
-              <Button variant="outline" className="w-full" onClick={() => setSubmitted(false)}>
-                Submit Another Application
-              </Button>
-            </div>
-          </Card>
-        </main>
-        <Footer />
+      <div className="flex flex-col gap-4" role="status">
+        <h2 ref={doneRef} tabIndex={-1} className="m-0 text-[clamp(24px,2.6vw,32px)] font-semibold tracking-[-0.03em] outline-none">
+          Application received.
+        </h2>
+        <p className="fl-card-text m-0 max-w-[52ch]">
+          Thanks, {form.name.trim().split(' ')[0]}. We&apos;ll be in touch at {form.email.trim()} with details of the next cohort.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/blog/ai-fellowship-case-study" className="fl-btn-ghost px-6 py-4">Read the fellowship case study</Link>
+          <Link href="/" className="fl-btn-ghost px-6 py-4">Back to home</Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Navbar />
-      
-      <main className="flex-grow pb-16">
-        {/* Banner Section */}
-        <div className="container mx-auto px-4 mb-8">
-          <div className="relative w-full rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[3/1] border border-border shadow-lg">
-            <img 
-              src={hackathonHero.src} 
-              alt="AI Fellowship Banner" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+    <form onSubmit={onSubmit} noValidate className="flex flex-col gap-[22px]">
+      <div className="grid gap-[22px] sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${id}-name`} className="fl-label">Full name</label>
+          <input {...field('name')} type="text" autoComplete="name" value={form.name} onChange={(e) => set('name', e.target.value)} className="fl-input" />
+          {error('name')}
         </div>
-
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="mb-10">
-            <Badge className="mb-3 bg-primary/10 text-primary hover:bg-primary/20 border-none px-3">Active Program</Badge>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-foreground">AI Fellowship Application</h1>
-            <p className="text-muted-foreground text-lg">
-              Apply for the FutureLabs AI Fellowship. Complete all steps to submit your application.
-            </p>
-          </div>
-
-          {/* Stepper */}
-          <div className="flex justify-between mb-8 relative">
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-muted -translate-y-1/2 z-0" />
-            {STEPS.map((s, i) => {
-              const Icon = s.icon;
-              const isActive = step === i;
-              const isCompleted = step > i;
-              
-              return (
-                <div key={s.id} className="relative z-10 flex flex-col items-center">
-                  <div className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors duration-200",
-                    isActive ? "bg-primary border-primary text-primary-foreground" : 
-                    isCompleted ? "bg-primary border-primary text-primary-foreground" : 
-                    "bg-background border-muted text-muted-foreground"
-                  )}>
-                    {isCompleted ? <CheckCircle2 className="h-6 w-6" /> : <Icon className="h-5 w-5" />}
-                  </div>
-                  <span className={cn(
-                    "text-xs font-medium mt-2",
-                    isActive ? "text-primary" : "text-muted-foreground"
-                  )}>
-                    {s.title}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <Card className="border-border/50 shadow-lg bg-card/50 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle>{STEPS[step].title} Details</CardTitle>
-                  <CardDescription>
-                    {step === 0 && "Start with the basic information about your project/profile."}
-                    {step === 1 && "Tell us about the technology and resources behind your build."}
-                    {step === 2 && "Review your information before final submission."}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {/* STEP 0: BASICS */}
-                  {step === 0 && (
-                    <div className="space-y-6 animate-in slide-in-from-right-4 duration-300">
-                      <FormField
-                        control={form.control}
-                        name="title"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Project Title / Candidate Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter project name or full name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="tagline"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Tagline</FormLabel>
-                            <FormControl>
-                              <Input placeholder="A short, catchy description of your work" {...field} />
-                            </FormControl>
-                            <FormDescription>Summarize your profile or project in one sentence.</FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="description"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Brief Statement of Purpose</FormLabel>
-                            <FormControl>
-                              <RichTextEditor 
-                                content={field.value} 
-                                onChange={field.onChange} 
-                              />
-                            </FormControl>
-                            <FormDescription>Explain the problem you want to solve, why you want to join, and your background.</FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  )}
-
-                  {/* STEP 1: TECHNICALS */}
-                  {step === 1 && (
-                    <div className="space-y-6 animate-in slide-in-from-right-4 duration-300">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="demo_url"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Portfolio URL</FormLabel>
-                              <FormControl>
-                                <div className="relative">
-                                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                  <Input className="pl-9" placeholder="https://portfolio.example.com" {...field} />
-                                </div>
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="github_url"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>GitHub Repository / Profile</FormLabel>
-                              <FormControl>
-                                <div className="relative">
-                                  <Github className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                  <Input className="pl-9" placeholder="https://github.com/..." {...field} />
-                                </div>
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-
-                      <FormField
-                        control={form.control}
-                        name="tech_stack"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Skills / Tech Stack</FormLabel>
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {field.value.map((tech) => (
-                                <Badge key={tech} variant="secondary" className="pl-3 pr-2 py-1 gap-1">
-                                  {tech}
-                                  <button 
-                                    type="button" 
-                                    onClick={() => removeTech(tech)}
-                                    className="hover:text-destructive transition-colors"
-                                  >
-                                    <X className="h-3 w-3" />
-                                  </button>
-                                </Badge>
-                              ))}
-                            </div>
-                            <div className="flex gap-2">
-                              <Input 
-                                value={newTech} 
-                                onChange={(e) => setNewTech(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addTech())}
-                                placeholder="Add a skill or technology (e.g. Python, PyTorch, SQL)" 
-                              />
-                              <Button type="button" variant="outline" onClick={addTech}>
-                                <Plus className="h-4 w-4" />
-                              </Button>
-                            </div>
-                            <FormDescription>List the languages, libraries, and frameworks you know.</FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  )}
-
-                  {/* STEP 2: REVIEW */}
-                  {step === 2 && (
-                    <div className="space-y-6 animate-in slide-in-from-right-4 duration-300">
-                      <div className="grid gap-4">
-                        <div className="p-4 rounded-lg bg-muted/50">
-                          <h3 className="font-bold text-lg mb-1">{form.getValues('title')}</h3>
-                          <p className="text-primary text-sm italic mb-4">{form.getValues('tagline')}</p>
-                          <div 
-                            className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground line-clamp-3 mb-4"
-                            dangerouslySetInnerHTML={{ __html: form.getValues('description') }}
-                          />
-                          <div className="flex flex-wrap gap-2">
-                            {form.getValues('tech_stack').map(tech => (
-                              <Badge key={tech} variant="outline">{tech}</Badge>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {form.getValues('demo_url') && (
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Globe className="h-4 w-4" />
-                              <span className="truncate">{form.getValues('demo_url')}</span>
-                            </div>
-                          )}
-                          {form.getValues('github_url') && (
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Github className="h-4 w-4" />
-                              <span className="truncate">{form.getValues('github_url')}</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-                <CardFooter className="flex justify-between border-t border-border/50 pt-6">
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    onClick={prevStep}
-                    disabled={step === 0 || mutation.isPending}
-                  >
-                    <ChevronLeft className="mr-2 h-4 w-4" />
-                    Back
-                  </Button>
-                  
-                  {step === STEPS.length - 1 ? (
-                    <Button 
-                      type="submit" 
-                      className="bg-primary hover:bg-primary/90 min-w-[120px]"
-                      disabled={mutation.isPending}
-                    >
-                      {mutation.isPending ? "Submitting..." : "Submit Application"}
-                      <Rocket className="ml-2 h-4 w-4" />
-                    </Button>
-                  ) : (
-                    <Button 
-                      type="button" 
-                      onClick={nextStep}
-                      className="min-w-[100px]"
-                    >
-                      Next
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
-            </form>
-          </Form>
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${id}-email`} className="fl-label">Email</label>
+          <input {...field('email')} type="email" autoComplete="email" inputMode="email" value={form.email} onChange={(e) => set('email', e.target.value)} className="fl-input" placeholder="you@example.com" />
+          {error('email')}
         </div>
-      </main>
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${id}-phone`} className="fl-label">Phone</label>
+          <input {...field('phone')} type="tel" autoComplete="tel" inputMode="tel" value={form.phone} onChange={(e) => set('phone', e.target.value)} className="fl-input" placeholder="+234" />
+          {error('phone')}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${id}-location`} className="fl-label">Town or city</label>
+          <input {...field('location')} type="text" autoComplete="address-level2" value={form.location} onChange={(e) => set('location', e.target.value)} className="fl-input" placeholder="Ikot Ekpene" />
+          {error('location')}
+        </div>
+      </div>
 
-      <Footer />
-    </div>
+      <div className="flex flex-col gap-2">
+        <label htmlFor={`${id}-experience`} className="fl-label">Your experience with AI</label>
+        <select {...field('experience')} value={form.experience} onChange={(e) => set('experience', e.target.value)} className="fl-select">
+          <option value="">Select</option>
+          {EXPERIENCE.map((o) => (
+            <option key={o} value={o}>{o}</option>
+          ))}
+        </select>
+        {error('experience')}
+      </div>
+
+      <fieldset
+        className="m-0 flex flex-col gap-3 border-0 p-0"
+        aria-describedby={errors.interests ? `${id}-interests-error` : undefined}
+      >
+        <legend id={`${id}-interests`} tabIndex={-1} className="fl-label mb-3 outline-none">Topics you want to explore</legend>
+        <div className="flex flex-wrap gap-2.5">
+          {INTERESTS.map((item) => {
+            const on = form.interests.includes(item);
+            return (
+              <label
+                key={item}
+                className={cn(
+                  'flex cursor-pointer items-center gap-2.5 px-3.5 py-2.5 text-[14px] shadow-[0_0_0_1px_rgb(var(--fl-paper)/.24)] transition-colors focus-within:shadow-[0_0_0_2px_#F58220]',
+                  on ? 'bg-fl-orange/15 text-fl-paper shadow-[0_0_0_1px_#F58220]' : 'text-fl-soft hover:text-fl-paper',
+                )}
+              >
+                <input type="checkbox" checked={on} onChange={() => toggleInterest(item)} className="h-4 w-4 flex-none accent-[#F58220]" />
+                {item}
+              </label>
+            );
+          })}
+        </div>
+        {error('interests')}
+      </fieldset>
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor={`${id}-topic`} className="fl-label">What would you like to learn or share at a session? (optional)</label>
+        <textarea {...field('topic')} value={form.topic} onChange={(e) => set('topic', e.target.value)} className="fl-textarea" maxLength={600} />
+        {error('topic')}
+      </div>
+
+      <button type="submit" className="fl-btn w-full py-4 sm:w-auto sm:self-start sm:px-10" disabled={status === 'sending'}>
+        {status === 'sending' ? 'Sending…' : 'Apply for the fellowship'}
+      </button>
+      {status === 'failed' && (
+        <p className="fl-error m-0" role="alert">
+          Something went wrong. Please try again, or email hello@futurelabs.africa.
+        </p>
+      )}
+      <p className="m-0 text-[12.5px] leading-[1.5] text-fl-muted">
+        We use these details to review your application and contact you about the fellowship. See our{' '}
+        <Link href="/privacy" className="text-fl-accent underline underline-offset-4 hover:text-fl-paper">privacy policy</Link>.
+      </p>
+      <div className="sr-only" role="status" aria-live="polite">
+        {status === 'sending' ? 'Sending your application…' : ''}
+      </div>
+    </form>
   );
 }

@@ -79,8 +79,8 @@ const CASES = [
     img: '/images/site/community.jpg',
     flag: 'Talent',
     title: 'AI Fellowship',
-    text: 'Applied AI training taken through to industry placement and real deployments.',
-    chips: ['AI', 'Placement'],
+    text: 'Biweekly peer-to-peer mentorship that keeps our builders ahead of what is changing in AI.',
+    chips: ['AI', 'Mentorship'],
     link: { label: 'About the fellowship', href: '/blog/ai-fellowship-case-study' },
   },
 ];
