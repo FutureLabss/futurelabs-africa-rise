@@ -25,6 +25,56 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "ihatch-case-study",
+    title: "Case Study: Incubating Startups Through iHatch, From Idea to Regional Demo Day",
+    excerpt: "In 2025, FutureLabs incubated founders through iHatch, the NITDA and JICA startup programme. Two of our startups, Cleverclass and Flowz, made it to the regional demo day, on a programme held back by limited funding.",
+    content: `
+National incubation programmes reach founders through local hubs. The curriculum, selection and prizes are set nationally, but the day-to-day work of turning an idea into a product happens in a room near the founder, with people who keep pushing them to ship.
+
+## The programme
+
+iHatch is a startup incubation programme run by NITDA, through its National Centre for Artificial Intelligence and Robotics, with the Japan International Cooperation Agency (JICA). It offers free incubation for idea-stage and MVP-stage founders: coaching, lectures, boot camps, co-working space and mentorship.
+
+The 2025 edition, Cohort 4, set out to support 185 startups through 37 innovation hubs across Nigeria. Founders progressed through state-level selections and regional demo days to a national demo day in Abuja in December 2025, where three winners shared more than ₦52 million in seed funding.
+
+## Our role
+
+FutureLabs took part in iHatch in 2025, incubating founders at our hub in Ikot Ekpene, Akwa Ibom:
+
+- **Problem validation.** Helping founders test whether the problem is real before they build.
+- **Building the product.** Giving them a place to work and people to build with, from first prototype to a product in market.
+- **Mentorship and pitch preparation.** Getting founders ready to present their startups at demo day.
+
+## The challenge: incubating with limited funding
+
+The 2025 edition was held back by limited funding. That put more weight on what a hub can give founders directly: a place to work, mentors who know their market, and a team that holds them to deadlines.
+
+## The result: two startups at the regional demo day
+
+Two FutureLabs startups made it through to the regional demo day:
+
+- **Cleverclass**, a classroom platform that powers learning communities with simple, connected tools.
+- **Flowz**.
+
+Reaching the regional stage means competing with startups from hubs across the region. From a cohort of 185, just 12 startups went on to the national final.
+
+## What it shows
+
+Strong hubs can carry founders a long way, even when a programme is under-resourced. But incubation delivers the most when the funding matches the ambition: founders need time, tools and capital as well as mentorship.
+
+## Work with us
+
+If you're a founder with an idea worth building, [explore how we back startups](/startups).
+
+If you're designing an incubation programme, [talk to us about government and development partnerships](/government). We help design programmes and incubate the founders they select.
+`,
+    imageUrl: "/images/site/team.jpg",
+    category: "Case study",
+    date: "October 15, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Explore our ventures", href: "/startups" },
+  },
+  {
     id: "idice-case-study",
     title: "Case Study: Delivering iDICE in Akwa Ibom, From Founders Lab to Funded Startups",
     excerpt: "iDICE selects founders through a national programme. As its delivery partner and host hub in Ikot Ekpene, FutureLabs incubates them until they're ready for capital. Here's how, and how we help governments design and incubate high-impact programmes.",
