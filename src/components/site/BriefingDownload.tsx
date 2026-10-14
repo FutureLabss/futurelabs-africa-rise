@@ -94,6 +94,9 @@ export default function BriefingDownload() {
               </li>
             ))}
           </ul>
+          <Link href="/blog/ai-boom-short-of-cheap-money" className="fl-link mt-auto pt-3">
+            Read the key findings →
+          </Link>
         </div>
 
         <div className="flex flex-col justify-center gap-[18px] bg-fl-graphite px-7 pb-[38px] pt-9 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] sm:px-8">

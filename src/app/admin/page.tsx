@@ -43,6 +43,9 @@ import { cn } from '@/lib/utils';
 import type { Tables } from '@/integrations/supabase/types';
 import ProductDownloadsPanel from '@/components/admin/ProductDownloadsPanel';
 import OrdersLicensesPanel from '@/components/admin/OrdersLicensesPanel';
+import { FELLOWSHIP_TAG } from '@/components/AiFellowshipClient';
+
+const isFellowship = (sub: Tables<'hackathon_submissions'>) => (sub.tech_stack ?? []).includes(FELLOWSHIP_TAG);
 
 const AdminDashboard: React.FC = () => {
   const searchParams = useSearchParams();
@@ -136,18 +139,18 @@ const AdminDashboard: React.FC = () => {
     return data.signedUrl;
   };
 
-  const handleStatusChange = async (id: string, status: string) => {
+  const handleStatusChange = async (id: string, status: Tables<'tutor_applications'>['status']) => {
     setUpdatingStatus(id);
     const { error } = await supabase
       .from('tutor_applications')
-      .update({ status: status as any })
+      .update({ status })
       .eq('id', id);
     if (error) {
       toast({ title: 'Update failed', description: error.message, variant: 'destructive' });
     } else {
       toast({ title: 'Status updated' });
       setTutorApplications((prev) =>
-        prev.map((r) => (r.id === id ? { ...r, status: status as any } : r)),
+        prev.map((r) => (r.id === id ? { ...r, status } : r)),
       );
     }
     setUpdatingStatus(null);
@@ -167,12 +170,13 @@ const AdminDashboard: React.FC = () => {
 
   const handleClearAllSubmissions = async () => {
     setDeleting('all');
-    const { error } = await supabase.from('hackathon_submissions').delete().gte('id', '0');
+    // AI Fellowship applications share this table; keep them.
+    const { error } = await supabase.from('hackathon_submissions').delete().not('tech_stack', 'cs', `{"${FELLOWSHIP_TAG}"}`);
     if (error) {
       toast({ title: 'Clear failed', description: error.message, variant: 'destructive' });
     } else {
       toast({ title: 'All VibeCode submissions cleared' });
-      setSubmissions([]);
+      setSubmissions((prev) => prev.filter(isFellowship));
     }
     setDeleting(null);
   };
@@ -349,7 +353,7 @@ const AdminDashboard: React.FC = () => {
                     <AlertDialogHeader>
                       <AlertDialogTitle>Clear all VibeCode submissions?</AlertDialogTitle>
                       <AlertDialogDescription>
-                        This will permanently remove all submissions from the database. This action cannot be undone.
+                        This will permanently remove all VibeCode submissions from the database. AI Fellowship applications are kept. This action cannot be undone.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
@@ -378,6 +382,7 @@ const AdminDashboard: React.FC = () => {
                     <TableHeader>
                       <TableRow>
                         <TableHead>Full Name</TableHead>
+                        <TableHead>Programme</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Location</TableHead>
                         <TableHead>Skill Level</TableHead>
@@ -388,11 +393,12 @@ const AdminDashboard: React.FC = () => {
                     </TableHeader>
                     <TableBody>
                       {submissions.map((sub) => {
-                        let parsed: any = {};
+                        let parsed: { email?: string; location?: string; skill_level?: string; learning_objectives?: string[]; topic?: string } = {};
                         try { parsed = JSON.parse(sub.description || '{}'); } catch { /* ignore */ }
                         return (
                           <TableRow key={sub.id}>
                             <TableCell className="font-semibold">{sub.title}</TableCell>
+                            <TableCell>{isFellowship(sub) ? FELLOWSHIP_TAG : 'VibeCode'}</TableCell>
                             <TableCell>{parsed.email || '—'}</TableCell>
                             <TableCell>{parsed.location || '—'}</TableCell>
                             <TableCell>
@@ -404,6 +410,7 @@ const AdminDashboard: React.FC = () => {
                                   <Badge key={obj} variant="outline" className="text-[10px] px-1.5 py-0">{obj}</Badge>
                                 ))}
                               </div>
+                              {parsed.topic && <p className="mt-1 max-w-[32ch] text-xs text-muted-foreground">{parsed.topic}</p>}
                             </TableCell>
                             <TableCell className="whitespace-nowrap text-muted-foreground text-sm">
                               {sub.created_at ? format(new Date(sub.created_at), 'MMM d, yyyy') : '—'}
@@ -417,7 +424,7 @@ const AdminDashboard: React.FC = () => {
                                 </AlertDialogTrigger>
                                 <AlertDialogContent>
                                   <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete VibeCode registration?</AlertDialogTitle>
+                                    <AlertDialogTitle>Delete registration?</AlertDialogTitle>
                                     <AlertDialogDescription>
                                       This action cannot be undone. This will remove {sub.title}'s registration.
                                     </AlertDialogDescription>
@@ -539,7 +546,7 @@ const AdminDashboard: React.FC = () => {
                                 <Select
                                   value={app.status}
                                   onValueChange={(val) =>
-                                    handleStatusChange(app.id, val)
+                                    handleStatusChange(app.id, val as Tables<'tutor_applications'>['status'])
                                   }
                                   disabled={updatingStatus === app.id}
                                 >

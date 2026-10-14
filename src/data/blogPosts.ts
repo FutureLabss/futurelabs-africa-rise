@@ -25,6 +25,53 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "idice-case-study",
+    title: "Case Study: Delivering iDICE in Akwa Ibom, From Founders Lab to Funded Startups",
+    excerpt: "iDICE selects founders through a national programme. As its delivery partner and host hub in Ikot Ekpene, FutureLabs incubates them until they're ready for capital. Here's how, and how we help governments design and incubate high-impact programmes.",
+    content: `
+A national programme can select the right founders and still fall short if no one on the ground turns that selection into results. Founders selected by a national programme need somewhere to work in towns like Ikot Ekpene, and people who stay with them until they're ready for investment.
+
+## The programme
+
+The iDICE Startup Bridge is a federal programme run through the Bank of Industry and financed by the African Development Bank, Agence Française de Développement and the Islamic Development Bank. It has two tracks: Founders Lab for idea-stage founders, and Growth Lab for startups that already have a working product.
+
+It covers all 36 states and the FCT, not just Lagos and Abuja, and across its cohorts it aims to support more than 500 Nigerian tech startups.
+
+## Our role: a delivery partner on the ground
+
+iDICE selects the founders and sends them to us. FutureLabs is a delivery partner on the programme and runs a Host Hub in Ikot Ekpene, Akwa Ibom, where we do the work that turns their selection into results:
+
+- **Incubating them.** Giving founders a place to work, people to test ideas with, and support from problem validation to a product in market.
+- **Connecting them.** Putting founders in the same room as investors, industry leaders and each other.
+- **Preparing them for capital.** Helping founders make their case well enough to win funding.
+
+## Building a founder community
+
+On 30 July 2026, we hosted the Founders Lab (Cohort 1) Networking Event at our hub on Chubb Road, Ikot Ekpene, sponsored by the iDICE Startup Bridge. Founders from the cohort met investors, learned from industry leaders and built connections with each other: the network that keeps a startup going after the programme ends.
+
+## The result: funding that reaches local founders
+
+Emmanuel Jackson came to the FutureLabs Host Hub with an idea about payments. He founded Bucx Technologies, a virtual USD account that lets African freelancers and remote workers receive payments, hold their value in stablecoins and cash out locally. Through the iDICE Startup Bridge, Bucx won $4,000 in funding.
+
+That's the point of a host hub. You don't incubate a company so it stays comfortable inside your walls. You incubate it so it can walk into a room like Founders Lab and walk out with capital. [Read Emmanuel's story](/blog/futurelabs-incubatee-closes-4k-idice).
+
+## What it shows
+
+Public and development finance can reach founders outside Nigeria's biggest cities when the programme has a capable incubation partner on the ground. A well-designed programme selects the right people; a strong incubator turns them into companies that can raise capital.
+
+## Design and incubate your programme with us
+
+We help governments and development organisations design high-impact programmes and incubate the people and companies they select: from shaping the programme to hosting cohorts, running incubation and preparing founders for funding.
+
+If you're planning a programme and want it to deliver measurable results, [talk to us about government and development partnerships](/government).
+`,
+    imageUrl: "/images/site/fellowship.jpg",
+    category: "Case study",
+    date: "October 15, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Design your programme with us", href: "/government" },
+  },
+  {
     id: "ai-fellowship-case-study",
     title: "Case Study: How a Peer-to-Peer AI Fellowship Kept Our Team Ahead of the Curve",
     excerpt: "Every two weeks, FutureLabs people meet in Ikot Ekpene to teach each other what's changing in AI. Here's how the AI Fellowship works, and how to join the next cohort.",
