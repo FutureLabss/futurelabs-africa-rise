@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import HeroNetwork from '@/components/site/HeroNetwork';
-import SubscribeForm from '@/components/site/SubscribeForm';
 import { BlogCard } from '@/components/site/BlogCard';
 import {
   Section,
@@ -318,18 +317,17 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col gap-4 bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
           <span className="self-start bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
-            In development
+            Free briefing
           </span>
           <h3 className="max-w-[20ch] text-[24px] font-semibold leading-[1.12] tracking-[-0.028em]">
-            Akwa Ibom Technology &amp; Economic Opportunity Index
+            The AI Economy: Structure, Fragility and Opportunity
           </h3>
-          <p className="fl-card-text m-0 max-w-[40ch]">Our first report. Subscribe and we will tell you when it publishes.</p>
-          <SubscribeForm
-            subject="Notify me: Akwa Ibom Technology & Economic Opportunity Index"
-            submitLabel="Notify me"
-            successText="Thanks — we'll email you when the report publishes."
-            className="mt-1"
-          />
+          <p className="fl-card-text m-0 max-w-[40ch]">
+            The AI boom isn&apos;t short of demand. It&apos;s short of cheap money. Where would it break, how would the damage spread, and
+            who comes out ahead?
+          </p>
+          <Link href="/research-labs#ai-economy-briefing" className="fl-btn mt-1 w-full py-4">Get the free briefing</Link>
+          <Link href="/blog/ai-boom-short-of-cheap-money" className="fl-link pt-1">Read the key findings →</Link>
         </div>
       </Section>
 
