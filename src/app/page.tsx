@@ -59,7 +59,7 @@ const IMPACT = [
 
 const CASES = [
   {
-    img: '/images/site/hackathon.jpg',
+    img: '/images/blog/ihatch-national-demo-day.jpg',
     flag: 'Entrepreneurship',
     title: 'iHatch',
     text: 'Incubation for early-stage founders, from problem validation to a product in market.',
