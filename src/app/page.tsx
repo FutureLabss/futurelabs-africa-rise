@@ -164,24 +164,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Proof: what changed after working with FutureLabs. #impact is linked from the footer and /impact. */}
-      <Section id="impact" tone="graphite" innerClassName="fl-pad">
-        <SectionHead
-          eyebrow="Our Work"
-          title="Where the model meets reality."
-          aside={
-            <p className="m-0 max-w-[40ch] text-[16px] leading-[1.55] text-fl-label">
-              The strongest evidence of our work is what people, startups and institutions are able to do after working with FutureLabs.
-            </p>
-          }
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {CASES.map((c) => (
-            <ImageCard key={c.title} {...c} imgHeight="h-[190px]" />
-          ))}
-        </div>
-      </Section>
-
       {/* The challenge */}
       <Section innerClassName="fl-pad grid items-start gap-12 md:grid-cols-2">
         <div>
@@ -212,8 +194,26 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Proof: what changed after working with FutureLabs. #impact is linked from the footer and /impact. */}
+      <Section id="impact" tone="graphite" innerClassName="fl-pad">
+        <SectionHead
+          eyebrow="Our Work"
+          title="Where the model meets reality."
+          aside={
+            <p className="m-0 max-w-[40ch] text-[16px] leading-[1.55] text-fl-label">
+              The strongest evidence of our work is what people, startups and institutions are able to do after working with FutureLabs.
+            </p>
+          }
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {CASES.map((c) => (
+            <ImageCard key={c.title} {...c} imgHeight="h-[190px]" />
+          ))}
+        </div>
+      </Section>
+
       {/* Our model: the five engines from the hero diagram */}
-      <Section tone="graphite" innerClassName="fl-pad">
+      <Section innerClassName="fl-pad">
         <SectionHead
           eyebrow="Our Model"
           title="Five engines, one goal: productive capacity."
@@ -227,6 +227,7 @@ export default function HomePage() {
           {ENGINES.map((e) => (
             <NumberCard
               key={e.n}
+              surface="graphite"
               className={e.span}
               minH="min-h-[300px] lg:min-h-[340px]"
               n={e.n}
@@ -242,7 +243,7 @@ export default function HomePage() {
       </Section>
 
       {/* Intelligence teaser */}
-      <Section innerClassName="fl-pad grid items-start gap-14 md:grid-cols-2">
+      <Section tone="graphite" innerClassName="fl-pad grid items-start gap-14 md:grid-cols-2">
         <div>
           <div className="fl-eyebrow">Intelligence</div>
           <h2 className="mt-6 text-[clamp(30px,3.4vw,46px)] font-semibold leading-[1.04] tracking-[-0.032em]">
@@ -253,7 +254,7 @@ export default function HomePage() {
           </p>
           <Link href="/research-labs" className="fl-link mt-6 inline-block text-[13.5px]">Explore the research →</Link>
         </div>
-        <div className="flex flex-col gap-4 bg-fl-graphite px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
+        <div className="flex flex-col gap-4 bg-fl-ink px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
           <span className="self-start bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
             Free briefing
           </span>
@@ -270,7 +271,7 @@ export default function HomePage() {
       </Section>
 
       {/* Partners */}
-      <Section tone="graphite" innerClassName="py-16 overflow-hidden">
+      <Section innerClassName="py-16 overflow-hidden">
         <div className="flex items-center gap-4 mb-10">
           <h2 className="fl-eyebrow m-0">35+ partners</h2>
           <div className="h-[1px] w-12 bg-fl-paper/20"></div>
@@ -279,7 +280,7 @@ export default function HomePage() {
       </Section>
 
       {/* Blog */}
-      <Section innerClassName="py-20 lg:py-24">
+      <Section tone="graphite" innerClassName="py-20 lg:py-24">
         <SectionHead
           eyebrow="Blog"
           title="Latest from our blog."
