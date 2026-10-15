@@ -654,6 +654,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_comp_license: {
+        Args: { p_email: string; p_product: string; p_note?: string }
+        Returns: Database["public"]["Tables"]["licenses"]["Row"]
+      }
       get_event_attendee_avatars: {
         Args: { p_event_id: string }
         Returns: {

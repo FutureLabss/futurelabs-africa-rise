@@ -11,6 +11,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { sitesLabel } from '@/data/products';
+import CompLicenseDialog from './CompLicenseDialog';
 
 type License = Tables<'licenses'>;
 type Order = Tables<'orders'>;
@@ -60,7 +61,8 @@ export default function OrdersLicensesPanel() {
     }
     return totals;
   }, [licenses]);
-  const renewing = licenses.filter((l) => isValid(l) && ['active', 'past_due'].includes(l.status));
+  // Paying subscriptions only; complimentary licences have amount 0.
+  const renewing = licenses.filter((l) => isValid(l) && l.amount > 0 && ['active', 'past_due'].includes(l.status));
 
   const q = query.trim().toLowerCase();
   const match = (...values: (string | null)[]) => !q || values.some((v) => v?.toLowerCase().includes(q));
@@ -96,6 +98,7 @@ export default function OrdersLicensesPanel() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          <CompLicenseDialog onCreated={(l) => setLicenses((ls) => [l, ...ls])} />
           {(['licenses', 'orders', 'waitlist'] as const).map((v) => (
             <Button key={v} variant={view === v ? 'default' : 'outline'} onClick={() => setView(v)} className="capitalize">
               {v}
