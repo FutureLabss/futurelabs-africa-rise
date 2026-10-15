@@ -87,7 +87,8 @@ export async function publicLicense(supabase: DB, license: any) {
     max_sites: license.max_sites,
     sites: sites ?? [],
     period_end: license.period_end,
-    renews: license.status === 'active' || license.status === 'past_due',
+    // Complimentary licences (amount 0) have no subscription to renew.
+    renews: license.amount > 0 && (license.status === 'active' || license.status === 'past_due'),
     ...state,
     download,
   };
