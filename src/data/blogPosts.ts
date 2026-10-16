@@ -25,6 +25,124 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "everyone-will-be-agentic",
+    title: "Everyone Will Be Agentic",
+    excerpt: "A FutureLabs Intelligence briefing on the future of work: how AI adds an engineering layer to most jobs, why harness-building becomes a core skill, and what workers, employers, educators and governments should do.",
+    content: `
+*FutureLabs Intelligence · Future of Work series*
+
+## Summary
+
+AI is cutting the cost of building software, content, research and workflows. As a result, most knowledge jobs are gaining an engineering layer: people in marketing, research, design and operations will use agents, code, APIs and data to produce work that used to need a technical team.
+
+The most valuable skill will be building the harness around an agent: the context, constraints, tools, tests and feedback loops that make its output reliable. That depends on domain expertise and judgement, which AI does not supply.
+
+We expect two routes into technical work: professional software engineering, built on deep fundamentals, and AI-native building, built on domain expertise. Employers, educators and governments in Africa should plan for both.
+
+## What is changing
+
+The question people ask about a piece of work is moving from "Can I build this?" to "What should I build?"
+
+An example from our own work: while running [OpportunityLab.net](https://opportunitylab.net), our opportunity-sharing site, we were about to pay for a premium SEO plugin. With Claude, we built custom versions of both the plugin and the site theme instead.
+
+![The FutureLabs AI SEO dashboard we built for OpportunityLab.net](/images/studio/futurelabs-ai-seo.jpg)
+
+The same shift is happening across professions. Once building is cheap, people start building things that were not worth the cost before. Before Lagos life and danfo culture went viral on X, someone noticed something culturally interesting, had an idea, built it and put it in front of people. People cared. The gap between an idea and a working version has become very small.
+
+Knowing how to build used to be a competitive advantage. As more people gain access to AI that can build with them, the advantage moves to deciding what to build: who needs it, whether they will pay, and whether there is a market.
+
+## The engineering layer
+
+We expect to see engineers across every function. Few of these people will become software engineers. They will use AI, agents, code, APIs, data and automation to produce results in their own fields.
+
+| Emerging role | What they build |
+| --- | --- |
+| Marketing engineer | Systems that research markets, generate campaigns, test messages and report on performance |
+| Growth engineer | Automated acquisition, onboarding and retention experiments |
+| Design engineer | Working prototypes that ship without waiting for an engineering team |
+| Research engineer | Agents that search sources, extract findings, check claims and keep a research database current |
+| Operations engineer | Automations that monitor workflows, flag exceptions and trigger actions |
+| Product engineer | Working prototypes built from an idea in days, before a full development cycle |
+
+The person supplies the domain expertise and the AI supplies the execution capacity. In practice, a team becomes agentic when AI is part of how everyone works, rather than the job of a separate AI team.
+
+This changes hiring. Employers will still ask whether a candidate is good at marketing, and they will increasingly ask how much that person can get done with the tools available. Between two equally skilled candidates, the one who can direct AI agents may produce several times as much.
+
+## Harnesses: the new core skill
+
+Senior engineers such as Robert C. Martin (Uncle Bob) and David Heinemeier Hansson (DHH) have said they no longer want to write code by hand. Their value has moved up a level, from writing code to designing the system that produces it.
+
+A harness is that system. Building one means:
+
+1. Giving the agent the right context and documentation.
+2. Defining the architecture and constraints it works within.
+3. Connecting the tools it needs.
+4. Setting up tests and feedback loops.
+5. Defining what good output looks like, then letting the agent work inside those limits.
+
+The same pattern applies outside software. A marketer, researcher, designer or operations lead can build a harness around agents for their own work. Doing it well takes domain expertise, judgement about what to automate, and an understanding of where agents fail. Those are things an employee brings and the model does not.
+
+## What becomes scarce
+
+AI is also making knowledge cheap. Anyone can ask a model to explain economics, analyse a paper or assess a business plan in seconds.
+
+Two outcomes are possible. Easier learning could lead more people to deep knowledge. Or fewer people may put in the years that mastery takes, because a quick answer is always available. We think the second is more likely, given how people respond to incentives.
+
+In both cases, the qualities that stay scarce are:
+
+- judgement and taste
+- original thought and curiosity
+- domain expertise
+- distribution and trust
+- an understanding of what people actually want
+
+As execution gets cheaper, these become what employers and markets pay for.
+
+## Two paths into technical work
+
+If someone can build a working app over a weekend with AI, should they still spend a year on HTML, JavaScript, algorithms and databases first? We think the fundamentals still matter. An app that works in a demo is very different from one that serves 500,000 users, keeps data safe, survives outages, meets regulations and makes money. AI shortens the path to the first. It does little for the second.
+
+We expect two routes:
+
+| Path | Built on | Role of AI |
+| --- | --- | --- |
+| Professional software engineering | Deep fundamentals: databases, networks, algorithms, systems, architecture | Leverage for experienced engineers |
+| AI-native building | Domain expertise plus agents, code, APIs and rapid execution | The main way work gets built |
+
+Both are valid. Everyone in the workforce needs some agentic capability, and professional engineers still need the fundamentals to know when an agent is wrong.
+
+**A caveat on hiring.** How people build has changed faster than how companies hire. Technical employers will keep asking for strong credentials. A team running production infrastructure will not let an untested AI-native builder near its codebase, even if its own product serves those builders.
+
+## What it means for each group
+
+| Group | What to do |
+| --- | --- |
+| Workers and job seekers | Pair your field's expertise with agent skills. Learn to build small harnesses for your own work, and keep a portfolio of things you have built. |
+| Employers | Train every department, not only an AI team. Hire for output with tools as well as for credentials, and give staff time and budget to build. |
+| Educators and training providers | Keep the fundamentals for future engineers. Add an AI-native track for people in other fields, taught through real projects and harness-building. |
+| Governments and development partners | Fund skills programmes for both paths. Measure them by what graduates build and earn afterwards, not by attendance. |
+
+## Signals to watch
+
+- Job adverts outside engineering that ask for automation, agent or AI-tool skills.
+- Titles such as marketing engineer, growth engineer or design engineer appearing in African job markets.
+- Teams shipping products without a dedicated engineering function.
+- Technical hiring bars: whether credentials loosen or tighten as AI-native builders apply.
+- Training providers adding AI-native tracks alongside traditional software courses.
+
+## How FutureLabs is responding
+
+- **FutureLabs Academy** teaches product design alongside code, uses AI tools in every track, and builds Claude into how we teach. [Explore the Academy](/academy).
+- **The AI Fellowship** keeps our own team current through peer-to-peer sessions every two weeks. [Read the case study](/blog/ai-fellowship-case-study).
+- **FutureLabs Studio** builds agentic systems for companies and institutions. [Work with the Studio](/studio).
+`,
+    imageUrl: "/images/site/team.jpg",
+    category: "Research",
+    date: "October 16, 2026",
+    author: "Udim Manasseh, CEO, FutureLabs",
+    cta: { label: "Explore FutureLabs Academy", href: "/academy" },
+  },
+  {
     id: "pind-youth-employment-case-study",
     title: "Case Study: Training 107 Young People for Digital Work With PIND",
     excerpt: "PIND asked FutureLabs Academy to train 80 young people in Akwa Ibom. We enrolled 107, and graduates are already in jobs, internships and businesses of their own. Here's how Project Genesis works.",

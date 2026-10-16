@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 /** Strips the common indentation that template-literal content picks up. */
 function dedent(content: string): string {
@@ -32,6 +33,7 @@ function isHeading(children: React.ReactNode) {
 export default function ArticleBody({ content }: { content: string }) {
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       components={{
         p: ({ children }) =>
           isHeading(children) ? (
@@ -59,6 +61,17 @@ export default function ArticleBody({ content }: { content: string }) {
           </li>
         ),
         img: ({ src = '', alt = '' }) => <img src={typeof src === 'string' ? src : ''} alt={alt} loading="lazy" decoding="async" className="block h-auto w-full" />,
+        table: ({ children }) => (
+          <div className="overflow-x-auto shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
+            <table className="w-full min-w-[560px] border-collapse bg-fl-graphite text-left text-[15px] leading-[1.5]">{children}</table>
+          </div>
+        ),
+        th: ({ children }) => (
+          <th className="border-b border-fl-paper/[.14] px-[18px] py-3 align-bottom font-mono text-[11px] font-medium uppercase tracking-[.12em] text-fl-label">
+            {children}
+          </th>
+        ),
+        td: ({ children }) => <td className="border-b border-fl-paper/[.08] px-[18px] py-[14px] align-top text-fl-body">{children}</td>,
         strong: ({ children }) => <strong className="font-semibold text-fl-paper">{children}</strong>,
         em: ({ children }) => <em className="text-fl-soft">{children}</em>,
         a: ({ href = '', children }) => {

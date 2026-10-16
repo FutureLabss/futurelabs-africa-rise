@@ -91,7 +91,7 @@ export default function BlogPostPage({ params }: Params) {
           <Duotone src={post.imageUrl} alt="" light priority className="h-[clamp(240px,38vw,520px)]" />
         </div>
         <div className="mx-auto grid max-w-[1100px] items-start gap-12 px-5 pb-24 pt-14 sm:px-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-16 lg:px-12 lg:pt-16">
-          <article className="flex max-w-[680px] flex-col gap-[22px]">
+          <article className="flex min-w-0 max-w-[680px] flex-col gap-[22px]">
             <ArticleBody content={post.content} />
             <div className="mt-[22px] flex flex-wrap gap-3">
               <SmartLink href={cta.href} className="fl-btn px-6 py-4">{cta.label} →</SmartLink>
