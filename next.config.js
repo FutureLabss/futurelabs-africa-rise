@@ -17,6 +17,17 @@ const nextConfig = {
       { source: '/ai-hackathon', destination: '/vibecode', permanent: true },
       { source: '/hackathon', destination: '/vibecode', permanent: true },
       { source: '/event-details', destination: '/events', permanent: true },
+      // Research briefings and case studies moved out of the blog into their own sections.
+      ...['everyone-will-be-agentic', 'ai-boom-short-of-cheap-money'].map((id) => ({
+        source: `/blog/${id}`,
+        destination: `/research/${id}`,
+        permanent: true,
+      })),
+      ...['pind-youth-employment-case-study', 'ihatch-case-study', 'idice-case-study', 'ai-fellowship-case-study'].map((id) => ({
+        source: `/blog/${id}`,
+        destination: `/case-studies/${id}`,
+        permanent: true,
+      })),
     ];
   },
 };

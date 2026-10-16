@@ -16,7 +16,7 @@ import {
 } from '@/components/site/primitives';
 import { PartnerLogos } from '@/components/site/PartnerLogos';
 import JsonLd from '@/components/JsonLd';
-import { posts } from '@/lib/blog';
+import { postsIn } from '@/lib/blog';
 import { SOCIAL_LINKS } from '@/components/site/nav';
 
 export const metadata: Metadata = pageMeta({
@@ -102,7 +102,7 @@ const CASES = [
     title: 'PIND Project Genesis',
     text: 'Digital skills scholarships that enrolled 107 young people against a target of 80, with a path to jobs.',
     chips: ['Skills', 'Jobs'],
-    link: { label: 'Read the case study', href: '/blog/pind-youth-employment-case-study' },
+    link: { label: 'Read the case study', href: '/case-studies/pind-youth-employment-case-study' },
   },
   {
     img: '/images/site/fellowship.jpg',
@@ -110,7 +110,7 @@ const CASES = [
     title: 'iDICE',
     text: 'Delivery partner on a national programme building digital and creative enterprise capacity.',
     chips: ['Government', 'Ecosystem'],
-    link: { label: 'Read the case study', href: '/blog/idice-case-study' },
+    link: { label: 'Read the case study', href: '/case-studies/idice-case-study' },
   },
   {
     img: '/images/site/community.jpg',
@@ -118,7 +118,7 @@ const CASES = [
     title: 'AI Fellowship',
     text: 'Biweekly peer-to-peer mentorship that keeps our builders ahead of what is changing in AI.',
     chips: ['AI', 'Mentorship'],
-    link: { label: 'Read the case study', href: '/blog/ai-fellowship-case-study' },
+    link: { label: 'Read the case study', href: '/case-studies/ai-fellowship-case-study' },
   },
 ];
 
@@ -265,7 +265,7 @@ export default function HomePage() {
             How AI adds an engineering layer to most jobs, why building harnesses for agents becomes a core skill, and what workers,
             employers, educators and governments should do about it.
           </p>
-          <Link href="/blog/everyone-will-be-agentic" className="fl-btn mt-1 w-full py-4">Read the briefing</Link>
+          <Link href="/research/everyone-will-be-agentic" className="fl-btn mt-1 w-full py-4">Read the briefing</Link>
           <Link href="/research-labs" className="fl-link pt-1">More from FutureLabs Intelligence →</Link>
         </div>
       </Section>
@@ -290,7 +290,7 @@ export default function HomePage() {
         />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {/* Case studies are already linked from the cards above. */}
-          {posts.filter((p) => p.category !== 'Case study').slice(0, 3).map((p) => (
+          {postsIn('blog').slice(0, 3).map((p) => (
             <BlogCard key={p.id} post={p} />
           ))}
         </div>

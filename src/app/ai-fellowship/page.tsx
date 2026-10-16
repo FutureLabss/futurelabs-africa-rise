@@ -28,7 +28,7 @@ export default function AiFellowshipPage() {
         lede={
           <>
             A biweekly, peer-to-peer mentorship where fellows teach each other what&apos;s changing in AI.{' '}
-            <Link href="/blog/ai-fellowship-case-study" className="fl-link">Read the case study</Link>.
+            <Link href="/case-studies/ai-fellowship-case-study" className="fl-link">Read the case study</Link>.
           </>
         }
       />

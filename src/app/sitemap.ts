@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { posts } from '@/lib/blog';
+import { posts, postPath } from '@/lib/blog';
 import { supabase } from '@/integrations/supabase/client';
 import { SITE_URL } from '@/lib/seo';
 
@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
     ...posts.map((p) => {
       const date = new Date(p.date);
-      return { ...page(`/blog/${p.id}`, 'yearly', 0.6), ...(isNaN(+date) ? {} : { lastModified: date }) };
+      return { ...page(postPath(p), 'yearly', 0.6), ...(isNaN(+date) ? {} : { lastModified: date }) };
     }),
   ];
 

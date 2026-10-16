@@ -122,7 +122,7 @@ export default function AiFellowshipClient() {
           Thanks, {form.name.trim().split(' ')[0]}. We&apos;ll be in touch at {form.email.trim()} with details of the next cohort.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/blog/ai-fellowship-case-study" className="fl-btn-ghost px-6 py-4">Read the fellowship case study</Link>
+          <Link href="/case-studies/ai-fellowship-case-study" className="fl-btn-ghost px-6 py-4">Read the fellowship case study</Link>
           <Link href="/" className="fl-btn-ghost px-6 py-4">Back to home</Link>
         </div>
       </div>

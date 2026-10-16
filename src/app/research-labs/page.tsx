@@ -55,7 +55,7 @@ export default function IntelligencePage() {
 
       <Section innerClassName="pt-5">
         <Link
-          href="/blog/everyone-will-be-agentic"
+          href="/research/everyone-will-be-agentic"
           className="group grid gap-5 bg-fl-ink px-7 pb-[42px] pt-10 text-fl-paper shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)] sm:px-9 md:grid-cols-2 md:items-end"
         >
           <div className="flex flex-col gap-[18px]">

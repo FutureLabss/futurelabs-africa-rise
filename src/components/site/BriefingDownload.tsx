@@ -94,7 +94,7 @@ export default function BriefingDownload() {
               </li>
             ))}
           </ul>
-          <Link href="/blog/ai-boom-short-of-cheap-money" className="fl-link mt-auto pt-3">
+          <Link href="/research/ai-boom-short-of-cheap-money" className="fl-link mt-auto pt-3">
             Read the key findings →
           </Link>
         </div>

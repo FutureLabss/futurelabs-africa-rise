@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
-import { posts } from '@/lib/blog';
+import { postsIn, postPath } from '@/lib/blog';
 import SiteShell from '@/components/site/SiteShell';
 import { CtaBand, ImageCard, Section, SplitHero } from '@/components/site/primitives';
 
@@ -20,7 +20,7 @@ const FLAGS: Record<string, string> = {
   'ai-fellowship-case-study': 'Talent',
 };
 
-const cases = posts.filter((p) => p.category === 'Case study');
+const cases = postsIn('case-studies');
 
 export default function CaseStudiesPage() {
   return (
@@ -36,7 +36,7 @@ export default function CaseStudiesPage() {
           {cases.map((p) => (
             <ImageCard
               key={p.id}
-              href={`/blog/${p.id}`}
+              href={postPath(p)}
               img={p.imageUrl}
               flag={FLAGS[p.id] ?? 'Case study'}
               title={p.title.replace(/^Case Study:\s*/, '')}
