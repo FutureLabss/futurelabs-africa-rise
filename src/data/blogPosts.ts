@@ -69,7 +69,7 @@ By the end of the third quarter:
 These are mid-programme figures, not final results.
 
 - **The programme hasn't finished.** It runs until 31 October 2026, and these figures were counted at the end of the third quarter. Most trainees were still working through their capstones and assessments, and 22 of the 32 completions came in that quarter alone.
-- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. We track graduates for six months after training, so most employment results will arrive after the programme closes.
+- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. Post-training support runs until December 2026, and our target is to link 84% of the people we trained to work by then.
 - **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
 
 We'll update this case study with final results.
