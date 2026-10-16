@@ -47,7 +47,7 @@ An example from our own work: while running [OpportunityLab.net](https://opportu
 
 ![The FutureLabs AI SEO dashboard we built for OpportunityLab.net](/images/studio/futurelabs-ai-seo.jpg)
 
-The same shift is happening across professions. Once building is cheap, people start building things that were not worth the cost before. When Lagos life and danfo culture trended on X, someone turned the idea into a product and found an audience for it. The gap between an idea and a working version has become very small.
+The same shift is happening across professions. Once building is cheap, people start building things that were not worth the cost before. Before Lagos life and danfo culture went viral on X, someone noticed something culturally interesting, had an idea, built it and put it in front of people. People cared. The gap between an idea and a working version has become very small.
 
 Knowing how to build used to be a competitive advantage. As more people gain access to AI that can build with them, the advantage moves to deciding what to build: who needs it, whether they will pay, and whether there is a market.
 
