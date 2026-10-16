@@ -43,11 +43,15 @@ The brief was to train 80 young people aged 16 to 35, at least 40 of them on sch
 - **120** were interviewed for motivation, basic digital literacy and fit with their chosen track.
 - **107** enrolled, against a target of 80: 71 men, 35 women and one person with a disability.
 
+![Project Genesis trainees at orientation in the FutureLabs hub, Ikot Ekpene](/images/blog/pind-orientation.jpg)
+
 ## How we ran it
 
 Trainees chose a track: 54 took Web Development, 32 Data Analysis, 11 Product Design, 6 Digital Marketing, 2 Graphic Design and 1 Project Management.
 
 Training was hands-on and in person at our hub, backed by the FutureLabs learning platform for materials, assignments and attendance. Every track ended in a capstone project, so trainees leave with work they can show employers and clients. Employability sessions covered CVs, portfolios, freelancing and interviews.
+
+![Trainees working through a Python exercise together during a Project Genesis session](/images/blog/pind-coding.jpg)
 
 Scholarships were shared, not free by default. A standard track costs ₦250,000. Partial-scholarship trainees paid at most ₦150,000, and full-scholarship trainees paid nothing. Paying part of the fee made trainees more committed.
 
@@ -70,6 +74,8 @@ These are mid-programme figures, not final results.
 
 We'll update this case study with final results.
 
+![A Project Genesis class at work in the FutureLabs hub](/images/blog/pind-classroom.jpg)
+
 ## Three of our graduates
 
 - **Usenmfon** now works as a full-stack developer.
@@ -89,7 +95,7 @@ We help development partners, governments and companies design skills programmes
 
 If you're planning a programme like this, [talk to us about partnerships](/government). If you want to learn, [explore FutureLabs Academy](/academy).
 `,
-    imageUrl: "/images/site/team.jpg",
+    imageUrl: "/images/blog/pind-cover.jpg",
     category: "Case study",
     date: "October 16, 2026",
     author: "FutureLabs Team",
