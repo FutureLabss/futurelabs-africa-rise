@@ -20,3 +20,14 @@ verify_jwt = false
 
 [functions.briefing-unsubscribe]
 verify_jwt = false
+
+# Instant Lead Responder: form posts from client websites, tracked booking links
+# in emails, and the follow-up job (checks its own x-cron-secret header).
+[functions.lead-intake]
+verify_jwt = false
+
+[functions.lead-book]
+verify_jwt = false
+
+[functions.lead-followups]
+verify_jwt = false

@@ -48,6 +48,19 @@
   status = 200
   force = true
 
+# Instant Lead Responder: embed form posts and tracked booking links (supabase/functions/lead-*).
+[[redirects]]
+  from = "/api/lead-intake"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/lead-intake"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/lead-book"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/lead-book"
+  status = 200
+  force = true
+
 # 48-hour signed links to briefing PDFs in the private `briefings` bucket.
 [[redirects]]
   from = "/api/storage/object/sign/briefings/*"
