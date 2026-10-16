@@ -33,7 +33,7 @@ Most young people in Akwa Ibom who want a career in tech face the same wall: goo
 
 ## The programme
 
-Project Genesis is a digital skills scholarship programme delivered by FutureLabs Academy, our tech talent training company, under the Youth Employment Pathways (YEP) project of the Foundation for Partnership Initiatives in the Niger Delta (PIND). It runs from December 2025 to October 2026.
+Project Genesis is a digital skills scholarship programme delivered by [FutureLabs Academy](/academy), our tech talent training company, under the Youth Employment Pathways (YEP) project of the Foundation for Partnership Initiatives in the Niger Delta (PIND). It runs from December 2025 to October 2026.
 
 The brief was to train 80 young people aged 16 to 35, at least 40 of them on scholarship, with priority for women, persons with disabilities and young people from underserved communities.
 
