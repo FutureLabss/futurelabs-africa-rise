@@ -53,14 +53,16 @@ Knowing how to build used to be a competitive advantage. As more people gain acc
 
 ## The engineering layer
 
-We expect to see engineers across every function. Few of these people will become software engineers. They will use AI, agents, code, APIs, data and automation to produce results in their own fields:
+We expect to see engineers across every function. Few of these people will become software engineers. They will use AI, agents, code, APIs, data and automation to produce results in their own fields.
 
-- **Marketing engineers** build systems that research markets, generate campaigns, test messages and report on performance.
-- **Growth engineers** run automated acquisition, onboarding and retention experiments.
-- **Design engineers** ship working prototypes without waiting for an engineering team.
-- **Research engineers** build agents that search sources, extract findings, check claims and keep a research database current.
-- **Operations engineers** automate workflows that flag exceptions and trigger actions.
-- **Product engineers** turn an idea into a working prototype in days, before a full development cycle.
+| Emerging role | What they build |
+| --- | --- |
+| Marketing engineer | Systems that research markets, generate campaigns, test messages and report on performance |
+| Growth engineer | Automated acquisition, onboarding and retention experiments |
+| Design engineer | Working prototypes that ship without waiting for an engineering team |
+| Research engineer | Agents that search sources, extract findings, check claims and keep a research database current |
+| Operations engineer | Automations that monitor workflows, flag exceptions and trigger actions |
+| Product engineer | Working prototypes built from an idea in days, before a full development cycle |
 
 The person supplies the domain expertise and the AI supplies the execution capacity. In practice, a team becomes agentic when AI is part of how everyone works, rather than the job of a separate AI team.
 
@@ -102,8 +104,10 @@ If someone can build a working app over a weekend with AI, should they still spe
 
 We expect two routes:
 
-- **Professional software engineering** is built on deep fundamentals: databases, networks, algorithms, systems and architecture. AI gives experienced engineers leverage.
-- **AI-native building** is built on domain expertise plus agents, code, APIs and rapid execution. AI is the main way the work gets built.
+| Path | Built on | Role of AI |
+| --- | --- | --- |
+| Professional software engineering | Deep fundamentals: databases, networks, algorithms, systems, architecture | Leverage for experienced engineers |
+| AI-native building | Domain expertise plus agents, code, APIs and rapid execution | The main way work gets built |
 
 Both are valid. Everyone in the workforce needs some agentic capability, and professional engineers still need the fundamentals to know when an agent is wrong.
 
@@ -111,10 +115,12 @@ Both are valid. Everyone in the workforce needs some agentic capability, and pro
 
 ## What it means for each group
 
-- **Workers and job seekers:** pair your field's expertise with agent skills. Learn to build small harnesses for your own work, and keep a portfolio of things you have built.
-- **Employers:** train every department, not only an AI team. Hire for output with tools as well as for credentials, and give staff time and budget to build.
-- **Educators and training providers:** keep the fundamentals for future engineers. Add an AI-native track for people in other fields, taught through real projects and harness-building.
-- **Governments and development partners:** fund skills programmes for both paths. Measure them by what graduates build and earn afterwards, not by attendance.
+| Group | What to do |
+| --- | --- |
+| Workers and job seekers | Pair your field's expertise with agent skills. Learn to build small harnesses for your own work, and keep a portfolio of things you have built. |
+| Employers | Train every department, not only an AI team. Hire for output with tools as well as for credentials, and give staff time and budget to build. |
+| Educators and training providers | Keep the fundamentals for future engineers. Add an AI-native track for people in other fields, taught through real projects and harness-building. |
+| Governments and development partners | Fund skills programmes for both paths. Measure them by what graduates build and earn afterwards, not by attendance. |
 
 ## Signals to watch
 
