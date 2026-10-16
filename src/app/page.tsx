@@ -256,17 +256,17 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col gap-4 bg-fl-ink px-[30px] pb-[34px] pt-8 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)]">
           <span className="self-start bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
-            Free briefing
+            New briefing
           </span>
           <h3 className="max-w-[20ch] text-[24px] font-semibold leading-[1.12] tracking-[-0.028em]">
-            The AI Economy: Structure, Fragility and Opportunity
+            Everyone Will Be Agentic
           </h3>
           <p className="fl-card-text m-0 max-w-[40ch]">
-            Demand for AI is strong. The risk is in how the build-out is financed. Where would it break, how would the damage spread, and
-            who comes out ahead?
+            How AI adds an engineering layer to most jobs, why building harnesses for agents becomes a core skill, and what workers,
+            employers, educators and governments should do about it.
           </p>
-          <Link href="/research-labs#ai-economy-briefing" className="fl-btn mt-1 w-full py-4">Get the free briefing</Link>
-          <Link href="/blog/ai-boom-short-of-cheap-money" className="fl-link pt-1">Read the key findings →</Link>
+          <Link href="/blog/everyone-will-be-agentic" className="fl-btn mt-1 w-full py-4">Read the briefing</Link>
+          <Link href="/research-labs" className="fl-link pt-1">More from FutureLabs Intelligence →</Link>
         </div>
       </Section>
 
