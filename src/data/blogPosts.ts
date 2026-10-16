@@ -60,6 +60,16 @@ By the end of the third quarter:
 - **8** were on internships.
 - **4** had started businesses.
 
+## Reading the numbers
+
+These are mid-programme figures, not final results.
+
+- **The programme hasn't finished.** It runs until 31 October 2026, and these figures were counted at the end of the third quarter. Most trainees were still working through their capstones and assessments, and 22 of the 32 completions came in that quarter alone.
+- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. We track graduates for six months after training, so most employment results will arrive after the programme closes.
+- **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
+
+We'll update this case study with final results.
+
 ## Three of our graduates
 
 - **Usenmfon** now works as a full-stack developer.
