@@ -151,8 +151,15 @@ export const PRODUCTS: Product[] = [
       ],
     },
     pricing: {
-      available: false,
-      features: ['Everything in Free', 'FutureLabs AI SEO Pro add-on', ...SUPPORT],
+      available: true,
+      features: [
+        'Everything in Free',
+        'Weekly or monthly email reports',
+        'Query ideas and pages losing traffic',
+        'Pages competing for the same search',
+        'Core Web Vitals checks',
+        ...SUPPORT,
+      ],
       tiers: [
         tier('personal', 1, [5, 7_000], [49, 67_500]),
         tier('business', 5, [13, 18_000], [129, 177_500]),
