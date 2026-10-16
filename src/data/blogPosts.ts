@@ -133,7 +133,7 @@ Both are valid. Everyone in the workforce needs some agentic capability, and pro
 ## How FutureLabs is responding
 
 - **FutureLabs Academy** teaches product design alongside code, uses AI tools in every track, and builds Claude into how we teach. [Explore the Academy](/academy).
-- **The AI Fellowship** keeps our own team current through peer-to-peer sessions every two weeks. [Read the case study](/blog/ai-fellowship-case-study).
+- **The AI Fellowship** keeps our own team current through peer-to-peer sessions every two weeks. [Read the case study](/case-studies/ai-fellowship-case-study).
 - **FutureLabs Studio** builds agentic systems for companies and institutions. [Work with the Studio](/studio).
 `,
     imageUrl: "/images/blog/agentic-robot.jpg",
@@ -315,7 +315,7 @@ The Startup Stack offers give the Academy access to tools built for AI-native co
 
 ### 6. Learning from the source, and sharing it
 
-Time with Anthropic's team means our questions go to the people building the models. What we learn goes back into the [AI Fellowship](/blog/ai-fellowship-case-study), our biweekly peer-to-peer sessions where FutureLabs people teach each other what's changing in AI.
+Time with Anthropic's team means our questions go to the people building the models. What we learn goes back into the [AI Fellowship](/case-studies/ai-fellowship-case-study), our biweekly peer-to-peer sessions where FutureLabs people teach each other what's changing in AI.
 
 ## What's next
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { Duotone } from './primitives';
-import { readTime, type BlogPost } from '@/lib/blog';
+import { readTime, postPath, type BlogPost } from '@/lib/blog';
 
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link
-      href={`/blog/${post.id}`}
+      href={postPath(post)}
       className="fl-card group flex flex-col text-fl-paper hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)]"
     >
       <Duotone src={post.imageUrl} flag={post.category} light className="h-[200px] flex-none" />
@@ -23,7 +23,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
 export function FeaturedPost({ post }: { post: BlogPost }) {
   return (
     <Link
-      href={`/blog/${post.id}`}
+      href={postPath(post)}
       className="fl-card group grid text-fl-paper hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)] md:grid-cols-2"
     >
       <Duotone src={post.imageUrl} flag={`Latest · ${post.category}`} light className="min-h-[260px] md:min-h-[340px]" />

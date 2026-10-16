@@ -1,13 +1,18 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { BlogCard, FeaturedPost } from './BlogCard';
-import { posts, categories } from '@/lib/blog';
+import { postsIn, categories } from '@/lib/blog';
+
+// Research and case studies live in their own sections; the blog shows the latest of each in a strip.
+const blogPosts = postsIn('blog');
+const highlights = [postsIn('research')[0], postsIn('case-studies')[0]].filter(Boolean);
 
 export default function BlogIndex() {
   const [cat, setCat] = useState('All');
-  const list = posts.filter((p) => cat === 'All' || p.category === cat);
+  const list = blogPosts.filter((p) => cat === 'All' || p.category === cat);
   const [featured, ...rest] = list;
 
   return (
@@ -53,6 +58,26 @@ export default function BlogIndex() {
           )}
         </div>
       </section>
+      {highlights.length > 0 && (
+        <section className="fl-section" aria-labelledby="blog-highlights-title">
+          <div className="fl-wrap pb-6 pt-[72px]">
+            <div className="mb-8 flex flex-wrap items-baseline justify-between gap-6">
+              <h2 id="blog-highlights-title" className="m-0 text-[clamp(24px,2.6vw,34px)] font-semibold leading-[1.08] tracking-[-0.03em]">
+                From FutureLabs Intelligence and our case studies
+              </h2>
+              <div className="flex gap-5 text-[13px]">
+                <Link href="/research-labs" className="fl-link">All research →</Link>
+                <Link href="/case-studies" className="fl-link">All case studies →</Link>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {highlights.map((p) => (
+                <BlogCard key={p.id} post={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }
