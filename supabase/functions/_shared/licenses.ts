@@ -1,8 +1,8 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { db } from './db.ts';
 import { planCodeOf } from './paystack.ts';
 import { sendEmail } from './email.ts';
 
-export const db = () => createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+export { db };
 type DB = ReturnType<typeof db>;
 
 export const GRACE_DAYS = 7;

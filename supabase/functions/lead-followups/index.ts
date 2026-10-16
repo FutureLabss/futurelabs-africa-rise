@@ -1,9 +1,11 @@
 // Instant Lead Responder: sends the single follow-up to leads that haven't opened the booking link.
-//   POST (header x-cron-secret: LEAD_CRON_SECRET)  →  { sent, failed }
-// Run every 15 minutes by a Supabase cron job. Leads are claimed before sending
-// (follow_up_at cleared), so overlapping runs never email anyone twice.
+//   POST (header x-cron-secret)  →  { sent, failed }
+// Run every 15 minutes by the lead-followups pg_cron job, which reads the secret from
+// Vault; lead_cron_secret_ok() checks it, so the value never leaves the database.
+// Leads are claimed before sending (follow_up_at cleared), so overlapping runs never
+// email anyone twice.
 import { json } from '../_shared/http.ts';
-import { db } from '../_shared/licenses.ts';
+import { db } from '../_shared/db.ts';
 import { sendEmail } from '../_shared/email.ts';
 import { followUp, type Lead, type LeadClient } from '../_shared/leads.ts';
 
@@ -14,10 +16,10 @@ type DueLead = Lead & { lead_clients: LeadClient | null };
 
 Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
-  const secret = Deno.env.get('LEAD_CRON_SECRET');
-  if (!secret || req.headers.get('x-cron-secret') !== secret) return json({ error: 'Unauthorized' }, 401);
-
   const supabase = db();
+  const { data: authorized } = await supabase.rpc('lead_cron_secret_ok', { s: req.headers.get('x-cron-secret') ?? '' });
+  if (authorized !== true) return json({ error: 'Unauthorized' }, 401);
+
   const { data: due, error } = await supabase
     .from('leads')
     .select('id, name, email, phone, message, page_url, token, lead_clients!inner(id, slug, name, notify_email, booking_url, reply_intro, follow_up_hours, allowed_origins, active)')

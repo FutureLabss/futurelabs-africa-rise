@@ -1,7 +1,7 @@
 // Instant Lead Responder: tracked booking link from the reply and follow-up emails.
 //   GET ?t=<lead token>  →  302 to the client's booking page
 // Records the first click so the follow-up isn't sent to people who already went to book.
-import { db } from '../_shared/licenses.ts';
+import { db } from '../_shared/db.ts';
 
 const SITE_URL = Deno.env.get('SITE_URL') ?? 'https://futurelabs.africa';
 const TOKEN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

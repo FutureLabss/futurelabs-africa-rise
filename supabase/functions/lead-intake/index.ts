@@ -5,7 +5,7 @@
 // Stores the lead, emails the enquirer an instant reply with a tracked booking link,
 // alerts the business (reply-to set to the enquirer) and schedules one follow-up.
 import { isEmail, json, preflight } from '../_shared/http.ts';
-import { db } from '../_shared/licenses.ts';
+import { db } from '../_shared/db.ts';
 import { sendEmail } from '../_shared/email.ts';
 import { instantReply, leadAlert, type Lead, type LeadClient } from '../_shared/leads.ts';
 
