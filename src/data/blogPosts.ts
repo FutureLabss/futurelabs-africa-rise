@@ -27,13 +27,13 @@ export const blogPosts: BlogPost[] = [
   {
     id: "pind-youth-employment-case-study",
     title: "Case Study: Training 107 Young People for Digital Work With PIND",
-    excerpt: "PIND asked us to train 80 young people in Akwa Ibom. We enrolled 107, and graduates are already in jobs, internships and businesses of their own. Here's how Project Genesis works.",
+    excerpt: "PIND asked FutureLabs Academy to train 80 young people in Akwa Ibom. We enrolled 107, and graduates are already in jobs, internships and businesses of their own. Here's how Project Genesis works.",
     content: `
 Most young people in Akwa Ibom who want a career in tech face the same wall: good training costs more than they can pay. Project Genesis was built to take that wall down.
 
 ## The programme
 
-Project Genesis is FutureLabs' digital skills scholarship programme under the Youth Employment Pathways (YEP) project of the Foundation for Partnership Initiatives in the Niger Delta (PIND). It runs from December 2025 to October 2026.
+Project Genesis is a digital skills scholarship programme delivered by FutureLabs Academy, our tech talent training company, under the Youth Employment Pathways (YEP) project of the Foundation for Partnership Initiatives in the Niger Delta (PIND). It runs from December 2025 to October 2026.
 
 The brief was to train 80 young people aged 16 to 35, at least 40 of them on scholarship, with priority for women, persons with disabilities and young people from underserved communities.
 
@@ -69,7 +69,7 @@ By the end of the third quarter:
 These are mid-programme figures, not final results.
 
 - **The programme hasn't finished.** It runs until 31 October 2026, and these figures were counted at the end of the third quarter. Most trainees were still working through their capstones and assessments, and 22 of the 32 completions came in that quarter alone.
-- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. Post-training support runs until December 2026, and our target is to link 84% of the people we trained to work by then.
+- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. Post-training support runs until December 2026, and our target is to link 84% of the 80 young people PIND asked us to train, or 67 people, to work by then.
 - **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
 
 We'll update this case study with final results.
