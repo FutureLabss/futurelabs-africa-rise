@@ -49,7 +49,7 @@ The brief was to train 80 young people aged 16 to 35, at least 40 of them on sch
 
 Trainees chose a track: 54 took Web Development, 32 Data Analysis, 11 Product Design, 6 Digital Marketing, 2 Graphic Design and 1 Project Management.
 
-Training was hands-on and in person at our hub, backed by the FutureLabs learning platform for materials, assignments and attendance. Every track ended in a capstone project, so trainees leave with work they can show employers and clients. Employability sessions covered CVs, portfolios, freelancing and interviews.
+Training was hands-on and in person at our hub, which has uninterrupted power and Starlink internet, backed by the FutureLabs learning platform for materials, assignments and attendance. Every track ended in a capstone project, so trainees leave with work they can show employers and clients. Employability sessions covered CVs, portfolios, freelancing and interviews.
 
 ![Trainees working through a Python exercise together during a Project Genesis session](/images/blog/pind-coding.jpg)
 
@@ -70,7 +70,7 @@ These are mid-programme figures, not final results.
 
 - **The programme hasn't finished.** It runs until 31 October 2026, and these figures were counted at the end of the third quarter. Most trainees were still working through their capstones and assessments, and 22 of the 32 completions came in that quarter alone.
 - **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. Post-training support runs until December 2026, and our target is to link 84% of the 80 young people PIND asked us to train, or 67 people, to work by then.
-- **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
+- **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power and internet at home, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
 
 We'll update this case study with final results.
 
@@ -87,7 +87,7 @@ We'll update this case study with final results.
 - **Cost-sharing builds commitment.** Trainees who pay something show up more.
 - **Demand follows jobs.** Web Development and Data Analysis drew most applicants, so trainers and equipment should follow.
 - **Women need deliberate outreach.** Women made up a third of trainees, short of where we want to be.
-- **Transport and power are real barriers.** Trainees from other LGAs faced transport costs, and unreliable power disrupted sessions.
+- **The hub works; getting there and studying at home is harder.** The hub runs on uninterrupted power from a 12kVA inverter and has Starlink internet. But trainees from other LGAs faced transport costs, and some had unreliable power and internet at home.
 
 ## Work with us
 
