@@ -7,6 +7,7 @@ import ArticleBody from '@/components/site/ArticleBody';
 import { BlogCard } from '@/components/site/BlogCard';
 import { Section, CtaBand, Duotone, SmartLink } from '@/components/site/primitives';
 import JsonLd from '@/components/JsonLd';
+import PostViews from '@/components/site/PostViews';
 import { pageMeta } from '@/lib/seo';
 import { posts, getPost, readTime, postCta } from '@/lib/blog';
 
@@ -77,6 +78,7 @@ export default function BlogPostPage({ params }: Params) {
             </span>
             <span className="font-mono text-[11px] leading-none text-fl-label">
               {post.date} · {readTime(post)}
+              <PostViews postId={post.id} record prefix=" · " />
             </span>
           </div>
           <h1 className="m-0 mt-6 max-w-[20ch] text-[clamp(32px,4.4vw,62px)] font-semibold leading-none tracking-[-0.038em] [text-wrap:balance]">
