@@ -239,6 +239,7 @@ export default function HomePage() {
             <ImageCard key={c.title} {...c} surface="graphite" imgHeight="h-[190px]" />
           ))}
         </div>
+        <Link href="/case-studies" className="fl-link mt-8 inline-block text-[13.5px]">All case studies →</Link>
       </Section>
 
       {/* Intelligence teaser */}
