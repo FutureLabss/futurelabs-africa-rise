@@ -83,7 +83,7 @@ export default function BriefingDownload() {
             The AI Economy: Structure, Fragility and Opportunity
           </h2>
           <p className="m-0 max-w-[44ch] text-[15.5px] leading-[1.6] text-fl-muted">
-            The AI boom isn&apos;t short of demand. It&apos;s short of cheap money. Where would it break, how would the damage spread,
+            Demand for AI is strong. The risk is in how the build-out is financed. Where would it break, how would the damage spread,
             and who comes out ahead? The full briefing includes:
           </p>
           <ul className="m-0 flex list-none flex-col gap-2.5 p-0">

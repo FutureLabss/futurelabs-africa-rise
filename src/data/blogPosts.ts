@@ -363,7 +363,7 @@ If you want to stay ahead of the AI curve and learn alongside other builders, ap
   },
   {
     id: "ai-boom-short-of-cheap-money",
-    title: "The AI Boom Isn't Short of Demand. It's Short of Cheap Money.",
+    title: "The AI Boom Depends on Cheap Money",
     excerpt: "Demand is not the weak point. The weak point is the money that turns that demand into data centers.",
     content: `
 Every week brings another headline that says AI is a bubble, and another that says demand has never been stronger. Both are partly right, and that is the problem. If you run a company that builds or sells AI, "is it a bubble?" is the wrong question. The useful ones are: where would it break, how would the damage spread, and who comes out ahead?
