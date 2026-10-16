@@ -97,12 +97,12 @@ const ENGINES: {
 
 const CASES = [
   {
-    img: '/images/blog/ihatch-national-demo-day.jpg',
-    flag: 'Entrepreneurship',
-    title: 'iHatch',
-    text: 'Incubation for early-stage founders, from problem validation to a product in market.',
-    chips: ['Incubation', 'Product'],
-    link: { label: 'Read the case study', href: '/blog/ihatch-case-study' },
+    img: '/images/blog/pind-cover.jpg',
+    flag: 'Employment',
+    title: 'PIND Project Genesis',
+    text: 'Digital skills scholarships that enrolled 107 young people against a target of 80, with a path to jobs.',
+    chips: ['Skills', 'Jobs'],
+    link: { label: 'Read the case study', href: '/blog/pind-youth-employment-case-study' },
   },
   {
     img: '/images/site/fellowship.jpg',
