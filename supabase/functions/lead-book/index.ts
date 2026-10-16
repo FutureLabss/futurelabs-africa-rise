@@ -1,5 +1,5 @@
 // Instant Lead Responder: tracked booking link from the reply and follow-up emails.
-//   GET ?t=<lead token>  →  302 to the client's booking page
+//   GET /lead-book/<lead token>  →  302 to the client's booking page (?t=<token> also accepted)
 // Records the first click so the follow-up isn't sent to people who already went to book.
 import { db } from '../_shared/db.ts';
 
@@ -10,7 +10,8 @@ const redirect = (to: string) => new Response(null, { status: 302, headers: { Lo
 
 Deno.serve(async (req) => {
   if (req.method !== 'GET') return new Response('Method not allowed', { status: 405 });
-  const token = new URL(req.url).searchParams.get('t') ?? '';
+  const url = new URL(req.url);
+  const token = url.searchParams.get('t') ?? url.pathname.split('/').pop() ?? '';
   if (!TOKEN.test(token)) return redirect(SITE_URL);
 
   try {

@@ -56,8 +56,8 @@
   force = true
 
 [[redirects]]
-  from = "/api/lead-book"
-  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/lead-book"
+  from = "/api/lead-book/*"
+  to = "https://xgemmlbsmmqwysatmbvz.supabase.co/functions/v1/lead-book/:splat"
   status = 200
   force = true
 

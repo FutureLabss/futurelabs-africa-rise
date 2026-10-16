@@ -25,7 +25,9 @@ export type Lead = {
 };
 
 /** Goes through lead-book, which records the click and redirects to the client's booking page. */
-export const bookingLink = (lead: Lead) => `${SITE_URL}/api/lead-book?t=${lead.token}`;
+// Token in the path, not the query: Netlify's proxy copies a query string onto the
+// redirect, which would leak it into the client's booking page URL.
+export const bookingLink = (lead: Lead) => `${SITE_URL}/api/lead-book/${lead.token}`;
 
 export const firstName = (name: string) => name.trim().split(/\s+/)[0] || 'there';
 
