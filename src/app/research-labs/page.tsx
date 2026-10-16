@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
@@ -50,6 +51,30 @@ export default function IntelligencePage() {
 
       <Section innerClassName="pt-20">
         <BriefingDownload />
+      </Section>
+
+      <Section innerClassName="pt-5">
+        <Link
+          href="/blog/everyone-will-be-agentic"
+          className="group grid gap-5 bg-fl-ink px-7 pb-[42px] pt-10 text-fl-paper shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)] sm:px-9 md:grid-cols-2 md:items-end"
+        >
+          <div className="flex flex-col gap-[18px]">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
+                Briefing
+              </span>
+              <span className="font-mono text-[11px] uppercase leading-none text-fl-label">October 2026 · Future of Work · Human Capital</span>
+            </div>
+            <h2 className="m-0 max-w-[18ch] text-[clamp(26px,2.8vw,38px)] font-semibold leading-[1.06] tracking-[-0.032em]">Everyone Will Be Agentic</h2>
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="m-0 max-w-[46ch] text-[15.5px] leading-[1.6] text-fl-muted">
+              How AI adds an engineering layer to most jobs, why building harnesses for agents becomes a core skill, and what workers,
+              employers, educators and governments should do about it.
+            </p>
+            <span className="fl-link group-hover:text-fl-paper">Read the briefing →</span>
+          </div>
+        </Link>
       </Section>
 
       <Section innerClassName="py-20">
