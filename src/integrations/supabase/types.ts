@@ -665,6 +665,13 @@ export type Database = {
           initials: string
         }[]
       }
+      get_blog_view_counts: {
+        Args: { p_post_ids: string[] }
+        Returns: {
+          post_id: string
+          views: number
+        }[]
+      }
       get_registration_counts: {
         Args: { event_ids: string[] }
         Returns: {
@@ -680,6 +687,7 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: never; Returns: boolean }
+      record_blog_view: { Args: { p_post_id: string }; Returns: number }
     }
     Enums: {
       app_role: "admin" | "user"
