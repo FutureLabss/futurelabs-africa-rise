@@ -175,7 +175,7 @@ export default function VibeCodeClient() {
         <PageHero
           title="FutureLabs VibeCoding Registration"
           subtitle="No experience needed. Just bring your curiosity and we&apos;ll help you build something amazing in 4 weeks."
-          backgroundImageUrl="/images/vibecode.png"
+          backgroundImageUrl="/images/vibecode.webp"
         />
 
         <div className="max-w-2xl mx-auto px-4 py-12">
