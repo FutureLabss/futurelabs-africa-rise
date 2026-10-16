@@ -136,7 +136,7 @@ Both are valid. Everyone in the workforce needs some agentic capability, and pro
 - **The AI Fellowship** keeps our own team current through peer-to-peer sessions every two weeks. [Read the case study](/blog/ai-fellowship-case-study).
 - **FutureLabs Studio** builds agentic systems for companies and institutions. [Work with the Studio](/studio).
 `,
-    imageUrl: "/images/site/team.jpg",
+    imageUrl: "/images/blog/agentic-robot.jpg",
     category: "Research",
     date: "October 16, 2026",
     author: "Udim Manasseh, CEO, FutureLabs",
