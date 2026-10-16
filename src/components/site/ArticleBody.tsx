@@ -58,6 +58,7 @@ export default function ArticleBody({ content }: { content: string }) {
             <span className="[&>p]:m-0">{children}</span>
           </li>
         ),
+        img: ({ src = '', alt = '' }) => <img src={typeof src === 'string' ? src : ''} alt={alt} loading="lazy" decoding="async" className="block h-auto w-full" />,
         strong: ({ children }) => <strong className="font-semibold text-fl-paper">{children}</strong>,
         em: ({ children }) => <em className="text-fl-soft">{children}</em>,
         a: ({ href = '', children }) => {

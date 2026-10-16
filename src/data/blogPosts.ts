@@ -25,6 +25,83 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "pind-youth-employment-case-study",
+    title: "Case Study: Training 107 Young People for Digital Work With PIND",
+    excerpt: "PIND asked FutureLabs Academy to train 80 young people in Akwa Ibom. We enrolled 107, and graduates are already in jobs, internships and businesses of their own. Here's how Project Genesis works.",
+    content: `
+Most young people in Akwa Ibom who want a career in tech face the same wall: good training costs more than they can pay. Project Genesis was built to take that wall down.
+
+## The programme
+
+Project Genesis is a digital skills scholarship programme delivered by [FutureLabs Academy](/academy), our tech talent training company, under the Youth Employment Pathways (YEP) project of the Foundation for Partnership Initiatives in the Niger Delta (PIND). It runs from December 2025 to October 2026.
+
+The brief was to train 80 young people aged 16 to 35, at least 40 of them on scholarship, with priority for women, persons with disabilities and young people from underserved communities.
+
+## Who it reached
+
+- **130** people applied, through social media, WhatsApp groups, partner institutions and word of mouth across Ikot Ekpene and neighbouring LGAs.
+- **120** were interviewed for motivation, basic digital literacy and fit with their chosen track.
+- **107** enrolled, against a target of 80: 71 men, 35 women and one person with a disability.
+
+![Project Genesis trainees at orientation in the FutureLabs hub, Ikot Ekpene](/images/blog/pind-orientation.jpg)
+
+## How we ran it
+
+Trainees chose a track: 54 took Web Development, 32 Data Analysis, 11 Product Design, 6 Digital Marketing, 2 Graphic Design and 1 Project Management.
+
+Training was hands-on and in person at our hub, backed by the FutureLabs learning platform for materials, assignments and attendance. Every track ended in a capstone project, so trainees leave with work they can show employers and clients. Employability sessions covered CVs, portfolios, freelancing and interviews.
+
+![Trainees working through a Python exercise together during a Project Genesis session](/images/blog/pind-coding.jpg)
+
+Scholarships were shared, not free by default. A standard track costs ₦250,000. Partial-scholarship trainees paid at most ₦150,000, and full-scholarship trainees paid nothing. Paying part of the fee made trainees more committed.
+
+## Results so far
+
+By the end of the third quarter:
+
+- **32** trainees had completed training and earned their certificate, with others finishing their capstones.
+- **3** had been hired.
+- **8** were on internships.
+- **4** had started businesses.
+
+## Reading the numbers
+
+These are mid-programme figures, not final results.
+
+- **The programme hasn't finished.** It runs until 31 October 2026, and these figures were counted at the end of the third quarter. Most trainees were still working through their capstones and assessments, and 22 of the 32 completions came in that quarter alone.
+- **Jobs come after training.** Placement into internships, jobs and freelancing only began in September. Post-training support runs until December 2026, and our target is to link 84% of the 80 young people PIND asked us to train, or 67 people, to work by then.
+- **Real barriers slowed some trainees down.** 15 dropped out. Transport costs from other LGAs, unreliable power, school and NYSC schedules, family income needs and the balance of partial fees all got in the way. We followed up with calls and WhatsApp reminders, and kept a waiting list to fill places.
+
+We'll update this case study with final results.
+
+![A Project Genesis class at work in the FutureLabs hub](/images/blog/pind-classroom.jpg)
+
+## Three of our graduates
+
+- **Usenmfon** now works as a full-stack developer.
+- **Raphael** now works as a frontend developer, building web applications.
+- **Princewill** landed an internship as a frontend developer.
+
+## What we learned
+
+- **Cost-sharing builds commitment.** Trainees who pay something show up more.
+- **Demand follows jobs.** Web Development and Data Analysis drew most applicants, so trainers and equipment should follow.
+- **Women need deliberate outreach.** Women made up a third of trainees, short of where we want to be.
+- **Transport and power are real barriers.** Trainees from other LGAs faced transport costs, and unreliable power disrupted sessions.
+
+## Work with us
+
+We help development partners, governments and companies design skills programmes and run them through to jobs, internships and new businesses.
+
+If you're planning a programme like this, [talk to us about partnerships](/government). If you want to learn, [explore FutureLabs Academy](/academy).
+`,
+    imageUrl: "/images/blog/pind-cover.jpg",
+    category: "Case study",
+    date: "October 16, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Design your programme with us", href: "/government" },
+  },
+  {
     id: "futurelabs-academy-figma-education-plan",
     title: "FutureLabs Academy Gets Figma's Education Plan",
     excerpt: "FutureLabs Academy is now verified on Figma's Education plan, which gives our instructors and students Figma's Professional features for free. Here's how we'll use it to train design-minded builders.",
