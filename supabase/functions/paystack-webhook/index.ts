@@ -1,6 +1,13 @@
 // Paystack events. Set this function's URL as the webhook in the Paystack
 // dashboard (Settings → API Keys & Webhooks). Every handler is safe to run
 // twice, because Paystack retries until it gets a 200.
+//
+// Paystack allows one webhook URL per account and mode, and other FutureLabs
+// systems on the same account need the events too. Every signed event is
+// forwarded unchanged (same body and signature) to the URLs in the
+// PAYSTACK_FORWARD_URLS secret (comma-separated, https only). If our handling
+// or any forward fails we answer 500, so Paystack retries for everyone; the
+// receivers must therefore be idempotent, as Paystack already requires.
 import { json } from '../_shared/http.ts';
 import { verifySignature } from '../_shared/paystack.ts';
 import { applyFirstCharge, applyRenewal, db, productName } from '../_shared/licenses.ts';
@@ -8,15 +15,33 @@ import { sendEmail } from '../_shared/email.ts';
 
 const SITE_URL = Deno.env.get('SITE_URL') ?? 'https://futurelabs.africa';
 
-Deno.serve(async (req) => {
-  if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
+const FORWARD_URLS = (Deno.env.get('PAYSTACK_FORWARD_URLS') ?? '')
+  .split(',')
+  .map((u) => u.trim())
+  .filter((u) => /^(https:\/\/|http:\/\/localhost[:/])[^\s]+$/.test(u))
+  // Never forward to ourselves: that would loop.
+  .filter((u) => !u.includes('/functions/v1/paystack-webhook'));
 
-  const raw = await req.text();
-  if (!(await verifySignature(raw, req.headers.get('x-paystack-signature')))) {
-    return json({ error: 'Invalid signature' }, 401);
-  }
+/** Pass a signed event on, byte for byte, so the receiver can verify Paystack's signature. */
+async function forward(raw: string, signature: string): Promise<boolean> {
+  const results = await Promise.allSettled(
+    FORWARD_URLS.map(async (url) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-paystack-signature': signature },
+        body: raw,
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!res.ok) throw new Error(`${new URL(url).host} answered ${res.status}`);
+    }),
+  );
+  const failed = results.filter((r) => r.status === 'rejected') as PromiseRejectedResult[];
+  for (const f of failed) console.error('paystack-webhook forward failed:', String(f.reason));
+  return failed.length === 0;
+}
 
-  const { event, data } = JSON.parse(raw);
+/** Our own handling of an event; returns false when it failed and Paystack should retry. */
+async function handle(event: string, data: any): Promise<boolean> {
   const supabase = db();
 
   try {
@@ -44,7 +69,7 @@ Deno.serve(async (req) => {
             .from('licenses')
             .select('id', { count: 'exact', head: true })
             .eq('paystack_subscription_code', data.subscription_code);
-          if (!count) return json({ error: 'License not created yet' }, 409);
+          if (!count) return false; // Not created yet: let Paystack retry.
           break;
         }
         await supabase
@@ -85,8 +110,25 @@ Deno.serve(async (req) => {
     }
   } catch (err) {
     console.error(`paystack-webhook ${event}:`, err);
-    return json({ error: 'Handler failed' }, 500);
+    return false;
+  }
+  return true;
+}
+
+
+Deno.serve(async (req) => {
+  if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
+
+  const raw = await req.text();
+  if (!(await verifySignature(raw, req.headers.get('x-paystack-signature')))) {
+    return json({ error: 'Invalid signature' }, 401);
   }
 
+  const { event, data } = JSON.parse(raw);
+  const [handled, forwarded] = await Promise.all([
+    handle(event, data),
+    forward(raw, req.headers.get('x-paystack-signature') ?? ''),
+  ]);
+  if (!handled || !forwarded) return json({ error: 'Not processed everywhere yet' }, 500);
   return json({ received: true });
 });
