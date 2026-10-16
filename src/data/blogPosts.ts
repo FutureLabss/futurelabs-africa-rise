@@ -120,7 +120,7 @@ For the Academy, which trains Africa's tech talent, that means every class can d
 
 ### 1. Teaching design alongside code
 
-Our students learn to build products, not just write code. With Figma in every class, they can go from idea to interface to working software, and understand why a screen looks the way it does before they build it.
+Our students learn product design alongside code. With Figma in every class, they can go from idea to interface to working software, and understand why a screen looks the way it does before they build it.
 
 ### 2. Training design engineers
 
@@ -178,9 +178,9 @@ The best teams won't have an AI person. They'll have an AI layer across everyone
 
 Before we were accepted, we caught ourselves about to pay for a premium SEO plugin for OpportunityLab.net, and stopped: why pay for something we could build? Once we were in, we built custom solutions for both the theme and the plugin. API credits let us keep asking "What should we build?" instead of "Can we build this?"
 
-### 3. Harnesses, not just prompts
+### 3. Building harnesses for agents
 
-The future of AI-assisted work isn't asking an agent for an answer. It's building the harness around it: the context, constraints, tools, tests and feedback loops that let an agent produce reliable work. API credits give us room to build and test those harnesses for real workflows, in training, research and operations.
+Reliable AI-assisted work depends on the harness around the agent: the context, constraints, tools, tests and feedback loops it works within. API credits give us room to build and test those harnesses for real workflows, in training, research and operations.
 
 ### 4. Teaching both paths
 
@@ -292,7 +292,7 @@ On 30 July 2026, we hosted the Founders Lab (Cohort 1) Networking Event at our h
 
 Emmanuel Jackson came to the FutureLabs Host Hub with an idea about payments. He founded Bucx Technologies, a virtual USD account that lets African freelancers and remote workers receive payments, hold their value in stablecoins and cash out locally. Through the iDICE Startup Bridge, Bucx won $4,000 in funding.
 
-That's the point of a host hub. You don't incubate a company so it stays comfortable inside your walls. You incubate it so it can walk into a room like Founders Lab and walk out with capital. [Read Emmanuel's story](/blog/futurelabs-incubatee-closes-4k-idice).
+[Read Emmanuel's story](/blog/futurelabs-incubatee-closes-4k-idice).
 
 ## What it shows
 
@@ -363,7 +363,7 @@ If you want to stay ahead of the AI curve and learn alongside other builders, ap
   },
   {
     id: "ai-boom-short-of-cheap-money",
-    title: "The AI Boom Isn't Short of Demand. It's Short of Cheap Money.",
+    title: "The AI Boom Depends on Cheap Money",
     excerpt: "Demand is not the weak point. The weak point is the money that turns that demand into data centers.",
     content: `
 Every week brings another headline that says AI is a bubble, and another that says demand has never been stronger. Both are partly right, and that is the problem. If you run a company that builds or sells AI, "is it a bubble?" is the wrong question. The useful ones are: where would it break, how would the damage spread, and who comes out ahead?
@@ -427,7 +427,7 @@ The full briefing includes:
 
       The $4K came from the iDICE Startup Bridge, a federal program the government runs through the Bank of Industry, financed by the African Development Bank, Agence Française de Développement, and the Islamic Development Bank. It splits into two tracks: Founders Lab for idea-stage founders, Growth Lab for startups with a working product already in hand. The program targets all 36 states and the FCT, not just Lagos and Abuja, and across its cohorts it's aiming to support more than 500 Nigerian tech startups.
 
-      For FutureLabs, this is what the Host Hub model exists for. You don't incubate a company so it stays comfortable inside your walls. You incubate it so it can walk into a room like Founders Lab and walk out with capital. Jackson did that.
+      Preparing founders to raise funding is the main job of a FutureLabs Host Hub, and Jackson's win is an example of it working.
 
       Bucx is still early. A waitlist. A first batch of invites going out. A founder who's spent months heads-down building something people outside the building decided was worth funding. $4K from a national program isn't a participation trophy — it's proof the idea holds up under someone else's scrutiny.
 

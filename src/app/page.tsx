@@ -262,7 +262,7 @@ export default function HomePage() {
             The AI Economy: Structure, Fragility and Opportunity
           </h3>
           <p className="fl-card-text m-0 max-w-[40ch]">
-            The AI boom isn&apos;t short of demand. It&apos;s short of cheap money. Where would it break, how would the damage spread, and
+            Demand for AI is strong. The risk is in how the build-out is financed. Where would it break, how would the damage spread, and
             who comes out ahead?
           </p>
           <Link href="/research-labs#ai-economy-briefing" className="fl-btn mt-1 w-full py-4">Get the free briefing</Link>
