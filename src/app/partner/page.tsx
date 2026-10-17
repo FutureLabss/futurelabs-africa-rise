@@ -30,6 +30,15 @@ export default function PartnerPage() {
           <ImageCard img="/images/site/community.jpg" flag="02 · Development" title="Development organizations" text="Design programs that translate investment into measurable productive capacity." link={{ label: 'Start a conversation', href: '/contact?type=development' }} />
           <NumberCard minH="min-h-[210px]" n="03" tag="Corporates" title="Corporates" text="Develop talent, adopt AI and solve strategic technology problems." link={{ label: 'Enterprise', href: '/enterprise' }} />
           <NumberCard minH="min-h-[210px]" n="04" tag="Universities" title="Universities & institutions" text="Build workforce, entrepreneurship and innovation capacity." link={{ label: 'Start a conversation', href: '/contact?type=university' }} />
+          <ImageCard
+            className="md:col-span-2"
+            imgHeight="h-[240px] md:h-[300px] [&>img]:object-[center_12%]"
+            img="/images/blog/fpu-career-services.jpg"
+            flag="Case study · Universities & institutions"
+            title="Equipping career services at Federal Polytechnic Ukana"
+            text="Under the TETFund Career Services Center 2025 intervention, we trained the Polytechnic's career services staff in modern career counselling, then ran a digital skills session for students from every department. Government, academia and industry, working together."
+            link={{ label: 'Read the case study', href: '/case-studies/federal-polytechnic-ukana-case-study' }}
+          />
         </div>
         <div className="mt-11 flex justify-center">
           <Link href="/contact" className="fl-btn px-7">Start a conversation</Link>
