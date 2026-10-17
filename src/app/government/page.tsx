@@ -38,7 +38,7 @@ export default function GovernmentPage() {
         </div>
         <div className="mt-14 border-t border-fl-paper/[.14] pt-7">
           <h3 className="fl-eyebrow mb-5 text-fl-label">Current institutional partners</h3>
-          <PartnerLogoGrid names={PARTNERS} />
+          <PartnerLogoGrid names={PARTNERS} perRow={4} />
         </div>
       </Section>
     </SiteShell>

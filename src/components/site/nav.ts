@@ -79,6 +79,6 @@ export const CONTACT = {
   location: 'Akwa Ibom, Nigeria',
 };
 
-export const PARTNERS = ['iDICE', 'NITDA', 'ONDI', 'PIND', 'Ritman University', 'AKSG', 'LEAP Africa'];
+export const PARTNERS = ['iDICE', 'NITDA', 'ONDI', 'PIND', 'Federal Polytechnic Ukana', 'Ritman University', 'AKSG', 'LEAP Africa'];
 
 export const LOGO_SRC = '/lovable-uploads/ba5f9b8e-a532-490c-aeb0-f5fa692dc6d0.png';
