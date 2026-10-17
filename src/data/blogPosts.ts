@@ -49,21 +49,24 @@ The Career Center wanted its staff ready for a job market that changes faster th
 - **Employability and workforce readiness:** how tertiary institutions can better prepare students for the realities of work.
 - **The future of career services in higher education:** the role of the career centre in student success and graduate employability.
 
+![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
+
 **2. A session with students from every department.** We followed the staff training with a talk for students across all departments: *"Digital Skills: The Multiplier for Every Career"*, led by Udim Manasseh, Founder and CEO of FutureLabs. It was an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
 
-## What we told students
+## The talking points
 
-The talk was built around one idea: a certificate gets you into the queue, but it doesn't get you out of it.
+The student talk came down to four messages:
 
-- **Employers hire evidence.** Everyone in the interview room has a certificate. What separates candidates is what they have built, the problems they have solved and the work they can show.
-- **AI replaces tasks, not professions.** Routine work such as data entry, basic writing and standard calculations is being automated. Human value is moving to judgment, creativity, communication, leadership and problem-solving.
-- **Every department has a digital layer.** We went department by department, from Quantity Surveying (digital costing and BIM) and Urban Planning (GIS) to Accountancy (Excel and Power BI), Statistics (Python or R) and Mass Communication (published work as a CV), showing the tools that multiply each field.
-- **The skill stack.** Domain knowledge makes you qualified, digital skills make you employable, and judgment in using AI makes you indispensable. People skills, such as communication, reliability and teamwork, keep you in the room.
-- **Proof of work.** We gave students a practical method: learn one skill, build something with it within 30 days, publish it and get feedback. A semester blueprint turns that into six real projects by graduation instead of six certificates.
+- **A certificate gets you into the queue, not out of it.** Employers hire evidence: what you have built and the problems you have solved.
+- **AI is changing tasks, not erasing careers.** Routine work is being automated, so value is moving to judgment, creativity and communication, and to people who know how to work with AI.
+- **Every course of study has a digital layer.** From engineering to accountancy to mass communication, the right digital tools multiply what students already learn.
+- **Build in public.** Learn one skill, build something real with it, publish it and get feedback. Finished projects open more doors than unfinished courses.
 
-Students left with next steps rather than just inspiration: free access to the FutureLabs AI course to start learning AI tools on their phones, and [OpportunityLab](https://opportunitylab.net), our curated listing of competitions, grants, fellowships and internships, to make their work visible.
+Students left with next steps rather than just inspiration: free access to the FutureLabs AI course, and [OpportunityLab](https://opportunitylab.net), our curated listing of competitions, grants, fellowships and internships.
 
 ## Who took part
+
+![Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana, addressing participants at the training](/images/blog/fpu-rector-edumma-essien.jpg)
 
 The training ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**. **Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, contributed alongside other speakers, who shared practical perspectives on career guidance and graduate employability.
 
