@@ -43,6 +43,8 @@ The Career Center wanted its staff ready for a job market that changes faster th
 
 ## What we did
 
+The programme ran over two days: one for staff, one for students.
+
 **1. A one-day training for career services staff.** Themed *"Modern Career Counselling Practices: Challenges and Prospects"*, the training brought together career development professionals, institutional leaders and industry experts. Sessions covered:
 
 - **Modern career guidance:** practical approaches to advising students in a rapidly changing job market.
@@ -69,6 +71,8 @@ Students left with next steps rather than just inspiration: free access to the F
 ![Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana, addressing participants at the training](/images/blog/fpu-rector-edumma-essien.jpg)
 
 The training ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**. **Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, contributed alongside other speakers, who shared practical perspectives on career guidance and graduate employability.
+
+**Mr. Ini-Odu Akpan** spoke on both days, to the staff and to the students. Both days were anchored by **Manasseh Umoette**, who kept each session focused and the conversation moving.
 
 ## A Triple Helix partnership
 
