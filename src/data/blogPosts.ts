@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "federal-polytechnic-ukana-case-study",
     title: "Case Study: Equipping Career Services at Federal Polytechnic Ukana",
-    excerpt: "Under a TETFund contract, FutureLabs partnered with the Career Center of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
+    excerpt: "Funded by the TETFund Career Services Center 2025 intervention, FutureLabs partnered with the Career Center of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
     content: `
 *Photo: Udim Manasseh, Founder and CEO of FutureLabs, presenting "Three Truths About the Market" at the student session, Federal Polytechnic Ukana, July 2026.*
 
@@ -39,7 +39,7 @@ Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. 
 
 ## The brief
 
-The Career Center wanted its staff ready for a job market that changes faster than most curricula. In July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund)**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
+The Career Center wanted its staff ready for a job market that changes faster than most curricula. In July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Services Center 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
 
 ## What we did
 
@@ -74,7 +74,7 @@ The training ran with the support and leadership of **Mrs. Edumma Essien, Rector
 
 The programme followed the **Triple Helix model** of innovation, which holds that graduates and new ideas move fastest when government, academia and industry work together, each doing what it does best:
 
-- **Government** set the priority and funded it. TETFund, the federal agency that supports Nigeria's public tertiary institutions, financed the programme.
+- **Government** set the priority and funded it. TETFund, the federal agency that supports Nigeria's public tertiary institutions, financed the programme through its Career Services Center 2025 intervention.
 - **Academia** brought the students, the staff and the institutional leadership. Federal Polytechnic Ukana hosted the programme, and the University of Uyo's Career Connect Center shared its experience.
 - **Industry** brought current knowledge of the job market. FutureLabs designed and delivered the training, alongside industry experts who spoke about what employers now look for.
 
