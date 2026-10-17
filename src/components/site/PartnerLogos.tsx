@@ -50,3 +50,26 @@ export function PartnerLogos({ className }: { className?: string }) {
     </div>
   );
 }
+
+/**
+ * Static logo grid for a named set of partners (in the order given). Used where a
+ * marquee would be too busy, such as the institutional partners on /government.
+ */
+export function PartnerLogoGrid({ names, className }: { names: string[]; className?: string }) {
+  const logos = names.map((n) => PARTNER_LOGOS.find((l) => l.alt === n)).filter((l): l is (typeof PARTNER_LOGOS)[number] => !!l);
+  return (
+    <ul
+      className={cn(
+        // Two per row on phones (an odd last logo spans the row), four on tablets, all in one row on desktop.
+        'm-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-4 lg:grid-cols-7 [&>li:last-child:nth-child(odd)]:col-span-2 sm:[&>li:last-child:nth-child(odd)]:col-span-1',
+        className,
+      )}
+    >
+      {logos.map((logo) => (
+        <li key={logo.alt} className="flex h-[84px] items-center justify-center rounded-[10px] border border-fl-paper/10 bg-[#fff] px-4 py-3">
+          <img src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className="max-h-full max-w-full object-contain" />
+        </li>
+      ))}
+    </ul>
+  );
+}

@@ -3,7 +3,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
-import { Section, SplitHero, NumberCard, ImageCard, PartnerNames } from '@/components/site/primitives';
+import { Section, SplitHero, NumberCard, ImageCard } from '@/components/site/primitives';
+import { PartnerLogoGrid } from '@/components/site/PartnerLogos';
+import { PARTNERS } from '@/components/site/nav';
 
 export const metadata: Metadata = pageMeta({
   title: 'Government & Development Partnerships',
@@ -35,8 +37,8 @@ export default function GovernmentPage() {
           <ImageCard className="lg:col-span-3" img="/images/site/community.jpg" flag="05 · Intelligence" title="Understand opportunity" text="Research industries, skills, jobs, capital and emerging technology." link={{ label: 'FutureLabs Intelligence', href: '/research-labs' }} />
         </div>
         <div className="mt-14 border-t border-fl-paper/[.14] pt-7">
-          <h3 className="fl-eyebrow mb-4 text-fl-label">Current institutional partners</h3>
-          <PartnerNames size="text-[20px]" className="gap-x-10 gap-y-3" />
+          <h3 className="fl-eyebrow mb-5 text-fl-label">Current institutional partners</h3>
+          <PartnerLogoGrid names={PARTNERS} />
         </div>
       </Section>
     </SiteShell>
