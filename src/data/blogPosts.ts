@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     title: "Case Study: Equipping Career Services at Federal Polytechnic Ukana",
     excerpt: "FutureLabs partnered with the Career Center of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then followed up with a session for students on life after school and the future of work.",
     content: `
-*Photo: FutureLabs leading the student session at Federal Polytechnic Ukana, July 2026.*
+*Photo: Udim Manasseh, Founder and CEO of FutureLabs, presenting "Three Truths About the Market" at the student session, Federal Polytechnic Ukana, July 2026.*
 
 Students lean on their institution's career centre to make sense of the job market. So the fastest way to better prepare students is often to better prepare the people who advise them.
 
@@ -49,7 +49,19 @@ The Career Center wanted its staff ready for a job market that changes faster th
 - **Employability and workforce readiness:** how tertiary institutions can better prepare students for the realities of work.
 - **The future of career services in higher education:** the role of the career centre in student success and graduate employability.
 
-**2. A session with students.** We followed the staff training with an open conversation for students about life after school, the future of work, and the skills young people need to stay relevant.
+**2. A session with students from every department.** We followed the staff training with a talk for students across all departments: *"Digital Skills: The Multiplier for Every Career"*, led by Udim Manasseh, Founder and CEO of FutureLabs. It was an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
+
+## What we told students
+
+The talk was built around one idea: a certificate gets you into the queue, but it doesn't get you out of it.
+
+- **Employers hire evidence.** Everyone in the interview room has a certificate. What separates candidates is what they have built, the problems they have solved and the work they can show.
+- **AI replaces tasks, not professions.** Routine work such as data entry, basic writing and standard calculations is being automated. Human value is moving to judgment, creativity, communication, leadership and problem-solving.
+- **Every department has a digital layer.** We went department by department, from Quantity Surveying (digital costing and BIM) and Urban Planning (GIS) to Accountancy (Excel and Power BI), Statistics (Python or R) and Mass Communication (published work as a CV), showing the tools that multiply each field.
+- **The skill stack.** Domain knowledge makes you qualified, digital skills make you employable, and judgment in using AI makes you indispensable. People skills, such as communication, reliability and teamwork, keep you in the room.
+- **Proof of work.** We gave students a practical method: learn one skill, build something with it within 30 days, publish it and get feedback. A semester blueprint turns that into six real projects by graduation instead of six certificates.
+
+Students left with next steps rather than just inspiration: free access to the FutureLabs AI course to start learning AI tools on their phones, and [OpportunityLab](https://opportunitylab.net), our curated listing of competitions, grants, fellowships and internships, to make their work visible.
 
 ## Who took part
 
