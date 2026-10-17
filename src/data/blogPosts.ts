@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "federal-polytechnic-ukana-case-study",
     title: "Case Study: Equipping Career Services at Federal Polytechnic Ukana",
-    excerpt: "Funded by the TETFund Career Service Centre 2025 intervention, FutureLabs partnered with the Career Service Centre of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
+    excerpt: "Funded by the TETFund Career Service Centre 2025 intervention, FutureLabs partnered with the Career Service Centre of Federal Polytechnic Ukana to train its teaching and non-teaching staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
     content: `
 *Photo: Udim Manasseh, Founder and CEO of FutureLabs, presenting "Three Truths About the Market" at the student training, Federal Polytechnic Ukana, 10 July 2026.*
 
@@ -39,13 +39,13 @@ Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. 
 
 ## The brief
 
-The Career Service Centre wanted its staff ready for a job market that changes faster than most curricula. In June and July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Service Centre 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
+The Career Service Centre wanted its staff ready for a job market that changes faster than most curricula. In June and July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Service Centre 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for its teaching and non-teaching staff, and then to take the same conversation directly to students.
 
 ## What we did
 
 The programme ran in two parts: a training for staff in June 2026, then a capacity-building training for students on 10 July 2026.
 
-**1. A one-day training for career services staff.** On 18 June 2026, career services personnel gathered in the Polytechnic's 350-seat auditorium for a workshop themed *"Modern Career Counselling Practices: Challenges and Prospects"*. The sessions included:
+**1. A one-day training for teaching and non-teaching staff.** On Thursday 18 June 2026, teaching and non-teaching staff gathered in the Polytechnic's 350-seat auditorium for a workshop themed *"Modern Career Counselling Practices: Challenges and Prospects"*. The sessions included:
 
 - **"Techniques in Career Counselling: Preparing Students for the Modern Workforce"**, a lecture by Prof. Ime Nyong George of the University of Uyo on contemporary counselling techniques and practical ways to support students.
 - **"Building Employability Skills Across the Curriculum"**, by Mr. Ini-Odu Akpan, on the critical thinking, communication, teamwork, problem-solving and other transferable skills employers look for.
@@ -56,11 +56,11 @@ The programme ran in two parts: a training for staff in June 2026, then a capaci
 
 The programme opened with remarks by Mr. Itoro Ekanemesang, Acting Director of the Career Service Centre, followed by the Rector's keynote address. Each lecture was followed by an interactive question-and-answer session, and the Registrar gave the closing remarks.
 
-![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
+![Teaching and non-teaching staff at the capacity-building training](/images/blog/fpu-staff-training.jpg)
 
 **2. A training for students from every department.** On Friday 10 July 2026, students from across all departments gathered in the same 350-seat auditorium for a capacity-building training opened with a welcome address by Mr. Itoro Ekanemesang. Three lectures followed:
 
-- **"Work-Readiness and Professional Development"**, by Mr. Ini-Odu Akpan, ACP (PSU), FICA, A.DRI, Consultant.
+- **"Work-Readiness and Professional Development"**, by Mr. Ini-Odu Akpan, ACP (PSU), FICA, A.DRI, MBA, B.Agric (Hons), Consultant.
 - **"Digital Skills and Future-of-Work Training"**, by Udim Manasseh, Founder and CEO of FutureLabs, presented as *"Digital Skills: The Multiplier for Every Career"*: an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
 - **"Alumni Mentorship and Networking Programme"**, by Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua.
 
