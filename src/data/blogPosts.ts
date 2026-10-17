@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "federal-polytechnic-ukana-case-study",
     title: "Case Study: Equipping Career Services at Federal Polytechnic Ukana",
-    excerpt: "Funded by the TETFund Career Services Center 2025 intervention, FutureLabs partnered with the Career Center of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
+    excerpt: "Funded by the TETFund Career Service Centre 2025 intervention, FutureLabs partnered with the Career Service Centre of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",
     content: `
 *Photo: Udim Manasseh, Founder and CEO of FutureLabs, presenting "Three Truths About the Market" at the student training, Federal Polytechnic Ukana, 10 July 2026.*
 
@@ -35,20 +35,24 @@ Students lean on their institution's career centre to make sense of the job mark
 
 ## The partner
 
-Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. Its Career Center supports students as they plan their path from school to work.
+Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. Its Career Service Centre supports students as they plan their path from school to work.
 
 ## The brief
 
-The Career Center wanted its staff ready for a job market that changes faster than most curricula. In June and July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Services Center 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
+The Career Service Centre wanted its staff ready for a job market that changes faster than most curricula. In June and July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Service Centre 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
 
 ## What we did
 
 The programme ran in two parts: a training for staff in June 2026, then a capacity-building training for students on 10 July 2026.
 
-**1. A one-day training for career services staff.** On 19 June 2026, career services personnel gathered in the Polytechnic's 350-seat auditorium for a workshop themed *"Modern Career Counselling Practices: Challenges and Prospects"*. The sessions included:
+**1. A one-day training for career services staff.** On 18 June 2026, career services personnel gathered in the Polytechnic's 350-seat auditorium for a workshop themed *"Modern Career Counselling Practices: Challenges and Prospects"*. The sessions included:
 
 - **"Techniques in Career Counselling: Preparing Students for the Modern Workforce"**, a lecture by Prof. Ime Nyong George of the University of Uyo on contemporary counselling techniques and practical ways to support students.
 - **"Building Employability Skills Across the Curriculum"**, by Mr. Ini-Odu Akpan, on the critical thinking, communication, teamwork, problem-solving and other transferable skills employers look for.
+
+![Prof. Ime Nyong George, Director of the Career Connect Centre, University of Uyo, delivering the first lecture](/images/blog/fpu-ime-nyong-george.jpg)
+
+![Mr. Ini-Odu Akpan presenting Building Employability Skills Across the Curriculum: Workplace Ethics for Polytechnic Staff](/images/blog/fpu-ini-odu-akpan-staff.jpg)
 
 The programme opened with a welcome address, opening remarks by Mr. Itoro Ekanemesang, Acting Director of the Career Service Centre, and the Rector's keynote address. Each lecture was followed by an interactive question-and-answer session, and the Registrar gave the closing remarks.
 
@@ -63,6 +67,12 @@ The programme opened with a welcome address, opening remarks by Mr. Itoro Ekanem
 ![Students of all departments at the capacity-building training in the 350-seat auditorium, 10 July 2026](/images/blog/fpu-student-training-auditorium.jpg)
 
 ![Mr. Ini-Odu Akpan delivering the first lecture, Work-Readiness and Professional Development](/images/blog/fpu-ini-odu-akpan.jpg)
+
+Mr. Ini-Odu Akpan opened the lectures with a frank look at the job market. He reminded students that polytechnics supervised by the NBTE, and universities supervised by the NUC, turn out new graduates every year, all competing for the same jobs: "You have to take what you are doing very seriously, because unemployment is real."
+
+Dr. (Mrs.) Glory G. Umoh closed the lectures on alumni mentorship and networking. She built her talk around training and connection, the point at which alumni come in to guide current students, and reminded students that polytechnics are not universities: "Polytechnics were built with a clear purpose: to produce job-ready graduates."
+
+![Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre, Akwa Ibom State Polytechnic, Ikot Osurua, delivering the third lecture](/images/blog/fpu-glory-umoh.jpg)
 
 The day closed with an interactive question-and-answer session, closing remarks by the Registrar and a vote of thanks by the Dean of Student Affairs.
 
@@ -85,7 +95,7 @@ Students left with next steps rather than just inspiration: free access to the F
 
 The workshop ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**, and was hosted by the Polytechnic's Career Service Centre under its Acting Director, **Mr. Itoro Ekanemesang**. The Registrar, **Mr. Idhigu Lucky**, also addressed participants, and **Mrs. Arobo Ukwa**, Coordinator of the Guidance and Counselling Unit, gave the vote of thanks. At the July training, the Rector was represented by the Registrar, who also gave the closing remarks.
 
-**Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, led the session on counselling techniques. **Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua**, spoke to the students on alumni mentorship and networking. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. Both sessions were anchored by **Manasseh Umoette**, who kept each one focused and the conversation moving.
+**Prof. Ime Nyong George, Director of the Career Connect Centre at the University of Uyo**, led the session on counselling techniques. **Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua**, spoke to the students on alumni mentorship and networking. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. Both sessions were anchored by **Manasseh Umoette**, who kept each one focused and the conversation moving.
 
 ## What they said
 
@@ -103,8 +113,8 @@ The Rector said the Polytechnic would keep using training and partnerships to bu
 
 The programme followed the **Triple Helix model** of innovation, which holds that graduates and new ideas move fastest when government, academia and industry work together, each doing what it does best:
 
-- **Government** set the priority and funded it. TETFund, the federal agency that supports Nigeria's public tertiary institutions, financed the programme through its Career Services Center 2025 intervention.
-- **Academia** brought the students, the staff and the institutional leadership. Federal Polytechnic Ukana hosted the programme, the University of Uyo's Career Connect Center and Akwa Ibom State Polytechnic's Career Service Centre shared their experience.
+- **Government** set the priority and funded it. TETFund, the federal agency that supports Nigeria's public tertiary institutions, financed the programme through its Career Service Centre 2025 intervention.
+- **Academia** brought the students, the staff and the institutional leadership. Federal Polytechnic Ukana hosted the programme, the University of Uyo's Career Connect Centre and Akwa Ibom State Polytechnic's Career Service Centre shared their experience.
 - **Industry** brought current knowledge of the job market. FutureLabs designed and delivered the training, alongside industry experts who spoke about what employers now look for.
 
 On the sidelines of the June workshop, Udim Manasseh, Founder and CEO of FutureLabs, commended TETFund for supporting the initiative and called for stronger collaboration between the three, so that students can begin building their career pathways before graduation.
