@@ -14,7 +14,7 @@ import {
   ProofLine,
   Stat,
 } from '@/components/site/primitives';
-import { PartnerLogos } from '@/components/site/PartnerLogos';
+import { PartnerLogoGrid } from '@/components/site/PartnerLogos';
 import JsonLd from '@/components/JsonLd';
 import { postsIn } from '@/lib/blog';
 import { SOCIAL_LINKS } from '@/components/site/nav';
@@ -279,12 +279,12 @@ export default function HomePage() {
       </Section>
 
       {/* Partners */}
-      <Section innerClassName="py-16 overflow-hidden">
+      <Section innerClassName="py-16">
         <div className="flex items-center gap-4 mb-10">
           <h2 className="fl-eyebrow m-0">35+ partners</h2>
           <div className="h-[1px] w-12 bg-fl-paper/20"></div>
         </div>
-        <PartnerLogos />
+        <PartnerLogoGrid />
       </Section>
 
       {/* Blog */}
