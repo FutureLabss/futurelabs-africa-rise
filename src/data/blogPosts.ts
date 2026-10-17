@@ -50,6 +50,8 @@ The programme ran in two parts: a training for staff in June 2026, then a capaci
 - **"Techniques in Career Counselling: Preparing Students for the Modern Workforce"**, a lecture by Prof. Ime Nyong George of the University of Uyo on contemporary counselling techniques and practical ways to support students.
 - **"Building Employability Skills Across the Curriculum"**, by Mr. Ini-Odu Akpan, on the critical thinking, communication, teamwork, problem-solving and other transferable skills employers look for.
 
+The programme opened with a welcome address, opening remarks by Mr. Itoro Ekanemesang, Acting Director of the Career Service Centre, and the Rector's keynote address. Each lecture was followed by an interactive question-and-answer session, and the Registrar gave the closing remarks.
+
 ![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
 
 **2. A training for students from every department.** On Friday 10 July 2026, students from across all departments gathered in the same 350-seat auditorium for a capacity-building training opened with a welcome address by Mr. Itoro Ekanemesang. Three lectures followed:
@@ -75,7 +77,7 @@ Students left with next steps rather than just inspiration: free access to the F
 
 ![Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana, addressing participants at the training](/images/blog/fpu-rector-edumma-essien.jpg)
 
-The workshop ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**, and was hosted by the Polytechnic's Career Service Centre under its Acting Director, **Mr. Itoro Ekanemesang**. The Registrar, **Mr. Idhigu Lucky**, also addressed participants, and **Mrs. Arobo Ukwa** gave the vote of thanks. At the July training, the Rector was represented by the Registrar, who also gave the closing remarks.
+The workshop ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**, and was hosted by the Polytechnic's Career Service Centre under its Acting Director, **Mr. Itoro Ekanemesang**. The Registrar, **Mr. Idhigu Lucky**, also addressed participants, and **Mrs. Arobo Ukwa**, Coordinator of the Guidance and Counselling Unit, gave the vote of thanks. At the July training, the Rector was represented by the Registrar, who also gave the closing remarks.
 
 **Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, led the session on counselling techniques. **Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua**, spoke to the students on alumni mentorship and networking. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. Both sessions were anchored by **Manasseh Umoette**, who kept each one focused and the conversation moving.
 
