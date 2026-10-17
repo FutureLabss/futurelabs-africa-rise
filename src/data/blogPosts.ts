@@ -74,7 +74,7 @@ Dr. (Mrs.) Glory G. Umoh closed the lectures on alumni mentorship and networking
 
 ![Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre, Akwa Ibom State Polytechnic, Ikot Osurua, delivering the third lecture](/images/blog/fpu-glory-umoh.jpg)
 
-The day closed with an interactive question-and-answer session, closing remarks by the Registrar and a vote of thanks by the Dean of Student Affairs.
+The day closed with an interactive question-and-answer session, closing remarks by the Registrar and a vote of thanks by the Dean of Student Affairs, Mr. Fred Itotaziba Sunday.
 
 ## The talking points
 
