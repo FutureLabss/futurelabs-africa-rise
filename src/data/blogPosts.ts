@@ -49,7 +49,6 @@ The programme ran in two parts: a training for staff in June 2026, then a sessio
 
 - **"Techniques in Career Counselling: Preparing Students for the Modern Workforce"**, a lecture by Prof. Ime Nyong George of the University of Uyo on contemporary counselling techniques and practical ways to support students.
 - **"Building Employability Skills Across the Curriculum"**, by Mr. Ini-Odu Akpan, on the critical thinking, communication, teamwork, problem-solving and other transferable skills employers look for.
-- **The Triple Helix model**, presented by Udim Manasseh of FutureLabs, on how government, academia and industry can work together so students start building career pathways before they graduate.
 
 ![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
 
@@ -94,7 +93,7 @@ The programme followed the **Triple Helix model** of innovation, which holds tha
 - **Academia** brought the students, the staff and the institutional leadership. Federal Polytechnic Ukana hosted the programme, and the University of Uyo's Career Connect Center shared its experience.
 - **Industry** brought current knowledge of the job market. FutureLabs designed and delivered the training, alongside industry experts who spoke about what employers now look for.
 
-Udim Manasseh, Founder and CEO of FutureLabs, presented the model at the workshop and called for stronger collaboration between the three, so that students can begin building their career pathways before graduation.
+On the sidelines of the June workshop, Udim Manasseh, Founder and CEO of FutureLabs, commended TETFund for supporting the initiative and called for stronger collaboration between the three, so that students can begin building their career pathways before graduation.
 
 Each strand alone falls short. Institutions know their students but can lose touch with the job market, industry knows the market but not the classroom, and public funding makes neither happen on its own. Together they give career centres both the current knowledge and the means to act on it.
 
