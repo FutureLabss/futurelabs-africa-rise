@@ -97,6 +97,14 @@ const ENGINES: {
 
 const CASES = [
   {
+    img: '/images/blog/fpu-career-services.jpg',
+    flag: 'Education',
+    title: 'Federal Polytechnic Ukana',
+    text: 'TETFund-funded training for career services staff, and a digital skills session for students from every department.',
+    chips: ['Career services', 'TETFund'],
+    link: { label: 'Read the case study', href: '/case-studies/federal-polytechnic-ukana-case-study' },
+  },
+  {
     img: '/images/blog/pind-cover.jpg',
     flag: 'Employment',
     title: 'PIND Project Genesis',
@@ -234,7 +242,7 @@ export default function HomePage() {
             </p>
           }
         />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {CASES.map((c) => (
             <ImageCard key={c.title} {...c} surface="graphite" imgHeight="h-[190px]" />
           ))}
