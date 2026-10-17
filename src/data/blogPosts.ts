@@ -60,9 +60,15 @@ The programme opened with a welcome address, opening remarks by Mr. Itoro Ekanem
 - **"Digital Skills and Future-of-Work Training"**, by Udim Manasseh, Founder and CEO of FutureLabs, presented as *"Digital Skills: The Multiplier for Every Career"*: an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
 - **"Alumni Mentorship and Networking Programme"**, by Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua.
 
+![Students of all departments at the capacity-building training in the 350-seat auditorium, 10 July 2026](/images/blog/fpu-student-training-auditorium.jpg)
+
+![Mr. Ini-Odu Akpan delivering the first lecture, Work-Readiness and Professional Development](/images/blog/fpu-ini-odu-akpan.jpg)
+
 The day closed with an interactive question-and-answer session, closing remarks by the Registrar and a vote of thanks by the Dean of Student Affairs.
 
 ## The talking points
+
+![Udim Manasseh, Founder and CEO of FutureLabs, delivering the digital skills lecture to students](/images/blog/fpu-udim-student-training.jpg)
 
 Our lecture came down to four messages:
 
