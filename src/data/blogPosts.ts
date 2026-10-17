@@ -25,6 +25,56 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "federal-polytechnic-ukana-case-study",
+    title: "Case Study: Equipping Career Services at Federal Polytechnic Ukana",
+    excerpt: "FutureLabs partnered with the Career Center of Federal Polytechnic Ukana to train its career services staff in modern career counselling, then followed up with a session for students on life after school and the future of work.",
+    content: `
+*Photo: FutureLabs leading the student session at Federal Polytechnic Ukana, July 2026.*
+
+Students lean on their institution's career centre to make sense of the job market. So the fastest way to better prepare students is often to better prepare the people who advise them.
+
+## The partner
+
+Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. Its Career Center supports students as they plan their path from school to work.
+
+## The brief
+
+The Career Center wanted its staff ready for a job market that changes faster than most curricula. In July 2026, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
+
+## What we did
+
+**1. A one-day training for career services staff.** Themed *"Modern Career Counselling Practices: Challenges and Prospects"*, the training brought together career development professionals, institutional leaders and industry experts. Sessions covered:
+
+- **Modern career guidance:** practical approaches to advising students in a rapidly changing job market.
+- **Employability and workforce readiness:** how tertiary institutions can better prepare students for the realities of work.
+- **The future of career services in higher education:** the role of the career centre in student success and graduate employability.
+
+**2. A session with students.** We followed the staff training with an open conversation for students about life after school, the future of work, and the skills young people need to stay relevant.
+
+## Who took part
+
+The training ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**. **Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, contributed alongside other speakers, who shared practical perspectives on career guidance and graduate employability.
+
+## What it shows
+
+Two lessons came through clearly:
+
+- **Career centres are strategic.** When staff are equipped with current practice, the career centre stops being a desk for paperwork and becomes a lever for graduate employability and the institution's impact.
+- **Start the conversation early.** Students who hear honestly about the job market while still in school make better-informed career decisions. Working with staff and students in the same partnership means both share the same picture of the job market.
+
+## Work with us
+
+If you run a university, polytechnic or college, we can design training for your career services team and sessions for your students, built around your institution and your local job market. [Talk to us about a partnership](/contact).
+
+If you're planning a workforce or employability programme at scale, [see how we work with governments and development partners](/government).
+`,
+    imageUrl: "/images/blog/fpu-career-services.jpg",
+    category: "Case study",
+    date: "October 17, 2026",
+    author: "FutureLabs Team",
+    cta: { label: "Partner with us", href: "/contact" },
+  },
+  {
     id: "everyone-will-be-agentic",
     title: "Everyone Will Be Agentic",
     excerpt: "A FutureLabs Intelligence briefing on the future of work: how AI adds an engineering layer to most jobs, why harness-building becomes a core skill, and what workers, employers, educators and governments should do.",

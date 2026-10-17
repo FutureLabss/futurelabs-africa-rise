@@ -18,6 +18,7 @@ const FLAGS: Record<string, string> = {
   'idice-case-study': 'Institutions',
   'ihatch-case-study': 'Entrepreneurship',
   'ai-fellowship-case-study': 'Talent',
+  'federal-polytechnic-ukana-case-study': 'Education',
 };
 
 const cases = postsIn('case-studies');
