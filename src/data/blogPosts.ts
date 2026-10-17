@@ -39,21 +39,21 @@ Federal Polytechnic Ukana is a federal tertiary institution in Akwa Ibom State. 
 
 ## The brief
 
-The Career Center wanted its staff ready for a job market that changes faster than most curricula. In July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Services Center 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
+The Career Center wanted its staff ready for a job market that changes faster than most curricula. In June and July 2026, under a contract funded by the **Tertiary Education Trust Fund (TETFund) Career Services Center 2025 intervention**, it partnered with FutureLabs to run a capacity-building programme for career services staff, and then to take the same conversation directly to students.
 
 ## What we did
 
-The programme ran over two days: one for staff, one for students.
+The programme ran in two parts: a training for staff in June 2026, then a session for students in July 2026.
 
-**1. A one-day training for career services staff.** Themed *"Modern Career Counselling Practices: Challenges and Prospects"*, the training brought together career development professionals, institutional leaders and industry experts. Sessions covered:
+**1. A one-day training for career services staff.** On 19 June 2026, career services personnel gathered in the Polytechnic's 350-seat auditorium for a workshop themed *"Modern Career Counselling Practices: Challenges and Prospects"*. The sessions included:
 
-- **Modern career guidance:** practical approaches to advising students in a rapidly changing job market.
-- **Employability and workforce readiness:** how tertiary institutions can better prepare students for the realities of work.
-- **The future of career services in higher education:** the role of the career centre in student success and graduate employability.
+- **"Techniques in Career Counselling: Preparing Students for the Modern Workforce"**, a lecture by Prof. Ime Nyong George of the University of Uyo on contemporary counselling techniques and practical ways to support students.
+- **"Building Employability Skills Across the Curriculum"**, by Mr. Ini-Odu Akpan, on the critical thinking, communication, teamwork, problem-solving and other transferable skills employers look for.
+- **The Triple Helix model**, presented by Udim Manasseh of FutureLabs, on how government, academia and industry can work together so students start building career pathways before they graduate.
 
 ![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
 
-**2. A session with students from every department.** We followed the staff training with a talk for students across all departments: *"Digital Skills: The Multiplier for Every Career"*, led by Udim Manasseh, Founder and CEO of FutureLabs. It was an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
+**2. A session with students from every department.** In July, we followed the staff training with a talk for students across all departments: *"Digital Skills: The Multiplier for Every Career"*, led by Udim Manasseh, Founder and CEO of FutureLabs. It was an honest conversation about life after school, the future of work, and the skills young people need to stay relevant.
 
 ## The talking points
 
@@ -70,9 +70,21 @@ Students left with next steps rather than just inspiration: free access to the F
 
 ![Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana, addressing participants at the training](/images/blog/fpu-rector-edumma-essien.jpg)
 
-The training ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**. **Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, contributed alongside other speakers, who shared practical perspectives on career guidance and graduate employability.
+The workshop ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**, and was hosted by the Polytechnic's Career Service Centre under its Acting Director, **Mr. Itoro Ekanemesang**. The Registrar, **Mr. Idhigu Lucky**, also addressed participants, and **Mrs. Arobo Ukwa** gave the vote of thanks.
 
-**Mr. Ini-Odu Akpan** spoke on both days, to the staff and to the students. Both days were anchored by **Manasseh Umoette**, who kept each session focused and the conversation moving.
+**Prof. Ime Nyong George, Director of the Career Connect Center at the University of Uyo**, led the session on counselling techniques. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. Both sessions were anchored by **Manasseh Umoette**, who kept each one focused and the conversation moving.
+
+## What they said
+
+> "TETFund made this intervention because they have seen the need to equip staff."
+>
+> **Mrs. Edumma Essien**, Rector, Federal Polytechnic Ukana
+
+> "The knowledge gained today will only be valuable when it is reflected in our work and service to students."
+>
+> **Mr. Idhigu Lucky**, Registrar, Federal Polytechnic Ukana
+
+The Rector said the Polytechnic would keep using training and partnerships to build staff capacity, improve support for students and better position its graduates for the job market. Mr. Ekanemesang said he was confident the workshop would strengthen the guidance staff give and help students find their career pathways.
 
 ## A Triple Helix partnership
 
@@ -81,6 +93,8 @@ The programme followed the **Triple Helix model** of innovation, which holds tha
 - **Government** set the priority and funded it. TETFund, the federal agency that supports Nigeria's public tertiary institutions, financed the programme through its Career Services Center 2025 intervention.
 - **Academia** brought the students, the staff and the institutional leadership. Federal Polytechnic Ukana hosted the programme, and the University of Uyo's Career Connect Center shared its experience.
 - **Industry** brought current knowledge of the job market. FutureLabs designed and delivered the training, alongside industry experts who spoke about what employers now look for.
+
+Udim Manasseh, Founder and CEO of FutureLabs, presented the model at the workshop and called for stronger collaboration between the three, so that students can begin building their career pathways before graduation.
 
 Each strand alone falls short. Institutions know their students but can lose touch with the job market, industry knows the market but not the classroom, and public funding makes neither happen on its own. Together they give career centres both the current knowledge and the means to act on it.
 
@@ -91,6 +105,10 @@ Three lessons came through clearly:
 - **Career centres are strategic.** When staff are equipped with current practice, the career centre stops being a desk for paperwork and becomes a lever for graduate employability and the institution's impact.
 - **Start the conversation early.** Students who hear honestly about the job market while still in school make better-informed career decisions. Working with staff and students in the same partnership means both share the same picture of the job market.
 - **Public funding goes further with industry in the room.** TETFund's investment reached both the staff who advise students every year and the students themselves, because the programme was delivered by people who work in the job market they were describing.
+
+## In the press
+
+The workshop was covered by THEWILL: [Ukana Poly Trains Staff To Boost Graduate Employability, Strengthen Career Services](https://thewillnews.com/ukana-poly-trains-staff-to-boost-graduate-employability-strengthen-career-services/) (19 June 2026).
 
 ## Work with us
 
