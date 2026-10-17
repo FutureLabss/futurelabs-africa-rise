@@ -5,10 +5,14 @@ import { supabase } from '@/integrations/supabase/client';
 
 const format = (n: number) => `${n.toLocaleString('en-US')} view${n === 1 ? '' : 's'}`;
 
+/** Counts stay hidden until a post has this many real views, so new posts don't show a tiny number. */
+const SHOW_FROM = 200;
+
 /**
  * View count for a blog post. With `record`, counts this visit first (once per
  * browser session, so refreshes don't inflate it). Renders nothing until the
- * count arrives, so a failed request just leaves the line without it.
+ * count arrives, so a failed request just leaves the line without it. Views are
+ * still recorded below SHOW_FROM; the number only appears once it is reached.
  */
 export default function PostViews({ postId, record = false, prefix = '' }: { postId: string; record?: boolean; prefix?: string }) {
   const [views, setViews] = useState<number | null>(null);
@@ -46,7 +50,7 @@ export default function PostViews({ postId, record = false, prefix = '' }: { pos
     };
   }, [postId, record]);
 
-  if (views === null) return null;
+  if (views === null || views < SHOW_FROM) return null;
   return (
     <span>
       {prefix}
