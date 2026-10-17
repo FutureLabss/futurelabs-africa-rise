@@ -54,7 +54,7 @@ The programme ran in two parts: a training for staff in June 2026, then a capaci
 
 ![Mr. Ini-Odu Akpan presenting Building Employability Skills Across the Curriculum: Workplace Ethics for Polytechnic Staff](/images/blog/fpu-ini-odu-akpan-staff.jpg)
 
-The programme opened with a welcome address, opening remarks by Mr. Itoro Ekanemesang, Acting Director of the Career Service Centre, and the Rector's keynote address. Each lecture was followed by an interactive question-and-answer session, and the Registrar gave the closing remarks.
+The programme opened with remarks by Mr. Itoro Ekanemesang, Acting Director of the Career Service Centre, followed by the Rector's keynote address. Each lecture was followed by an interactive question-and-answer session, and the Registrar gave the closing remarks.
 
 ![Career services staff and participants at the capacity-building training](/images/blog/fpu-staff-training.jpg)
 
