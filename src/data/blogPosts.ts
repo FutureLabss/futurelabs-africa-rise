@@ -95,7 +95,7 @@ Students left with next steps rather than just inspiration: free access to the F
 
 The workshop ran with the support and leadership of **Mrs. Edumma Essien, Rector of Federal Polytechnic Ukana**, and was hosted by the Polytechnic's Career Service Centre under its Acting Director, **Mr. Itoro Ekanemesang**. The Registrar, **Mr. Idhigu Lucky**, also addressed participants, and **Mrs. Arobo Ukwa**, Coordinator of the Guidance and Counselling Unit, gave the vote of thanks. At the July training, the Rector was represented by the Registrar, who also gave the closing remarks.
 
-**Prof. Ime Nyong George, Director of the Career Connect Centre at the University of Uyo**, led the session on counselling techniques. **Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua**, spoke to the students on alumni mentorship and networking. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. Both sessions were anchored by **Manasseh Umoette**, who kept each one focused and the conversation moving.
+**Prof. Ime Nyong George, Director of the Career Connect Centre at the University of Uyo**, led the session on counselling techniques. **Dr. (Mrs.) Glory G. Umoh, Director of the Career Service Centre at Akwa Ibom State Polytechnic, Ikot Osurua**, spoke to the students on alumni mentorship and networking. **Mr. Ini-Odu Akpan** spoke at both sessions, to the staff in June and to the students in July. **Mr. Manasseh Umoette**, compère of both sessions, kept each one focused and the conversation moving.
 
 ## What they said
 
