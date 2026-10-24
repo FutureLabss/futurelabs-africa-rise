@@ -64,6 +64,10 @@ Deno.serve(async (req) => {
         amount: String(price.amount),
         currency: price.currency,
         plan: price.paystack_plan_code,
+        // Only cards give Paystack a reusable authorization, so only cards can renew
+        // the subscription automatically. Bank, transfer or USSD would pay once and
+        // then fail at renewal.
+        channels: ['card'],
         reference,
         callback_url: `${SITE_URL}/studio/checkout/complete`,
         metadata: { product, tier, interval, name: cleanName, cancel_action: `${SITE_URL}/studio#${product}` },
