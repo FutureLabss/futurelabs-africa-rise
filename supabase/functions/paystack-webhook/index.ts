@@ -64,6 +64,13 @@ async function handle(event: string, data: any): Promise<boolean> {
           .limit(1)
           .maybeSingle();
         if (!license) {
+          // Other FutureLabs products (e.g. the OpportunityLab Portal) share this Paystack
+          // account; a plan we never sold is theirs, not a license still being created.
+          const { count: ours } = await supabase
+            .from('product_prices')
+            .select('product', { count: 'exact', head: true })
+            .eq('paystack_plan_code', data.plan?.plan_code ?? '');
+          if (!ours) break;
           // Usually arrives just before charge.success has created the license; ask Paystack to retry.
           const { count } = await supabase
             .from('licenses')
