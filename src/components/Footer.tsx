@@ -5,6 +5,7 @@ import {
   FOOTER_ARMS,
   FOOTER_NAV,
   FOOTER_PROGRAMMES,
+  HUB,
   LOGO_SRC,
   SOCIAL_LINKS,
   type NavItem,
@@ -50,7 +51,11 @@ const Footer = () => {
           <div className="mt-1.5 font-mono text-[12px] leading-[1.6] text-fl-dim">
             <a href={CONTACT.phoneHref} className="text-fl-dim hover:text-fl-paper">{CONTACT.phone}</a>
             <br />
-            {CONTACT.location}
+            <Link href="/innovation-hub-akwa-ibom" className="text-fl-dim hover:text-fl-paper">
+              {HUB.street}, {HUB.locality},
+              <br />
+              {HUB.region}, Nigeria
+            </Link>
           </div>
         </div>
       </div>

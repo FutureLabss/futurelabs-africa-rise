@@ -1,42 +1,21 @@
-"use client";
-
-import React, { useEffect } from 'react';
+import React from 'react';
 
 interface JsonLdProps {
   schema: Record<string, unknown> | null;
 }
 
+/**
+ * Structured data, rendered into the server HTML so crawlers see it without running JavaScript.
+ * `<` is escaped so text in the schema can never close the script tag.
+ */
 const JsonLd: React.FC<JsonLdProps> = ({ schema }) => {
-  useEffect(() => {
-    const scriptId = 'jsonld-structured-data';
-    if (!schema) {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        existingScript.remove();
-      }
-      return;
-    }
-
-    let script = document.getElementById(scriptId) as HTMLScriptElement;
-
-    if (!script) {
-      script = document.createElement('script');
-      script.id = scriptId;
-      script.type = 'application/ld+json';
-      document.head.appendChild(script);
-    }
-
-    script.textContent = JSON.stringify(schema);
-
-    return () => {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, [schema]);
-
-  return null;
+  if (!schema) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+    />
+  );
 };
 
 export default JsonLd;
