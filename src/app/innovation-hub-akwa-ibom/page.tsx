@@ -74,6 +74,10 @@ const FAQ = [
     a: 'Uninterrupted power from a 12kVA inverter, Starlink internet and the FutureLabs learning platform for training materials, assignments and attendance.',
   },
   {
+    q: 'What other innovation hubs are there in Akwa Ibom?',
+    a: 'Uyo has the most hubs, including Start Innovation Hub and RootHub, and KodeHauz is based in Eket. Our guide to the best innovation hubs in Akwa Ibom, linked above, compares them.',
+  },
+  {
     q: 'Can my organisation run a programme with FutureLabs in Akwa Ibom?',
     a: 'Yes. We design and deliver technology-enabled incubation, skills and innovation programmes with governments, development organisations, universities and companies.',
   },
@@ -228,6 +232,13 @@ export default function InnovationHubPage() {
         <div>
           <div className="fl-eyebrow">FAQ</div>
           <h2 className="fl-h2-sm m-0 mt-5">Questions about the hub.</h2>
+          <p className="fl-card-text m-0 mt-6 max-w-[36ch]">
+            Comparing your options?{' '}
+            <Link href="/best-innovation-hubs-akwa-ibom" className="text-fl-accent hover:text-fl-paper">
+              See our guide to the best innovation hubs in Akwa Ibom
+            </Link>
+            .
+          </p>
         </div>
         <dl className="m-0">
           {FAQ.map(({ q, a }) => (
