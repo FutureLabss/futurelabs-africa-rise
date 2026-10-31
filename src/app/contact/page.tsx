@@ -4,7 +4,7 @@ import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import ContactForm from '@/components/site/ContactForm';
 import { Section } from '@/components/site/primitives';
-import { CONTACT, SOCIAL_LINKS } from '@/components/site/nav';
+import { CONTACT, HUB, SOCIAL_LINKS } from '@/components/site/nav';
 
 export const metadata: Metadata = pageMeta({
   title: 'Contact FutureLabs',
@@ -28,7 +28,14 @@ export default function ContactPage() {
               {CONTACT.email}
             </a>
             <a href={CONTACT.phoneHref} className="text-[16px] text-fl-soft hover:text-fl-paper">{CONTACT.phone}</a>
-            <div className="text-[16px] text-fl-soft">{CONTACT.location}</div>
+            <address className="text-[16px] not-italic leading-[1.5] text-fl-soft">
+              {HUB.street}, {HUB.locality},
+              <br />
+              {HUB.region} State, Nigeria
+            </address>
+            <a href={HUB.mapsHref} target="_blank" rel="noopener noreferrer" className="font-mono text-[12px] text-fl-accent hover:text-fl-paper">
+              Get directions →
+            </a>
             <div className="mt-3.5 flex flex-wrap gap-[18px] font-mono text-[12px]">
               {SOCIAL_LINKS.map((s) => (
                 <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-fl-accent hover:text-fl-paper">
