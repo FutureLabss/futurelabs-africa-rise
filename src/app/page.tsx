@@ -17,11 +17,11 @@ import {
 import { PartnerLogoGrid } from '@/components/site/PartnerLogos';
 import JsonLd from '@/components/JsonLd';
 import { postsIn } from '@/lib/blog';
-import { SOCIAL_LINKS } from '@/components/site/nav';
+import { SOCIAL_LINKS, HUB } from '@/components/site/nav';
 
 export const metadata: Metadata = pageMeta({
   title: "FutureLabs Africa — Building Africa's productive capacity",
-  description: 'FutureLabs is a technology and economic development institution in Nigeria building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
+  description: 'FutureLabs is a technology and economic development institution and innovation hub in Ikot Ekpene, Akwa Ibom, building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
   path: '/',
   absoluteTitle: true,
 });
@@ -34,6 +34,13 @@ const orgSchema = {
   logo: 'https://futurelabs.africa/favicon.png',
   email: 'hello@futurelabs.africa',
   telephone: '+234 703 240 0529',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: HUB.street,
+    addressLocality: HUB.locality,
+    addressRegion: HUB.region,
+    addressCountry: 'NG',
+  },
   description:
     'A technology and economic development institution building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
   sameAs: SOCIAL_LINKS.map((s) => s.href),

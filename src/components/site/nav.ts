@@ -31,6 +31,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: 'About', href: '/about', desc: 'Our thesis and why we exist' },
       { label: 'Manifesto', href: '/manifesto', desc: 'Potential into production' },
       { label: 'Network', href: '/network', desc: 'Builders, founders, institutions, capital' },
+      { label: 'Our Hub', href: '/innovation-hub-akwa-ibom', desc: 'Our innovation hub in Ikot Ekpene, Akwa Ibom' },
       { label: 'Community', href: '/community', desc: 'Meetups and the FutureLabs builder community' },
       { label: 'Blog', href: '/blog', desc: 'Insights, updates and stories' },
       { label: 'Contact', href: '/contact', desc: 'Start a conversation' },
@@ -47,6 +48,7 @@ export const FOOTER_NAV: NavItem[] = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Events', href: '/events' },
   { label: 'Network', href: '/network' },
+  { label: 'Our Hub in Akwa Ibom', href: '/innovation-hub-akwa-ibom' },
   { label: 'Partner With Us', href: '/partner' },
 ];
 
@@ -77,6 +79,14 @@ export const CONTACT = {
   phone: '+234 703 240 0529',
   phoneHref: 'tel:+2347032400529',
   location: 'Akwa Ibom, Nigeria',
+};
+
+/** The FutureLabs hub. Shown in the footer and on /innovation-hub-akwa-ibom. */
+export const HUB = {
+  street: 'No. 3 Chubb Road',
+  locality: 'Ikot Ekpene',
+  region: 'Akwa Ibom',
+  mapsHref: 'https://www.google.com/maps/search/?api=1&query=3+Chubb+Road+Ikot+Ekpene+Akwa+Ibom+Nigeria',
 };
 
 export const PARTNERS = ['iDICE', 'NITDA', 'ONDI', 'PIND', 'Federal Polytechnic Ukana', 'Ritman University', 'AKSG', 'LEAP Africa'];
