@@ -10,7 +10,6 @@ import { Calendar, Clock, MapPin, ArrowLeft, Share2, Loader2, ChevronDown, Users
 import DOMPurify from 'dompurify';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { format } from 'date-fns';
 import { useIsMobile } from '@/hooks/use-mobile';
 import EventRegistrationModal from '@/components/EventRegistrationModal';
 import CalendarDropdown from '@/components/CalendarDropdown';
@@ -18,12 +17,25 @@ import type { Tables } from '@/integrations/supabase/types';
 
 type EventRow = Tables<'events'>;
 
-const EventDetailClient = () => {
+/**
+ * Event times in Lagos time, so the server-rendered HTML and the browser show the same
+ * thing (date-fns `format` used the viewer's timezone, which differs from the server's).
+ */
+const TZ = 'Africa/Lagos';
+const fmt = (d: Date, o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat('en-US', { timeZone: TZ, ...o }).format(d);
+const fmtTime = (d: Date) => fmt(d, { hour: 'numeric', minute: '2-digit' });
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+
+const EventDetailClient = ({ initialEvent = null }: { initialEvent?: EventRow | null }) => {
   const { id } = useParams<{ id: string }>();
   const { toast } = useToast();
   const isMobile = useIsMobile();
-  const [event, setEvent] = useState<EventRow | null>(null);
-  const [loading, setLoading] = useState(true);
+  // The server passes the event in so its content is in the HTML for search engines.
+  const [event, setEvent] = useState<EventRow | null>(initialEvent);
+  const [loading, setLoading] = useState(!initialEvent);
+  // DOMPurify needs a browser, so the formatted description waits until after hydration.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [regCount, setRegCount] = useState(0);
   const [showRegModal, setShowRegModal] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
@@ -36,7 +48,7 @@ const EventDetailClient = () => {
     const filtered = isUuid ? query.eq('id', id) : query.eq('slug', id);
     filtered.limit(1).single().then(({ data, error }) => {
       if (!error && data) {
-        setEvent(data);
+        setEvent((prev) => (prev && JSON.stringify(prev) === JSON.stringify(data) ? prev : data));
         // Fetch registration count
         supabase.rpc('get_registration_counts', { event_ids: [data.id] }).then(({ data: counts }) => {
           if (counts && counts.length > 0) {
@@ -104,14 +116,14 @@ const EventDetailClient = () => {
       <div className="space-y-4 mb-6">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-2xl bg-muted flex flex-col items-center justify-center flex-shrink-0">
-            <span className="text-[10px] font-semibold text-muted-foreground uppercase leading-none">{format(eventDate, 'MMM')}</span>
-            <span className="text-lg font-bold text-foreground leading-none">{format(eventDate, 'd')}</span>
+            <span className="text-[10px] font-semibold text-muted-foreground uppercase leading-none">{fmt(eventDate, { month: 'short' })}</span>
+            <span className="text-lg font-bold text-foreground leading-none">{fmt(eventDate, { day: 'numeric' })}</span>
           </div>
           <div>
-            <p className="font-semibold text-foreground">{format(eventDate, 'EEEE, MMMM d, yyyy')}</p>
+            <p className="font-semibold text-foreground">{fmt(eventDate, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
             <p className="text-sm text-muted-foreground">
-              {format(eventDate, 'h:mm a')}
-              {endDate && ` – ${format(endDate, 'h:mm a')}`}
+              {fmtTime(eventDate)}
+              {endDate && ` – ${fmtTime(endDate)}`} WAT
             </p>
           </div>
         </div>
@@ -229,10 +241,14 @@ const EventDetailClient = () => {
               {event.description && (
                 <div>
                   <h2 className="text-lg font-semibold text-foreground mb-3">About This Event</h2>
-                  <div
-                    className="prose prose-base max-w-none text-muted-foreground leading-relaxed [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-foreground [&_strong]:text-foreground [&_a]:text-primary"
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }}
-                  />
+                  {mounted ? (
+                    <div
+                      className="prose prose-base max-w-none text-muted-foreground leading-relaxed [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-foreground [&_strong]:text-foreground [&_a]:text-primary"
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }}
+                    />
+                  ) : (
+                    <p className="text-base text-muted-foreground leading-relaxed">{stripTags(event.description)}</p>
+                  )}
                 </div>
               )}
 
@@ -284,7 +300,7 @@ const EventDetailClient = () => {
           <div className="fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-t border-border px-4 py-3 flex items-center gap-3">
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-foreground truncate">{event.title}</p>
-              <p className="text-xs text-muted-foreground">{format(eventDate, 'MMM d')} · {format(eventDate, 'h:mm a')}</p>
+              <p className="text-xs text-muted-foreground">{fmt(eventDate, { month: 'short', day: 'numeric' })} · {fmtTime(eventDate)} WAT</p>
             </div>
             {isRegistered ? (
               <span className="text-sm font-medium text-green-600 flex-shrink-0">✓ Registered</span>

@@ -25,9 +25,12 @@ export function pageMeta({
   type?: 'website' | 'article';
   absoluteTitle?: boolean;
 }): Metadata {
-  const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  // Google cuts titles off at about 60 characters, so the brand suffix is only added when it fits.
+  const withBrand = `${title} | ${SITE_NAME}`;
+  const bare = absoluteTitle || withBrand.length > 60;
+  const fullTitle = bare ? title : withBrand;
   return {
-    title: absoluteTitle ? { absolute: title } : title,
+    title: bare ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {
