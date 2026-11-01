@@ -197,6 +197,7 @@ export default function InnovationHubPage() {
             The hub runs on uninterrupted power from a 12kVA inverter and has Starlink internet, backed by the FutureLabs learning
             platform for materials, assignments and attendance.
           </p>
+          <Link href="/coworking-space-ikot-ekpene" className="fl-link mt-6 inline-block">Work from the hub: co-working in Ikot Ekpene →</Link>
         </div>
         <div className="flex flex-col gap-4 bg-fl-ink px-7 pb-8 pt-7 shadow-[0_0_0_1px_rgb(var(--fl-paper)/.14)]">
           <div className="fl-label">Address</div>
