@@ -49,6 +49,7 @@ export const FOOTER_NAV: NavItem[] = [
   { label: 'Events', href: '/events' },
   { label: 'Network', href: '/network' },
   { label: 'Our Hub in Akwa Ibom', href: '/innovation-hub-akwa-ibom' },
+  { label: 'Coworking Space', href: '/coworking-space-ikot-ekpene' },
   { label: 'Partner With Us', href: '/partner' },
 ];
 
