@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { PARTNERS } from './nav';
 
-const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
+// Files (the PDF report, plugin zips) are not app routes, so they get a plain anchor too.
+const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href) || /\.(pdf|zip)$/i.test(href);
 
 /** Renders a Next link for internal routes and a plain anchor for external ones. */
 export function SmartLink({
