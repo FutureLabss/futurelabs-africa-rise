@@ -64,8 +64,22 @@ export default function ArticlePage({ post }: { post: BlogPost }) {
       }
     : null;
 
+  const published = new Date(post.date);
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': sectionOf(post) === 'blog' ? 'BlogPosting' : 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: [post.imageUrl.startsWith('http') ? post.imageUrl : `https://futurelabs.africa${post.imageUrl}`],
+    ...(isNaN(+published) ? {} : { datePublished: published.toISOString().slice(0, 10) }),
+    author: { '@type': 'Organization', name: 'FutureLabs Africa', url: 'https://futurelabs.africa' },
+    publisher: { '@type': 'Organization', name: 'FutureLabs Africa', logo: { '@type': 'ImageObject', url: 'https://futurelabs.africa/favicon.png' } },
+    mainEntityOfPage: `https://futurelabs.africa${postPath(post)}`,
+  };
+
   return (
     <SiteShell>
+      <JsonLd schema={articleSchema} />
       {jobSchema && <JsonLd schema={jobSchema} />}
 
       <section className="fl-section">

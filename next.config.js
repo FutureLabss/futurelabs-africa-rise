@@ -28,6 +28,12 @@ const nextConfig = {
         destination: `/case-studies/${id}`,
         permanent: true,
       })),
+      // Placeholder posts removed in November 2026.
+      ...['digital-skills-gap', 'african-startup-ecosystem', 'women-in-tech-africa', 'rural-innovation-hubs'].map((id) => ({
+        source: `/blog/${id}`,
+        destination: '/blog',
+        permanent: true,
+      })),
     ];
   },
 };
