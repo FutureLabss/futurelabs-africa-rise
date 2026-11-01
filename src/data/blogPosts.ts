@@ -25,6 +25,82 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "beyond-technology-prosperity-is-built",
+    title: "Beyond Technology: Why Prosperity Is Built, Not Downloaded",
+    excerpt: "A FutureLabs Research report on what two centuries of data reveal about Africa's economic future: why technology has not, in any case examined, produced broad-based prosperity on its own, and what builds it instead. Download the full report.",
+    content: `
+*FutureLabs Research · Udim Manasseh · July 2026 · 35 pages, 21 charts*
+
+**[Download the full report (PDF, 5 MB)](/downloads/beyond-technology-futurelabs-research.pdf)**
+
+## The argument in brief
+
+Nigeria has one of Africa's most vibrant technology ecosystems: globally recognised fintech firms, mobile-phone penetration near the continental norm and substantial entrepreneurial energy. Yet manufacturing remains limited, electricity is unreliable enough that firms routinely generate their own power, agricultural productivity is low even by regional standards and learning outcomes are weak.
+
+*Beyond Technology* argues that this is not a failure of Nigeria's technology sector. It is evidence of something broader. Drawing on two centuries of comparative data, the report finds that countries become prosperous through industrialisation and structural transformation, and that this depends on building many complementary capabilities together: education, health, agricultural productivity, energy, infrastructure, capital formation, development finance and institutions.
+
+Technology contributes when it strengthens those capabilities. In none of the cases the report examines has it been enough to produce broad-based prosperity on its own.
+
+## Key findings
+
+- **Africa's starting deficits predate the smartphone by a century.** Adult literacy in Sub-Saharan Africa (about 68%) remains below Western Europe's pre-1950 level. Life expectancy (62.7 years) trails the global average by more than a decade, and electricity access (53%) trails the 92% global average.
+- **Large income gaps have closed within one to two generations, but not through technology alone.** South Korea, China and a wider panel including Vietnam, Poland, Malaysia and Costa Rica closed the gap by building literacy, health, agricultural productivity, capital and tradable production capacity at the same time. In every large economy, that capacity was built on manufacturing; services led only in small economies, and even there on an industrial base. No case achieved sustained catch-up primarily through technology leapfrogging.
+- **Manufacturing remains the only path that has worked at scale.** Sub-Saharan Africa's manufacturing value added (about 10% of GDP) is roughly two-fifths of China's and South Korea's (about 25% each). India's services-led growth, the strongest alternative, has left it at less than half of China's income per person, and Costa Rica's services boom rose on an electronics-manufacturing base. Automation and fragmenting global trade make the manufacturing path harder, but have not closed it.
+- **Africa is not a single economy.** Fragile states, diversified middle-income economies, resource exporters, emerging manufacturing hubs and governance reform leaders face very different constraints.
+- **Institutions matter, but causation runs both ways.** Capable, continuity-oriented states appear to have been a necessary, not sufficient, condition where South Korea and China succeeded.
+- **Continuity must be legislated where it cannot be assumed.** Nigeria counted 11,886 abandoned public projects in 2011. Multi-year development budgets, on the model of the EU's seven-year financial framework, offer a democratic route to the policy continuity that directive states took for granted.
+- **Integrity is a development capability.** Ring-fenced, results-based, independently monitored disbursement, as used for the Abacha funds Switzerland returned to Nigeria in 2017, is a condition of development spending, not an afterthought.
+- **Resource dependence is not destiny.** Botswana's diamond-financed growth, set against Nigeria's and Angola's oil-financed stagnation, shows that the effect of resource wealth depends on institutional quality.
+
+![Adult literacy rate (%), Western Europe and North America, Sub-Saharan Africa, South Korea and China, 1900–2023](/images/research/beyond-technology/fig-01.webp)
+
+*Figure 1 from the report. Adult literacy rate (%), Western Europe & North America, Sub-Saharan Africa, South Korea and China, 1900–2023. Source: Our World in Data / UNESCO Institute for Statistics / World Bank World Development Indicators.*
+
+## Access is not the same as capability
+
+One of the report's recurring points is that headline access figures understate the gap. Electricity is the clearest example. Measured by consumption rather than connections, Africa's continental average is roughly 750 kWh per person, and roughly 180 kWh outside South Africa, against 7,460 kWh in China and 12,090 kWh in South Korea.
+
+![Electric power consumption per capita (kWh), selected regions and countries](/images/research/beyond-technology/fig-05.webp)
+
+*Figure 5 from the report. Electric power consumption per capita (kWh), selected regions and countries, most recent available year. Sources: African Development Bank; BloombergNEF/World Bank; Ember/Our World in Data.*
+
+The same pattern appears in digital technology. Sub-Saharan Africa's mobile subscription rate is near-universal at 93.4 per 100 people, yet GSMA finds 63% of the population still does not use mobile internet. Where digital tools show a well-evidenced growth effect, from mobile money to digital agricultural extension, they multiply activity that already exists rather than creating it on their own.
+
+## The FutureLabs Prosperity Framework
+
+The report introduces the FutureLabs Prosperity Framework: an organising structure in which countries become prosperous by building a broad base of complementary capabilities, not by maximising a single variable. Institutions and state capability form the foundation. Education, health, agriculture, energy, infrastructure, capital formation, development finance, and manufacturing and tradable services build on it.
+
+Technology and innovation is deliberately not a layer of its own. It cuts across all of them, strengthening whichever capabilities a country has actually built. Mobile phones do not replace electricity; fintech does not replace industry; artificial intelligence does not replace education.
+
+![The FutureLabs Prosperity Framework](/images/research/beyond-technology/fig-21.webp)
+
+*Figure 21 from the report. The FutureLabs Prosperity Framework.*
+
+## What the report recommends
+
+Each recommendation in the report's policy blueprint is labelled with the strength of the evidence behind it. Among them:
+
+- **Strongly supported:** treat literacy, basic education and health-system capacity as multi-decade commitments insulated from electoral cycles, and invest in agricultural extension, seed varieties, fertiliser access and irrigation.
+- **Well supported but contested:** prioritise industrial- and commercial-grade grid capacity, not only household connections; legislate five-to-seven-year development frameworks for a narrow set of foundational investments; and ring-fence development funds against verifiable milestones with independent monitoring.
+- **Context-dependent:** pursue sector-targeted industrial policy only with export discipline, sunset clauses and measurable benchmarks, and invest in tradable knowledge-intensive services alongside manufacturing where a country's skills support it.
+
+The full report sets out further recommendations for the private sector, universities and development partners, and investors.
+
+## What's in the full report
+
+The 35-page report covers Africa in comparative context; education; health; energy; agriculture; investment and its financing; manufacturing and its alternatives; institutions, state capacity, continuity and integrity; Africa's demographic opportunity; technology as a cross-cutting capability; a wider comparative panel; the policy blueprint; and a closing note on method, evidence and limitations. It includes 21 charts and two summary tables.
+
+It is a comparative and historical report, not a causal-identification study: it states where the literature supports a causal claim and where it describes association, sequence and plausible mechanism instead.
+
+**[Download *Beyond Technology: Why Prosperity Is Built, Not Downloaded* (PDF)](/downloads/beyond-technology-futurelabs-research.pdf)**
+`,
+    imageUrl: "/images/research/beyond-technology/cover.jpg",
+    category: "Research",
+    date: "November 1, 2026",
+    author: "Udim Manasseh, CEO, FutureLabs",
+    cta: { label: "Download the full report (PDF)", href: "/downloads/beyond-technology-futurelabs-research.pdf" },
+  },
+  {
     id: "federal-polytechnic-ukana-case-study",
     title: "Case Study: Equipping the Career Service Centre at Federal Polytechnic Ukana",
     excerpt: "Funded by the TETFund Career Service Centre 2025 intervention, FutureLabs partnered with the Career Service Centre of Federal Polytechnic Ukana to train its Teaching and Non-Teaching Staff in modern career counselling, then ran a digital skills session for students. A Triple Helix partnership of government, academia and industry.",

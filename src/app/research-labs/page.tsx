@@ -55,6 +55,30 @@ export default function IntelligencePage() {
 
       <Section innerClassName="pt-5">
         <Link
+          href="/research/beyond-technology-prosperity-is-built"
+          className="group grid gap-5 bg-fl-ink px-7 pb-[42px] pt-10 text-fl-paper shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)] sm:px-9 md:grid-cols-2 md:items-end"
+        >
+          <div className="flex flex-col gap-[18px]">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="bg-fl-orange px-2.5 py-[7px] font-mono text-[10px] font-medium uppercase leading-none tracking-[.16em] text-fl-night">
+                Report
+              </span>
+              <span className="font-mono text-[11px] uppercase leading-none text-fl-label">July 2026 · Economic Development · Africa</span>
+            </div>
+            <h2 className="m-0 max-w-[18ch] text-[clamp(26px,2.8vw,38px)] font-semibold leading-[1.06] tracking-[-0.032em]">Beyond Technology: Why Prosperity Is Built, Not Downloaded</h2>
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="m-0 max-w-[46ch] text-[15.5px] leading-[1.6] text-fl-muted">
+              What two centuries of data reveal about Africa&apos;s economic future: why technology has not, in any case examined, produced
+              broad-based prosperity on its own, and what builds it instead.
+            </p>
+            <span className="fl-link group-hover:text-fl-paper">Read the summary and download the report →</span>
+          </div>
+        </Link>
+      </Section>
+
+      <Section innerClassName="pt-5">
+        <Link
           href="/research/everyone-will-be-agentic"
           className="group grid gap-5 bg-fl-ink px-7 pb-[42px] pt-10 text-fl-paper shadow-[0_0_0_1px_rgb(var(--fl-paper)/.16)] hover:text-fl-paper hover:shadow-[0_0_0_1px_rgba(245,130,32,.55)] sm:px-9 md:grid-cols-2 md:items-end"
         >
@@ -90,7 +114,7 @@ export default function IntelligencePage() {
               Akwa Ibom Technology &amp; Economic Opportunity Index
             </h2>
             <p className="m-0 max-w-[44ch] text-[15.5px] leading-[1.6] text-fl-muted">
-              Our first published report: where technology skills, enterprise activity and economic opportunity are concentrated across
+              Our next report: where technology skills, enterprise activity and economic opportunity are concentrated across
               the state.
             </p>
           </div>
