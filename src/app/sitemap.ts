@@ -21,6 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
     page('/innovation-hub-akwa-ibom', 'monthly', 0.9),
     page('/best-innovation-hubs-akwa-ibom', 'monthly', 0.8),
+    page('/best-emerging-innovation-hubs-nigeria', 'monthly', 0.8),
     page('/coworking-space-ikot-ekpene', 'monthly', 0.8),
     page('/events', 'weekly', 0.8),
     page('/privacy', 'yearly', 0.3),
