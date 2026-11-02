@@ -44,6 +44,13 @@ const orgSchema = {
   description:
     'A technology and economic development institution building the talent, startups, technologies and institutional capabilities Africa needs to turn human potential into productive economic power.',
   sameAs: SOCIAL_LINKS.map((s) => s.href),
+  subOrganization: {
+    '@type': 'Organization',
+    name: 'OpportunityLab',
+    alternateName: ['Opportunity Lab', 'OpportunityLab.net'],
+    url: 'https://opportunitylab.net/',
+    description: 'Free platform listing scholarships, grants, fellowships, internships and hackathons for young Africans.',
+  },
 };
 
 const ENGINES: {

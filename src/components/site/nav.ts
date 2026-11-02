@@ -66,6 +66,7 @@ export const FOOTER_PROGRAMMES: NavItem[] = [
   { label: 'Teach with us', href: '/apply-to-teach' },
   { label: 'Community', href: '/community' },
   { label: 'Resources', href: '/resources' },
+  { label: 'OpportunityLab', href: 'https://opportunitylab.net' },
 ];
 
 export const SOCIAL_LINKS: NavItem[] = [
