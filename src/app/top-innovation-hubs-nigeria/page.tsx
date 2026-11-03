@@ -56,13 +56,6 @@ const HUBS: Hub[] = [
     href: 'https://theventurespark.com',
   },
   {
-    name: 'Ilorin Innovation Hub',
-    city: 'Ilorin, Kwara',
-    text: 'A Kwara State Government initiative delivered with IHS Towers, with incubation, acceleration, technical training in AI, cloud, cybersecurity and data, and shared and private workspace. Its first demo day deployed ₦119 million in non-dilutive funding to 19 startups.',
-    offers: 'Incubation · training · co-working',
-    href: 'https://iih.ng',
-  },
-  {
     name: 'Startup Kano',
     city: 'Kano',
     text: 'An open lab and incubation space for entrepreneurship and agribusiness, which incubates and accelerates startups and runs the Women Founders Group and the PitchStar pitch programme. Co-working starts at ₦1,500 a day.',
@@ -95,6 +88,13 @@ const HUBS: Hub[] = [
     href: 'https://rad5.com.ng',
   },
   {
+    name: 'Start Innovation Hub',
+    city: 'Uyo, Akwa Ibom',
+    text: 'Established in 2014, Start Innovation Hub runs the Business Catalyst incubation programme, the TalentPort tech academy and co-working in Uyo. It has implemented the World Bank-backed IDEAS project, UNDP’s Nigeria Jubilee Fellows Programme and 3MTT, says it has trained over 4,000 young people, and is an iHatch Cohort 5 hub.',
+    offers: 'Incubation · tech academy · co-working',
+    href: 'https://starthub.com.ng',
+  },
+  {
     name: 'Edo Innovates',
     city: 'Benin City, Edo',
     text: 'An innovation centre that trains young people in ICT skills and connects them to jobs, with startup incubation, co-working, training halls and ICT labs. Its annual tech conference draws over 5,000 attendees.',
@@ -105,7 +105,7 @@ const HUBS: Hub[] = [
 /** Emerging hubs to watch: FutureLabs first, then a few from the emerging guide. */
 const EMERGING = [
   { name: 'FutureLabs', place: 'Ikot Ekpene, Akwa Ibom', href: '/innovation-hub-akwa-ibom' },
-  { name: 'Start Innovation Hub', place: 'Uyo, Akwa Ibom', href: 'https://starthub.com.ng/' },
+  { name: 'Ilorin Innovation Hub', place: 'Ilorin, Kwara', href: 'https://iih.ng' },
   { name: 'AlphaZone Tech Hub', place: 'Abakaliki, Ebonyi' },
   { name: 'O2 Innovations Lab', place: 'Lafia, Nasarawa', href: 'https://www.02innovationslab.com/' },
   { name: 'Midtown Tech Hub', place: 'Benin City, Edo', href: 'https://midtowntechhub.com/' },
@@ -115,7 +115,7 @@ const EMERGING = [
 const FAQ = [
   {
     q: 'What is the best tech hub in Nigeria?',
-    a: 'It depends on what you need. CcHUB and Wennovation Hub in Lagos are the longest-running and run the largest programmes; Impact Hub Lagos and The Ventures Park in Abuja are strong for workspace and community; and hubs such as nHub (Jos), CoLab (Kaduna), RAD5 (Aba) and the Ilorin Innovation Hub are the leading options outside Lagos.',
+    a: 'It depends on what you need. CcHUB and Wennovation Hub in Lagos are the longest-running and run the largest programmes; Impact Hub Lagos and The Ventures Park in Abuja are strong for workspace and community; and hubs such as nHub (Jos), CoLab (Kaduna), RAD5 (Aba) and Start Innovation Hub (Uyo) are the leading options outside Lagos.',
   },
   {
     q: 'Which city in Nigeria has the most tech hubs?',
@@ -177,7 +177,7 @@ export default function TopHubsGuide() {
         <div className="fl-eyebrow-accent">Guide · Updated {UPDATED_LABEL}</div>
         <h1 className="fl-h1 mt-[26px] max-w-[20ch]">The top innovation hubs in Nigeria.</h1>
         <p className="fl-lede m-0 mt-7 max-w-[62ch]">
-          The established tech and innovation hubs founders, students and investors turn to, from Lagos and Abuja to Kano, Jos, Aba and Ilorin,
+          The established tech and innovation hubs founders, students and investors turn to, from Lagos and Abuja to Kano, Jos, Aba and Uyo,
           followed by the emerging hubs worth watching.
         </p>
         <p className="m-0 mt-5 max-w-[62ch] font-mono text-[11.5px] leading-[1.6] text-fl-label">
@@ -209,8 +209,8 @@ export default function TopHubsGuide() {
         <div className="fl-eyebrow">Emerging hubs to watch</div>
         <h2 className="fl-h2-sm m-0 mt-5 max-w-[30ch]">The next wave is outside Lagos.</h2>
         <p className="fl-body m-0 mt-6 max-w-[62ch]">
-          A newer generation of hubs now delivers the Federal Government’s two main startup programmes, NITDA’s iHatch and the iDICE Startup
-          Bridge, in states that had few or none a decade ago. Among them:
+          A newer generation of hubs, many of them delivering the Federal Government’s two main startup programmes, NITDA’s iHatch and the iDICE Startup
+          Bridge, is growing in states that had few or none a decade ago. Among them:
         </p>
         <ul className="m-0 mt-8 grid list-none gap-px p-0 sm:grid-cols-2 lg:grid-cols-3">
           {EMERGING.map((h, i) => (
