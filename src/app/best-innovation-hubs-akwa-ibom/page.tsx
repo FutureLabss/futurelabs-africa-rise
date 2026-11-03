@@ -239,6 +239,7 @@ export default function BestHubsGuide() {
           </ul>
           <p className="fl-body m-0 mt-6 max-w-[62ch]">
             Looking beyond Akwa Ibom? See the{' '}
+            <Link href="/top-innovation-hubs-nigeria" className="text-fl-accent hover:text-fl-paper">top innovation hubs in Nigeria</Link> and the{' '}
             <Link href="/best-emerging-innovation-hubs-nigeria" className="text-fl-accent hover:text-fl-paper">best emerging innovation hubs in Nigeria</Link>,
             chosen by the iDICE and iHatch programmes.
           </p>

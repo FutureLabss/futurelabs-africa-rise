@@ -127,6 +127,10 @@ export default function EmergingHubsGuide() {
           Written by FutureLabs, which is on this list. Sources: the iDICE Founders Lab hub list, the iHatch Cohort 4 hub directory and{' '}
           <a href={IHATCH_C5} target="_blank" rel="noopener noreferrer" className="text-fl-accent hover:text-fl-paper">ONDI’s iHatch Cohort 5 list</a>.
         </p>
+        <p className="fl-body m-0 mt-5 max-w-[62ch]">
+          Looking for the established names too? See the{' '}
+          <Link href="/top-innovation-hubs-nigeria" className="text-fl-accent hover:text-fl-paper">top innovation hubs in Nigeria</Link>.
+        </p>
       </Section>
 
       <Section tone="graphite" innerClassName="fl-pad">
