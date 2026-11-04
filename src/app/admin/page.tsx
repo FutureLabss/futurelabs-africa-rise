@@ -384,6 +384,7 @@ const AdminDashboard: React.FC = () => {
                         <TableHead>Full Name</TableHead>
                         <TableHead>Programme</TableHead>
                         <TableHead>Email</TableHead>
+                        <TableHead>Phone</TableHead>
                         <TableHead>Location</TableHead>
                         <TableHead>Skill Level</TableHead>
                         <TableHead>Objectives</TableHead>
@@ -393,13 +394,14 @@ const AdminDashboard: React.FC = () => {
                     </TableHeader>
                     <TableBody>
                       {submissions.map((sub) => {
-                        let parsed: { email?: string; location?: string; skill_level?: string; learning_objectives?: string[]; topic?: string } = {};
+                        let parsed: { email?: string; phone?: string; location?: string; skill_level?: string; learning_objectives?: string[]; topic?: string } = {};
                         try { parsed = JSON.parse(sub.description || '{}'); } catch { /* ignore */ }
                         return (
                           <TableRow key={sub.id}>
                             <TableCell className="font-semibold">{sub.title}</TableCell>
                             <TableCell>{isFellowship(sub) ? FELLOWSHIP_TAG : 'VibeCode'}</TableCell>
                             <TableCell>{parsed.email || '—'}</TableCell>
+                            <TableCell className="whitespace-nowrap">{parsed.phone || '—'}</TableCell>
                             <TableCell>{parsed.location || '—'}</TableCell>
                             <TableCell>
                               {parsed.skill_level ? parsed.skill_level.split('|')[0].trim() : '—'}
