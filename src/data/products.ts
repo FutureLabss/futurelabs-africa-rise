@@ -195,4 +195,32 @@ export const PRODUCTS: Product[] = [
       focus: 'object-left-top',
     },
   },
+  {
+    id: 'precut',
+    kind: 'Android app',
+    free: true,
+    name: 'PreCut',
+    summary:
+      'A video editor for Android with a full timeline, effects, text, music and 4K export. Every tool is free, with no watermark, no ads and no account.',
+    features: [
+      'Timeline editing',
+      'AI Edit: describe the edit',
+      'AutoCut and templates',
+      'Filters, effects and transitions',
+      'Text and stickers',
+      'Captions from your voice',
+      'Cut by the words',
+      'Export up to 4K, no watermark',
+    ],
+    // From precut.netlify.app; update when PreCut ships a new version.
+    facts: ['Version 1.1.0', '35.4 MB', 'Android 8.0+', 'No account needed'],
+    primary: { label: 'Download for Android', href: 'https://precut.netlify.app/download' },
+    secondary: { label: 'See it work', href: 'https://precut.netlify.app/#features' },
+    image: {
+      src: '/images/studio/precut.jpg',
+      alt: 'PreCut website: "Pro-level video editing on your phone. No watermark." beside a phone showing the editor timeline',
+      width: 1440,
+      height: 900,
+    },
+  },
 ];

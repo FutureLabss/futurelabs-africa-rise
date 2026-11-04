@@ -11,7 +11,7 @@ import PricingTable from '@/components/site/PricingTable';
 export const metadata: Metadata = pageMeta({
   title: 'FutureLabs Studio — AI Systems and Digital Products',
   description:
-    'FutureLabs Studio builds AI applications, web platforms and digital products. Try FutureLabs LMS for coding academies, and get the NewsTheme WordPress theme and FutureLabs AI SEO plugin free, with Pro plans from $3 a month.',
+    'FutureLabs Studio builds AI applications, web platforms and digital products. Try FutureLabs LMS for coding academies, get the NewsTheme WordPress theme and FutureLabs AI SEO plugin free, with Pro plans from $3 a month, and download PreCut, a free video editor for Android.',
   path: '/studio',
 });
 
@@ -94,7 +94,7 @@ export default function StudioPage() {
         eyebrow="FutureLabs Studio"
         title="Technology built for real problems."
         titleClass="max-w-[14ch]"
-        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Try our products below: an LMS for coding academies, and a WordPress theme and SEO plugin that are free to download, with Pro plans billed monthly or yearly."
+        lede="FutureLabs Studio builds AI systems, software and digital products for organizations, institutions and emerging ventures. Try our products below: an LMS for coding academies, a WordPress theme and SEO plugin that are free to download, with Pro plans billed monthly or yearly, and PreCut, a free video editor for Android."
       >
         <div className="mt-[26px] flex flex-wrap gap-3">
           <Link href="/contact" className="fl-btn px-6 py-4">Build with us</Link>
@@ -109,7 +109,8 @@ export default function StudioPage() {
           aside={
             <p className="fl-card-text m-0 max-w-[44ch]">
               FutureLabs LMS runs a coding academy end to end. NewsTheme and FutureLabs AI SEO power OpportunityLab, our
-              scholarships and fellowships site. Both are free and open source under the GPL, with paid Pro plans that add Pro features, updates and support.
+              scholarships and fellowships site. Both are free and open source under the GPL, with paid Pro plans that add Pro features, updates and support. PreCut is a free video editor for Android, with no ads,
+              watermark or account.
             </p>
           }
         />
