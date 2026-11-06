@@ -223,4 +223,33 @@ export const PRODUCTS: Product[] = [
       height: 900,
     },
   },
+  {
+    id: 'moju',
+    kind: 'Android app · Beta',
+    free: true,
+    name: 'Moju',
+    summary:
+      'Turn any Android phone into a live camera for OBS, vMix and YouTube. Moju finds your streaming PC by itself, with no cables, no IP addresses and no watermark. Moju is in beta, so test it before a live event.',
+    features: [
+      'Automatic OBS setup',
+      'SRT into vMix',
+      'Go live on YouTube',
+      'Adapts to weak Wi-Fi',
+      'Reconnects by itself',
+      'Lens switch and one-tap lock',
+      'ISO, shutter and white balance',
+      'Colour looks',
+    ],
+    // From emediongpeter.github.io/moju; update when Moju ships a new version.
+    facts: ['Beta 0.1.0', '56.2 MB', 'Android 6.0+', 'No account needed'],
+    primary: { label: 'Download for Android', href: 'https://emediongpeter.github.io/moju/#download' },
+    secondary: { label: 'See how it works', href: 'https://emediongpeter.github.io/moju/#how' },
+    image: {
+      src: '/images/studio/moju.jpg',
+      alt: 'The Moju logo, an eye with a marigold pupil, above "Your phone is a live camera." and a Beta tag',
+      width: 1440,
+      height: 900,
+      focus: 'object-center',
+    },
+  },
 ];
