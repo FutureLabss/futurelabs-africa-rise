@@ -212,9 +212,12 @@ export const PRODUCTS: Product[] = [
       'Cut by the words',
       'Export up to 4K, no watermark',
     ],
-    // From precut.netlify.app; update when PreCut ships a new version.
+    // From precut.netlify.app/download; update the facts and the APK link when PreCut ships a new version.
     facts: ['Version 1.1.0', '35.4 MB', 'Android 8.0+', 'No account needed'],
-    primary: { label: 'Download for Android', href: 'https://precut.netlify.app/download' },
+    primary: {
+      label: 'Download for Android',
+      href: 'https://github.com/SavieJay/PreWeb/releases/download/v1.1.0/PreCut-1.1.0.apk',
+    },
     secondary: { label: 'See it work', href: 'https://precut.netlify.app/#features' },
     image: {
       src: '/images/studio/precut.jpg',
