@@ -16,7 +16,7 @@ const page = (path: string, changeFrequency: Entry['changeFrequency'], priority:
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [
     page('/', 'weekly', 1),
-    ...['/about', '/academy', '/startups', '/studio', '/research-labs', '/government', '/enterprise', '/partner', '/contact'].map((p) =>
+    ...['/about', '/academy', '/startups', '/studio', '/moju', '/research-labs', '/government', '/enterprise', '/partner', '/contact'].map((p) =>
       page(p, 'monthly', 0.8)
     ),
     page('/innovation-hub-akwa-ibom', 'monthly', 0.9),
