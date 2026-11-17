@@ -1,4 +1,5 @@
 import aiSeoRelease from '../../public/downloads/futurelabs-ai-seo.json';
+import { MOJU } from './moju';
 
 // Products from FutureLabs Studio, shown on /studio.
 // Release files live in public/downloads/. To ship a new version: copy the zip
@@ -243,10 +244,10 @@ export const PRODUCTS: Product[] = [
       'ISO, shutter and white balance',
       'Colour looks',
     ],
-    // From emediongpeter.github.io/moju; update when Moju ships a new version.
-    facts: ['Beta 0.1.0', '56.2 MB', 'Android 6.0+', 'No account needed'],
-    primary: { label: 'Download for Android', href: 'https://emediongpeter.github.io/moju/#download' },
-    secondary: { label: 'See how it works', href: 'https://emediongpeter.github.io/moju/#how' },
+    // Version and size live in src/data/moju.ts, shared with the /moju page.
+    facts: [`Beta ${MOJU.version}`, MOJU.size, `Android ${MOJU.minAndroid}+`, 'No account needed'],
+    primary: { label: 'Download for Android', href: '/moju#download' },
+    secondary: { label: 'See how it works', href: '/moju#how' },
     image: {
       src: '/images/studio/moju.jpg',
       alt: 'The Moju logo, an eye with a marigold pupil, above "Your phone is a live camera." and a Beta tag',
