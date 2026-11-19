@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { posts, postPath } from '@/lib/blog';
 import { supabase } from '@/integrations/supabase/client';
 import { SITE_URL } from '@/lib/seo';
+import { PRODUCTS, pricingPath } from '@/data/products';
 
 // Rebuilt at most once an hour so new events appear without a redeploy.
 export const revalidate = 3600;
@@ -19,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...['/about', '/academy', '/startups', '/studio', '/moju', '/research-labs', '/government', '/enterprise', '/partner', '/contact'].map((p) =>
       page(p, 'monthly', 0.8)
     ),
+    ...PRODUCTS.filter((p) => p.pricing).map((p) => page(pricingPath(p.id), 'monthly', 0.7)),
     page('/innovation-hub-akwa-ibom', 'monthly', 0.9),
     page('/best-innovation-hubs-akwa-ibom', 'monthly', 0.8),
     page('/best-emerging-innovation-hubs-nigeria', 'monthly', 0.8),

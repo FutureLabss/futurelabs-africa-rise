@@ -4,9 +4,8 @@ import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard, SectionHead, Chips, ProofLine, SmartLink } from '@/components/site/primitives';
-import { PRODUCTS, type Product } from '@/data/products';
+import { PRODUCTS, formatPrice, pricingPath, type Product } from '@/data/products';
 import DownloadGate from '@/components/site/DownloadGate';
-import PricingTable from '@/components/site/PricingTable';
 
 export const metadata: Metadata = pageMeta({
   title: 'FutureLabs Studio — AI Systems and Digital Products',
@@ -24,20 +23,33 @@ const CAPABILITIES = [
   ['Digital products', 'New products taken from concept to launch.'],
 ];
 
+function ProductImage({ product }: { product: Product }) {
+  return (
+    <img
+      src={product.image.src}
+      alt={product.image.alt}
+      width={product.image.width}
+      height={product.image.height}
+      loading="lazy"
+      decoding="async"
+      className={`block h-full max-h-[460px] w-full object-cover ${product.image.focus ?? 'object-top'}`}
+    />
+  );
+}
+
 function ProductBlock({ product, index }: { product: Product; index: number }) {
   const n = String(index + 1).padStart(2, '0');
   return (
     <article id={product.id} className="fl-card grid scroll-mt-28 lg:grid-cols-2" aria-labelledby={`${product.id}-name`}>
       <div className={index % 2 ? 'lg:order-2' : undefined}>
-        <img
-          src={product.image.src}
-          alt={product.image.alt}
-          width={product.image.width}
-          height={product.image.height}
-          loading="lazy"
-          decoding="async"
-          className={`block h-full max-h-[460px] w-full object-cover ${product.image.focus ?? 'object-top'}`}
-        />
+        {product.pricing ? (
+          // The picture opens the pricing page too; it repeats the name link, so it stays out of the tab order.
+          <Link href={pricingPath(product.id)} tabIndex={-1} aria-hidden className="block h-full">
+            <ProductImage product={product} />
+          </Link>
+        ) : (
+          <ProductImage product={product} />
+        )}
       </div>
       <div className="flex flex-col gap-4 px-[26px] pb-[30px] pt-[30px] lg:px-10 lg:py-10">
         <div className="flex items-baseline justify-between gap-3">
@@ -45,7 +57,13 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
           <span className="fl-tag">{product.pricing ? `Free + Pro · ${product.kind}` : product.free ? `Free · ${product.kind}` : product.kind}</span>
         </div>
         <h3 id={`${product.id}-name`} className="text-[30px] font-semibold leading-[1.08] tracking-[-0.03em]">
-          {product.name}
+          {product.pricing ? (
+            <Link href={pricingPath(product.id)} className="hover:text-fl-orange">
+              {product.name}
+            </Link>
+          ) : (
+            product.name
+          )}
         </h3>
         <p className="fl-card-text m-0 max-w-[52ch] text-[15.5px]">{product.summary}</p>
         <Chips items={product.features} />
@@ -54,9 +72,17 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
             <span key={fact}>{fact}</span>
           ))}
         </ProofLine>
-        <div className="mt-2 flex flex-wrap gap-3">
+        {/* Keeps old /studio#<id>-pricing links (plugin settings, Pro add-on) landing on this card. */}
+        <div id={product.pricing ? `${product.id}-pricing` : undefined} className="mt-2 flex scroll-mt-28 flex-wrap gap-3">
+          {product.pricing && (
+            <Link href={pricingPath(product.id)} className="fl-btn">
+              {product.pricing.available
+                ? `See pricing · Pro from ${formatPrice(product.pricing.tiers[0].prices.month.USD, 'USD')}/mo`
+                : 'Pro coming soon · join the waitlist'}
+            </Link>
+          )}
           {product.download && (
-            <DownloadGate product={{ id: product.id, name: product.name, ...product.download }} />
+            <DownloadGate product={{ id: product.id, name: product.name, ...product.download }} variant={product.pricing ? 'ghost' : undefined} />
           )}
           {product.primary && (
             <SmartLink href={product.primary.href} className={product.download ? 'fl-btn-ghost' : 'fl-btn'}>
@@ -82,7 +108,6 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
           </details>
         )}
       </div>
-      {product.pricing && <PricingTable product={product} />}
     </article>
   );
 }

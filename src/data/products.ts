@@ -20,6 +20,12 @@ export type PriceTier = {
   prices: Record<BillingInterval, Record<Currency, number>>;
 };
 
+export const formatPrice = (amount: number, currency: Currency) =>
+  `${currency === 'USD' ? '$' : '₦'}${amount.toLocaleString('en-US')}`;
+
+/** The product's pricing page; /studio links here for products with Pro plans. */
+export const pricingPath = (id: string) => `/studio/pricing/${id}`;
+
 export const sitesLabel = (sites: number | null) =>
   sites === null ? 'Unlimited sites' : `${sites} site${sites > 1 ? 's' : ''}`;
 
