@@ -4,15 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import DownloadGate from '@/components/site/DownloadGate';
 import BuyDialog from '@/components/site/BuyDialog';
-import { sitesLabel, type BillingInterval, type Currency, type Product } from '@/data/products';
+import { formatPrice, sitesLabel, type BillingInterval, type Currency, type Product } from '@/data/products';
 
 const STORAGE_KEY = 'fl-pricing';
 // Paystack charges USD only once it's enabled on the account; until then USD
 // buyers pay the naira price, and we say so under the prices.
 const USD_ENABLED = process.env.NEXT_PUBLIC_PAYSTACK_USD === 'true';
 
-export const formatPrice = (amount: number, currency: Currency) =>
-  `${currency === 'USD' ? '$' : '₦'}${amount.toLocaleString('en-US')}`;
 
 function Toggle<T extends string>({
   label,
@@ -76,11 +74,11 @@ export default function PricingTable({ product }: { product: Product }) {
   const per = interval === 'year' ? 'year' : 'month';
 
   return (
-    <div id={`${product.id}-pricing`} className="scroll-mt-28 border-t border-fl-paper/10 px-[26px] py-[30px] lg:order-3 lg:col-span-2 lg:px-10 lg:py-10">
+    <div id={`${product.id}-pricing`} className="scroll-mt-28">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="fl-tag m-0">Pricing</p>
-          <h4 className="mt-2 text-[22px] font-semibold tracking-[-0.02em]">Free, or Pro from {formatPrice(pricing.tiers[0].prices.month[currency], currency)} a month</h4>
+          <h2 className="mt-2 text-[22px] font-semibold tracking-[-0.02em]">Free, or Pro from {formatPrice(pricing.tiers[0].prices.month[currency], currency)} a month</h2>
         </div>
         <div className="flex flex-wrap gap-2">
           <Toggle
@@ -104,7 +102,7 @@ export default function PricingTable({ product }: { product: Product }) {
             <p className="mt-2 text-[13px] text-fl-muted">Forever, on any number of sites</p>
           </div>
           <ul className="m-0 flex list-none flex-col gap-2 p-0 text-[14px] text-fl-soft">
-            <li>Every feature listed above</li>
+            <li>Every feature of the free version</li>
             <li>GPL licence</li>
             <li>Community support</li>
           </ul>

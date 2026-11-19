@@ -4,9 +4,8 @@ import { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo';
 import SiteShell from '@/components/site/SiteShell';
 import { Section, SplitHero, NumberCard, ImageCard, SectionHead, Chips, ProofLine, SmartLink } from '@/components/site/primitives';
-import { PRODUCTS, type Product } from '@/data/products';
+import { PRODUCTS, formatPrice, pricingPath, type Product } from '@/data/products';
 import DownloadGate from '@/components/site/DownloadGate';
-import PricingTable from '@/components/site/PricingTable';
 
 export const metadata: Metadata = pageMeta({
   title: 'FutureLabs Studio — AI Systems and Digital Products',
@@ -45,7 +44,13 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
           <span className="fl-tag">{product.pricing ? `Free + Pro · ${product.kind}` : product.free ? `Free · ${product.kind}` : product.kind}</span>
         </div>
         <h3 id={`${product.id}-name`} className="text-[30px] font-semibold leading-[1.08] tracking-[-0.03em]">
-          {product.name}
+          {product.pricing ? (
+            <Link href={pricingPath(product.id)} className="hover:text-fl-orange">
+              {product.name}
+            </Link>
+          ) : (
+            product.name
+          )}
         </h3>
         <p className="fl-card-text m-0 max-w-[52ch] text-[15.5px]">{product.summary}</p>
         <Chips items={product.features} />
@@ -54,9 +59,15 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
             <span key={fact}>{fact}</span>
           ))}
         </ProofLine>
-        <div className="mt-2 flex flex-wrap gap-3">
+        {/* Keeps old /studio#<id>-pricing links (plugin settings, Pro add-on) landing on this card. */}
+        <div id={product.pricing ? `${product.id}-pricing` : undefined} className="mt-2 flex scroll-mt-28 flex-wrap gap-3">
+          {product.pricing && (
+            <Link href={pricingPath(product.id)} className="fl-btn">
+              See pricing · Pro from {formatPrice(product.pricing.tiers[0].prices.month.USD, 'USD')}/mo
+            </Link>
+          )}
           {product.download && (
-            <DownloadGate product={{ id: product.id, name: product.name, ...product.download }} />
+            <DownloadGate product={{ id: product.id, name: product.name, ...product.download }} variant={product.pricing ? 'ghost' : undefined} />
           )}
           {product.primary && (
             <SmartLink href={product.primary.href} className={product.download ? 'fl-btn-ghost' : 'fl-btn'}>
@@ -82,7 +93,6 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
           </details>
         )}
       </div>
-      {product.pricing && <PricingTable product={product} />}
     </article>
   );
 }

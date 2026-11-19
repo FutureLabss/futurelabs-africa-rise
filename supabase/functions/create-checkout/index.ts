@@ -66,7 +66,7 @@ Deno.serve(async (req) => {
         plan: price.paystack_plan_code,
         reference,
         callback_url: `${SITE_URL}/studio/checkout/complete`,
-        metadata: { product, tier, interval, name: cleanName, cancel_action: `${SITE_URL}/studio#${product}` },
+        metadata: { product, tier, interval, name: cleanName, cancel_action: `${SITE_URL}/studio/pricing/${product}` },
       },
     });
 
